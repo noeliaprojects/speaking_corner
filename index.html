@@ -1,0 +1,708 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Speaking Corner</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik+Mono+One&family=Nunito+Sans:opsz,wght@6..12,400;6..12,600;6..12,800;6..12,900&family=JetBrains+Mono:wght@500;700&display=swap">
+<style>
+/* Layout: hub of activity cards grouped by type; each activity opens a projector-ready slide stage (fixed dark look) with teacher tools underneath. */
+:root{
+  --bg:#f4f6fb; --paper:#ffffff; --ink:#1b2340; --muted:#5d6584; --line:#d3d7e4;
+  --stamp:#d8432f; --stamp-soft:#fbe3df; --ok:#2f8a5b; --ok-soft:#dff2e7; --warn:#a86200; --warn-soft:#fdf0d9;
+  --c-warm:#c27a0e; --c-you:#7a4fd0; --c-opinion:#1f7fb8; --c-game:#d8432f;
+  --stage:#ffffff; --stage-2:#f1f3fa; --stage-ink:#1b2340; --stage-muted:#6b7392;
+  --display:"Rubik Mono One","Arial Black",system-ui,sans-serif;
+  --body:"Nunito Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,Menlo,monospace;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.5;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:20px 48px}
+.wrap{max-width:1040px;margin:0 auto;display:flex;flex-direction:column;gap:20px}
+.narrow{max-width:720px;width:100%;margin:0 auto;display:flex;flex-direction:column;gap:20px}
+h1{font-family:var(--display);font-size:clamp(1.5rem,5.5vw,2.4rem);margin:0;letter-spacing:.02em;line-height:1.1;text-wrap:balance}
+h1 span{color:var(--stamp)}
+h2{font-size:1.3rem;margin:0;text-wrap:balance}
+h3{font-size:1.08rem;margin:0}
+p{margin:0;max-width:65ch}
+.sub{color:var(--muted)}
+.label{font-size:.75rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:clamp(18px,4vw,28px);display:flex;flex-direction:column;gap:16px;min-width:0}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.note{font-size:.85rem;color:var(--muted)}
+button,.btn{font:inherit;font-weight:800;border-radius:10px;border:2px solid var(--ink);background:var(--paper);color:var(--ink);padding:10px 16px;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:6px;line-height:1.2}
+button.primary,.btn.primary{background:var(--ink);color:var(--paper)}
+button.red{background:var(--stamp);border-color:var(--stamp);color:#fff}
+button.ghost,.btn.ghost{border-color:var(--line);font-weight:700}
+button:disabled{opacity:.4;cursor:not-allowed}
+button:focus-visible,select:focus-visible,textarea:focus-visible,input:focus-visible,a:focus-visible,summary:focus-visible{outline:3px solid var(--stamp);outline-offset:2px}
+textarea,select,input{font:inherit;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:10px 12px;width:100%}
+textarea{min-height:120px;resize:vertical}
+.field{display:flex;flex-direction:column;gap:6px;min-width:0;flex:1 1 170px}
+a{color:inherit}
+.back{align-self:flex-start;text-decoration:none;font-weight:800;color:var(--muted)}
+.back:hover{color:var(--ink)}
+
+/* top bar */
+.top{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.top nav{display:flex;gap:8px;flex-wrap:wrap}
+.classpick{display:flex;align-items:center;gap:10px;flex-wrap:wrap;background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:10px 14px}
+.classpick select{width:auto;min-width:0;max-width:100%;padding:7px 10px;font-weight:700}
+.filters{display:flex;flex-direction:column;gap:8px}
+.chips{display:flex;gap:6px;flex-wrap:wrap}
+.chips button{padding:6px 13px;border-width:1px;border-color:var(--line);font-weight:700;border-radius:99px}
+.chips button[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:var(--paper)}
+
+/* activity cards */
+.cat{display:flex;flex-direction:column;gap:12px}
+.cat-h{display:flex;align-items:baseline;gap:10px}
+.cat-h i{width:12px;height:12px;border-radius:3px;background:var(--cc);display:inline-block;transform:translateY(1px)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px}
+.act{position:relative;background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:16px;display:flex;flex-direction:column;gap:8px;text-decoration:none;color:inherit;min-width:0;border-left:5px solid var(--cc)}
+.act:hover{border-color:var(--cc)}
+.act h3{padding-right:4px}
+.act p{font-size:.93rem;color:var(--muted)}
+.meta{display:flex;gap:6px;flex-wrap:wrap;align-items:center;margin-top:auto}
+.lvl{font-family:var(--mono);font-size:.72rem;font-weight:700;padding:2px 7px;border-radius:6px;background:var(--bg);color:var(--muted)}
+.fmt{font-size:.72rem;font-weight:800;color:var(--muted)}
+.flag{font-size:.72rem;font-weight:900;letter-spacing:.06em;text-transform:uppercase;padding:2px 8px;border-radius:6px}
+.flag.print{background:var(--warn-soft);color:var(--warn)}
+.flag.done{background:var(--ok-soft);color:var(--ok)}
+.flag.app{background:var(--stamp-soft);color:var(--stamp)}
+.c-warm{--cc:var(--c-warm)}.c-you{--cc:var(--c-you)}.c-opinion{--cc:var(--c-opinion)}.c-game{--cc:var(--c-game)}
+.empty{color:var(--muted);padding:20px;text-align:center}
+
+/* banners */
+.banner{border-radius:10px;padding:12px 14px;display:flex;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap;font-weight:700}
+.banner.warn{background:var(--warn-soft);color:var(--warn)}
+.banner.print{background:var(--warn-soft);color:var(--ink);border:1px solid var(--warn)}
+.banner.ok{background:var(--ok-soft);color:var(--ok)}
+
+/* stage (deliberately one dark look in both themes: it is projected) */
+.stage{position:relative;background:var(--stage);border:1px solid var(--line);box-shadow:0 6px 24px rgba(27,35,64,.07);color:var(--stage-ink);border-radius:16px;overflow:hidden;display:flex;flex-direction:column;
+  padding:clamp(18px,4.5vw,52px);min-height:min(66vh,560px);gap:18px;--acc:#b86e00;--tint:#fdf2e1;border-top:8px solid var(--acc)}
+@media (min-width:760px){.stage{aspect-ratio:16/9;min-height:0}}
+.stage.c-warm{--acc:#b86e00;--tint:#fdf2e1}.stage.c-you{--acc:#6a3fc4;--tint:#f0eafc}.stage.c-opinion{--acc:#1a6fa3;--tint:#e3f0f9}.stage.c-game{--acc:#c9381f;--tint:#fce6e1}
+.stage:fullscreen{border-radius:0;aspect-ratio:auto;width:100vw;height:100vh;padding:max(4vh,24px) max(5vw,24px)}
+.s-eyebrow{font-size:clamp(.7rem,1.4vw,.95rem);font-weight:900;letter-spacing:.14em;text-transform:uppercase;color:var(--acc);display:flex;justify-content:space-between;gap:10px}
+.s-body{flex:1;display:flex;flex-direction:column;justify-content:center;gap:clamp(12px,2.4vw,26px);min-height:0}
+.s-title{font-family:var(--display);font-size:clamp(1.8rem,5.4vw,4rem);line-height:1.05;text-wrap:balance;margin:0}
+.s-instr{font-size:clamp(1.05rem,2.3vw,1.7rem);line-height:1.35;max-width:46ch;color:var(--stage-ink)}
+.s-ex{font-size:clamp(.95rem,1.8vw,1.3rem);color:var(--stage-muted);border-left:4px solid var(--acc);padding-left:14px;max-width:60ch}
+.s-big{font-size:clamp(1.8rem,5.6vw,4.4rem);font-weight:900;line-height:1.1;text-wrap:balance;margin:0}
+.s-big.mid{font-size:clamp(1.5rem,4.2vw,3.2rem)}
+.s-q{margin:0;padding-left:1.1em;font-size:clamp(1rem,2vw,1.5rem);display:flex;flex-direction:column;gap:4px;color:var(--stage-ink)}
+.s-q li::marker{color:var(--acc)}
+.s-ph{display:flex;flex-wrap:wrap;gap:8px}
+.s-ph span{background:var(--stage-2);border:1px solid var(--line);border-radius:99px;padding:6px 14px;font-size:clamp(.8rem,1.5vw,1.1rem);font-weight:700;color:var(--stage-ink)}
+.s-ph b{color:var(--acc);font-size:.8em;letter-spacing:.12em;text-transform:uppercase;align-self:center;margin-right:4px}
+.s-vs{display:grid;grid-template-columns:1fr auto 1fr;gap:clamp(10px,2vw,24px);align-items:stretch}
+.s-opt{background:var(--tint);border-radius:14px;padding:clamp(14px,2.5vw,28px);display:flex;flex-direction:column;gap:8px;justify-content:center;min-width:0}
+.s-opt small{font-size:clamp(.7rem,1.3vw,.95rem);font-weight:900;letter-spacing:.12em;text-transform:uppercase;color:var(--acc)}
+.s-opt div{font-size:clamp(1.2rem,3.3vw,2.5rem);font-weight:900;line-height:1.15;text-wrap:balance}
+.s-opt img,.s-img img{width:100%;height:auto;max-height:52vh;object-fit:cover;border-radius:10px;max-width:100%}
+.s-opt.ph{position:relative;padding:0;overflow:hidden;justify-content:flex-end}
+.s-opt.ph img{position:absolute;inset:0;width:100%;height:100%;max-height:none;border-radius:0;object-fit:cover}
+.s-opt.ph .cap{position:relative;padding:clamp(40px,6vw,80px) clamp(12px,2vw,22px) clamp(10px,1.6vw,18px);background:linear-gradient(to top,rgba(10,14,30,.82),rgba(10,14,30,0));display:flex;flex-direction:column;gap:4px}
+.s-opt.ph .cap small{color:#fff;opacity:.85}
+.s-opt.ph .cap div{color:#fff;font-size:clamp(1.05rem,2.6vw,2rem)}
+.s-vs.ph{flex:1 1 0;min-height:200px}
+.s-or{align-self:center;font-family:var(--display);color:var(--acc);font-size:clamp(1rem,2.4vw,1.8rem)}
+.s-tiles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(8px,1.4vw,14px)}
+.s-tiles div{background:var(--tint);border-radius:12px;padding:clamp(10px,1.8vw,20px);font-size:clamp(.9rem,2vw,1.45rem);font-weight:800;line-height:1.2;display:flex;align-items:center;min-height:clamp(56px,9vw,110px)}
+.s-tiles.five{grid-template-columns:repeat(5,minmax(0,1fr))}
+.s-tiles div.ptile{position:relative;padding:0;overflow:hidden;align-items:flex-end;min-height:clamp(110px,15vw,220px)}
+.s-tiles div.ptile.sm{min-height:clamp(70px,8vw,110px)}
+.ptile img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.ptile span{position:relative;width:100%;padding:clamp(22px,3vw,40px) clamp(8px,1.2vw,14px) clamp(6px,1vw,12px);background:linear-gradient(to top,rgba(10,14,30,.85),rgba(10,14,30,0));color:#fff}
+.s-tiles.five div.ptile span{font-size:clamp(.7rem,1.3vw,1rem)}
+.s-tiles.n2 div,.s-tiles.n3 div{font-size:clamp(1.1rem,2.8vw,2.1rem);min-height:clamp(90px,16vw,220px)}
+.s-tiles.n4 div{font-size:clamp(1rem,2.4vw,1.8rem);min-height:clamp(70px,11vw,150px)}
+.s-tiles.five div{font-size:clamp(.78rem,1.6vw,1.15rem);min-height:clamp(48px,7vw,90px)}
+.s-stat{font-size:clamp(1.4rem,4.2vw,3.2rem);font-weight:900;line-height:1.12;text-wrap:balance;margin:0}
+.s-tag{align-self:flex-start;font-size:clamp(.7rem,1.3vw,.95rem);font-weight:900;letter-spacing:.12em;text-transform:uppercase;border:2px solid var(--acc);color:var(--acc);border-radius:6px;padding:3px 10px}
+.s-split{display:grid;grid-template-columns:1.3fr 1fr;gap:clamp(14px,3vw,36px);align-items:center}
+.s-no{display:flex;flex-direction:column;gap:6px}
+.s-no span{font-size:clamp(1rem,2.4vw,1.8rem);font-weight:800;color:var(--stage-muted);text-decoration:line-through;text-decoration-color:var(--acc);text-decoration-thickness:3px}
+.s-cover{position:absolute;inset:0;background:var(--stage);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;text-align:center;padding:24px;z-index:2}
+.s-cover .s-title{color:var(--acc)}
+.s-overlay{position:absolute;top:clamp(10px,2vw,20px);right:clamp(10px,2vw,20px);display:flex;gap:8px;z-index:3}
+.s-pill{background:var(--stage-2);color:var(--stage-ink);border:1px solid var(--line);border-radius:99px;padding:6px 14px;font-family:var(--mono);font-weight:700;font-size:clamp(1rem,2.2vw,1.6rem);font-variant-numeric:tabular-nums}
+.s-pill.low{background:#c9381f;color:#fff;border-color:#c9381f}
+.s-pick{position:absolute;left:50%;bottom:clamp(14px,3vw,28px);transform:translateX(-50%);background:var(--acc);color:#fff;box-shadow:0 6px 20px rgba(27,35,64,.2);border-radius:14px;padding:10px 22px;font-weight:900;font-size:clamp(1.2rem,3vw,2.2rem);z-index:3;white-space:nowrap;max-width:90%;overflow:hidden;text-overflow:ellipsis}
+.s-up{position:absolute;inset:0;z-index:5;display:flex;align-items:center;justify-content:center;background:#fff;color:#c9381f;font-family:var(--display);font-size:clamp(2rem,8vw,6rem);text-align:center;animation:flash .5s ease-in-out 4 alternate}
+@keyframes flash{from{color:#c9381f}to{color:#f4c7bd}}
+@media (prefers-reduced-motion:reduce){.s-up{animation:none}}
+.s-nav{position:absolute;bottom:14px;right:14px;display:none;gap:8px;z-index:4}
+.stage:fullscreen .s-nav{display:flex}
+.s-nav button{background:var(--stage-2);color:var(--stage-ink);border:1px solid var(--line);padding:10px 16px;opacity:.7}
+.s-nav button:hover{opacity:1}
+@media (max-width:640px){.s-vs{grid-template-columns:1fr}.s-or{justify-self:center}.s-tiles,.s-tiles.five{grid-template-columns:repeat(2,minmax(0,1fr))!important}.s-split{grid-template-columns:1fr}}
+
+/* controls under stage */
+.ctrl{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:center}
+.ctrl .count{font-family:var(--mono);font-weight:700;color:var(--muted);font-variant-numeric:tabular-nums}
+.tools{display:flex;gap:8px;flex-wrap:wrap}
+.tools button,.tools select{padding:8px 12px;font-size:.92rem}
+.tools select{width:auto;border-width:2px;border-color:var(--line);font-weight:700}
+.tools button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.tabs{display:flex;gap:6px;flex-wrap:wrap}
+.tabs button{padding:7px 12px;border-width:1px;border-color:var(--line)}
+.tabs button[aria-selected="true"]{background:var(--ink);border-color:var(--ink);color:var(--paper)}
+.guide p{font-size:1rem}
+.guide ol{margin:0;padding-left:1.2em;display:flex;flex-direction:column;gap:6px}
+
+/* games (interactive) */
+.rules{margin:0;padding-left:1.2em;display:flex;flex-direction:column;gap:4px;color:var(--muted)}
+.rules b{color:var(--ink)}
+.chip{display:inline-block;font-size:.8rem;font-weight:800;padding:3px 10px;border-radius:99px;background:var(--stamp-soft);color:var(--stamp)}
+.envelope{border:2px dashed var(--line);border-radius:14px;min-height:170px;display:grid;place-items:center;text-align:center;padding:20px;user-select:none;-webkit-user-select:none;cursor:pointer;touch-action:none}
+.envelope .closed{display:flex;flex-direction:column;gap:8px;align-items:center;color:var(--muted)}
+.stamp{font-family:var(--display);color:var(--stamp);border:3px solid var(--stamp);padding:6px 14px;border-radius:6px;transform:rotate(-6deg);font-size:1rem;letter-spacing:.05em;display:inline-block}
+.word{font-family:var(--display);font-size:clamp(1.8rem,8vw,3rem);color:var(--stamp);word-break:break-word}
+.topic{font-size:clamp(1.5rem,5vw,2.2rem);font-weight:800;line-height:1.2;text-wrap:balance}
+.timer{font-family:var(--mono);font-weight:700;font-size:clamp(3rem,14vw,5.5rem);font-variant-numeric:tabular-nums;line-height:1;text-align:center}
+.timer.low{color:var(--stamp)}
+.bar{height:8px;background:var(--line);border-radius:99px;overflow:hidden}
+.bar i{display:block;height:100%;background:var(--ink);transition:width .25s linear}
+.scores{display:flex;flex-direction:column;gap:6px;margin:0;padding:0;list-style:none}
+.scores li{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:8px 12px;border-radius:8px;background:var(--bg);font-variant-numeric:tabular-nums}
+.scores li.lead{background:var(--stamp-soft);font-weight:800}
+.scores .pts{font-family:var(--mono);font-weight:700}
+.reveal{background:var(--ok-soft);border-radius:10px;padding:14px;display:flex;flex-direction:column;gap:4px}
+.pick{display:flex;gap:8px;flex-wrap:wrap}
+.pick button{padding:8px 12px;border-width:1px;font-weight:600}
+.pick button[aria-pressed="true"]{background:var(--ok);border-color:var(--ok);color:#fff}
+.bank{display:flex;flex-direction:column;gap:12px;margin-top:12px}
+details.more summary{cursor:pointer;font-weight:800}
+.stg{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
+.cell{border:2px solid var(--line);background:var(--bg);color:var(--ink);border-radius:10px;padding:10px 6px;min-height:76px;font-weight:800;font-size:clamp(.72rem,2.6vw,.95rem);line-height:1.2;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;text-align:center;word-break:break-word}
+.cell:hover:not(:disabled){border-color:var(--ink)}
+.cell.done{background:var(--pc);border-color:var(--pb);opacity:1;cursor:default}
+.cell.used{opacity:.45}
+.cell small{font-family:var(--mono);font-size:.7rem;font-weight:700;color:var(--pb,var(--ok))}
+.prompts{margin:0;padding-left:1.2em;display:flex;flex-direction:column;gap:4px;font-size:1.05rem}
+.turn{display:flex;align-items:center;gap:8px;font-weight:800}
+.dot{width:14px;height:14px;border-radius:50%;background:var(--pb);flex:none}
+.p0{--pb:#d8432f;--pc:#fbe3df}.p1{--pb:#1f7fb8;--pc:#dcedf8}.p2{--pb:#2f8a5b;--pc:#dff2e7}.p3{--pb:#7a4fd0;--pc:#ece4fb}.p4{--pb:#c27a0e;--pc:#fbeed6}.p5{--pb:#b0306f;--pc:#f8dfeb}.p6{--pb:#0f8a8a;--pc:#d8f1f0}.p7{--pb:#5b6478;--pc:#e3e6ee}
+.seg{display:flex;border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.seg button{border:0;border-radius:0;flex:1;padding:9px 12px;font-weight:700;background:var(--bg)}
+.seg button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.clist{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
+.clist li{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;padding:12px 14px;border-radius:10px;background:var(--bg)}
+.clist li>div:first-child{display:flex;flex-direction:column;min-width:0}
+.clist button{padding:7px 12px}
+.clist button.warn{background:var(--stamp);border-color:var(--stamp);color:#fff}
+.prompt{background:var(--bg);border-radius:10px;padding:12px;font-family:var(--mono);font-size:.82rem;white-space:pre-wrap;word-break:break-word}
+@media (max-width:420px){.stg{gap:6px}.cell{min-height:68px;padding:8px 4px}}
+@media (prefers-reduced-motion:reduce){.bar i{transition:none}}
+</style>
+</head>
+<body>
+
+<div class="wrap" id="app"></div>
+
+<script>
+const DECKS=[{"id": "weekly-reflection", "name": "Week in Review", "cat": "warm", "lv": ["A2", "B1", "B2"], "fmts": ["ind", "pair", "grp"], "kind": "grid", "desc": "Finish sentences about your week and add details.", "instr": "Choose three sentences and finish them about your week. Add a detail or an example to each one.", "ph": ["The best part was…", "It was tough because…", "Next time I'll…"], "cards": ["This week I'm proud that…", "A small win this week was…", "Something that surprised me was…", "This week I learnt that…", "I wish I'd had more time to…", "The best moment of my week was…", "Something I'd do differently is…", "Next week I'm looking forward to…", "This week I finally…"], "coverP": "a weekly planner open on a desk with a coffee, a pen and sticky notes"}, {"id": "strange-delivery", "name": "Strange Delivery", "cat": "warm", "lv": ["A2", "B1", "B2"], "fmts": ["ind", "pair", "grp"], "kind": "grid", "desc": "A mystery parcel arrives. What do you do with it?", "instr": "A parcel arrives at your door with no note. Choose one item. What would you do or say, and why?", "ph": ["I'd probably…", "The first thing I'd do is…", "I wouldn't… because…"], "cards": ["A box of 100 rubber ducks", "A plane ticket to a secret destination", "A key with no label", "A cake with your face on it", "A letter from your future self", "A suitcase full of old coins", "A live chicken", "Your childhood teddy bear", "A painting of your house"], "img": true, "imgP": "an open cardboard parcel on a doorstep containing {x}"}, {"id": "my-go-to", "name": "My Go-To", "cat": "warm", "lv": ["A2", "B1", "B2"], "fmts": ["ind", "pair", "grp"], "kind": "grid", "desc": "Your favourite, always-reliable choices.", "instr": "Your 'go-to' is the thing you always choose. Pick three and explain them in 2–3 sentences each.", "ph": ["My go-to … is … because…", "I always end up…", "It never fails because…"], "cards": ["My go-to breakfast", "My go-to excuse", "My go-to karaoke song", "My go-to weekend plan", "My go-to snack", "My go-to app", "My go-to way to relax", "My go-to outfit", "My go-to café or restaurant"], "coverP": "a cosy flat lay of favourite everyday things: a mug, headphones, a snack, a book and trainers"}, {"id": "main-character", "name": "Main Character", "cat": "warm", "lv": ["A2", "B1", "B2"], "fmts": ["ind", "pair", "grp"], "kind": "grid", "desc": "Today your life is a film. Describe it.", "instr": "Imagine today is a film and you are the main character. Answer the questions with true details.", "ph": ["The film opens with…", "In the background you can hear…", "The plot twist is…"], "cards": ["What's the title of the film?", "What's the opening scene?", "What genre is it?", "Who's the supporting character?", "What song is playing?", "Where's the plot twist?", "Which scene deserves a photo?", "How does the film end?", "Would people watch a sequel?"], "coverP": "an old cinema clapperboard and a film camera on a city street at golden hour"}, {"id": "mood-menu", "name": "Mood Menu", "cat": "warm", "lv": ["A2", "B1", "B2"], "fmts": ["ind", "pair", "grp"], "kind": "grid", "desc": "Order one to three 'moods' that match how you feel.", "instr": "This is today's mood menu. Order one to three options that match how you feel right now and say why.", "ph": ["Right now I'm in the mood for…", "I could really use…", "Today I feel like … because…"], "cards": ["Stay under a blanket all day", "A long walk outside", "Comfort food", "Coffee with a friend", "Dance like nobody's watching", "A new series", "Somewhere I've never been", "Total silence", "A video game marathon"], "img": true, "imgP": "a cosy scene that captures the mood: {x}"}, {"id": "ideal-weekend", "name": "Ideal Weekend", "cat": "warm", "lv": ["A2", "B1"], "fmts": ["ind", "pair", "grp"], "kind": "grid", "desc": "Plan your perfect weekend in detail.", "instr": "Imagine your perfect weekend. Answer the questions with as many details as you can.", "ph": ["I'd wake up at…", "I'd love to…", "After that, I'd…"], "cards": ["What time would you wake up?", "Where would you go?", "Who would you spend it with?", "What would you eat?", "What would you wear?", "What would you do on Sunday night?"], "coverP": "a sunny Saturday morning: breakfast on a balcony with a view"}, {"id": "how-often", "name": "How Often?", "cat": "warm", "lv": ["A1", "A2"], "fmts": ["ind", "pair", "grp"], "kind": "single", "desc": "Say how often you do everyday things and why.", "instr": "Read the card. How often do you do this? Say why.", "ph": ["I always…", "I usually…", "I sometimes…", "I hardly ever…", "I never…", "once a week / every day"], "cards": ["tidy your room", "cook dinner", "take the bus", "listen to music in bed", "eat fruit", "call your grandparents", "go to the cinema", "play video games", "read before bed", "forget your keys", "walk in the park", "eat pizza"], "img": true, "imgP": "an everyday scene of someone who is about to {x}"}, {"id": "name-three", "name": "Name Three", "cat": "warm", "lv": ["A1", "A2"], "fmts": ["ind", "pair", "grp"], "kind": "single", "desc": "Name three things for each card, then compare.", "instr": "Read the card and name three things. Then compare with your classmates. Did anyone say the same?", "ph": ["The first one is…", "Also…", "And finally…", "Me too! / Not me!"], "cards": ["things in a kitchen", "jobs you'd like to do", "things you do on Sundays", "places to go on holiday", "things that are yellow", "things you take to the beach", "presents you'd love to get", "things you do before school or work", "things you can buy with 5 euros", "things that make you laugh", "animals you can see on a farm", "things you have in your pocket"], "img": true, "imgP": "a scene representing the category '{x}', showing several examples"}, {"id": "use-it-for", "name": "I Use It For…", "cat": "you", "lv": ["A1", "A2"], "fmts": ["ind", "pair", "grp"], "kind": "single", "img": true, "desc": "Look at the object and say how you use it.", "instr": "Look at the picture. Think about your life. Say two or three sentences about how you use it.", "ph": ["I use it to…", "I use it for…", "I use it when…", "It helps me to…", "I don't use it because…"], "cards": ["umbrella", "headphones", "scissors", "backpack", "microwave", "tablet", "bicycle", "notebook", "mirror", "washing machine", "camera", "key"]}, {"id": "define-it", "name": "Define It", "cat": "you", "lv": ["A2"], "fmts": ["ind", "pair", "grp"], "kind": "single", "desc": "Write your own definition with three ideas.", "instr": "Create your own definition. Use three simple ideas or examples.", "ph": ["It's something that…", "It's someone who…", "For me, it's when…", "Usually, it means that…"], "ex": "A lazy Sunday: It's a day when you don't set an alarm. Usually, it means staying in your pyjamas. For me, it's when I watch films all afternoon.", "cards": ["a perfect holiday", "a lazy Sunday", "a good teacher", "a great neighbour", "a boring film", "a healthy lifestyle", "a dream job", "a bad day", "a good party", "a cosy home", "a great birthday", "a true friend"], "coverP": "an open dictionary on a wooden table with a magnifying glass"}, {"id": "user-manual", "name": "My User Manual", "cat": "you", "lv": ["A2", "B1"], "fmts": ["ind", "pair", "grp"], "kind": "single", "desc": "Finish sentences from your own 'instruction manual'.", "instr": "Imagine you come with an instruction manual. Finish the sentence with something true about you and give an example.", "ph": ["Personally,…", "To be honest,…", "In my case,…", "For example, last week…"], "cards": ["If you want to make me happy, …", "Never talk to me before…", "If I go quiet, it means…", "The best way to cheer me up is…", "If you lend me something, …", "When we travel together, …", "Don't be surprised if I…", "If you invite me to dinner, …", "When I'm stressed, …", "If you send me a message, …", "My battery runs out when…", "To become my friend, …"], "coverP": "an open instruction manual booklet next to a cup of tea"}, {"id": "five-star-review", "name": "Five-Star Review", "cat": "you", "lv": ["A2", "B1", "B2", "C1"], "fmts": ["ind", "pair", "grp"], "kind": "single", "desc": "Rate a life experience from 1 to 5 stars, like an online review.", "instr": "Rate this experience from 1 to 5 stars. Tell the story behind your rating: what happened, the best part, the worst part, and would you recommend it?", "ph": ["I'd give it … stars because…", "The highlight was…", "The disappointing part was…", "I'd (not) recommend it to…"], "cards": ["Your first day at a new school or job", "Moving house", "Your last birthday", "Learning to drive", "Camping", "Having brothers or sisters", "Your neighbourhood", "Public transport in your town", "The last film you saw", "Cooking for friends", "A long flight", "Getting up early"], "img": true, "imgP": "a scene representing the experience: {x}"}, {"id": "red-green-flags", "name": "Red Flag, Green Flag", "cat": "you", "lv": ["B1", "B2", "C1"], "fmts": ["ind", "pair", "grp"], "kind": "single", "desc": "Share your own red and green flags in a situation.", "instr": "Read the situation. What's your own red flag and green flag here? Then talk about common ones people have.", "ph": ["A green flag for me is when someone…", "A red flag would be…", "I have to admit I tend to…", "It depends on… because…"], "cards": ["Sharing a flat", "A first date", "A new boss", "A holiday with friends", "A group project", "Your neighbours", "A new friend", "A gym partner", "A teacher", "A group chat", "A job interview", "A sports team"], "coverP": "a red flag and a green flag waving on a beach against a blue sky"}, {"id": "great-swap", "name": "The Great Swap", "cat": "you", "lv": ["A2", "B1", "B2", "C1"], "fmts": ["ind", "pair", "grp"], "kind": "versus", "img": true, "desc": "Keep the first option or swap it for the second?", "instr": "Would you keep the first option or swap it for the second one? Give at least one reason.", "labels": ["Keep", "Swap for"], "ph": ["I'd keep … because…", "I'd happily swap because…", "I'd rather … than…", "I'd only swap if…"], "cards": [{"a": "Swimming in the sea", "b": "A walk in a snowy forest"}, {"a": "Ice cream on the beach", "b": "Hot chestnuts in the street"}, {"a": "Long, light evenings", "b": "Rainy nights with a blanket and a film"}, {"a": "Flip-flops", "b": "Cosy boots"}, {"a": "Open-air concerts", "b": "Christmas markets"}, {"a": "Fresh watermelon", "b": "A bowl of hot soup"}, {"a": "Two months of summer holidays", "b": "A long weekend every month"}, {"a": "A barbecue with friends", "b": "A board game night"}, {"a": "Sunbathing", "b": "Ice skating"}, {"a": "A road trip", "b": "A cabin in the mountains"}]}, {"id": "try-do-skip", "name": "Done, Try or Skip", "cat": "you", "lv": ["A2", "B1"], "fmts": ["ind", "pair", "grp"], "kind": "triple", "desc": "Three activities: which have you done, which would you try, which would you skip?", "instr": "Look at the three activities. Which one have you done? Which would you love to try? Which would you skip?", "ph": ["I've already… (and it was…)", "I'd love to try… because…", "I'd definitely skip… because…", "I've never…"], "cards": [["Go camping in the mountains", "Sing karaoke in public", "Eat a whole pizza alone"], ["Try surfing", "Sleep in a treehouse", "Run a 10 km race"], ["Go to a music festival", "Take a cooking class", "Spend a day without your phone"], ["Go horse riding", "Visit a country where you don't speak the language", "Dye your hair a crazy colour"], ["Watch the sunrise", "Try an escape room", "Go on a roller coaster"], ["Grow your own vegetables", "Go scuba diving", "Travel alone"], ["Learn to juggle", "Go to the opera", "Take a night train"], ["Volunteer at an animal shelter", "Ride a motorbike", "Try a food you can't pronounce"]], "img": true, "imgP": "the activity: {x}"}, {"id": "two-truths", "name": "Two Truths and a Lie", "cat": "you", "lv": ["A2", "B1", "B2"], "fmts": ["ind", "pair", "grp"], "kind": "single", "desc": "Say three things about yourself. The others find the lie.", "instr": "Use the topic on the card. Say three sentences about yourself: two are true, one is a lie. The others ask up to three questions, then vote.", "ph": ["Have you ever…?", "When did that happen?", "How did you feel?", "I think number … is the lie because…"], "ex": "Topic: food. 1) I once ate a cricket. 2) I can't stand chocolate. 3) My grandmother taught me to make paella.", "cards": ["Food", "When I was a child…", "Holidays and travel", "Something I'm good at", "Famous people or places", "My family", "Accidents and embarrassing moments", "School", "Animals", "Hobbies", "Things I've won or lost", "Strange habits"], "end": "Who was the best liar? Which lie was the hardest to spot?", "coverP": "a detective magnifying glass over three paper cards on a table"}, {"id": "unwritten-rules", "name": "Unwritten Rules", "cat": "opinion", "lv": ["A2", "B1"], "fmts": ["ind", "pair", "grp"], "kind": "single", "desc": "Is it OK or not OK? Talk about the rules nobody writes down.", "instr": "Read the situation. Is it OK or not? Is there an unwritten rule about it? Give your opinion and an example.", "ph": ["It's (not) OK to… because…", "There's an unwritten rule that…", "It depends on…", "Once, I…"], "cards": ["Reclining your seat on a short flight", "Leaving a group chat without saying anything", "Arriving 15 minutes late to a party", "Going to a dinner without bringing anything", "Taking a phone call in a restaurant", "Asking someone how much they earn", "Wearing shoes inside someone's house", "Sending a voice message longer than two minutes", "Sitting next to a stranger on an empty bus", "Watching the next episode of a series without your partner", "Eating someone else's food in the office fridge", "Not replying to a message for three days"], "img": true, "imgP": "an everyday scene of this situation: {x}"}, {"id": "the-catch", "name": "There's a Catch", "cat": "opinion", "lv": ["A2", "B1"], "fmts": ["ind", "pair", "grp"], "kind": "single", "desc": "A dream offer… with conditions in the small print.", "instr": "This offer sounds like a dream! Add 3–5 conditions that make it less attractive. Would your partner still say yes?", "ph": ["There's just one small condition…", "Oh, and you'll also have to…", "The only problem is…", "Would you still say yes?"], "ex": "A free house by the sea… but you can never leave the town, you must paint it pink every year, and the neighbours are 30 seagulls.", "cards": ["A free house by the sea", "Unlimited free flights for a year", "Your favourite singer plays at your birthday", "Never having to cook again", "A four-day working week", "Being famous for a week", "A brand-new car", "A month off with full pay", "A personal driver", "Speaking every language in the world", "Free pizza for life", "A holiday on a private island"], "img": true, "imgP": "a dreamy, attractive photo of: {x}"}, {"id": "job-nobody-wants", "name": "The Job Nobody Wants", "cat": "opinion", "lv": ["B1", "B2", "C1"], "fmts": ["ind", "pair", "grp"], "kind": "single", "desc": "Would you accept these small, annoying roles?", "instr": "Read the role. Would you accept it?", "q": ["Would you accept this role? Why or why not?", "What would be difficult about it?", "Is there a hidden advantage?"], "ph": ["I'd be happy to… as long as…", "No way! I'd hate to…", "The upside is that…"], "cards": ["The friend who drives everyone home after the party", "The one who tells the group the trip is cancelled", "The person who collects the money for a present", "The one who always carries the heaviest bag", "The one who tests the water before everyone swims", "The person who reads all the terms and conditions", "The one who wakes everyone up on holiday", "The neighbour who keeps everyone's spare keys", "The one who chooses the music in the car", "The person who writes the group's birthday messages", "The one who orders for the whole table", "The person who has to say no to the boss"], "img": true, "imgP": "a slightly funny everyday scene of: {x}"}, {"id": "designed-to-hook", "name": "Designed to Hook You", "cat": "opinion", "lv": ["B2", "C1"], "fmts": ["ind", "pair", "grp"], "kind": "single", "desc": "How do products keep us coming back?", "instr": "How was this designed to keep people using it? What makes it attractive, fun or hard to stop?", "ph": ["It's designed to…", "It makes users feel…", "It encourages people to…", "What makes it so effective is…"], "ex": "Streaks in a language app: missing a day feels like losing something you've built, so you open the app even when you're tired.", "cards": ["Infinite scroll", "Free trials that renew automatically", "Daily rewards in mobile games", "New clothes in shops every week", "Fitness tracker streaks", "Supermarket layouts", "Autoplay on streaming sites", "Limited-time offers", "Likes and notifications", "Language app streaks", "Buy now, pay later", "Coffee shop loyalty cards"], "img": true, "imgP": "a photo representing: {x} (generic, no real brands or app logos)"}, {"id": "convenient-creepy", "name": "Convenient or Creepy?", "cat": "opinion", "lv": ["B2", "C1"], "fmts": ["ind", "pair", "grp"], "kind": "single", "desc": "Technology that helps… and watches.", "instr": "Is this convenient, creepy or both? What are the benefits and the privacy risks? Where would you draw the line?", "ph": ["I can see the benefits, especially if…", "What worries me most is…", "I'd accept it as long as…", "That's where I'd draw the line."], "cards": ["Your fridge orders milk when it runs out", "A shop recognises your face and greets you by name", "Your car tells your insurance company how you drive", "Your phone suggests replies that sound exactly like you", "Your smartwatch alerts your doctor automatically", "An app knows when you're about to cancel", "A school uses cameras to check students' attention", "Your smart speaker is always listening for its name", "Your bank predicts you'll run out of money", "Your boss can see how much you type", "Your family can always see your location", "Ads for something you only talked about"], "img": true, "imgP": "a photo of this technology scenario: {x}"}, {"id": "parallel-realities", "name": "Parallel Realities", "cat": "opinion", "lv": ["B2", "C1"], "fmts": ["ind", "pair", "grp"], "kind": "versus", "desc": "Find the deeper connection between two very different ideas.", "instr": "Look beyond the surface. What do these two ideas have in common at a deeper level?", "labels": ["", ""], "ph": ["What connects them is…", "At their core, both are about…", "In both cases, you have to…", "The key difference, though, is…"], "cards": [{"a": "Learning an instrument", "b": "A long-term relationship"}, {"a": "Running a marathon", "b": "Writing a thesis"}, {"a": "Planting a garden", "b": "Raising a teenager"}, {"a": "Moving to another country", "b": "Starting a new job"}, {"a": "Cooking for a big family", "b": "Managing a project"}, {"a": "Learning a language", "b": "Building a house"}, {"a": "Going on a diet", "b": "Saving money"}, {"a": "Climbing a mountain", "b": "Recovering from an injury"}, {"a": "Playing chess", "b": "Negotiating a salary"}, {"a": "Training a puppy", "b": "Teaching a class"}], "img": true, "imgP": "{x}"}, {"id": "headline-vs-life", "name": "Headline vs Real Life", "cat": "opinion", "lv": ["B2", "C1"], "fmts": ["ind", "pair", "grp"], "kind": "stat", "desc": "Does an imagined headline match your experience?", "instr": "Imagine you read this headline. Does it match what you see in real life?", "q": ["Does it sound believable? Why or why not?", "Does your own experience support it or challenge it?", "Why might real life be different from the data?"], "ph": ["It rings true because…", "That doesn't match my experience…", "I suspect the numbers hide…", "People tend to say one thing and do another."], "cards": [{"s": "7 in 10 people check their phone within 10 minutes of waking up", "q": "Is that a problem, or just modern life?"}, {"s": "Most people say they would earn less to work four days a week", "q": "Would you? What would you do with the extra day?"}, {"s": "6 in 10 students say exams don't show what they really know", "q": "What would be a fairer way to assess students?"}, {"s": "Most drivers think they're better than average", "q": "Why are we so bad at judging ourselves?"}, {"s": "1 in 3 adults has never cooked a full meal from scratch", "q": "Is cooking still an essential skill?"}, {"s": "Most people prefer texting to phone calls", "q": "When is a call still better?"}, {"s": "Half of people have bought something online they never used", "q": "What makes us buy things we don't need?"}, {"s": "4 in 10 people say they work better from home", "q": "What do we lose when we don't share an office?"}, {"s": "Most people say they'd quit social media for a year if you paid them", "q": "How much would someone have to pay you?"}, {"s": "Most people say they want to travel more sustainably, but flights keep growing", "q": "Whose responsibility is it: people's or governments'?"}], "note": "These headlines are invented for discussion, not real statistics.", "coverP": "a pile of newspapers and a smartphone showing a chart, on a café table"}, {"id": "defend-the-object", "name": "Defend the Object", "cat": "opinion", "lv": ["B1", "B2"], "fmts": ["ind", "pair", "grp"], "kind": "single", "img": true, "desc": "Convince everyone that an ordinary object is the best invention ever.", "instr": "Convince everyone that this is the most important invention of all time. How has it changed people's lives?", "ph": ["Without it, we would…", "Imagine a world where…", "It has completely changed…", "Nothing else can…"], "cards": ["paper clip", "zip", "clothes peg", "bottle opener", "plaster", "safety pin", "measuring tape", "sticky tape", "hairbrush", "teabag", "coat hanger", "fridge magnet"], "end": "Vote: which object won the debate?"}, {"id": "would-you-rather", "name": "Would You Rather", "cat": "opinion", "lv": ["A2", "B1", "B2"], "fmts": ["ind", "pair", "grp"], "kind": "versus", "desc": "Pick a side and give two reasons.", "instr": "Choose one option and give two reasons. Then try to defend the other one!", "labels": ["", ""], "ph": ["I'd rather… because…", "On top of that,…", "The only thing is…"], "cards": [{"a": "Be able to fly", "b": "Be invisible"}, {"a": "Live without music", "b": "Live without films"}, {"a": "Always be 10 minutes late", "b": "Always be 20 minutes early"}, {"a": "Live in the city centre", "b": "Live in the countryside"}, {"a": "Speak every language", "b": "Play every instrument"}, {"a": "Never use social media again", "b": "Never watch TV again"}, {"a": "Have a cat", "b": "Have a dog"}, {"a": "Travel to the past", "b": "Travel to the future"}, {"a": "Only eat sweet food", "b": "Only eat salty food"}, {"a": "Be famous", "b": "Be rich"}], "img": true, "imgP": "a photo representing: {x}"}, {"id": "speed-debate", "name": "Speed Debate", "cat": "opinion", "lv": ["B2", "C1"], "fmts": ["ind", "pair", "grp"], "kind": "single", "timer": 120, "desc": "Two minutes per side on light, funny motions.", "instr": "Side A argues for, side B argues against. Two minutes each, then 30 seconds to reply.", "ph": ["First of all,…", "My opponent claims that…, but…", "Let's not forget that…", "To sum up,…"], "cards": ["Pineapple belongs on pizza", "Cats are better than dogs", "Summer is overrated", "Breakfast is the most important meal", "Everyone should learn to cook at school", "Cinemas will disappear", "Homework should be banned", "It's OK to recline your seat on a plane", "Board games are better than video games", "Socks with sandals are acceptable"], "end": "Class vote: which debate was the most convincing?", "img": true, "imgP": "a playful photo representing the topic: {x}"}, {"id": "just-a-minute", "name": "Just a Minute", "cat": "game", "lv": ["B1", "B2", "C1"], "fmts": ["ind", "grp"], "kind": "single", "timer": 60, "desc": "Talk for 60 seconds without hesitating or repeating.", "instr": "Speak for one minute about the topic. No long pauses, no repeating yourself, don't go off topic!", "ph": ["Let me start with…", "Another thing is…", "That reminds me of…"], "cards": ["Shoes", "The best smell in the world", "Mondays", "My favourite room", "Rain", "Things I'll never do again", "Sandwiches", "Being the oldest or youngest", "Airports", "Things that make me angry", "Breakfast", "Superpowers"], "img": true, "imgP": "{x}"}, {"id": "fortunately", "name": "Fortunately, Unfortunately", "cat": "game", "lv": ["A2", "B1", "B2"], "fmts": ["pair", "grp"], "kind": "single", "desc": "Build a silly story with alternating good and bad news.", "instr": "Continue the story. Take turns: one sentence starts with 'Fortunately…', the next with 'Unfortunately…'.", "ph": ["Fortunately,…", "Unfortunately,…", "Luckily,…", "Sadly,…"], "cards": ["I woke up late on Monday.", "I found a wallet in the street.", "My best friend invited me to a party.", "The plane landed in the wrong country.", "I won a cooking competition.", "A dog followed me home.", "My phone fell into the sea.", "I met my favourite actor.", "The teacher gave us a surprise test.", "It started snowing in July."], "img": true, "imgP": "the story moment: {x}"}, {"id": "alibi", "name": "Alibi", "cat": "game", "lv": ["B1", "B2", "C1"], "fmts": ["grp"], "kind": "single", "desc": "Two suspects, one story. Find the differences.", "instr": "Two suspects plan their alibi for the time of the 'crime' outside the room (5 minutes). The detectives prepare questions. Then each suspect is questioned alone.", "q": ["Where were you between 7 and 9 pm?", "What were you wearing?", "What did you eat?", "Who paid?", "What was the weather like?"], "ph": ["Where exactly were you when…?", "What happened next?", "Are you sure? Your partner said…"], "cards": ["Someone ate the teacher's birthday cake.", "The school's goldfish has disappeared.", "Someone painted a moustache on the head teacher's portrait.", "All the classroom chairs are on the roof.", "The neighbour's garden gnome has gone missing.", "Someone changed every phone alarm to 4 am.", "The last slice of pizza vanished from the staff room.", "Someone hid the TV remote, and the final is tonight."], "end": "Guilty or not guilty? If their stories differ in three details, they're guilty!", "img": true, "imgP": "a funny scene of the aftermath: {x}"}, {"id": "taboo", "name": "Taboo", "cat": "game", "lv": ["A2", "B1", "B2", "C1"], "fmts": ["ind", "grp"], "kind": "board", "print": "required", "desc": "Describe the word without the forbidden words.", "instr": "Projected version: one student sits with their back to the screen. Their team describes the word without saying the forbidden words. Printed version: students take a card and describe it to their team.", "ph": ["It's a kind of…", "You use it when…", "It's the opposite of…", "It sounds like…"], "cards": [{"w": "beach", "no": ["sand", "sea", "summer", "swim", "sun"]}, {"w": "teacher", "no": ["school", "students", "class", "lesson", "job"]}, {"w": "birthday", "no": ["cake", "party", "age", "present", "candles"]}, {"w": "pizza", "no": ["Italy", "cheese", "tomato", "food", "slice"]}, {"w": "phone", "no": ["call", "mobile", "apps", "screen", "message"]}, {"w": "dog", "no": ["animal", "pet", "bark", "cat", "walk"]}, {"w": "winter", "no": ["cold", "snow", "season", "Christmas", "December"]}, {"w": "hospital", "no": ["doctor", "nurse", "ill", "sick", "ambulance"]}, {"w": "football", "no": ["ball", "goal", "team", "Messi", "match"]}, {"w": "coffee", "no": ["drink", "morning", "cup", "milk", "caffeine"]}, {"w": "airport", "no": ["plane", "fly", "travel", "ticket", "gate"]}, {"w": "homework", "no": ["school", "teacher", "exercises", "home", "study"]}, {"w": "wedding", "no": ["marry", "bride", "husband", "wife", "ring"]}, {"w": "umbrella", "no": ["rain", "wet", "open", "weather", "cover"]}, {"w": "breakfast", "no": ["morning", "eat", "meal", "cereal", "toast"]}, {"w": "library", "no": ["books", "read", "borrow", "quiet", "study"]}, {"w": "holiday", "no": ["travel", "summer", "work", "rest", "hotel"]}, {"w": "mirror", "no": ["reflection", "look", "glass", "bathroom", "face"]}, {"w": "cinema", "no": ["film", "movie", "screen", "popcorn", "watch"]}, {"w": "ghost", "no": ["dead", "scary", "Halloween", "white", "spirit"]}, {"w": "alarm clock", "no": ["wake up", "ring", "morning", "time", "bed"]}, {"w": "supermarket", "no": ["shop", "buy", "food", "trolley", "checkout"]}, {"w": "passport", "no": ["travel", "country", "airport", "photo", "document"]}, {"w": "chess", "no": ["game", "king", "queen", "board", "pieces"]}], "coverP": "a stack of blank game cards and a sand timer on a table"}, {"id": "desert-island", "name": "Desert Island", "cat": "game", "lv": ["B1", "B2"], "fmts": ["pair", "grp"], "kind": "pick", "desc": "Agree on the five things to take with you.", "instr": "Your group is going to live on a desert island for a month. You can only take five things. Agree together in 8 minutes.", "ph": ["I think we should take… because…", "I see your point, but…", "What if we take… instead?", "OK, let's agree on…"], "cards": ["A knife", "A guitar", "Sun cream", "A tent", "A phone with no signal", "10 kg of rice", "A fishing rod", "A first-aid kit", "A football", "Matches", "A blanket", "A diary and pen", "A mirror", "A rope", "A dictionary"], "end": "Each group presents its five items. Which group would survive?", "img": true, "imgP": "{x} lying on a sandy tropical beach"}, {"id": "hot-seat", "name": "Hot Seat", "cat": "game", "lv": ["A2", "B1", "B2", "C1"], "fmts": ["ind", "grp"], "kind": "single", "print": "optional", "desc": "Interview a student who plays a role.", "instr": "One student sits in the hot seat and plays the role on the card. The class asks questions for three minutes.", "q": ["What's a normal day like for you?", "What's the best and worst part?", "What's your secret?"], "ph": ["How long have you…?", "What would you do if…?", "Have you ever…?"], "cards": ["A firefighter", "A teacher on the last day of school", "A famous footballer", "A zookeeper", "A pilot", "Yourself in 20 years", "A YouTuber", "A chef at a busy restaurant", "An astronaut back from space", "A ghost in an old castle", "A detective", "The president of a country"], "printNote": "Guessing version: give the student a secret role card. The class asks yes/no questions until someone guesses who they are.", "img": true, "imgP": "{x}, shown through their setting, uniform or tools"}, {"id": "story-chain", "name": "Story Chain", "cat": "game", "lv": ["A2", "B1"], "fmts": ["pair", "grp"], "kind": "triple", "desc": "Tell a story together using three random words.", "instr": "Tell a story together. Each person adds one or two sentences and must use one of the words, with a linker.", "labels3": true, "ph": ["Once upon a time…", "Suddenly,…", "Meanwhile,…", "In the end,…"], "cards": [["a dragon", "a pizza", "a train"], ["a key", "a storm", "a cat"], ["a suitcase", "a phone call", "a mountain"], ["a wedding", "a ghost", "a bicycle"], ["a robot", "a market", "a secret"], ["a boat", "a birthday", "a map"], ["a lion", "a library", "a cake"], ["a broken window", "a letter", "a dog"]], "img": true, "imgP": "{x}"}, {"id": "fake-definitions", "name": "Fake Definitions", "cat": "game", "lv": ["B2", "C1"], "fmts": ["ind", "pair", "grp"], "kind": "single", "reveal": true, "desc": "A real but very strange English word. Invent a convincing definition and fool the others.", "instr": "This is a real English word. Invent a definition that sounds true. Then everyone votes for the one they believe. The next slide shows the real meaning.", "ph": ["It's a word for…", "You'd use it when…", "For example: 'My uncle is a real…'", "I'm sure it means… because it sounds like…"], "cards": [{"t": "kerfuffle", "ans": "a fuss or commotion, usually about something unimportant"}, {"t": "widdershins", "ans": "in the opposite direction to the sun; anticlockwise"}, {"t": "collywobbles", "ans": "a nervous feeling in your stomach"}, {"t": "lollygag", "ans": "to waste time doing nothing useful"}, {"t": "petrichor", "ans": "the pleasant smell of rain on dry ground"}, {"t": "flibbertigibbet", "ans": "a silly person who talks too much"}, {"t": "skedaddle", "ans": "to leave or run away very quickly"}, {"t": "bumfuzzle", "ans": "to confuse someone completely"}, {"t": "cattywampus", "ans": "crooked, not in a straight line"}, {"t": "gubbins", "ans": "small bits and pieces, or gadgets you don't know the name of"}, {"t": "snollygoster", "ans": "a clever but dishonest person, especially a politician"}, {"t": "absquatulate", "ans": "to leave suddenly without saying goodbye"}], "guide": {"ind": ["Show the word. You and the student each invent a definition and say an example sentence.", "Mix in the real definition (don't show the next slide yet) and let the student guess which is real.", "Reveal and compare. Swap roles: the student reads three definitions to you."], "pair": ["Show the word. Each pair writes one fake definition and one example sentence.", "Pairs read their definition to another pair, who guess if it's real.", "Reveal the real meaning on the next slide."], "grp": ["Show the word. Teams of 3 write a convincing fake definition in 2 minutes.", "Collect them, add the real one (read it from the next slide without showing it) and read all aloud.", "Everyone votes. A team scores 1 point for each vote its fake gets, and 2 points for guessing the real one. Then reveal."]}, "end": "Which fake definition was the most convincing today?"}, {"id": "sell-it", "name": "Sell It To Me", "cat": "game", "lv": ["B1", "B2", "C1"], "fmts": ["pair", "grp"], "kind": "single", "desc": "Combine two random things into a product and pitch it to a very specific customer.", "instr": "Combine the two things into one product, then sell it to this customer. You have one minute to convince them!", "ph": ["Are you tired of…?", "Imagine never having to… again.", "It's perfect for someone like you because…", "And if you buy today…"], "cards": [{"t": "Customer: a grandmother who loves gardening", "sub": ["umbrella", "speaker"]}, {"t": "Customer: a teenager who never wakes up on time", "sub": ["pillow", "trumpet"]}, {"t": "Customer: a pirate", "sub": ["phone", "parrot cage"]}, {"t": "Customer: a busy teacher", "sub": ["backpack", "robot"]}, {"t": "Customer: a vampire", "sub": ["sunglasses", "toaster"]}, {"t": "Customer: a football coach", "sub": ["helmet", "microwave"]}, {"t": "Customer: a cat", "sub": ["sofa", "alarm clock"]}, {"t": "Customer: an astronaut", "sub": ["pizza", "blanket"]}, {"t": "Customer: a famous chef", "sub": ["shoes", "fridge"]}, {"t": "Customer: a student before exams", "sub": ["hat", "coffee machine"]}], "guide": {"ind": ["Show the card. Give the student one minute to prepare and one minute to pitch.", "You play the customer: ask difficult questions and raise objections.", "Swap roles on the next card."], "pair": ["One student is the seller, the other is the customer, who must play the role on the card.", "Seller pitches for one minute, then the customer asks two questions and decides: buy or not?", "Swap roles."], "grp": ["In teams, students get two minutes to invent the product and its name.", "One person per team pitches to the class, who play the customer.", "Class votes for the product they'd actually buy."]}, "end": "Which product would actually sell? What would you call it?"}, {"id": "excuses", "name": "Excuses, Excuses", "cat": "game", "lv": ["A2", "B1", "B2"], "fmts": ["ind", "pair", "grp"], "kind": "single", "desc": "Invent the most creative excuse for an awkward situation.", "instr": "You're in trouble! Invent the most creative (but believable) excuse. Then the others decide if they believe you.", "ph": ["I'm so sorry, but…", "You won't believe what happened…", "It wasn't my fault because…", "On my way here,…"], "cards": ["You arrive 40 minutes late to your best friend's birthday dinner.", "You forgot to do your homework, again.", "You ate your flatmate's birthday cake.", "Your teacher sees you on social media when you said you were ill.", "You lost the keys to a friend's car.", "You fell asleep in an important meeting.", "You forgot your partner's birthday.", "Your dog is in the swimming pool of the hotel.", "You broke your neighbour's window with a ball.", "You sent a message about your boss… to your boss.", "You missed your own surprise party.", "You're wearing two different shoes at an interview."], "guide": {"ind": ["Show the situation. The student gives an excuse; you react as the angry person and ask questions.", "Push for details until the story falls apart (or doesn't!).", "Swap: you give an excuse and the student judges it."], "pair": ["Student A is in trouble, Student B is the angry person. A has 30 seconds to explain.", "B asks three follow-up questions, then decides: forgive or not?", "Swap roles on the next card."], "grp": ["Show the situation and give everyone 30 seconds to think.", "Pick three students to give their excuse.", "The class votes: most creative and most believable."]}, "end": "Who gave the best excuse today?"}, {"id": "hot-takes", "name": "Hot Takes", "cat": "opinion", "lv": ["B1", "B2", "C1"], "fmts": ["ind", "pair", "grp"], "kind": "single", "desc": "Controversial (but harmless) opinions. Agree, disagree and defend your position.", "instr": "Here's a hot take. Do you agree or disagree? Take a side and defend it, even if it's a silly one.", "ph": ["I totally agree because…", "No way! That's ridiculous because…", "I see your point, but…", "Let's be honest:…"], "cards": ["Cereal is a type of soup.", "Phone calls are worse than going to the dentist.", "Breakfast food is better at dinner time.", "Sequels are usually better than the original film.", "Summer holidays are too long.", "Sandwiches taste better when they're cut into triangles.", "Pineapple belongs on pizza.", "It's rude to send a voice message.", "Weekends should be three days long.", "Socks with sandals are a good idea.", "Dogs are overrated.", "Going to the gym is boring."], "guide": {"ind": ["Show the hot take. The student says agree or disagree on a 1–10 scale and why.", "You take the opposite side, even if you agree, and argue back.", "Ask them to find one argument for the other side."], "pair": ["Partners each give a number from 1 (totally disagree) to 10 (totally agree).", "The person with the lower number must convince the other to move at least two points.", "Swap who starts on the next card."], "grp": ["Show the hot take. Students stand on an imaginary line: one wall = agree, other wall = disagree.", "Ask students at both ends to defend their position.", "Anyone can move if they're convinced. Ask the people who moved why."]}, "end": "Which hot take divided the class the most?"}, {"id": "most-likely", "name": "Most Likely To…", "cat": "warm", "lv": ["A2", "B1", "B2"], "fmts": ["grp"], "kind": "single", "desc": "Who in the class is most likely to…? Nominate someone and explain why.", "instr": "Who in this class is most likely to do this? Choose a classmate (or yourself!) and explain why. Keep it kind!", "ph": ["I think … is most likely to… because…", "It's definitely… because they always…", "I'd say me, to be honest, because…"], "cards": ["become famous", "survive a zombie apocalypse", "forget their own birthday", "move to another country", "win a cooking competition", "become a millionaire", "get lost in their own city", "adopt ten cats", "write a book", "arrive late to their own wedding", "become a teacher", "run a marathon"], "guide": {"ind": ["Private student version: ask 'Who in your family / group of friends is most likely to…?' and let them explain.", "Ask for a real story that proves it.", "Answer one yourself."], "pair": ["Pairs think of people they both know (classmates, famous people).", "They agree on one name per card and give a reason.", "Compare with another pair."], "grp": ["Show the card. On 3, everyone points at a classmate.", "The student with most fingers pointing at them asks two people why.", "Keep it light: ban answers that could be hurtful."]}, "end": "Who got the most votes today? Do they agree?"}, {"id": "silly-conspiracies", "name": "Silly Conspiracies", "cat": "opinion", "lv": ["B2", "C1"], "fmts": ["ind", "pair", "grp"], "kind": "single", "desc": "Convince the class of a completely absurd (and harmless) conspiracy theory.", "instr": "Your job is to convince everyone this is true. Invent 'evidence', use statistics and sound very serious.", "ph": ["Have you ever noticed that…?", "It's no coincidence that…", "Studies show that…", "Think about it: why else would…?"], "cards": ["Pigeons are actually government drones.", "Cats invented the internet so we'd post photos of them.", "The moon is made of cheese, and astronauts keep it secret.", "Socks disappear because washing machines eat them.", "Birds aren't real.", "Every time you sneeze, a cloud is born.", "Dogs can read, but they pretend they can't.", "Mondays were invented by coffee companies.", "Your fridge light stays on when the door is closed.", "Penguins can fly, but only when nobody is looking."], "guide": {"ind": ["Give the student two minutes to prepare three pieces of 'evidence'.", "You play the sceptic and ask tricky questions.", "Then swap: you defend one and they attack."], "pair": ["Student A defends the theory for one minute; Student B is the sceptical journalist.", "B must ask at least three questions starting 'But how do you explain…?'", "Swap roles on the next card."], "grp": ["Groups of three prepare the 'evidence' in three minutes.", "One speaker per group presents. The class asks questions.", "Vote: which group was the most convincing?"]}, "end": "Which theory was so convincing you almost believed it?"}, {"id": "the-pitch", "name": "The Pitch", "cat": "game", "lv": ["B1", "B2", "C1"], "fmts": ["pair", "grp"], "kind": "single", "desc": "Dragons' Den style: pitch a ridiculous invention and get investors to say yes.", "instr": "You're on a TV show for inventors. Pitch this invention in one minute. The investors will ask questions and decide if they invest.", "ph": ["Our product solves a problem everyone has:…", "It's the first ever…", "We're asking for… in exchange for…", "Any questions?"], "cards": ["A fridge that locks itself at midnight", "An umbrella for your phone", "Shoes that tell you when you're lost", "A pillow that records your dreams", "A mug that keeps coffee hot for a week", "An app that replies to messages for you", "Glasses that translate any language", "A sofa that makes you do exercise", "A pen that corrects your spelling", "A backpack that follows you"], "q": ["Who would buy it?", "How much would it cost?", "What's the biggest risk?"], "guide": {"ind": ["The student pitches; you're the investor and ask the three questions.", "Decide: invest or not? Explain why.", "Swap: you pitch the next one."], "pair": ["Each pair pitches to another pair, who play investors.", "Investors must ask at least three questions, then decide.", "Swap roles."], "grp": ["Teams prepare a pitch for 3 minutes.", "3–4 students act as investors with an imaginary €100,000 to share.", "Investors announce who gets their money and why."]}, "end": "Who got the most investment? Would you really buy it?"}, {"id": "rank-it", "name": "Rank It", "cat": "opinion", "lv": ["A2", "B1", "B2", "C1"], "fmts": ["ind", "pair", "grp"], "kind": "single", "desc": "Put five things in order. Then agree on one ranking with your partner.", "instr": "Put these in order from best (1) to worst (5). Then compare with a partner and agree on one ranking.", "ph": ["My number one is… because…", "I'd put … last because…", "I can't believe you put…!", "OK, let's compromise:…"], "cards": [{"t": "Best invention", "sub": ["the wheel", "the internet", "the fridge", "glasses", "the toilet"]}, {"t": "Best superpower", "sub": ["flying", "being invisible", "reading minds", "time travel", "super strength"]}, {"t": "Worst job", "sub": ["dentist", "politician", "taxi driver", "teacher", "influencer"]}, {"t": "Best season", "sub": ["spring", "summer", "autumn", "winter", "rainy season"]}, {"t": "Most annoying habit", "sub": ["chewing loudly", "being late", "checking your phone", "interrupting", "talking during films"]}, {"t": "Best breakfast", "sub": ["toast", "cereal", "pancakes", "fruit", "nothing, just coffee"]}, {"t": "Best way to travel", "sub": ["car", "train", "plane", "bike", "boat"]}, {"t": "Most important in a friend", "sub": ["honesty", "humour", "loyalty", "being a good listener", "having a car"]}, {"t": "Worst thing to forget", "sub": ["your keys", "your phone", "a birthday", "your passport", "your wallet"]}, {"t": "Best pet", "sub": ["dog", "cat", "fish", "rabbit", "parrot"]}], "guide": {"ind": ["The student ranks the five and explains each position.", "You give your ranking and disagree on at least two.", "Agree on one ranking together."], "pair": ["Each student ranks alone (30 seconds).", "Pairs compare and must agree on one ranking in two minutes.", "Pairs join another pair and agree again."], "grp": ["Show the slide. Students rank individually.", "Ask a few students for their number one and last. Count hands for each option.", "Build a class ranking on the board."]}, "end": "Which ranking caused the biggest argument?"}, {"id": "questions-only", "name": "Questions Only", "cat": "game", "lv": ["B1", "B2", "C1"], "fmts": ["pair", "grp"], "kind": "single", "timer": 60, "desc": "Improvise a scene where you can only speak in questions.", "instr": "Act out the scene with your partner, but you can ONLY speak in questions. Hesitate, repeat or answer with a statement… and you're out!", "ph": ["Why would you say that?", "Have you seen the time?", "Don't you think…?", "What are you talking about?"], "ex": "A: Excuse me, is this your dog? B: Why are you asking? A: Didn't you see it ate my sandwich? B: Are you sure it was my dog?", "cards": ["At the doctor's", "Ordering in a very strange restaurant", "Two neighbours arguing about noise", "A job interview for a superhero", "Returning a broken phone to the shop", "Two strangers stuck in a lift", "A detective questioning a suspect", "Planning a surprise party", "Lost tourists asking for directions", "A parent and a teenager at 3 am"], "guide": {"ind": ["You and the student act the scene, questions only.", "The first one to make a statement loses the round.", "Do three quick rounds, then review question forms that came up."], "pair": ["Pairs act the scene for one minute.", "When someone makes a statement or hesitates, swap in a new partner (or restart).", "Count how many questions each pair managed."], "grp": ["Two volunteers act at the front.", "When one makes a mistake, the class shouts 'Out!' and a new student replaces them.", "Keep the same scene running as long as possible."]}, "end": "What was the funniest question of the day?"}, {"id": "slide-roulette", "name": "Slide Roulette", "cat": "game", "lv": ["B2", "C1"], "fmts": ["ind", "grp"], "kind": "single", "timer": 120, "desc": "PowerPoint karaoke: give an expert talk on a ridiculous topic you've never seen before.", "instr": "You are a world expert on this topic. Give a two-minute talk using the three points. You've never seen the slide before… improvise!", "ph": ["Good morning, everyone. Today I'm going to talk about…", "Let's start with…", "Moving on to…", "To sum up,…"], "cards": [{"t": "The secret life of office chairs", "sub": ["history", "main dangers", "the future"]}, {"t": "Why cats are better managers than humans", "sub": ["leadership style", "a case study", "advice for companies"]}, {"t": "How to survive a Monday", "sub": ["the science", "common mistakes", "a 5-step plan"]}, {"t": "The psychology of losing socks", "sub": ["statistics", "theories", "solutions"]}, {"t": "Pizza as a form of art", "sub": ["history", "famous examples", "how to appreciate it"]}, {"t": "Teaching your grandmother to use TikTok", "sub": ["challenges", "a real story", "tips"]}, {"t": "The economics of a children's lemonade stand", "sub": ["costs", "marketing", "lessons for big companies"]}, {"t": "Why we should all have a nap at work", "sub": ["benefits", "objections", "how to convince your boss"]}, {"t": "The dangers of being too polite", "sub": ["examples", "consequences", "how to stop"]}, {"t": "A day in the life of a supermarket trolley", "sub": ["morning", "the big adventure", "retirement"]}], "guide": {"ind": ["The student sees the slide for the first time and talks for two minutes.", "You ask two 'audience' questions at the end.", "Swap roles on the next slide."], "pair": ["Pairs take turns presenting to each other.", "The listener asks one question at the end.", "Give feedback on linkers used."], "grp": ["Choose a volunteer (or use Pick a student). They see the slide for the first time with the class.", "Start the timer: two minutes.", "The audience asks two questions. Applause is mandatory!"]}, "end": "Who was the most convincing expert today?"}];
+const IMAGES={"defend-the-object:0": "img/defend-01.jpg", "defend-the-object:1": "img/defend-02.jpg", "defend-the-object:2": "img/defend-03.jpg", "defend-the-object:3": "img/defend-04.jpg", "defend-the-object:4": "img/defend-05.jpg", "defend-the-object:5": "img/defend-06.jpg", "defend-the-object:6": "img/defend-07.jpg", "defend-the-object:7": "img/defend-08.jpg", "defend-the-object:8": "img/defend-09.jpg", "defend-the-object:9": "img/defend-10.jpg", "defend-the-object:10": "img/defend-11.jpg", "defend-the-object:11": "img/defend-12.jpg", "strange-delivery:0": "img/strange-delivery-01.jpg", "strange-delivery:1": "img/strange-delivery-02.jpg", "strange-delivery:2": "img/strange-delivery-03.jpg", "strange-delivery:3": "img/strange-delivery-04.jpg", "strange-delivery:4": "img/strange-delivery-05.jpg", "strange-delivery:5": "img/strange-delivery-06.jpg", "strange-delivery:6": "img/strange-delivery-07.jpg", "strange-delivery:7": "img/strange-delivery-08.jpg", "strange-delivery:8": "img/strange-delivery-09.jpg", "great-swap:0a": "img/swap-01a.jpg", "great-swap:0b": "img/swap-01b.jpg", "great-swap:1a": "img/swap-02a.jpg", "great-swap:1b": "img/swap-02b.jpg", "great-swap:2a": "img/swap-03a.jpg", "great-swap:2b": "img/swap-03b.jpg", "great-swap:3a": "img/swap-04a.jpg", "great-swap:3b": "img/swap-04b.jpg", "great-swap:4a": "img/swap-05a.jpg", "great-swap:4b": "img/swap-05b.jpg", "great-swap:5a": "img/swap-06a.jpg", "great-swap:5b": "img/swap-06b.jpg", "great-swap:6a": "img/swap-07a.jpg", "great-swap:6b": "img/swap-07b.jpg", "great-swap:7a": "img/swap-08a.jpg", "great-swap:7b": "img/swap-08b.jpg", "great-swap:8a": "img/swap-09a.jpg", "great-swap:8b": "img/swap-09b.jpg", "great-swap:9a": "img/swap-10a.jpg", "great-swap:9b": "img/swap-10b.jpg", "use-it-for:0": "img/use-01.jpg", "use-it-for:1": "img/use-02.jpg", "use-it-for:2": "img/use-03.jpg", "use-it-for:3": "img/use-04.jpg", "use-it-for:4": "img/use-05.jpg", "use-it-for:5": "img/use-06.jpg", "use-it-for:6": "img/use-07.jpg", "use-it-for:7": "img/use-08.jpg", "use-it-for:8": "img/use-09.jpg", "use-it-for:9": "img/use-10.jpg", "use-it-for:10": "img/use-11.jpg", "use-it-for:11": "img/use-12.jpg", "weekly-reflection:cover": "img/weekly-reflection-cover.jpg"}; /* "deck-id:index" -> image URL, filled in when real photos are added */
+const PRINT={"taboo":{file:"print/taboo-cards.pdf",what:"24 Taboo cards · 2 A4 pages · 12 cards per page"},
+             "hot-seat":{file:"print/hot-seat-roles.pdf",what:"12 secret role cards · 1 A4 page"}};
+const LEGACY={"use-it-for":"use","defend-the-object":"defend","great-swap":"swap"};
+function photoList(){const out=[];
+  DECKS.forEach(d=>{
+    if(d.coverP)out.push({key:d.id+":cover",file:d.id+"-cover",deck:d.name,txt:d.coverP});
+    if(!d.img||LEGACY[d.id])return;
+    const sub=x=>d.imgP.startsWith("{x}")?d.imgP.replace("{x}",x):d.imgP.replace("{x}",x.charAt(0).toLowerCase()+x.slice(1)),nn=i=>String(i+1).padStart(2,"0");
+    d.cards.forEach((c,i)=>{
+      if(d.kind==="versus"){out.push({key:`${d.id}:${i}a`,file:`${d.id}-${nn(i)}a`,deck:d.name,txt:sub(c.a)});out.push({key:`${d.id}:${i}b`,file:`${d.id}-${nn(i)}b`,deck:d.name,txt:sub(c.b)});}
+      else if(d.kind==="triple")c.forEach((x,k)=>out.push({key:`${d.id}:${i}-${k}`,file:`${d.id}-${nn(i)}-${k+1}`,deck:d.name,txt:sub(x)}));
+      else out.push({key:`${d.id}:${i}`,file:`${d.id}-${nn(i)}`,deck:d.name,txt:sub(c)});});});
+  return out;}
+const CATS={warm:"Warm-ups",you:"Talk about you",opinion:"Opinions & debate",game:"Games"};
+const FMTS={ind:"Individual",pair:"Pairs",grp:"Whole group"};
+const LEVELS=["A1","A2","B1","B2","C1"];
+const APPS=[
+ {id:"secret-word",name:"Secret Word",cat:"game",lv:["A2","B1","B2"],fmts:["grp"],app:true,desc:"Slip a secret word into an improvised speech. The class tries to spot it."},
+ {id:"small-talk-grid",name:"Small Talk Grid",cat:"game",lv:["A2","B1","B2"],fmts:["pair"],app:true,desc:"Pick a square and talk with your partner for a full minute. No awkward silences."}
+];
+const ALL=[...DECKS,...APPS];
+const byId=id=>ALL.find(a=>a.id===id);
+
+/* ---------- helpers ---------- */
+const $=s=>document.querySelector(s);
+const esc=t=>String(t).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const app=$("#app");
+const store={get(k,d){try{const v=localStorage.getItem(k);return v==null?d:JSON.parse(v)}catch(e){return d}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
+const shuffle=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;};
+function pickFrom(list,used){let pool=list.filter(x=>!used.has(x));if(!pool.length){used.clear();pool=list.slice();}const v=pool[Math.floor(Math.random()*pool.length)];used.add(v);return v;}
+const fmt=s=>Math.floor(s/60)+":"+String(s%60).padStart(2,"0");
+const today=()=>new Date().toISOString().slice(0,10);
+const niceDate=d=>new Date(d+"T12:00:00").toLocaleDateString("en-GB",{day:"numeric",month:"short",year:"numeric"});
+const lvRange=l=>l.length>1?l[0]+"–"+l[l.length-1]:l[0];
+let AC=null;function audio(){try{AC=AC||new(window.AudioContext||window.webkitAudioContext)();if(AC.state==="suspended")AC.resume();}catch(e){}return AC;}
+function tone(f,t0,d,v){const a=audio();if(!a)return;try{const o=a.createOscillator(),g=a.createGain();o.type="triangle";o.frequency.value=f;o.connect(g);g.connect(a.destination);const s=a.currentTime+t0;g.gain.setValueAtTime(.0001,s);g.gain.exponentialRampToValueAtTime(v,s+.02);g.gain.exponentialRampToValueAtTime(.0001,s+d);o.start(s);o.stop(s+d+.05);}catch(e){}}
+function beep(){[660,880,1100].forEach((f,i)=>tone(f,i*.32,.28,.45));tone(1320,.98,1,.5);[660,880,1100].forEach((f,i)=>tone(f,2.1+i*.32,.28,.45));tone(1320,3.06,1,.5);}
+function warnTick(){tone(990,0,.12,.25);tone(990,.25,.12,.25);}
+
+/* ---------- classes & history ---------- */
+const CL={
+ all(){return store.get("sc-classes",[]);}, save(l){store.set("sc-classes",l);},
+ active(){const l=this.all(),id=store.get("sc-active",null);return l.find(c=>c.id===id)||l[0]||null;},
+ setActive(id){store.set("sc-active",id);}, byId(id){return this.all().find(c=>c.id===id);},
+ options(withOther){const l=this.all(),a=this.active();return l.map(c=>`<option value="${c.id}" ${a&&a.id===c.id?"selected":""}>${esc(c.name)}</option>`).join("")+(withOther?`<option value="" ${a?"":"selected"}>Other: type the names</option>`:"");}
+};
+const H={
+ all(){return store.get("sc-hist",{});},
+ dates(cid,gid){return ((this.all()[cid]||{})[gid])||[];},
+ mark(cid,gid){const h=this.all();h[cid]=h[cid]||{};const d=h[cid][gid]||[];if(!d.includes(today()))d.push(today());h[cid][gid]=d;store.set("sc-hist",h);},
+ unmarkToday(cid,gid){const h=this.all();if(h[cid]&&h[cid][gid]){h[cid][gid]=h[cid][gid].filter(x=>x!==today());store.set("sc-hist",h);}}
+};
+const parseNames=t=>t.split("\n").map(s=>s.trim()).filter(Boolean);
+function doneBanner(gid){const a=CL.active();if(!a)return "";const d=H.dates(a.id,gid).filter(x=>x!==today());
+  return d.length?`<div class="banner warn" role="status">${esc(a.name)} already did this on ${d.map(niceDate).join(", ")}.</div>`:"";}
+function classSwitcher(){const l=CL.all();if(!l.length)return `<a class="btn ghost" href="#classes">+ Add a class</a>`;
+  return `<label class="classpick"><span class="label">Class</span><select id="clsSel">${CL.options(false)}</select></label>`;}
+function wireClassSwitcher(onChange){const s=$("#clsSel");if(s)s.onchange=()=>{CL.setActive(s.value);onChange();};}
+
+/* ---------- router ---------- */
+function route(){stopTimer();stopDeck();const h=location.hash.slice(1);window.scrollTo(0,0);
+  if(h==="classes")return classesView();
+  if(h==="info")return infoView();
+  if(h==="secret-word")return SW.setup();
+  if(h==="small-talk-grid")return STGame.setup();
+  const d=DECKS.find(x=>x.id===h); if(d)return deckView(d);
+  hub();}
+window.addEventListener("hashchange",route);
+
+/* ---------- hub ---------- */
+const F=store.get("sc-filters2",{fmt:"all",lv:"all"});
+function hub(){
+  app.innerHTML=`
+  <div class="top"><h1>Speaking <span>Corner</span></h1>
+    <nav><a class="btn ghost" href="#classes">My classes</a><a class="btn ghost" href="#info">Info</a></nav></div>
+  <div class="row" style="justify-content:space-between">${classSwitcher()}</div>
+  <section class="filters" aria-label="Filters">
+    <div class="chips" id="fFmt">${[["all","All formats"],...Object.entries(FMTS)].map(([k,v])=>`<button data-k="${k}" aria-pressed="${F.fmt===k}">${v}</button>`).join("")}</div>
+    <div class="chips" id="fLv">${["all",...LEVELS].map(k=>`<button data-k="${k}" aria-pressed="${F.lv===k}">${k==="all"?"All levels":k}</button>`).join("")}</div>
+  </section>
+  <div id="list" style="display:flex;flex-direction:column;gap:26px"></div>`;
+  const bind=(id,key)=>$(id).querySelectorAll("button").forEach(b=>b.onclick=()=>{F[key]=b.dataset.k;store.set("sc-filters2",F);$(id).querySelectorAll("button").forEach(x=>x.setAttribute("aria-pressed",x===b));renderList();});
+  bind("#fFmt","fmt");bind("#fLv","lv");wireClassSwitcher(renderList);renderList();
+}
+function renderList(){
+  const a=CL.active();
+  const ok=g=>(F.fmt==="all"||g.fmts.includes(F.fmt))&&(F.lv==="all"||g.lv.includes(F.lv));
+  const card=g=>{const d=a?H.dates(a.id,g.id):[];return `<a class="act c-${g.cat}" href="#${g.id}">
+    <h3>${esc(g.name)}</h3><p>${esc(g.desc)}</p>
+    <div class="meta"><span class="lvl">${lvRange(g.lv)}</span><span class="fmt">${g.fmts.map(f=>FMTS[f]).join(" · ")}</span>
+      ${g.app?`<span class="flag app">Game</span>`:""}${g.print==="required"?`<span class="flag print">Print</span>`:""}
+      ${d.length?`<span class="flag done">Done ${niceDate(d[d.length-1]).replace(/ \d{4}$/,"")}</span>`:""}</div></a>`;};
+  const html=Object.entries(CATS).map(([k,v])=>{const l=ALL.filter(g=>g.cat===k&&ok(g));if(!l.length)return "";
+    return `<section class="cat c-${k}"><div class="cat-h"><i></i><h2>${v}</h2></div><div class="grid">${l.map(card).join("")}</div></section>`;}).join("");
+  $("#list").innerHTML=html||`<p class="empty">Nothing matches these filters.</p>`;
+}
+
+/* ---------- guides ---------- */
+const GUIDE={
+ single:{ind:["Project the slides and read the instruction together.","Give the student 20–30 seconds to think, then let them answer.","Ask two follow-up questions, and answer one card yourself so it feels like a real conversation.","Note errors as you go and review them at the end."],
+   pair:["Show the same card to everyone.","Student A answers, Student B asks at least one follow-up question. Then swap.","Allow 2–3 minutes per card. Walk around and note errors.","Ask one or two pairs to share the most interesting answer before moving on."],
+   grp:["Show the card and give 30 seconds of thinking time.","Use Pick a student to choose who answers first.","Open it up: who agrees? Who has a different experience?","Move on after 3–4 students to keep the pace."]},
+ grid:{ind:["Project the slide with all the prompts.","The student chooses three and answers them with details.","React and share your own answer to one of them.","Ask for one more detail each time: why, when, who with?"],
+   pair:["Show the slide to everyone.","Each partner chooses three prompts and answers them.","The listener must ask one follow-up question per answer.","Finish by asking a few students what their partner said."],
+   grp:["Show the slide and give one minute of thinking time.","Go round the class: each student answers one prompt nobody has chosen yet.","Use Pick a student to keep it random.","Good as a 5–10 minute warm-up."]},
+ versus:{ind:["Show the two options.","The student chooses one and gives two reasons.","Challenge them: defend the opposite side.","Swap roles: you choose, they argue against you."],
+   pair:["Show the two options to everyone.","Each partner chooses and explains why.","If they agree, they must find one argument for the other side.","Collect a quick class vote with hands up."],
+   grp:["Show the options and ask for a hands-up vote first.","Pick one student from each side to explain.","Let the other side reply.","Ask: did anyone change their mind?"]},
+ triple:{ind:["Show the three options.","The student classifies all three and explains each choice.","Ask follow-up questions about experiences: when, where, with whom?","Share your own choices too."],
+   pair:["Show the slide to everyone.","Partners take turns with the three options.","They must find one thing they both agree on.","Ask a few pairs to report back."],
+   grp:["Show the slide.","Ask for a quick vote on each option.","Pick students with surprising answers to explain.","Keep each slide to about three minutes."]},
+ stat:{ind:["Show the headline and the questions.","Remind the student it's an invented headline.","Discuss the questions, pushing for examples from their life.","Play devil's advocate to stretch their arguments."],
+   pair:["Show the headline to everyone.","Pairs discuss the three questions, then the extra one.","Each pair must agree on how believable it is (1–10).","Compare scores as a class."],
+   grp:["Show the headline and ask: believable or not? Vote.","Pick students from both sides to explain.","Use the extra question for a short open discussion.","Ask for personal examples."]},
+ board:{ind:["Use the printed cards or the slides.","Take turns describing: you describe one, the student describes the next.","The listener has one minute to guess as many as possible.","Review useful paraphrasing language at the end."],
+   pair:["Use the printed cards.","Pairs take turns describing without the forbidden words.","One point per word guessed in a minute."],
+   grp:["Projected: split the class into two teams.","One student sits with their back to the screen. Their team describes the word.","If anyone says a forbidden word, press Next and no point.","One minute per turn, then switch teams. Printed: each student draws a card and describes it to their team."]},
+ pick:{ind:["Show the list.","The student chooses five and justifies each one.","You disagree with two of their choices; they must convince you."],
+   pair:["Show the list.","Pairs must agree on five items in 8 minutes.","Then two pairs join and agree on five again."],
+   grp:["Make groups of 3–4.","Each group agrees on five items in 8 minutes.","Each group presents its list; the class votes for the best survival plan."]}
+};
+
+/* ---------- deck presenter ---------- */
+let D=null;
+function stopDeck(){if(D){clearInterval(D.tid);document.removeEventListener("keydown",D.key);}D=null;}
+const PER_OK=d=>(d.kind==="grid"||d.kind==="single")&&!d.reveal;
+const ctext=c=>typeof c==="object"?c.t:c;
+function perOf(d){if(!PER_OK(d))return 1;const p=store.get("sc-per",{});return p[d.id]||1;}
+function buildSlides(d,order){const s=[{t:"title"}];
+  if(d.reveal){order.forEach(i=>{s.push({t:"card",i});s.push({t:"ans",i});});}
+  else if(d.kind==="grid"||d.kind==="single"){const per=perOf(d);if(per===1)order.forEach(i=>s.push({t:"card",i}));else for(let i=0;i<order.length;i+=per)s.push({t:"grid",idx:order.slice(i,i+per)});}
+  else if(d.kind==="pick"){s.push({t:"pick"});}
+  else order.forEach(i=>s.push({t:"card",i}));
+  s.push({t:"end"});return s;}
+function deckView(d){
+  const order=[...d.cards.keys()];
+  D={d,order,slides:buildSlides(d,order),i:0,phr:true,hide:false,tid:null,left:0,picked:[],pickName:null};
+  const p=PRINT[d.id],a=CL.active();
+  app.innerHTML=`<div class="wrap" style="gap:14px">
+    <div class="top"><a class="back" href="#">← All activities</a>${classSwitcher()}</div>
+    <div id="bn">${doneBanner(d.id)}</div>
+    ${d.print?`<div class="banner print"><span>${d.print==="required"?"This activity needs printed cards.":"Optional printed cards"} · ${p.what}</span><a class="btn primary" href="${p.file}" target="_blank" rel="noopener">Open PDF to print</a></div>`:""}
+    <div class="stage c-${d.cat}" id="stage" tabindex="-1"></div>
+    <div class="ctrl"><div class="row"><button class="ghost" id="prev" aria-label="Previous slide">←</button><button class="primary" id="next">Next →</button><span class="count" id="count"></span></div>
+      <div class="tools">
+        ${PER_OK(d)?`<select id="perSel" aria-label="Cards per slide">${[1,2,3,4,6,9].map(n=>`<option value="${n}" ${perOf(d)===n?"selected":""}>${n} ${n===1?"card":"cards"} per slide</option>`).join("")}</select>`:""}
+        <button class="ghost" id="shuf">Shuffle</button>
+        ${d.kind==="board"?`<button class="ghost" id="hideB" aria-pressed="false">Hide card</button>`:""}
+        <select id="tsel" aria-label="Timer length"><option value="30">0:30</option><option value="60" ${(d.timer||60)===60?"selected":""}>1:00</option><option value="120" ${d.timer===120?"selected":""}>2:00</option><option value="180">3:00</option><option value="300">5:00</option><option value="480">8:00</option></select>
+        <button class="ghost" id="tbtn">Timer</button>
+        <button class="ghost" id="pickB" ${a?"":"disabled title=\"Choose a class first\""}>Pick a student</button>
+        <button class="ghost" id="phB" aria-pressed="true">Phrases</button>
+        <button class="ghost" id="fsB">Full screen</button>
+      </div></div>
+    <section class="card guide"><div class="row" style="justify-content:space-between"><h2>Teacher guide</h2>
+      <div class="tabs" role="tablist">${Object.keys(FMTS).map(f=>`<button role="tab" data-f="${f}" aria-selected="false">${FMTS[f]}${d.fmts.includes(f)?"":" (adapted)"}</button>`).join("")}</div></div>
+      <div id="gbody"></div>
+      ${d.printNote?`<p class="note">${esc(d.printNote)}</p>`:""}
+      <div class="row" id="doneRow"></div></section></div>`;
+  const tabs=app.querySelectorAll(".tabs button");
+  const showG=f=>{tabs.forEach(b=>b.setAttribute("aria-selected",b.dataset.f===f));const g=(d.guide&&d.guide[f])||GUIDE[d.kind][f];$("#gbody").innerHTML=`<ol>${g.map(x=>`<li>${esc(x)}</li>`).join("")}</ol>`;store.set("sc-fmt",f);};
+  tabs.forEach(b=>b.onclick=()=>showG(b.dataset.f));
+  const pref=store.get("sc-fmt",null);showG(pref&&d.fmts.includes(pref)?pref:d.fmts[0]);
+  $("#prev").onclick=()=>go(-1);$("#next").onclick=()=>go(1);
+  $("#shuf").onclick=()=>{D.order=shuffle(D.order);D.slides=buildSlides(d,D.order);D.i=Math.min(D.i,1);render();};
+  if($("#perSel"))$("#perSel").onchange=e=>{const p=store.get("sc-per",{});p[d.id]=+e.target.value;store.set("sc-per",p);D.slides=buildSlides(d,D.order);D.i=Math.min(D.i,D.slides.length-1);render();};
+  $("#phB").onclick=()=>{D.phr=!D.phr;$("#phB").setAttribute("aria-pressed",D.phr);render();};
+  if($("#hideB"))$("#hideB").onclick=()=>{D.hide=!D.hide;$("#hideB").setAttribute("aria-pressed",D.hide);render();};
+  $("#tbtn").onclick=toggleTimer;
+  $("#pickB").onclick=pickStudent;
+  $("#fsB").onclick=()=>{const st=$("#stage");try{document.fullscreenElement?document.exitFullscreen():st.requestFullscreen().catch(()=>{});}catch(e){}};
+  wireClassSwitcher(()=>{$("#bn").innerHTML=doneBanner(d.id);D.picked=[];$("#pickB").disabled=!CL.active();doneRow();});
+  D.key=e=>{if(/INPUT|SELECT|TEXTAREA/.test(e.target.tagName))return;
+    if(e.key==="ArrowRight"||e.key===" "||e.key==="PageDown"){e.preventDefault();go(1);}
+    else if(e.key==="ArrowLeft"||e.key==="PageUp"){e.preventDefault();go(-1);}
+    else if(e.key==="f"||e.key==="F")$("#fsB").click();
+    else if(e.key==="p"||e.key==="P")$("#phB").click();
+    else if(e.key==="t"||e.key==="T")toggleTimer();};
+  document.addEventListener("keydown",D.key);
+  doneRow();render();
+}
+function doneRow(){const a=CL.active(),r=$("#doneRow");if(!r)return;
+  if(!a){r.innerHTML=`<span class="note">Choose a class to keep track of what it has done.</span>`;return;}
+  const did=H.dates(a.id,D.d.id).includes(today());
+  r.innerHTML=did?`<span class="banner ok">Marked as done today for ${esc(a.name)}</span><button class="ghost" id="undoDone">Undo</button>`
+    :`<button class="primary" id="markDone">Mark as done for ${esc(a.name)}</button>`;
+  if($("#markDone"))$("#markDone").onclick=()=>{H.mark(a.id,D.d.id);doneRow();};
+  if($("#undoDone"))$("#undoDone").onclick=()=>{H.unmarkToday(a.id,D.d.id);doneRow();};}
+function go(n){const k=D.i+n;if(k<0||k>=D.slides.length)return;D.i=k;D.pickName=null;render();}
+function phrases(d){return D.phr&&d.ph?`<div class="s-ph"><b>Useful language</b>${d.ph.map(p=>`<span>${esc(p)}</span>`).join("")}</div>`:"";}
+function img(d,i){const u=IMAGES[d.id+":"+i];return u?`<img src="${u}" alt="">`:"";}
+function render(){const d=D.d,s=D.slides[D.i],st=$("#stage"),n=D.slides.length;
+  const cardNo=s.t==="card"?`${D.order.indexOf(s.i)+1} / ${d.cards.length}`:"";
+  let body="";
+  if(s.t==="title"){
+    body=`<div class="s-eyebrow"><span>${CATS[d.cat]} · ${lvRange(d.lv)}</span></div>`;
+    const cv=IMAGES[d.id+":cover"],txt=`<h2 class="s-title">${esc(d.name)}</h2><p class="s-instr">${esc(d.instr)}</p>
+      ${d.ex?`<p class="s-ex"><b>Example:</b> ${esc(d.ex)}</p>`:""}${d.note?`<p class="s-ex">${esc(d.note)}</p>`:""}`;
+    body+=`<div class="s-body">${cv?`<div class="s-split"><div style="display:flex;flex-direction:column;gap:clamp(12px,2vw,22px)">${txt}</div><div class="s-img"><img src="${cv}" alt=""></div></div>`:txt}</div>${phrases(d)}`;
+  }else if(s.t==="ans"){const c=d.cards[s.i];
+    body=`<div class="s-eyebrow"><span>${esc(d.name)}</span><span>The real meaning</span></div>
+    <div class="s-body"><p class="s-big">${esc(c.t)}</p><p class="s-instr" style="font-size:clamp(1.3rem,3vw,2.3rem);color:var(--acc);font-weight:800">${esc(c.ans)}</p></div>`;
+  }else if(s.t==="end"){
+    body=`<div class="s-eyebrow"><span>${esc(d.name)}</span></div>
+    <div class="s-body"><h2 class="s-title">Well done!</h2><p class="s-instr">${esc(d.end||"Which answer surprised you most today? Share one new thing you learnt about a classmate.")}</p></div>`;
+  }else if(s.t==="grid"){
+    const k=s.idx.length,cols=k===2||k===4?2:3,first=D.order.indexOf(s.idx[0])+1;
+    body=`<div class="s-eyebrow"><span>${esc(d.name)}</span><span>${d.kind==="grid"&&k>3?"Choose three · ":""}${first}–${first+k-1} / ${d.cards.length}</span></div>
+    <div class="s-body"><div class="s-tiles n${k}" style="grid-template-columns:repeat(${cols},minmax(0,1fr))">${s.idx.map(i=>{const u=IMAGES[d.id+":"+i];return u?`<div class="ptile ${k>4?"sm":""}"><img src="${u}" alt=""><span>${esc(ctext(d.cards[i]))}</span></div>`:`<div>${esc(ctext(d.cards[i]))}</div>`;}).join("")}</div>
+      ${d.q&&k<=2?`<ul class="s-q">${d.q.map(q=>`<li>${esc(q)}</li>`).join("")}</ul>`:""}</div>${phrases(d)}`;
+  }else if(s.t==="pick"){
+    body=`<div class="s-eyebrow"><span>${esc(d.name)}</span><span>Choose five</span></div>
+    <div class="s-body"><div class="s-tiles five">${d.cards.map((x,k)=>{const u=IMAGES[d.id+":"+k];return u?`<div class="ptile sm"><img src="${u}" alt=""><span>${esc(x)}</span></div>`:`<div>${esc(x)}</div>`;}).join("")}</div></div>${phrases(d)}`;
+  }else{
+    const c=d.cards[s.i];let inner="";
+    if(d.kind==="single"||d.kind==="grid"){const pic=d.img?img(d,s.i):"";
+      const ct=ctext(c),sub=typeof c==="object"&&c.sub?`<div class="s-ph" style="gap:10px">${c.sub.map(x=>`<span style="font-size:clamp(1rem,2.4vw,1.7rem);background:var(--tint);border:0">${esc(x)}</span>`).join("")}</div>`:"";
+      const txt=`${d.reveal?`<span class="s-tag">Real word · invent a meaning</span>`:""}<p class="s-big ${ct.length>40?"mid":""}">${esc(ct)}</p>${sub}${d.q?`<ul class="s-q">${d.q.map(q=>`<li>${esc(q)}</li>`).join("")}</ul>`:""}`;
+      inner=pic?`<div class="s-split"><div style="display:flex;flex-direction:column;gap:16px">${txt}</div><div class="s-img">${pic}</div></div>`:txt;}
+    else if(d.kind==="versus"){const L=d.labels||["",""];
+      const pa=d.img?img(d,s.i+"a"):"",pb=d.img?img(d,s.i+"b"):"",ph=pa&&pb;
+      const opt=(p,l,x)=>ph?`<div class="s-opt ph">${p}<div class="cap">${l?`<small>${esc(l)}</small>`:""}<div>${esc(x)}</div></div></div>`:`<div class="s-opt">${l?`<small>${esc(l)}</small>`:""}<div>${esc(x)}</div></div>`;
+      inner=`<div class="s-vs ${ph?"ph":""}">${opt(pa,L[0],c.a)}<span class="s-or">OR</span>${opt(pb,L[1],c.b)}</div>`;}
+    else if(d.kind==="triple"){
+      const tl=(x,k)=>{const u=IMAGES[`${d.id}:${s.i}-${k}`];return u?`<div class="ptile"><img src="${u}" alt=""><span>${esc(x)}</span></div>`:`<div ${d.id==="story-chain"?'style="justify-content:center;font-size:clamp(1.2rem,3vw,2.2rem)"':""}>${esc(x)}</div>`;};
+      inner=`<div class="s-tiles">${c.map(tl).join("")}</div>${d.id==="story-chain"?"":`<p class="s-instr" style="font-size:clamp(.95rem,1.8vw,1.3rem)">Done it? Want to try it? Would you skip it?</p>`}`;}
+    else if(d.kind==="stat"){
+      inner=`<span class="s-tag">Imagined headline</span><p class="s-stat">“${esc(c.s)}”</p><ul class="s-q">${d.q.map(q=>`<li>${esc(q)}</li>`).join("")}<li><b>${esc(c.q)}</b></li></ul>`;}
+    else if(d.kind==="board"){
+      inner=`<div class="s-split"><p class="s-big">${esc(c.w)}</p><div class="s-no"><small class="label" style="color:var(--acc)">Don't say</small>${c.no.map(x=>`<span>${esc(x)}</span>`).join("")}</div></div>`;}
+    body=`<div class="s-eyebrow"><span>${esc(d.name)}</span><span>${cardNo}</span></div><div class="s-body">${inner}</div>${phrases(d)}`;
+    if(d.kind==="board"&&D.hide)body+=`<div class="s-cover"><span class="label" style="color:var(--stage-muted)">Next word</span><p class="s-title">Ready?</p><p class="s-instr">Press Hide card again to show it.</p></div>`;
+  }
+  st.innerHTML=body+`<div class="s-overlay">${D.tid||D.left>0?`<span class="s-pill ${D.left<=10?"low":""}" id="tpill">${fmt(Math.max(D.left,0))}</span>`:""}</div>
+    ${D.up?`<div class="s-up">Time's up!</div>`:""}${D.pickName?`<div class="s-pick">${esc(D.pickName)}</div>`:""}
+    <div class="s-nav"><button id="fsPrev" aria-label="Previous">←</button><button id="fsNext" aria-label="Next">→</button></div>`;
+  $("#fsPrev").onclick=()=>go(-1);$("#fsNext").onclick=()=>go(1);
+  $("#count").textContent=`${D.i+1} / ${n}`;
+  $("#prev").disabled=D.i===0;$("#next").disabled=D.i===n-1;
+  if(D.i===n-1){const a=CL.active();if(a&&!H.dates(a.id,d.id).includes(today())){$("#doneRow").scrollIntoView({block:"nearest"});}}
+}
+function toggleTimer(){if(D.tid){clearInterval(D.tid);D.tid=null;D.left=0;$("#tbtn").textContent="Timer";render();return;}
+  audio();D.up=false;D.left=+$("#tsel").value;$("#tbtn").textContent="Stop timer";render();
+  D.tid=setInterval(()=>{D.left--;if(D.left===10)warnTick();const p=$("#tpill");if(p){p.textContent=fmt(Math.max(D.left,0));p.classList.toggle("low",D.left<=10);}
+    if(D.left<=0){clearInterval(D.tid);D.tid=null;beep();D.up=true;$("#tbtn").textContent="Timer";render();setTimeout(()=>{if(D&&!D.tid){D.up=false;D.left=0;render();}},4500);}},1000);}
+function pickStudent(){const a=CL.active();if(!a)return;let pool=a.students.filter(s=>!D.picked.includes(s));if(!pool.length){D.picked=[];pool=a.students.slice();}
+  const n=pool[Math.floor(Math.random()*pool.length)];D.picked.push(n);D.pickName=n;render();}
+
+/* ---------- classes view ---------- */
+function classesView(editId){
+  const list=CL.all();
+  if(editId===undefined&&!list.length)editId="new";
+  const ed=editId==="new"?{id:"",name:"",students:[]}:list.find(c=>c.id===editId);
+  app.innerHTML=`<div class="narrow"><a class="back" href="#">← All activities</a>
+   <h1>My <span>classes</span></h1>
+   ${ed?`<section class="card"><h2>${ed.id?"Edit class":"New class"}</h2>
+     <div class="field"><label class="label" for="cName">Group name</label><input id="cName" value="${esc(ed.name)}" placeholder="e.g. B1+ Tuesday 18:00"></div>
+     <div class="field"><label class="label" for="cStu">Students, one per line</label><textarea id="cStu" placeholder="For a private student, write just one name">${esc(ed.students.join("\n"))}</textarea></div>
+     <span class="note" id="cErr" style="color:var(--stamp)"></span>
+     <div class="row"><button class="primary" id="saveC">Save class</button>${list.length?`<button class="ghost" id="cancelC">Cancel</button>`:""}</div></section>`:""}
+   <section class="card"><div class="row" style="justify-content:space-between"><h2>Saved classes</h2>${ed?"":`<button class="primary" id="newC">+ New class</button>`}</div>
+     ${list.length?`<ul class="clist">${list.map(c=>{const h=H.all()[c.id]||{},n=Object.keys(h).filter(k=>h[k].length).length;return `<li><div><b>${esc(c.name)}</b><span class="note">${c.students.length} ${c.students.length===1?"student":"students"} · ${n} ${n===1?"activity":"activities"} done</span></div>
+       <div class="row"><button class="ghost" data-e="${c.id}">Edit</button><button class="ghost" data-d="${c.id}">Delete</button></div></li>`;}).join("")}</ul>`
+     :`<p class="note">No classes yet. Fill in the form above to save your first group.</p>`}</section>
+   <section class="card"><details class="more"><summary>Back up or move your classes</summary>
+     <div class="bank">
+       <div class="field"><label class="label" for="exp">Backup code (classes and history)</label><textarea id="exp" readonly>${esc(JSON.stringify({classes:list,history:H.all()}))}</textarea></div>
+       <div class="row"><button class="ghost" id="copyB">Copy backup</button><span class="note" id="copyMsg"></span></div>
+       <div class="field"><label class="label" for="imp">Restore from a backup</label><textarea id="imp" placeholder="Paste a backup code here"></textarea></div>
+       <div class="row"><button class="ghost" id="impB">Restore</button><span class="note" id="impMsg"></span></div>
+     </div></details></section></div>`;
+  if(ed){
+    $("#saveC").onclick=()=>{const name=$("#cName").value.trim(),st=parseNames($("#cStu").value);
+      if(!name){$("#cErr").textContent="Give the class a name.";$("#cName").focus();return;}
+      if(!st.length){$("#cErr").textContent="Add at least one student.";$("#cStu").focus();return;}
+      const l=CL.all();
+      if(ed.id){const c=l.find(x=>x.id===ed.id);c.name=name;c.students=st;}
+      else{const id="c"+Date.now().toString(36);l.push({id,name,students:st});CL.setActive(id);}
+      CL.save(l);classesView(null);};
+    if($("#cancelC"))$("#cancelC").onclick=()=>classesView(null);
+  }
+  if($("#newC"))$("#newC").onclick=()=>classesView("new");
+  app.querySelectorAll("[data-e]").forEach(b=>b.onclick=()=>classesView(b.dataset.e));
+  app.querySelectorAll("[data-d]").forEach(b=>b.onclick=()=>{
+    if(!b.classList.contains("warn")){b.classList.add("warn");b.textContent="Tap again to delete";return;}
+    CL.save(CL.all().filter(c=>c.id!==b.dataset.d));classesView(null);});
+  $("#copyB").onclick=()=>{const t=$("#exp"),fb=()=>{t.select();$("#copyMsg").textContent="Selected. Copy it with Ctrl+C.";};
+    try{navigator.clipboard.writeText(t.value).then(()=>$("#copyMsg").textContent="Copied.",fb);}catch(e){fb();}};
+  $("#impB").onclick=()=>{try{let data=JSON.parse($("#imp").value);const cls=Array.isArray(data)?data:data.classes;if(!Array.isArray(cls))throw 0;
+      const l=CL.all(),hist=H.all();cls.forEach((c,n)=>{if(c&&c.name&&Array.isArray(c.students)){const id=l.some(x=>x.id===c.id)?"c"+Date.now().toString(36)+n:(c.id||"c"+Date.now().toString(36)+n);
+        l.push({id,name:String(c.name),students:c.students.map(String)});if(data.history&&data.history[c.id])hist[id]=data.history[c.id];}});
+      CL.save(l);store.set("sc-hist",hist);classesView(null);}catch(e){$("#impMsg").textContent="That code isn't valid. Paste the full backup code.";}};
+}
+
+/* ---------- info ---------- */
+function photoSection(){
+  const L=photoList(),done=L.filter(p=>IMAGES[p.key]).length,B=[];
+  for(let i=0;i<L.length;i+=10)B.push(L.slice(i,i+10));
+  const STYLE="Create 10 SEPARATE realistic photos (not a collage). Style for all: realistic photograph, natural light, simple and uncluttered, no text, no logos or brand names, people only from behind or far away (no recognisable faces), landscape 4:3. Name each file EXACTLY as written before the colon, and give me all of them in one ZIP.";
+  return `<p class="sub">${done} of ${L.length} photos added. Copy one batch at a time into ChatGPT, then send me the ZIP.</p>
+  <div class="bar" style="height:10px"><i style="width:${L.length?done/L.length*100:100}%;background:var(--ok)"></i></div>
+  ${B.map((b,n)=>{const ok=b.every(p=>IMAGES[p.key]),decks=[...new Set(b.map(p=>p.deck))].join(", ");
+    const txt=STYLE.replace("10 SEPARATE",b.length+" SEPARATE")+"\n"+b.map(p=>`${p.file}: ${p.txt}`).join("\n");
+    return `<details class="more" ${ok?"":""}><summary>${ok?"✓ ":""}Batch ${n+1} · ${esc(decks)}</summary><div class="bank">
+      ${ok?`<p class="note">Done. All ${b.length} photos are in the slides.</p>`:`<div class="prompt" id="pb-${n}">${esc(txt)}</div><div class="row"><button class="ghost" data-copy="pb-${n}">Copy prompt</button><span class="note"></span></div>`}</div></details>`;}).join("")}`;
+}
+
+function infoView(){
+  app.innerHTML=`<div class="narrow"><a class="back" href="#">← All activities</a><h1>Info</h1>
+  <section class="card"><h2>Presenting</h2><ul class="rules">
+    <li>Open an activity and use <b>Next</b> or the arrow keys. <b>F</b> = full screen, <b>T</b> = timer, <b>P</b> = show or hide useful language.</li>
+    <li>Full screen shows only the slide, so the class doesn't see the teacher guide or buttons.</li>
+    <li><b>Pick a student</b> chooses randomly from the selected class without repeating anyone until everyone has spoken.</li>
+    <li>The <b>Teacher guide</b> under each activity explains how to run it individually (or with a private student), in pairs or with the whole group.</li></ul></section>
+  <section class="card"><h2>Classes and history</h2><ul class="rules">
+    <li>Save each group once in <b>My classes</b>. For a private student, create a class with just their name.</li>
+    <li>Press <b>Mark as done</b> after an activity. Next time you choose that class, the activity shows a warning with the date.</li>
+    <li>Everything is saved in this browser on this device. To use another device, copy the backup code in My classes and paste it there.</li></ul></section>
+  <section class="card"><h2>Printing</h2><ul class="rules">
+    <li>Activities marked <b>Print</b> need cards. Their page has a button to open the PDF.</li>
+    <li>Cards fill the whole A4 page with shared cut lines, so you only need straight cuts. Print at 100% (actual size).</li></ul></section>
+  <section class="card"><h2>Photos for the slides</h2>${photoSection()}</section></div>`;
+  app.querySelectorAll("[data-copy]").forEach(b=>b.onclick=()=>{const t=document.getElementById(b.dataset.copy).textContent,m=b.nextElementSibling;
+    try{navigator.clipboard.writeText(t).then(()=>m.textContent="Copied.",()=>m.textContent="Select the text and copy it.");}catch(e){m.textContent="Select the text and copy it.";}});
+}
+
+/* ---------- shared countdown (interactive games) ---------- */
+const T={id:null,left:0,total:0};
+function stopTimer(){clearInterval(T.id);T.id=null;}
+function startTimer(onEnd){audio();T.id=setInterval(()=>{T.left--;if(T.left===10)warnTick();const tm=$("#tm");if(!tm){stopTimer();return;}
+  tm.textContent=fmt(Math.max(T.left,0));tm.classList.toggle("low",T.left<=10);$("#br").style.width=(Math.max(T.left,0)/T.total*100)+"%";
+  if(T.left<=0){stopTimer();beep();tm.textContent="Time's up!";setTimeout(onEnd,1500);}},1000);}
+function timerBlock(){return `<div class="timer" id="tm">${fmt(T.left)}</div><div class="bar"><i id="br" style="width:${T.left/T.total*100}%"></i></div>`;}
+function wireToggle(btn,onEnd){btn.onclick=()=>{if(T.id){stopTimer();btn.textContent="Resume";}else{startTimer(onEnd);btn.textContent="Pause";}};}
+function gameHeader(g){return `<a class="back" href="#">← All activities</a><header><span class="label">${g.fmts.map(f=>FMTS[f]).join(" · ")} · ${lvRange(g.lv)}</span><h1>${esc(g.name.split(" ")[0])} <span>${esc(g.name.split(" ").slice(1).join(" "))}</span></h1></header>`;}
+function classField(id){return `<div class="field"><label class="label" for="${id}">Class</label><select id="${id}">${CL.options(true)}</select></div>`;}
+
+/* ---------- Secret Word ---------- */
+const SW_WORDS={
+ easy:["banana","umbrella","penguin","pizza","bicycle","guitar","rainbow","chocolate","elephant","sandwich","window","pirate","mirror","balloon","sock","candle","frog","rocket","sunglasses","pillow","butterfly","lemon","ladder","snow","cheese","dragon","clock","biscuit","teapot","shark"],
+ tricky:["toothbrush","volcano","submarine","moustache","trampoline","lighthouse","pyjamas","cactus","helicopter","sandcastle","jellyfish","kangaroo","microwave","parachute","dinosaur","hamster","wig","broccoli","astronaut","snowman","octopus","handcuffs","saxophone","igloo","vampire","flamingo","wheelbarrow","toaster","unicorn","spaghetti"]};
+const SW_TOPICS=["Your ideal weekend","The best job in the world","Why people should learn languages","Social media: good or bad?","A trip you will never forget","What makes a good friend","Life without mobile phones","The perfect school","How to stay healthy","A person who inspires you","City life or country life?","Your favourite season and why","Technology in 20 years","Is fast food really that bad?","Working from home","Beach holidays or mountain holidays?","The most useless invention","Your dream house","Should every family have a pet?","Shopping online vs in shops","A skill you'd love to learn","The best age to be","Your morning routine","A film everyone should watch","Should homework be banned?","Your favourite place in your town","Cooking at home vs eating out","Living abroad","The best gift you've ever received","Rules you would change at school"];
+const SW={g:byId("secret-word"),players:[],round:1,rounds:1,idx:0,time:60,level:"easy",scores:{},usedW:new Set(),usedT:new Set(),cur:null,
+ shell(inner){app.innerHTML=`<div class="narrow">${gameHeader(this.g)}
+   <main class="card" id="screen" aria-live="polite">${inner}</main>
+   <section class="card" id="scoreCard" ${this.started?"":"hidden"}><div class="label">Scoreboard</div><ol class="scores" id="scoreList"></ol></section></div>`;
+   if(this.started)this.renderScores();},
+ setup(){this.started=false;const a=CL.active(),saved=store.get("sc-names","");
+  this.shell(`
+    <div id="bn">${doneBanner("secret-word")}</div>
+    <div class="row">${classField("cls")}</div>
+    <div class="field"><label class="label" for="names">Students playing today</label>
+      <textarea id="names">${esc(a?a.students.join("\n"):saved)}</textarea>
+      <span class="note">One per line. Delete anyone who's absent.</span></div>
+    <div class="row">
+      <div class="field"><label class="label" for="time">Speaking time</label><select id="time"><option value="45">45 seconds</option><option value="60" selected>1 minute</option><option value="90">1.5 minutes</option><option value="120">2 minutes</option></select></div>
+      <div class="field"><label class="label" for="level">Secret words</label><select id="level"><option value="easy">Easy</option><option value="tricky">Tricky</option><option value="mix">Mixed</option></select></div>
+      <div class="field"><label class="label" for="rounds">Rounds</label><select id="rounds"><option>1</option><option>2</option><option>3</option></select></div>
+    </div>
+    <details class="more"><summary>How to play</summary><ul class="rules" style="margin-top:10px"><li>The speaker secretly sees one word, then gets a random topic.</li><li>They talk about the topic and must <b>use the word naturally</b>.</li><li>When time's up, the class guesses the word.</li><li><b>+2</b> to the speaker if nobody spots it. <b>+1</b> to each student who guesses it.</li></ul></details>
+    <div class="row"><button class="primary" id="go">Start game</button></div>`);
+  $("#cls").onchange=e=>{const c=CL.byId(e.target.value);if(c){CL.setActive(c.id);$("#names").value=c.students.join("\n");}else{$("#names").value="";$("#names").focus();}$("#bn").innerHTML=c?doneBanner("secret-word"):"";};
+  $("#go").onclick=()=>{const names=parseNames($("#names").value);
+    if(names.length<2){$("#names").focus();return;}
+    if(!$("#cls").value)store.set("sc-names",names.join("\n"));else H.mark($("#cls").value,"secret-word");
+    Object.assign(this,{players:names,time:+$("#time").value,level:$("#level").value,rounds:+$("#rounds").value,round:1,idx:0,scores:{},started:true});
+    names.forEach(n=>this.scores[n]=0);this.newTurn();};},
+ lvl(){return this.level==="mix"?(Math.random()<.5?"easy":"tricky"):this.level;},
+ newTurn(){this.cur={speaker:this.players[this.idx],word:pickFrom(SW_WORDS[this.lvl()],this.usedW),topic:pickFrom(SW_TOPICS,this.usedT),guessers:new Set()};this.pass();},
+ pass(){const c=this.cur;
+  this.shell(`
+    <div class="row" style="justify-content:space-between"><span class="label">Round ${this.round} of ${this.rounds} · Turn ${this.idx+1}/${this.players.length}</span><span class="chip">Eyes off the screen!</span></div>
+    <h2>${esc(c.speaker)}, come and look</h2>
+    <p class="note">Press and hold the envelope to see your secret word. Everyone else, look away.</p>
+    <div class="envelope" id="env" role="button" tabindex="0" aria-label="Hold to reveal the secret word">
+      <div class="closed" id="closed"><span class="stamp">TOP SECRET</span><span>Hold to open</span></div>
+      <div id="open" hidden><div class="label">Your secret word</div><div class="word">${esc(c.word)}</div></div></div>
+    <div class="row"><button class="primary" id="ready" disabled>I've got it. Show the topic</button><button class="ghost" id="swap">Different word</button></div>`);
+  const env=$("#env"),show=v=>{$("#open").hidden=!v;$("#closed").hidden=v;if(v)$("#ready").disabled=false;};
+  env.addEventListener("pointerdown",e=>{e.preventDefault();show(true)});
+  ["pointerup","pointerleave","pointercancel"].forEach(ev=>env.addEventListener(ev,()=>show(false)));
+  env.addEventListener("keydown",e=>{if(e.key===" "||e.key==="Enter"){e.preventDefault();show(true)}});
+  env.addEventListener("keyup",()=>show(false));env.addEventListener("contextmenu",e=>e.preventDefault());
+  $("#swap").onclick=()=>{c.word=pickFrom(SW_WORDS[this.lvl()],this.usedW);this.pass();};
+  $("#ready").onclick=()=>{T.left=T.total=this.time;this.speak();};},
+ speak(){const c=this.cur;
+  this.shell(`<span class="label">${esc(c.speaker)} is speaking about…</span><div class="topic">${esc(c.topic)}</div>${timerBlock()}
+    <div class="row"><button class="red" id="play">Start timer</button><button class="ghost" id="newTopic">New topic</button><button class="primary" id="done">Finish</button></div>`);
+  wireToggle($("#play"),()=>this.guess());
+  $("#newTopic").onclick=()=>{c.topic=pickFrom(SW_TOPICS,this.usedT);stopTimer();T.left=T.total;this.speak();};
+  $("#done").onclick=()=>{stopTimer();this.guess();};},
+ guess(){const c=this.cur,others=this.players.filter(p=>p!==c.speaker);
+  this.shell(`<span class="label">Time's up</span><h2>What was ${esc(c.speaker)}'s secret word?</h2>
+    <div class="row"><button class="red" id="rev">Reveal the word</button></div>
+    <div id="after" hidden><div class="reveal"><span class="label">The secret word was</span><span class="word">${esc(c.word)}</span></div>
+      <div style="display:flex;flex-direction:column;gap:10px;margin-top:16px"><span class="label">Who guessed it?</span>
+        <div class="pick">${others.map(p=>`<button aria-pressed="false" data-p="${esc(p)}">${esc(p)}</button>`).join("")}</div>
+        <label class="row note"><input type="checkbox" id="notUsed" style="width:auto"> ${esc(c.speaker)} never used the word (no points)</label>
+        <div class="row"><button class="primary" id="score">Give points &amp; next</button></div></div></div>`);
+  $("#rev").onclick=()=>{$("#after").hidden=false;$("#rev").disabled=true;};
+  app.querySelectorAll(".pick button").forEach(b=>b.onclick=()=>{const on=b.getAttribute("aria-pressed")!=="true";b.setAttribute("aria-pressed",on);on?c.guessers.add(b.dataset.p):c.guessers.delete(b.dataset.p);});
+  $("#score").onclick=()=>{if(!$("#notUsed").checked){if(!c.guessers.size)this.scores[c.speaker]+=2;c.guessers.forEach(p=>this.scores[p]+=1);}
+    this.idx++;if(this.idx>=this.players.length){this.idx=0;this.round++;}
+    this.round>this.rounds?this.end():this.newTurn();};},
+ sorted(){return Object.entries(this.scores).sort((a,b)=>b[1]-a[1]);},
+ renderScores(){const s=this.sorted(),top=s.length?s[0][1]:0;$("#scoreList").innerHTML=s.map(([n,p])=>`<li class="${p===top&&p>0?"lead":""}"><span>${esc(n)}</span><span class="pts">${p}</span></li>`).join("");},
+ end(){const s=this.sorted(),top=s[0][1],w=s.filter(x=>x[1]===top).map(x=>x[0]);
+  this.shell(`<span class="label">Game over</span><span class="stamp" style="align-self:flex-start">CASE CLOSED</span>
+    <h2>${w.length>1?"It's a tie":"Winner"}: ${w.map(esc).join(" & ")} (${top} pts)</h2>
+    <p class="note">Follow-up: which secret word was the hardest to hide?</p>
+    <div class="row"><button class="primary" id="again">Play again</button><button class="ghost" id="reset">Change players</button></div>`);
+  $("#again").onclick=()=>{this.round=1;this.idx=0;this.players.forEach(n=>this.scores[n]=0);this.newTurn();};
+  $("#reset").onclick=()=>this.setup();}
+};
+
+/* ---------- Small Talk Grid ---------- */
+const STG={
+ A2:[["The weather today","Is it hot or cold today?","What do you do on rainy days?"],["Your weekend","What did you do last weekend?","What are you doing this Saturday?"],["Food you love","What's your favourite dish?","Who cooks at home?"],["Your family","How many people are in your family?","Who are you most like?"],["Pets","Do you have a pet?","What animal would you like?"],["Your bedroom","What's in your bedroom?","What would you change?"],["Breakfast","What do you have for breakfast?","Sweet or savoury?"],["Sports","What sports do you play or watch?","Which sport is boring?"],["Music","What music do you listen to?","Can you play an instrument?"],["Your best friend","How did you meet?","What do you do together?"],["Your town","What's good about your town?","Where do you meet friends?"],["Birthdays","How do you celebrate?","What was your best birthday?"],["Clothes","What are you wearing today?","Where do you buy clothes?"],["School","What's your favourite subject?","What's your least favourite?"],["TV and films","What do you watch?","Who's your favourite actor?"],["Holidays","Where do you go on holiday?","Beach or mountains?"]],
+ B1:[["Your last holidays","Where did you go?","What was the best moment?"],["Video games","Do you play? What?","Are games a waste of time?"],["The weather lately","Has it been strange recently?","Your perfect weather?"],["Your neighbourhood","What's it like?","Has it changed much?"],["A good series","What are you watching?","Would you recommend it?"],["Weekend plans","Any plans this weekend?","Your ideal Saturday?"],["Your phone","How much do you use it?","Which app can't you live without?"],["Cooking","Can you cook? What?","Worst kitchen disaster?"],["Public transport","How do you get around?","What annoys you on the bus or metro?"],["Concerts & festivals","Best concert you've been to?","Who would you love to see live?"],["Shopping","Do you enjoy it?","Online or in shops?"],["Hobbies","What do you do in your free time?","A hobby you'd like to try?"],["Sleep","Early bird or night owl?","How many hours do you sleep?"],["Work or studies","What do you do?","What's the hardest part?"],["Coffee or tea","How do you take it?","Favourite café?"],["Childhood memories","A favourite toy?","Something you miss?"]],
+ B2:[["Working from home","Have you tried it?","Pros and cons?"],["Travel plans","Next place on your list?","Plan everything or improvise?"],["Social media habits","Which do you use most?","Has it changed how you socialise?"],["A book you've read","What was it about?","Would it work as a film?"],["Fitness trends","Gym, running, yoga…?","A trend you don't get?"],["Living abroad","Would you live abroad?","What would you miss most?"],["Extreme weather","Heatwaves, storms… experiences?","Is it getting worse?"],["Streaming vs cinema","Where do you watch films?","Is cinema dying?"],["Learning languages","How did you learn English?","Which language next?"],["Local festivals","Your favourite local celebration?","Too touristy?"],["Your commute","How long does it take?","How do you use the time?"],["Gadgets","One gadget you can't live without?","An overrated one?"],["Tourism in your city","Good or bad for locals?","Tips for visitors?"],["Goals this year","Any resolutions?","Have you kept them?"],["Food trends","Tried anything new lately?","A trend that should disappear?"],["Small talk itself","Are you good at it?","Topics to avoid?"]]
+};
+const STGame={g:byId("small-talk-grid"),level:"B1",mode:"class",pairs:[],turn:0,cells:[],time:60,
+ randomPairs(list){const a=shuffle(list),out=[];for(let i=0;i<a.length;i+=2)out.push(a.slice(i,i+2));
+   if(out.length>1&&out[out.length-1].length===1)out[out.length-2].push(out.pop()[0]);return out.map(p=>p.join(" & ")).join("\n");},
+ shell(inner){app.innerHTML=`<div class="narrow">${gameHeader(this.g)}
+   <main class="card" id="screen" aria-live="polite">${inner}</main>
+   ${this.mode==="race"&&this.cells.length?`<section class="card"><div class="label">Pairs</div><ol class="scores" id="scoreList"></ol></section>`:""}</div>`;
+   if(this.mode==="race"&&this.cells.length)this.renderScores();},
+ setup(){this.cells=[];const a=CL.active(),savedPairs=store.get("sc-pairs","");
+  this.shell(`
+    <div id="bn">${doneBanner("small-talk-grid")}</div>
+    <div class="row">
+      <div class="field"><label class="label" for="lvl">Level</label><select id="lvl">${Object.keys(STG).map(l=>`<option ${l===this.level?"selected":""}>${l}</option>`).join("")}</select></div>
+      <div class="field"><label class="label" for="time">Time</label><select id="time"><option value="45">45 seconds</option><option value="60" selected>1 minute</option><option value="90">1.5 minutes</option><option value="120">2 minutes</option></select></div>
+      ${classField("cls")}
+    </div>
+    <div class="field"><span class="label">Mode</span>
+      <div class="seg" role="group"><button data-m="class" aria-pressed="${this.mode==="class"}">All pairs at once</button><button data-m="race" aria-pressed="${this.mode==="race"}">Race between pairs</button></div>
+      <span class="note" id="modeNote"></span></div>
+    <div id="pairsBox" class="field"><div class="row" style="justify-content:space-between"><label class="label" for="pairs">Pairs</label><button class="ghost" id="mkPairs" style="padding:6px 12px">Shuffle pairs</button></div>
+      <textarea id="pairs">${esc(a?this.randomPairs(a.students):savedPairs)}</textarea><span class="note">One pair per line, up to 8.</span></div>
+    <details class="more"><summary>How to play</summary><ul class="rules" style="margin-top:10px"><li>Choose a square: that's your topic.</li><li>Talk with your partner for <b>the whole time</b>. Ask follow-up questions, react, keep it going.</li><li>A silence of more than <b>3 seconds</b> and the square is lost.</li></ul></details>
+    <div class="row"><button class="primary" id="go">Show the grid</button></div>`);
+  const setMode=m=>{this.mode=m;app.querySelectorAll(".seg button").forEach(b=>b.setAttribute("aria-pressed",b.dataset.m===m));
+    $("#pairsBox").hidden=m!=="race";
+    $("#modeNote").textContent=m==="race"?"Pairs take turns. Survive the minute and the square is yours.":"You pick a square and every pair talks at the same time.";};
+  app.querySelectorAll(".seg button").forEach(b=>b.onclick=()=>setMode(b.dataset.m));setMode(this.mode);
+  const shuffleFrom=()=>{const c=CL.byId($("#cls").value);if(c)$("#pairs").value=this.randomPairs(c.students);};
+  $("#cls").onchange=e=>{const c=CL.byId(e.target.value);if(c){CL.setActive(c.id);shuffleFrom();}else{$("#pairs").value="";}$("#bn").innerHTML=c?doneBanner("small-talk-grid"):"";};
+  $("#mkPairs").onclick=shuffleFrom;
+  $("#go").onclick=()=>{this.level=$("#lvl").value;this.time=+$("#time").value;
+    if(this.mode==="race"){const p=parseNames($("#pairs").value).slice(0,8);if(p.length<2){$("#pairs").focus();return;}store.set("sc-pairs",p.join("\n"));this.pairs=p.map(n=>({name:n,pts:0}));}
+    if($("#cls").value)H.mark($("#cls").value,"small-talk-grid");
+    this.turn=0;this.cells=STG[this.level].map(([t,...q])=>({t,q,owner:null,used:false}));this.grid();};},
+ grid(){const race=this.mode==="race",cur=race?this.pairs[this.turn]:null,left=this.cells.filter(c=>c.owner==null&&!c.used).length;
+  this.shell(`
+    <div class="row" style="justify-content:space-between"><span class="label">${this.level} grid · ${left} squares left</span>
+      ${race?`<span class="turn p${this.turn}"><span class="dot"></span>${esc(cur.name)}'s turn</span>`:`<span class="note">Tap a square to start</span>`}</div>
+    <div class="stg">${this.cells.map((c,i)=>{const o=c.owner!=null;return `<button class="cell ${o?"done p"+c.owner:""} ${c.used&&!o?"used":""}" data-i="${i}" ${o||c.used?"disabled":""}>${esc(c.t)}${o?`<small>${esc(this.pairs[c.owner].name.split(/[ &]/)[0])}</small>`:c.used?`<small>✕</small>`:""}</button>`;}).join("")}</div>
+    <div class="row"><button class="ghost" id="rand" ${left?"":"disabled"}>Random square</button><button class="ghost" id="newGrid">Change settings</button></div>`);
+  app.querySelectorAll(".cell:not(:disabled)").forEach(b=>b.onclick=()=>this.talk(+b.dataset.i));
+  $("#rand").onclick=()=>{const free=this.cells.map((c,i)=>i).filter(i=>this.cells[i].owner==null&&!this.cells[i].used);if(free.length)this.talk(free[Math.floor(Math.random()*free.length)]);};
+  $("#newGrid").onclick=()=>this.setup();
+  if(!left)this.over();},
+ talk(i){const c=this.cells[i],race=this.mode==="race";T.left=T.total=this.time;
+  this.shell(`
+    <span class="label">${race?esc(this.pairs[this.turn].name)+" are talking about…":"Everyone, talk about…"}</span>
+    <div class="topic">${esc(c.t)}</div>
+    <div><span class="label">Ideas to get started</span><ul class="prompts">${c.q.map(q=>`<li>${esc(q)}</li>`).join("")}</ul></div>
+    ${timerBlock()}
+    <div class="row"><button class="red" id="play">Start timer</button>
+      ${race?`<button class="ghost" id="fail">Awkward silence!</button>`:`<button class="ghost" id="back">Back to grid</button>`}</div>
+    <p class="note">Keep it going: <i>Really? · Why's that? · Me too! · What about you?</i></p>`);
+  wireToggle($("#play"),()=>this.result(i,true));
+  if(race)$("#fail").onclick=()=>{stopTimer();this.result(i,false);};else $("#back").onclick=()=>{stopTimer();c.used=true;this.grid();};},
+ result(i,ok){const c=this.cells[i],race=this.mode==="race";
+  if(!race){c.used=true;this.shell(`<span class="label">Time's up</span><h2>Nice work! Swap partners?</h2>
+    <p>Which pair never stopped talking? What was the best follow-up question you heard?</p>
+    <div class="row"><button class="primary" id="g">Back to the grid</button></div>`);$("#g").onclick=()=>this.grid();return;}
+  const p=this.pairs[this.turn];
+  if(ok){c.owner=this.turn;p.pts++;}else{c.used=true;}
+  this.shell(`<span class="label">${ok?"Survived!":"Silence…"}</span>
+    <h2>${ok?`${esc(p.name)} win “${esc(c.t)}”`:`${esc(p.name)} lose “${esc(c.t)}”`}</h2>
+    <div class="row"><button class="primary" id="nx">Next pair</button>${ok?`<button class="ghost" id="undo">Actually, there was a silence</button>`:""}</div>`);
+  $("#nx").onclick=()=>{this.turn=(this.turn+1)%this.pairs.length;this.grid();};
+  if(ok)$("#undo").onclick=()=>{c.owner=null;c.used=true;p.pts--;this.turn=(this.turn+1)%this.pairs.length;this.grid();};},
+ renderScores(){const s=this.pairs.map((p,i)=>({...p,i})).sort((a,b)=>b.pts-a.pts),top=s[0].pts;
+  $("#scoreList").innerHTML=s.map(p=>`<li class="${p.pts===top&&p.pts>0?"lead":""}"><span class="turn p${p.i}"><span class="dot"></span>${esc(p.name)}</span><span class="pts">${p.pts}</span></li>`).join("");},
+ over(){if(this.mode!=="race")return;const s=[...this.pairs].sort((a,b)=>b.pts-a.pts),top=s[0].pts,w=s.filter(p=>p.pts===top).map(p=>p.name);
+  $("#screen").insertAdjacentHTML("beforeend",`<div class="reveal"><span class="label">Grid complete</span><h2>${w.length>1?"It's a tie":"Winners"}: ${w.map(esc).join(" & ")} (${top} squares)</h2></div>`);}
+};
+
+/* migrate old saved names: nothing to do, classes keep same keys */
+route();
+</script>
+
+</body>
+</html>
