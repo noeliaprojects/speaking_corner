@@ -499,7 +499,7 @@ function classesView(editId){
 function photoSection(){
   const L=photoList(),done=L.filter(p=>IMAGES[p.key]).length,B=[];
   for(let i=0;i<L.length;i+=10)B.push(L.slice(i,i+10));
-  const STYLE="Create 10 SEPARATE realistic photos (not a collage). Style for all: realistic photograph, natural light, simple and uncluttered, no text, no logos or brand names, people only from behind or far away (no recognisable faces), landscape 4:3. Name each file EXACTLY as written before the colon, and give me all of them in one ZIP.";
+  const STYLE="Create 10 SEPARATE realistic photos (not a collage). Style for all: realistic photograph, natural light, simple and uncluttered, no text, no logos or brand names, people only from behind or far away (no recognisable faces), landscape 4:3, the photo must fill the whole frame (no borders, no blurred or empty bands at the top or bottom). Name each file EXACTLY as written before the colon, and give me all of them in one ZIP.";
   return `<p class="sub">${done} of ${L.length} photos added. Copy one batch at a time into ChatGPT, then send me the ZIP.</p>
   <div class="bar" style="height:10px"><i style="width:${L.length?done/L.length*100:100}%;background:var(--ok)"></i></div>
   ${B.map((b,n)=>{const ok=b.every(p=>IMAGES[p.key]),decks=[...new Set(b.map(p=>p.deck))].join(", ");
