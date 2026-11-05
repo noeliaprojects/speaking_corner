@@ -246,7 +246,7 @@
 "eat pizza"
 ],
 "img": true,
-"imgP": "an everyday scene of someone who is about to {x}"
+"imgP": "an everyday scene illustrating the activity '{x}'"
 },
 {
 "id": "name-three",
