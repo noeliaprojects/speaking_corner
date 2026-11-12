@@ -47,6 +47,24 @@ a{color:inherit}
 .back{align-self:flex-start;text-decoration:none;font-weight:600;color:var(--muted)}
 .back:hover{color:var(--ink)}
 
+
+/* Lesson planning */
+.lesson-card{min-width:0;display:flex;flex-direction:column}.lesson-card .act{flex:1;border-radius:12px 12px 0 0}
+button.lesson-add{width:100%;justify-content:center;background:var(--paper);border:1px solid var(--line);border-top:0;border-radius:0 0 12px 12px;font-size:.84rem;padding:9px}
+button.lesson-add:hover{background:var(--stage-2);border-color:var(--muted)}
+.lp-list{display:flex;flex-direction:column;gap:8px}
+.lp-summary{border:1px solid var(--line);border-radius:10px;text-decoration:none;display:flex;justify-content:space-between;align-items:center;gap:12px;padding:14px;background:var(--bg)}
+.lp-summary:hover{border-color:var(--muted)}.lp-summary span:first-child{display:flex;flex-direction:column;gap:3px;min-width:0}
+.lp-summary small,.lp-step-name small{display:block;color:var(--muted);font-size:.82rem;font-weight:400}.lp-summary span:last-child{white-space:nowrap}
+.lp-steps{display:flex;flex-direction:column;gap:10px;margin:0;padding:0;list-style:none;counter-reset:lp}
+.lp-step{display:flex;flex-wrap:wrap;gap:10px;align-items:center;padding:12px;border:1px solid var(--line);border-radius:10px;background:var(--bg);counter-increment:lp}
+.lp-step:before{content:counter(lp) ".";font-weight:700;color:var(--muted)}
+.lp-tick{display:flex;align-items:center}.lp-tick input{width:20px;height:20px;margin:0;cursor:pointer}.lp-step-name{flex:1 1 170px;min-width:0}
+.lp-actions{display:flex;flex-wrap:wrap;gap:5px}.lp-actions button{padding:7px 10px}
+.lp-overlay{position:fixed;inset:0;background:rgba(25,30,34,.55);z-index:300;display:flex;align-items:center;justify-content:center;padding:16px}
+.lp-dialog{width:min(100%,490px);max-height:90vh;overflow-y:auto;box-shadow:0 15px 60px rgba(0,0,0,.2)}
+@media(max-width:580px){.lp-step-name{flex-basis:calc(100% - 85px)}.lp-actions{width:100%;justify-content:flex-end}}
+
 /* top bar */
 .top{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
 .top nav{display:flex;gap:8px;flex-wrap:wrap}
@@ -369,8 +387,111 @@ function classSwitcher(){const l=CL.all();if(!l.length)return `<a class="link" h
   return `<label class="classpick"><span class="label">Class</span><select id="clsSel">${CL.options(false)}</select></label>`;}
 function wireClassSwitcher(onChange){const s=$("#clsSel");if(s)s.onchange=()=>{CL.setActive(s.value);onChange();};}
 
+const LP=(function plannerImpl(){
+ const KEY="sc-lesson-plans", RET="sc-lesson-return";
+ const all=()=>{const v=store.get(KEY,[]);return Array.isArray(v)?v:[];};
+ const save=x=>store.set(KEY,x);
+ const get=id=>all().find(p=>p.id===id)||null;
+ const uid=()=>`lp${Date.now().toString(36)}${Math.random().toString(36).slice(2,7)}`;
+ const groupName=id=>(CL.byId(id)||{}).name||"Deleted class";
+ const groupOptions=id=>CL.all().map(c=>`<option value="${esc(c.id)}" ${id===c.id?"selected":""}>${esc(c.name)}</option>`).join("");
+ function update(id,fn){const list=all(),p=list.find(p=>p.id===id);if(!p)return;fn(p);save(list);}
+ function make(title,date,classId,activities=[],notes=""){const p={id:uid(),title,date,classId,notes,activities:[...new Set(activities)].filter(id=>byId(id)),done:[]};save([...all(),p]);return p;}
+ const clearReturn=()=>store.set(RET,null);
+ const currentReturn=()=>{const x=store.get(RET,null);return get(x)?x:null;};
+ const backLink=()=>currentReturn()?`<a class="back" href="#plan/${esc(currentReturn())}">← Lesson plan</a>`:`<a class="back" href="#">← All activities</a>`;
+ const open=(pid,aid)=>{if(get(pid)&&byId(aid)){store.set(RET,pid);location.hash=aid;}};
+ function markPlayed(aid){const id=currentReturn();if(id)update(id,p=>{if(p.activities.includes(aid)&&!(p.done||[]).includes(aid)){p.done=p.done||[];p.done.push(aid);}});}
+ function add(pid,aid){const p=get(pid);if(!p||!byId(aid)||p.activities.includes(aid))return false;update(pid,p=>p.activities.push(aid));return true;}
+ function choose(aid){
+   if(!byId(aid))return;
+   const plans=all().slice().sort((a,b)=>a.date.localeCompare(b.date));
+   if(!plans.length){store.set("sc-lesson-pending",aid);location.hash="plans";return;}
+   const last=store.get("sc-lesson-selected",null),active=CL.active(),selected=plans.find(p=>p.id===last)||plans.find(p=>active&&p.classId===active.id)||plans[0];
+   const overlay=document.createElement("div");overlay.className="lp-overlay";overlay.setAttribute("role","presentation");
+   overlay.innerHTML=`<section class="card lp-dialog" role="dialog" aria-modal="true" aria-labelledby="lpDialogTitle">
+     <div class="row" style="justify-content:space-between"><h2 id="lpDialogTitle">Add to lesson</h2><button class="ghost" id="lpClose">Close</button></div>
+     <p class="note">${esc(byId(aid).name)}</p>
+     <label class="field"><span class="label">Choose a lesson plan</span><select id="lpChosen">${plans.map(p=>`<option value="${esc(p.id)}" ${p.id===selected.id?"selected":""}>${esc(p.title)} · ${esc(groupName(p.classId))} · ${esc(p.date)}</option>`).join("")}</select></label>
+     <div class="row"><button class="primary" id="lpConfirm">Add activity</button><button class="ghost" id="lpNew">+ New lesson</button></div><p class="note" id="lpStatus" role="status"></p></section>`;
+   document.body.appendChild(overlay);const close=()=>overlay.remove();
+   overlay.onclick=e=>{if(e.target===overlay)close();};
+   overlay.querySelector("#lpClose").onclick=close;
+   overlay.querySelector("#lpNew").onclick=()=>{store.set("sc-lesson-pending",aid);close();location.hash="plans";};
+   overlay.querySelector("#lpConfirm").onclick=()=>{
+     const pid=overlay.querySelector("#lpChosen").value;store.set("sc-lesson-selected",pid);
+     overlay.querySelector("#lpStatus").textContent=add(pid,aid)?"Added to your lesson.":"Already in this lesson.";
+     const b=overlay.querySelector("#lpConfirm");b.textContent="Open lesson";b.onclick=()=>{close();location.hash="plan/"+pid;};
+   };
+   overlay.querySelector("#lpChosen").focus();
+ }
+ function listView(){
+   clearReturn();const groups=CL.all(),plans=all().slice().sort((a,b)=>b.date.localeCompare(a.date)),pending=store.get("sc-lesson-pending",null);
+   app.innerHTML=`<div class="narrow"><div class="top"><a class="back" href="#">← All activities</a><a class="back" href="#classes">My classes</a></div>
+     <h1>My <span>lesson plans</span></h1><section class="card"><h2>Prepare a lesson</h2>
+     ${pending&&byId(pending)?`<p class="note">Your new plan will include <b>${esc(byId(pending).name)}</b>.</p>`:""}
+     ${!groups.length?`<p class="note">Create a class first.</p><a class="btn primary" href="#classes">+ Add a class</a>`:`<div class="field"><label class="label" for="lpName">Lesson name</label><input id="lpName" placeholder="e.g. Thursday speaking · Unit 3" maxlength="120"></div>
+     <div class="row"><div class="field"><label class="label" for="lpClass">Class</label><select id="lpClass">${groupOptions((CL.active()||groups[0]).id)}</select></div>
+     <div class="field"><label class="label" for="lpDate">Date</label><input type="date" id="lpDate" value="${today()}"></div></div>
+     <button class="primary" id="lpCreate">+ Create lesson plan</button>`}</section>
+     <section class="card"><h2>Saved lessons <span class="note">${plans.length}</span></h2>
+     ${plans.length?`<div class="lp-list">${plans.map(p=>`<a class="lp-summary" href="#plan/${esc(p.id)}"><span><strong>${esc(p.title)}</strong><small>${esc(groupName(p.classId))} · ${esc(p.date)}</small></span><span class="note">${(p.done||[]).length}/${p.activities.length} done →</span></a>`).join("")}</div>`:`<p class="note">No lesson plans yet. Create one above, then add the activities you want to teach.</p>`}</section>
+     <p class="note">Lesson plans are saved on this browser and device. To transfer them, use the backup in My classes.</p></div>`;
+   if($("#lpCreate"))$("#lpCreate").onclick=()=>{
+     const cid=$("#lpClass").value;if(!CL.byId(cid))return;
+     const p=make($("#lpName").value.trim()||"Speaking lesson",$("#lpDate").value||today(),cid,pending&&byId(pending)?[pending]:[]);
+     store.set("sc-lesson-pending",null);store.set("sc-lesson-selected",p.id);location.hash="plan/"+p.id;
+   };
+ }
+ function planView(id){
+   clearReturn();const p=get(id);if(!p){location.hash="plans";return;}const done=p.done||[],available=ALL.slice().sort((a,b)=>a.name.localeCompare(b.name));
+   app.innerHTML=`<div class="narrow"><div class="top"><a class="back" href="#plans">← My lesson plans</a><a class="back" href="#">All activities</a></div><h1>Lesson <span>plan</span></h1>
+     <section class="card"><div class="field"><label class="label" for="lpTitle">Lesson name</label><input id="lpTitle" value="${esc(p.title)}" maxlength="120"></div>
+       <div class="row"><div class="field"><label class="label" for="lpDateEdit">Date</label><input type="date" id="lpDateEdit" value="${esc(p.date)}"></div>
+       <div class="field"><label class="label" for="lpGroupEdit">Class</label><select id="lpGroupEdit">${groupOptions(p.classId)}</select></div></div>
+       <div class="field"><label class="label" for="lpNotes">Teacher notes (optional)</label><textarea id="lpNotes" placeholder="Materials, timing, homework…">${esc(p.notes||"")}</textarea></div>
+       <div class="row"><button class="primary" id="lpSave">Save details</button><span class="note" id="lpSaved" role="status"></span></div></section>
+     <section class="card"><h2>Activities <span class="note">${done.length} of ${p.activities.length} done</span></h2>
+       <p class="note">Open each activity during class. Tick it after you finish, or use Mark as done inside the activity.</p>
+       ${p.activities.length?`<ol class="lp-steps">${p.activities.map((aid,i)=>{const a=byId(aid);if(!a)return "";return `<li class="lp-step">
+         <label class="lp-tick"><input type="checkbox" data-tick="${esc(aid)}" ${done.includes(aid)?"checked":""} aria-label="Completed ${esc(a.name)}"></label>
+         <span class="lp-step-name"><strong>${esc(a.name)}</strong><small>${esc(a.desc||"")}</small></span>
+         <div class="lp-actions"><button class="primary" data-play="${esc(aid)}">Open</button><button class="ghost" data-up="${i}" ${i===0?"disabled":""} aria-label="Move up ${esc(a.name)}">↑</button>
+         <button class="ghost" data-down="${i}" ${i===p.activities.length-1?"disabled":""} aria-label="Move down ${esc(a.name)}">↓</button><button class="ghost" data-remove="${i}" aria-label="Remove ${esc(a.name)}">×</button></div></li>`;}).join("")}</ol>`:`<p class="note">This plan has no activities yet. Add one below.</p>`}
+       <label class="field"><span class="label">Add an activity</span><select id="lpActivity">${available.map(a=>`<option value="${esc(a.id)}">${esc(a.name)} · ${esc(lvRange(a.lv))}</option>`).join("")}</select></label>
+       <div class="row"><button class="primary" id="lpAdd">+ Add activity</button><a class="btn ghost" href="#">Browse all activities</a></div><p class="note" id="lpAddMessage" role="status"></p>
+     </section><section class="card"><div class="row"><button class="ghost" id="lpDuplicate">Duplicate lesson</button><button class="ghost" id="lpDelete">Delete lesson</button></div></section></div>`;
+   $("#lpSave").onclick=()=>{const title=$("#lpTitle").value.trim(),date=$("#lpDateEdit").value,cid=$("#lpGroupEdit").value;
+     if(!title||!date||!CL.byId(cid)){$("#lpSaved").textContent="Enter a name, date and class.";return;}
+     update(id,p=>{p.title=title;p.date=date;p.classId=cid;p.notes=$("#lpNotes").value;});$("#lpSaved").textContent="Saved.";};
+   $("#lpAdd").onclick=()=>{const a=$("#lpActivity").value;if(add(id,a))planView(id);else $("#lpAddMessage").textContent="Already in this lesson.";};
+   app.querySelectorAll("[data-play]").forEach(b=>b.onclick=()=>open(id,b.dataset.play));
+   app.querySelectorAll("[data-tick]").forEach(b=>b.onchange=()=>{
+     update(id,p=>{p.done=p.done||[];if(b.checked){if(!p.done.includes(b.dataset.tick))p.done.push(b.dataset.tick);if(p.date===today()&&CL.byId(p.classId))H.mark(p.classId,b.dataset.tick);}
+       else p.done=p.done.filter(x=>x!==b.dataset.tick);});planView(id);
+   });
+   for(const attr of ["up","down"])app.querySelectorAll(`[data-${attr}]`).forEach(b=>b.onclick=()=>{
+     const i=+b.dataset[attr],j=i+(attr==="up"?-1:1);
+     update(id,p=>{if(j>=0&&j<p.activities.length)[p.activities[i],p.activities[j]]=[p.activities[j],p.activities[i]];});planView(id);
+   });
+   app.querySelectorAll("[data-remove]").forEach(b=>b.onclick=()=>{const i=+b.dataset.remove;update(id,p=>{const a=p.activities.splice(i,1)[0];p.done=(p.done||[]).filter(x=>x!==a);});planView(id);});
+   $("#lpDuplicate").onclick=()=>{const copy=make(p.title+" (copy)",today(),p.classId,p.activities,p.notes||"");location.hash="plan/"+copy.id;};
+   $("#lpDelete").onclick=()=>{const b=$("#lpDelete");if(!b.dataset.confirm){b.dataset.confirm="1";b.textContent="Tap again to delete";return;}save(all().filter(x=>x.id!==id));location.hash="plans";};
+ }
+ function importPlans(raw,map){
+   if(!Array.isArray(raw))return;
+   const list=all();for(const p of raw){if(!p||typeof p!=="object")continue;const cid=map[p.classId]||p.classId;if(!CL.byId(cid))continue;
+     list.push({id:uid(),title:String(p.title||"Imported lesson"),date:String(p.date||today()),classId:cid,notes:String(p.notes||""),
+       activities:Array.isArray(p.activities)?[...new Set(p.activities.filter(a=>typeof a==="string"&&byId(a)))]:[],
+       done:Array.isArray(p.done)?p.done.filter(a=>typeof a==="string"&&byId(a)):[]});}save(list);
+ }
+ return {all,get,make,open,choose,add,listView,planView,currentReturn,clearReturn,backLink,markPlayed,importPlans};
+})();
+
 /* ---------- router ---------- */
 function route(){stopTimer();stopDeck();const h=location.hash.slice(1);window.scrollTo(0,0);
+  if(h==="plans")return LP.listView();
+  if(h.startsWith("plan/"))return LP.planView(h.slice(5));
   if(h==="classes")return classesView();
   if(h==="info")return infoView();
   if(h==="secret-word")return SW.setup();
@@ -382,10 +503,11 @@ window.addEventListener("hashchange",route);
 /* ---------- hub ---------- */
 const F=store.get("sc-filters2",{fmt:"all",lv:"all"});
 function hub(){
+  LP.clearReturn();
   const sel=(id,label,opts,cur)=>`<label class="fsel"><span class="sr">${label}</span><select id="${id}">${opts.map(([v,l])=>`<option value="${esc(v)}" ${cur===v?"selected":""}>${esc(l)}</option>`).join("")}</select></label>`;
   app.innerHTML=`
   <header class="top"><h1 class="brand">Speaking <span>Corner</span></h1>
-    <nav>${classSwitcher()}<a class="link" href="#classes">My classes</a><a class="link" href="#info">Info</a></nav></header>
+    <nav>${classSwitcher()}<a class="link" href="#classes">My classes</a><a class="link" href="#plans">My lesson plans</a><a class="link" href="#info">Info</a></nav></header>
   <section class="filters" aria-label="Filters">
     <label class="search"><span class="sr">Search</span><input id="q" type="search" placeholder="Search activities, topics or grammar" value="${esc(F.q||"")}" autocomplete="off"></label>
     <div class="chips" id="fFmt">${[["all","All formats"],...Object.entries(FMTS)].map(([k,v])=>`<button data-k="${k}" aria-pressed="${(F.fmt||"all")===k}">${v}</button>`).join("")}</div>
@@ -410,14 +532,15 @@ function renderList(){
   const hay=g=>[g.name,g.desc,g.instr||"",(g.gram||[]).join(" "),(g.books||[]).join(" "),...(g.cards||[]).map(c=>typeof c==="object"?JSON.stringify(c):c)].join(" ").toLowerCase();
   const ok=g=>(!F.fmt||F.fmt==="all"||g.fmts.includes(F.fmt))&&(!F.lv||F.lv==="all"||g.lv.includes(F.lv))&&(!F.gr||F.gr==="all"||(g.gram||[]).includes(F.gr))&&(!F.age||F.age==="all"||(g.ages||[]).includes(F.age))&&(!words.length||words.every(w=>hay(g).includes(w)));
   const fm=g=>g.fmts.length===3?"Any format":g.fmts.map(f=>FMTS[f]).join(", ");
-  const card=g=>{const d=a?H.dates(a.id,g.id):[];return `<a class="act" href="#${g.id}">
+  const card=g=>{const d=a?H.dates(a.id,g.id):[];return `<article class="lesson-card"><a class="act" href="#${g.id}">
     <div class="top-row"><span class="lvpill">${lvRange(g.lv)}</span><span class="kind">${esc(g.gram?g.gram[0]:"")}</span></div>
     <h3>${esc(g.name)}</h3><p>${esc(g.desc)}</p>
-    <div class="meta">${fm(g)}${g.print==="required"?` · <b class="m-print">Print</b>`:""}${d.length?` · <b class="m-done">Done ${niceDate(d[d.length-1]).replace(/ \d{4}$/,"")}</b>`:""}</div></a>`;};
+    <div class="meta">${fm(g)}${g.print==="required"?` · <b class="m-print">Print</b>`:""}${d.length?` · <b class="m-done">Done ${niceDate(d[d.length-1]).replace(/ \d{4}$/,"")}</b>`:""}</div></a><button type="button" class="lesson-add" data-add-activity="${esc(g.id)}">+ Add to lesson</button></article>`;};
   let n=0;
   const html=Object.entries(CATS).map(([k,v])=>{const l=ALL.filter(g=>g.cat===k&&ok(g));n+=l.length;if(!l.length)return "";
     return `<section class="cat"><h2>${v} <span>${l.length}</span></h2><div class="grid">${l.map(card).join("")}</div></section>`;}).join("");
   $("#list").innerHTML=html||`<p class="empty">Nothing matches. Try another word or clear the filters.</p>`;
+  app.querySelectorAll("[data-add-activity]").forEach(b=>b.onclick=()=>LP.choose(b.dataset.addActivity));
 }
 
 /* ---------- guides ---------- */
@@ -483,7 +606,7 @@ function deckView(d){
   D={d,order,slides:buildSlides(d,order),i:0,phr:true,hide:!!d.secret,upper:ONLY_YOUNG(d)||F.age==="3-6"||F.age==="6-8",tid:null,left:0,picked:[],pickName:null};
   const p=PRINT[d.id],a=CL.active();
   app.innerHTML=`<div class="wrap" style="gap:14px">
-    <div class="top"><a class="back" href="#">← All activities</a>${classSwitcher()}</div>
+    <div class="top">${LP.backLink()}${classSwitcher()}</div>
     <div id="bn">${doneBanner(d.id)}</div>
     ${d.print?`<div class="banner print"><span>${d.print==="required"?"This activity needs printed cards.":"Optional printed cards"} · ${p.what}</span><a class="btn primary" href="${p.file}" target="_blank" rel="noopener">Open PDF to print</a></div>`:""}
     <div class="stage c-${d.cat}" id="stage" tabindex="-1"></div>
@@ -499,6 +622,7 @@ function deckView(d){
         ${YOUNG(d)?`<button class="ghost" id="upB" aria-pressed="${D.upper}" title="Capital letters for young learners">ABC</button>`:""}
         <button class="ghost" id="fsB">Full screen</button>
         <button class="ghost" id="prB" aria-expanded="false">Print cards</button>
+         <button class="ghost" id="addLesson">+ Add to lesson</button>
       </div></div>
     <section class="card" id="prPanel" hidden><h2>Print cards</h2>
       <div class="row">
@@ -524,6 +648,7 @@ function deckView(d){
   if($("#upB"))$("#upB").onclick=()=>{D.upper=!D.upper;$("#upB").setAttribute("aria-pressed",D.upper);render();};
   $("#phB").onclick=()=>{D.phr=!D.phr;$("#phB").setAttribute("aria-pressed",D.phr);render();};
   if($("#hideB"))$("#hideB").onclick=()=>{D.hide=!D.hide;$("#hideB").setAttribute("aria-pressed",D.hide);render();};
+  $("#addLesson").onclick=()=>LP.choose(d.id);
   $("#tbtn").onclick=toggleTimer;
   $("#pickB").onclick=pickStudent;
   $("#prB").onclick=()=>{const p=$("#prPanel");p.hidden=!p.hidden;$("#prB").setAttribute("aria-expanded",!p.hidden);if(!p.hidden)p.scrollIntoView({block:"nearest",behavior:"smooth"});};
@@ -545,7 +670,7 @@ function doneRow(){const a=CL.active(),r=$("#doneRow");if(!r)return;
   const did=H.dates(a.id,D.d.id).includes(today());
   r.innerHTML=did?`<span class="banner ok">Marked as done today for ${esc(a.name)}</span><button class="ghost" id="undoDone">Undo</button>`
     :`<button class="primary" id="markDone">Mark as done for ${esc(a.name)}</button>`;
-  if($("#markDone"))$("#markDone").onclick=()=>{H.mark(a.id,D.d.id);doneRow();};
+  if($("#markDone"))$("#markDone").onclick=()=>{H.mark(a.id,D.d.id);LP.markPlayed(D.d.id);doneRow();};
   if($("#undoDone"))$("#undoDone").onclick=()=>{H.unmarkToday(a.id,D.d.id);doneRow();};}
 function go(n){const k=D.i+n;if(k<0||k>=D.slides.length)return;D.i=k;D.pickName=null;render();}
 function phrases(d){return D.phr&&d.ph?`<div class="s-ph"><b>Useful language</b>${d.ph.map(p=>`<span>${esc(p)}</span>`).join("")}</div>`:"";}
@@ -628,7 +753,7 @@ function classesView(editId){
      :`<p class="note">No classes yet. Fill in the form above to save your first group.</p>`}</section>
    <section class="card"><details class="more"><summary>Back up or move your classes</summary>
      <div class="bank">
-       <div class="field"><label class="label" for="exp">Backup code (classes and history)</label><textarea id="exp" readonly>${esc(JSON.stringify({classes:list,history:H.all()}))}</textarea></div>
+       <div class="field"><label class="label" for="exp">Backup code (classes and history)</label><textarea id="exp" readonly>${esc(JSON.stringify({classes:list,history:H.all(),plans:LP.all()}))}</textarea></div>
        <div class="row"><button class="ghost" id="copyB">Copy backup</button><span class="note" id="copyMsg"></span></div>
        <div class="field"><label class="label" for="imp">Restore from a backup</label><textarea id="imp" placeholder="Paste a backup code here"></textarea></div>
        <div class="row"><button class="ghost" id="impB">Restore</button><span class="note" id="impMsg"></span></div>
@@ -651,9 +776,9 @@ function classesView(editId){
   $("#copyB").onclick=()=>{const t=$("#exp"),fb=()=>{t.select();$("#copyMsg").textContent="Selected. Copy it with Ctrl+C.";};
     try{navigator.clipboard.writeText(t.value).then(()=>$("#copyMsg").textContent="Copied.",fb);}catch(e){fb();}};
   $("#impB").onclick=()=>{try{let data=JSON.parse($("#imp").value);const cls=Array.isArray(data)?data:data.classes;if(!Array.isArray(cls))throw 0;
-      const l=CL.all(),hist=H.all();cls.forEach((c,n)=>{if(c&&c.name&&Array.isArray(c.students)){const id=l.some(x=>x.id===c.id)?"c"+Date.now().toString(36)+n:(c.id||"c"+Date.now().toString(36)+n);
-        l.push({id,name:String(c.name),students:c.students.map(String)});if(data.history&&data.history[c.id])hist[id]=data.history[c.id];}});
-      CL.save(l);store.set("sc-hist",hist);classesView(null);}catch(e){$("#impMsg").textContent="That code isn't valid. Paste the full backup code.";}};
+      const l=CL.all(),hist=H.all(),map={};cls.forEach((c,n)=>{if(c&&c.name&&Array.isArray(c.students)){const id=l.some(x=>x.id===c.id)?"c"+Date.now().toString(36)+n:(c.id||"c"+Date.now().toString(36)+n);
+        l.push({id,name:String(c.name),students:c.students.map(String)});map[c.id]=id;if(data.history&&data.history[c.id])hist[id]=data.history[c.id];}});
+      CL.save(l);store.set("sc-hist",hist);LP.importPlans(data.plans,map);classesView(null);}catch(e){$("#impMsg").textContent="That code isn't valid. Paste the full backup code.";}};
 }
 
 /* ---------- info ---------- */
@@ -679,7 +804,7 @@ function infoView(){
   <section class="card"><h2>Classes and history</h2><ul class="rules">
     <li>Save each group once in <b>My classes</b>. For a private student, create a class with just their name.</li>
     <li>Press <b>Mark as done</b> after an activity. Next time you choose that class, the activity shows a warning with the date.</li>
-    <li>Everything is saved in this browser on this device. To use another device, copy the backup code in My classes and paste it there.</li></ul></section>
+    <li>Use <b>My lesson plans</b> to prepare, order and open activities for each group, then mark them complete.</li><li>Groups, history and lesson plans are saved on this browser and device. Back them up in My classes when changing devices.</li></ul></section>
   <section class="card"><h2>Printing</h2><ul class="rules">
     <li>Activities marked <b>Print</b> need cards. Their page has a button to open the PDF.</li>
     <li>Cards fill the whole A4 page with shared cut lines, so you only need straight cuts. Print at 100% (actual size).</li></ul></section>
@@ -697,7 +822,7 @@ function startTimer(onEnd){audio();T.id=setInterval(()=>{T.left--;if(T.left===10
   if(T.left<=0){stopTimer();beep();tm.textContent="Time's up!";setTimeout(onEnd,1500);}},1000);}
 function timerBlock(){return `<div class="timer" id="tm">${fmt(T.left)}</div><div class="bar"><i id="br" style="width:${T.left/T.total*100}%"></i></div>`;}
 function wireToggle(btn,onEnd){btn.onclick=()=>{if(T.id){stopTimer();btn.textContent="Resume";}else{startTimer(onEnd);btn.textContent="Pause";}};}
-function gameHeader(g){return `<a class="back" href="#">← All activities</a><header><span class="label">${g.fmts.map(f=>FMTS[f]).join(" · ")} · ${lvRange(g.lv)}</span><h1>${esc(g.name.split(" ")[0])} <span>${esc(g.name.split(" ").slice(1).join(" "))}</span></h1></header>`;}
+function gameHeader(g){return `${LP.backLink()}<header><span class="label">${g.fmts.map(f=>FMTS[f]).join(" · ")} · ${lvRange(g.lv)}</span><h1>${esc(g.name.split(" ")[0])} <span>${esc(g.name.split(" ").slice(1).join(" "))}</span></h1></header>`;}
 function classField(id){return `<div class="field"><label class="label" for="${id}">Class</label><select id="${id}">${CL.options(true)}</select></div>`;}
 
 /* ---------- Secret Word ---------- */
