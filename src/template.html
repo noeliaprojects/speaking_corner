@@ -245,7 +245,7 @@ button,.btn{font-weight:500}
 .act{position:relative;border:1.5px solid var(--ink);border-radius:18px 18px 18px 4px;padding:18px 20px 16px;gap:8px;box-shadow:none;background:var(--paper);transition:box-shadow .15s,border-color .15s}
 .act:hover{border-color:var(--stamp);box-shadow:5px 5px 0 var(--stamp-soft),5px 5px 0 1.5px var(--stamp)}
 .top-row{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:4px}
-.lvpill{font-size:.78rem;font-weight:500;color:var(--stamp);background:var(--stamp-soft);border-radius:6px;padding:3px 9px;white-space:nowrap}
+.lvpill{font-size:.8rem;font-weight:600;color:#fff;background:#2f5bea;border-radius:99px 99px 99px 3px;padding:4px 11px;white-space:nowrap;letter-spacing:.01em}
 .kind{font-size:.78rem;color:var(--muted);text-align:right;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0}
 .act h3{font-size:1.08rem;font-weight:600}
 .act p{font-size:.9rem;color:#3d4347}
@@ -349,8 +349,8 @@ function hub(){
     <label class="search"><span class="sr">Search</span><input id="q" type="search" placeholder="Search activities, topics or grammar" value="${esc(F.q||"")}" autocomplete="off"></label>
     <div class="chips" id="fFmt">${[["all","All formats"],...Object.entries(FMTS)].map(([k,v])=>`<button data-k="${k}" aria-pressed="${(F.fmt||"all")===k}">${v}</button>`).join("")}</div>
     <div class="chips" id="fLv">${["all",...LEVELS].map(k=>`<button data-k="${k}" aria-pressed="${(F.lv||"all")===k}">${k==="all"?"All levels":k}</button>`).join("")}</div>
+    <div class="chips" id="fAge">${[["all","All ages"],...Object.keys(AGES).map(k=>[k,k==="adults"?"Adults":k.replace("-","–")])].map(([k,v])=>`<button data-k="${k}" aria-pressed="${(F.age||"all")===k}" title="${esc(AGES[k]||"")}">${v}</button>`).join("")}</div>
     <div class="fbar">
-      ${sel("fAge","Age",[["all","Any age"],...Object.entries(AGES)],F.age||"all")}
       <label class="fsel"><span class="sr">Grammar</span><select id="fGr"><option value="all">Any grammar</option>${Object.entries(GRAM_GROUPS).map(([g,l])=>`<optgroup label="${esc(g)}">${l.filter(x=>ALL.some(a=>(a.gram||[]).includes(x))).map(x=>`<option ${F.gr===x?"selected":""}>${esc(x)}</option>`).join("")}</optgroup>`).join("")}</select></label>
       <button class="link" id="clr" type="button">Clear</button>
     </div>
@@ -358,7 +358,7 @@ function hub(){
   <div id="list"></div>`;
   const on=(id,key)=>$(id).onchange=e=>{F[key]=e.target.value;store.set("sc-filters2",F);renderList();};
   const bind=(id,key)=>$(id).querySelectorAll("button").forEach(b=>b.onclick=()=>{F[key]=b.dataset.k;store.set("sc-filters2",F);$(id).querySelectorAll("button").forEach(x=>x.setAttribute("aria-pressed",x===b));renderList();});
-  bind("#fFmt","fmt");bind("#fLv","lv");on("#fAge","age");on("#fGr","gr");
+  bind("#fFmt","fmt");bind("#fLv","lv");bind("#fAge","age");on("#fGr","gr");
   $("#q").oninput=e=>{F.q=e.target.value;store.set("sc-filters2",F);renderList();};
   $("#clr").onclick=()=>{Object.assign(F,{q:"",lv:"all",age:"all",fmt:"all",gr:"all"});store.set("sc-filters2",F);hub();};
   wireClassSwitcher(renderList);renderList();
