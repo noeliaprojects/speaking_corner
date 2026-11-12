@@ -92,6 +92,17 @@ button.lesson-add:hover::after,button.lesson-add:focus-visible::after{opacity:1;
 .top nav{align-items:center}
 .top .classpick{padding:4px 4px 4px 12px;border-radius:8px}
 
+/* Quick category jumps: always within reach, one understated horizontal row */
+.section-jumps{position:sticky;top:6px;z-index:20;display:flex;align-items:center;gap:8px;padding:9px 12px;background:var(--paper);border:1px solid var(--line);border-radius:12px;box-shadow:0 2px 8px rgba(30,36,40,.05);min-width:0}
+.section-jumps-label{font-size:.75rem;font-weight:600;color:var(--muted);white-space:nowrap;flex:0 0 auto}
+.section-jumps-scroll{display:flex;align-items:center;gap:5px;overflow-x:auto;scrollbar-width:thin;min-width:0;width:100%;padding:1px}
+.section-jumps button{flex:0 0 auto;border:1px solid var(--line);border-radius:99px;padding:6px 11px;font-size:.78rem;font-weight:500;background:var(--paper);color:var(--ink);white-space:nowrap;box-shadow:none}
+.section-jumps button:hover:not(:disabled),.section-jumps button:focus-visible{border-color:var(--stamp);color:var(--stamp)}
+.section-jumps button:disabled{opacity:.32;cursor:not-allowed}
+.section-jumps .jump-exam{border-color:#b6d1c9;color:var(--stamp);background:var(--stamp-soft)}
+.cat,.exam-level{scroll-margin-top:77px}
+@media(max-width:580px){.section-jumps{padding:7px 8px;gap:6px}.section-jumps-label{font-size:.7rem}.section-jumps button{padding:6px 9px}}
+
 /* activity cards */
 .cat{display:flex;flex-direction:column;gap:12px}
 .cat-h{display:flex;align-items:baseline;gap:10px}
@@ -576,6 +587,18 @@ function hub(){
   app.innerHTML=`
   <header class="top"><h1 class="brand">Speaking <span>Corner</span></h1>
     <nav>${classSwitcher()}<a class="link" href="#classes">My classes</a><a class="link" href="#plans">My lesson plans</a><a class="link" href="#my-activities">My activities</a><a class="link" href="#info">Info</a></nav></header>
+  <nav class="section-jumps" id="sectionJumps" aria-label="Jump to activity section">
+    <span class="section-jumps-label">Jump to</span>
+    <div class="section-jumps-scroll">
+      <button type="button" data-jump="section-warm">Warm-ups</button>
+      <button type="button" data-jump="section-you">Talk about you</button>
+      <button type="button" data-jump="section-opinion">Opinions & debate</button>
+      <button type="button" data-jump="section-game">Games</button>
+      <button type="button" class="jump-exam" data-jump="section-hidden-exam">The Hidden Exam</button>
+      <button type="button" data-jump="section-b2">B2 First</button>
+      <button type="button" data-jump="section-c1">C1 Advanced</button>
+    </div>
+  </nav>
   <section class="filters" aria-label="Filters">
     <label class="search"><span class="sr">Search</span><input id="q" type="search" placeholder="Search activities, topics or grammar" value="${esc(F.q||"")}" autocomplete="off"></label>
     <div class="chips" id="fFmt">${[["all","All formats"],...Object.entries(FMTS)].map(([k,v])=>`<button data-k="${k}" aria-pressed="${(F.fmt||"all")===k}">${v}</button>`).join("")}</div>
@@ -592,6 +615,11 @@ function hub(){
   bind("#fFmt","fmt");bind("#fLv","lv");bind("#fAge","age");on("#fGr","gr");
   $("#q").oninput=e=>{F.q=e.target.value;store.set("sc-filters2",F);renderList();};
   $("#clr").onclick=()=>{Object.assign(F,{q:"",lv:"all",age:"all",fmt:"all",gr:"all"});store.set("sc-filters2",F);hub();};
+  $("#sectionJumps").addEventListener("click",e=>{
+    const b=e.target.closest("button[data-jump]");if(!b||b.disabled)return;
+    const target=document.getElementById(b.dataset.jump);
+    if(target)target.scrollIntoView({behavior:window.matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth",block:"start"});
+  });
   wireClassSwitcher(renderList);renderList();
 }
 /* Formats and materials: icons share one calm visual language. */
@@ -635,15 +663,19 @@ function renderList(){
     if(k==="b2"){
       const b2=ALL.filter(g=>g.cat==="b2"&&ok(g)),c1=ALL.filter(g=>g.cat==="c1"&&ok(g)),count=b2.length+c1.length;
       n+=count;if(!count)return "";
-      const level=(games,title)=>games.length?`<div class="exam-level"><h3>${title} <span class="note">${games.length} games</span></h3><div class="grid">${games.map(card).join("")}</div></div>`:"";
-      return `<section class="cat exam-cat"><h2>The Hidden Exam <span>${count}</span></h2>
+      const level=(games,title)=>games.length?`<div class="exam-level" id="section-${title==="B2 First"?"b2":"c1"}"><h3>${title} <span class="note">${games.length} games</span></h3><div class="grid">${games.map(card).join("")}</div></div>`:"";
+      return `<section class="cat exam-cat" id="section-hidden-exam"><h2>The Hidden Exam <span>${count}</span></h2>
         <p class="note">Cambridge speaking skills, disguised as games.</p>
         ${level(b2,"B2 First")}${level(c1,"C1 Advanced")}</section>`;
     }
     const l=ALL.filter(g=>g.cat===k&&ok(g));n+=l.length;if(!l.length)return "";
-    return `<section class="cat"><h2>${v} <span>${l.length}</span></h2><div class="grid">${l.map(card).join("")}</div></section>`;
+    return `<section class="cat" id="section-${k}"><h2>${v} <span>${l.length}</span></h2><div class="grid">${l.map(card).join("")}</div></section>`;
   }).join("");
   $("#list").innerHTML=html||`<p class="empty">Nothing matches. Try another word or clear the filters.</p>`;
+  // Reflect the current search/level/age filters in the jump bar.
+  $("#sectionJumps").querySelectorAll("button[data-jump]").forEach(b=>{
+    b.disabled=!document.getElementById(b.dataset.jump);
+  });
   app.querySelectorAll("[data-add-activity]").forEach(b=>b.onclick=()=>LP.choose(b.dataset.addActivity));
 }
 
