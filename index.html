@@ -421,7 +421,7 @@ const GRAM_GROUPS={"Tenses":["Present simple","Present continuous","Present perf
  "Advanced (C1)":["Inversion","Cleft sentences","Linkers"]};
 const GRAMS=Object.values(GRAM_GROUPS).flat();
 const AGES={"3-6":"Little ones (3–6)","6-8":"Young learners (6–8)","9-12":"Kids (9–12)","12-14":"Pre-teens (12–14)","14-16":"Teens (14–16)","16-18":"Older teens (16–18)","19-25":"Young adults (19–25)","adults":"Adults"};
-const CATS={warm:"Warm-ups",you:"Talk about you",opinion:"Opinions & debate",game:"Games",b2:"B2 First · Speaking games",c1:"C1 Advanced · Speaking games",mine:"My activities"};
+const CATS={warm:"Warm-ups",you:"Talk about you",opinion:"Opinions & debate",game:"Games",b2:"B2 First",c1:"C1 Advanced",mine:"My activities"};
 const FMTS={ind:"Individual",pair:"Pairs",grp:"Whole group"};
 const LEVELS=["A1","A2","B1","B2","C1"];
 const APPS=[
@@ -601,9 +601,8 @@ function hub(){
       <button type="button" data-jump="section-you">Talk about you</button>
       <button type="button" data-jump="section-opinion">Opinions & debate</button>
       <button type="button" data-jump="section-game">Games</button>
-      <button type="button" class="jump-exam" data-jump="section-hidden-exam">The Hidden Exam</button>
-      <button type="button" data-jump="section-b2">B2 First</button>
-      <button type="button" data-jump="section-c1">C1 Advanced</button>
+      <button type="button" class="jump-exam" data-jump="section-b2">B2 First</button>
+      <button type="button" class="jump-exam" data-jump="section-c1">C1 Advanced</button>
     </div>
   </nav>
   <section class="filters" aria-label="Filters">
@@ -666,17 +665,13 @@ function renderList(){
     <div class="meta">${d.length?`<span class="m-done">Done ${niceDate(d[d.length-1]).replace(/ \d{4}$/,"")}</span>`:""}<div class="meta-icons-row"><span class="format-icons" role="group" aria-label="Activity formats">${formatIcons(g)}</span><span class="resource-icons" role="group" aria-label="Materials and devices">${materialIcons(g)}</span></div></div></a><button type="button" class="lesson-add" data-add-activity="${esc(g.id)}" ><span aria-hidden="true">+</span><span class="sr">Add ${esc(g.name)} to lesson</span></button></article>`;};
   let n=0;
   const html=Object.entries(CATS).map(([k,v])=>{
-    if(k==="c1")return ""; // Both Cambridge levels belong in one distinct game section.
-    if(k==="b2"){
-      const b2=ALL.filter(g=>g.cat==="b2"&&ok(g)),c1=ALL.filter(g=>g.cat==="c1"&&ok(g)),count=b2.length+c1.length;
-      n+=count;if(!count)return "";
-      const level=(games,title)=>games.length?`<div class="exam-level" id="section-${title==="B2 First"?"b2":"c1"}"><h3>${title} <span class="note">${games.length} games</span></h3><div class="grid">${games.map(card).join("")}</div></div>`:"";
-      return `<section class="cat exam-cat" id="section-hidden-exam"><h2>The Hidden Exam <span>${count}</span></h2>
-        <p class="note">Cambridge speaking skills, disguised as games.</p>
-        ${level(b2,"B2 First")}${level(c1,"C1 Advanced")}</section>`;
-    }
+    if(k==="mine")return ""; // Private activities have their own My activities page.
     const l=ALL.filter(g=>g.cat===k&&ok(g));n+=l.length;if(!l.length)return "";
-    return `<section class="cat" id="section-${k}"><h2>${v} <span>${l.length}</span></h2><div class="grid">${l.map(card).join("")}</div></section>`;
+    const exam=k==="b2"||k==="c1";
+    return `<section class="cat${exam?" exam-cat":""}" id="section-${k}">
+      <h2>${v} <span>${l.length}</span></h2>
+      ${exam?`<p class="note">Cambridge speaking skills, disguised as games.</p>`:""}
+      <div class="grid">${l.map(card).join("")}</div></section>`;
   }).join("");
   $("#list").innerHTML=html||`<p class="empty">Nothing matches. Try another word or clear the filters.</p>`;
   // Reflect the current search/level/age filters in the jump bar.
