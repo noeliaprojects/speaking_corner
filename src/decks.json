@@ -6946,5 +6946,1412 @@
 ]
 },
 "end": "What's the best first question to ask?"
+},
+{
+"id": "look-and-say-toys",
+"name": "Look and Say: Toys",
+"cat": "warm",
+"lv": [
+"A1"
+],
+"fmts": [
+"ind",
+"grp"
+],
+"kind": "single",
+"reveal": true,
+"img": true,
+"photoOnly": true,
+"ages": [
+"3-6",
+"6-8"
+],
+"imgP": "a clear, colourful photo of {x}, simple background",
+"revealTag": "Toys",
+"ansLabel": "Let's say it!",
+"q": [
+"What's this?",
+"Is it big or small? Old or new?"
+],
+"desc": "Name the toy and say if it's big or small, old or new.",
+"instr": "Look at the picture. What's this? Then answer the second question together.",
+"ph": [
+"It's a…",
+"It's big / small",
+"It's new / old",
+"I've got a…!"
+],
+"cards": [
+{
+"t": "ball",
+"ans": "It's a ball!",
+"q": "toy ball"
+},
+{
+"t": "doll",
+"ans": "It's a doll!"
+},
+{
+"t": "robot",
+"ans": "It's a robot!",
+"q": "toy robot"
+},
+{
+"t": "kite",
+"ans": "It's a kite!"
+},
+{
+"t": "bike",
+"ans": "It's a bike!",
+"q": "children bicycle"
+},
+{
+"t": "teddy bear",
+"ans": "It's a teddy!"
+},
+{
+"t": "scooter",
+"ans": "It's a scooter!",
+"q": "kick scooter"
+},
+{
+"t": "toy car",
+"ans": "It's a car!"
+},
+{
+"t": "balloon",
+"ans": "It's a balloon!",
+"q": "balloons"
+},
+{
+"t": "board game",
+"ans": "It's a game!"
+},
+{
+"t": "toy train",
+"ans": "It's a train!"
+},
+{
+"t": "building blocks",
+"ans": "They're blocks!"
+}
+],
+"guide": {
+"ind": [
+"Show the picture and ask the first question. Model the answer if needed.",
+"Ask the second question and use gestures.",
+"Reveal and repeat together, clapping the syllables."
+],
+"pair": [
+"Children point and ask each other the question.",
+"",
+""
+],
+"grp": [
+"The whole class answers together, then one child answers alone.",
+"Turn it into a game: 'Stand up if you've got one at home!'",
+"Keep it fast: 1 minute per picture."
+]
+},
+"end": "What's your favourite toy?"
+},
+{
+"id": "look-and-say-school",
+"name": "Look and Say: School Things",
+"cat": "warm",
+"lv": [
+"A1"
+],
+"fmts": [
+"ind",
+"grp"
+],
+"kind": "single",
+"reveal": true,
+"img": true,
+"photoOnly": true,
+"ages": [
+"3-6",
+"6-8"
+],
+"imgP": "a clear, colourful photo of {x}, simple background",
+"revealTag": "School",
+"ansLabel": "Let's say it!",
+"q": [
+"What's this?",
+"What colour is it? Have you got one?"
+],
+"desc": "Name the classroom objects: pencil, rubber, ruler…",
+"instr": "Look at the picture. What's this? Then answer the second question together.",
+"ph": [
+"It's a…",
+"It's (red)",
+"I've got a…",
+"Can I have a…, please?"
+],
+"cards": [
+{
+"t": "pencil",
+"ans": "It's a pencil!"
+},
+{
+"t": "rubber eraser",
+"ans": "It's a rubber!",
+"q": "eraser"
+},
+{
+"t": "ruler",
+"ans": "It's a ruler!"
+},
+{
+"t": "crayons",
+"ans": "They're crayons!"
+},
+{
+"t": "pencil case",
+"ans": "It's a pencil case!"
+},
+{
+"t": "school bag",
+"ans": "It's a school bag!",
+"q": "backpack"
+},
+{
+"t": "book",
+"ans": "It's a book!"
+},
+{
+"t": "chair",
+"ans": "It's a chair!"
+},
+{
+"t": "desk",
+"ans": "It's a desk!",
+"q": "school desk"
+},
+{
+"t": "scissors",
+"ans": "They're scissors!"
+},
+{
+"t": "glue stick",
+"ans": "It's a glue stick!"
+},
+{
+"t": "computer",
+"ans": "It's a computer!"
+}
+],
+"guide": {
+"ind": [
+"Show the picture and ask the first question. Model the answer if needed.",
+"Ask the second question and use gestures.",
+"Reveal and repeat together, clapping the syllables."
+],
+"pair": [
+"Children point and ask each other the question.",
+"",
+""
+],
+"grp": [
+"The whole class answers together, then one child answers alone.",
+"Turn it into a game: 'Stand up if you've got one at home!'",
+"Keep it fast: 1 minute per picture."
+]
+},
+"end": "Show me your pencil case!"
+},
+{
+"id": "look-and-say-clothes",
+"name": "Look and Say: Clothes",
+"cat": "warm",
+"lv": [
+"A1"
+],
+"fmts": [
+"ind",
+"grp"
+],
+"kind": "single",
+"reveal": true,
+"img": true,
+"photoOnly": true,
+"ages": [
+"3-6",
+"6-8"
+],
+"imgP": "a clear, colourful photo of {x}, simple background",
+"revealTag": "Clothes",
+"ansLabel": "Let's say it!",
+"q": [
+"What's this?",
+"Are you wearing one today?"
+],
+"desc": "Name the clothes and say what you're wearing today.",
+"instr": "Look at the picture. What's this? Then answer the second question together.",
+"ph": [
+"It's a…",
+"They're…",
+"I'm wearing…",
+"It's (blue)"
+],
+"cards": [
+{
+"t": "jacket",
+"ans": "It's a jacket!"
+},
+{
+"t": "hat",
+"ans": "It's a hat!"
+},
+{
+"t": "T-shirt",
+"ans": "It's a T-shirt!",
+"q": "t-shirt"
+},
+{
+"t": "shorts",
+"ans": "They're shorts!"
+},
+{
+"t": "dress",
+"ans": "It's a dress!"
+},
+{
+"t": "trousers",
+"ans": "They're trousers!",
+"q": "pants trousers"
+},
+{
+"t": "skirt",
+"ans": "It's a skirt!"
+},
+{
+"t": "shoes",
+"ans": "They're shoes!"
+},
+{
+"t": "scarf",
+"ans": "It's a scarf!",
+"q": "wool scarf"
+},
+{
+"t": "gloves",
+"ans": "They're gloves!",
+"q": "winter gloves"
+},
+{
+"t": "socks",
+"ans": "They're socks!"
+},
+{
+"t": "boots",
+"ans": "They're boots!",
+"q": "rain boots"
+}
+],
+"guide": {
+"ind": [
+"Show the picture and ask the first question. Model the answer if needed.",
+"Ask the second question and use gestures.",
+"Reveal and repeat together, clapping the syllables."
+],
+"pair": [
+"Children point and ask each other the question.",
+"",
+""
+],
+"grp": [
+"The whole class answers together, then one child answers alone.",
+"Turn it into a game: 'Stand up if you've got one at home!'",
+"Keep it fast: 1 minute per picture."
+]
+},
+"end": "What are you wearing today?"
+},
+{
+"id": "look-and-say-house",
+"name": "Look and Say: My House",
+"cat": "warm",
+"lv": [
+"A1"
+],
+"fmts": [
+"ind",
+"grp"
+],
+"kind": "single",
+"reveal": true,
+"img": true,
+"photoOnly": true,
+"ages": [
+"3-6",
+"6-8"
+],
+"imgP": "a clear, colourful photo of {x}, simple background",
+"revealTag": "House",
+"ansLabel": "Let's say it!",
+"q": [
+"What's this?",
+"Where is it in the house?"
+],
+"desc": "Rooms and furniture: kitchen, bedroom, sofa, fridge…",
+"instr": "Look at the picture. What's this? Then answer the second question together.",
+"ph": [
+"It's a…",
+"It's in the kitchen",
+"There's a…",
+"In my house there's…"
+],
+"cards": [
+{
+"t": "kitchen",
+"ans": "It's the kitchen!"
+},
+{
+"t": "bedroom",
+"ans": "It's the bedroom!"
+},
+{
+"t": "bathroom",
+"ans": "It's the bathroom!"
+},
+{
+"t": "living room",
+"ans": "It's the living room!"
+},
+{
+"t": "garden",
+"ans": "It's the garden!",
+"q": "house garden"
+},
+{
+"t": "bed",
+"ans": "It's a bed!"
+},
+{
+"t": "sofa",
+"ans": "It's a sofa!"
+},
+{
+"t": "fridge",
+"ans": "It's a fridge!",
+"q": "refrigerator"
+},
+{
+"t": "lamp",
+"ans": "It's a lamp!",
+"q": "table lamp"
+},
+{
+"t": "table",
+"ans": "It's a table!",
+"q": "dining table"
+},
+{
+"t": "shower",
+"ans": "It's a shower!"
+},
+{
+"t": "stairs",
+"ans": "They're the stairs!",
+"q": "staircase house"
+}
+],
+"guide": {
+"ind": [
+"Show the picture and ask the first question. Model the answer if needed.",
+"Ask the second question and use gestures.",
+"Reveal and repeat together, clapping the syllables."
+],
+"pair": [
+"Children point and ask each other the question.",
+"",
+""
+],
+"grp": [
+"The whole class answers together, then one child answers alone.",
+"Turn it into a game: 'Stand up if you've got one at home!'",
+"Keep it fast: 1 minute per picture."
+]
+},
+"end": "What's your favourite room?"
+},
+{
+"id": "look-and-say-farm",
+"name": "Look and Say: On the Farm",
+"cat": "warm",
+"lv": [
+"A1"
+],
+"fmts": [
+"ind",
+"grp"
+],
+"kind": "single",
+"reveal": true,
+"img": true,
+"photoOnly": true,
+"ages": [
+"3-6",
+"6-8"
+],
+"imgP": "a clear, colourful photo of {x}, simple background",
+"revealTag": "Farm",
+"ansLabel": "Let's say it!",
+"q": [
+"What's this?",
+"What does it say?"
+],
+"desc": "Farm animals and their sounds.",
+"instr": "Look at the picture. What's this? Then answer the second question together.",
+"ph": [
+"It's a…",
+"It says…",
+"It's big / small",
+"I like…"
+],
+"cards": [
+{
+"t": "cow",
+"ans": "It's a cow! Moo!",
+"q": "cow"
+},
+{
+"t": "sheep",
+"ans": "It's a sheep! Baa!"
+},
+{
+"t": "goat",
+"ans": "It's a goat!"
+},
+{
+"t": "chicken",
+"ans": "It's a chicken! Cluck!",
+"q": "hen"
+},
+{
+"t": "duck",
+"ans": "It's a duck! Quack!",
+"q": "duck pond"
+},
+{
+"t": "horse",
+"ans": "It's a horse! Neigh!"
+},
+{
+"t": "pig",
+"ans": "It's a pig! Oink!",
+"q": "pig farm"
+},
+{
+"t": "mouse",
+"ans": "It's a mouse!"
+},
+{
+"t": "dog",
+"ans": "It's a dog! Woof!",
+"q": "farm dog"
+},
+{
+"t": "cat",
+"ans": "It's a cat! Miaow!",
+"q": "cat"
+},
+{
+"t": "rabbit",
+"ans": "It's a rabbit!",
+"q": "rabbit"
+},
+{
+"t": "donkey",
+"ans": "It's a donkey!"
+}
+],
+"guide": {
+"ind": [
+"Show the picture and ask the first question. Model the answer if needed.",
+"Ask the second question and use gestures.",
+"Reveal and repeat together, clapping the syllables."
+],
+"pair": [
+"Children point and ask each other the question.",
+"",
+""
+],
+"grp": [
+"The whole class answers together, then one child answers alone.",
+"Turn it into a game: 'Stand up if you've got one at home!'",
+"Keep it fast: 1 minute per picture."
+]
+},
+"end": "Which animal can you hear on a farm?"
+},
+{
+"id": "whats-the-weather",
+"name": "What's the Weather Like?",
+"cat": "warm",
+"lv": [
+"A1"
+],
+"fmts": [
+"ind",
+"grp"
+],
+"kind": "single",
+"reveal": true,
+"img": true,
+"photoOnly": true,
+"ages": [
+"3-6",
+"6-8",
+"9-12"
+],
+"imgP": "a clear, colourful photo of {x}, simple background",
+"revealTag": "Weather",
+"ansLabel": "Let's say it!",
+"q": [
+"What's the weather like?",
+"What do you wear?"
+],
+"desc": "Daily routine: say what the weather is like and what to wear.",
+"instr": "Look at the picture. What's the weather like? Then answer the second question together.",
+"ph": [
+"Today it's…",
+"It's sunny / rainy",
+"I need my…",
+"It's hot / cold"
+],
+"cards": [
+{
+"t": "sunny",
+"ans": "It's sunny!",
+"q": "sunny day blue sky"
+},
+{
+"t": "rainy",
+"ans": "It's rainy!",
+"q": "rain umbrella"
+},
+{
+"t": "cloudy",
+"ans": "It's cloudy!",
+"q": "cloudy sky"
+},
+{
+"t": "windy",
+"ans": "It's windy!",
+"q": "windy trees"
+},
+{
+"t": "snowy",
+"ans": "It's snowy!",
+"q": "snow landscape"
+},
+{
+"t": "hot",
+"ans": "It's hot!",
+"q": "hot summer beach"
+},
+{
+"t": "cold",
+"ans": "It's cold!",
+"q": "frost winter"
+},
+{
+"t": "stormy",
+"ans": "It's stormy!",
+"q": "thunderstorm"
+}
+],
+"guide": {
+"ind": [
+"Show the picture and ask the first question. Model the answer if needed.",
+"Ask the second question and use gestures.",
+"Reveal and repeat together, clapping the syllables."
+],
+"pair": [
+"Children point and ask each other the question.",
+"",
+""
+],
+"grp": [
+"The whole class answers together, then one child answers alone.",
+"Turn it into a game: 'Stand up if you've got one at home!'",
+"Keep it fast: 1 minute per picture."
+]
+},
+"end": "What's the weather like today?"
+},
+{
+"id": "halloween-words",
+"name": "Halloween Words",
+"cat": "warm",
+"lv": [
+"A1"
+],
+"fmts": [
+"ind",
+"grp"
+],
+"kind": "single",
+"reveal": true,
+"img": true,
+"photoOnly": true,
+"ages": [
+"3-6",
+"6-8",
+"9-12"
+],
+"imgP": "a clear, colourful photo of {x}, simple background",
+"revealTag": "Halloween",
+"ansLabel": "Let's say it!",
+"q": [
+"What's this?",
+"Is it scary?"
+],
+"desc": "Halloween vocabulary with pictures: witch, spider, skeleton…",
+"instr": "Look at the picture. What's this? Then answer the second question together.",
+"ph": [
+"It's a…",
+"It's scary!",
+"It's not scary",
+"Trick or treat!"
+],
+"cards": [
+{
+"t": "pumpkin",
+"ans": "It's a pumpkin!",
+"q": "halloween pumpkin"
+},
+{
+"t": "witch hat",
+"ans": "It's a witch!",
+"q": "witch costume"
+},
+{
+"t": "spider",
+"ans": "It's a spider!"
+},
+{
+"t": "black cat",
+"ans": "It's a black cat!"
+},
+{
+"t": "skeleton",
+"ans": "It's a skeleton!",
+"q": "halloween skeleton"
+},
+{
+"t": "bat",
+"ans": "It's a bat!",
+"q": "bat animal"
+},
+{
+"t": "ghost",
+"ans": "It's a ghost!",
+"q": "ghost costume"
+},
+{
+"t": "sweets",
+"ans": "They're sweets!",
+"q": "halloween candy"
+}
+],
+"guide": {
+"ind": [
+"Show the picture and ask the first question. Model the answer if needed.",
+"Ask the second question and use gestures.",
+"Reveal and repeat together, clapping the syllables."
+],
+"pair": [
+"Children point and ask each other the question.",
+"",
+""
+],
+"grp": [
+"The whole class answers together, then one child answers alone.",
+"Turn it into a game: 'Stand up if you've got one at home!'",
+"Keep it fast: 1 minute per picture."
+]
+},
+"end": "What are you going to dress up as?"
+},
+{
+"id": "christmas-words",
+"name": "Christmas Words",
+"cat": "warm",
+"lv": [
+"A1"
+],
+"fmts": [
+"ind",
+"grp"
+],
+"kind": "single",
+"reveal": true,
+"img": true,
+"photoOnly": true,
+"ages": [
+"3-6",
+"6-8",
+"9-12"
+],
+"imgP": "a clear, colourful photo of {x}, simple background",
+"revealTag": "Christmas",
+"ansLabel": "Let's say it!",
+"q": [
+"What's this?",
+"Have you got one at home?"
+],
+"desc": "Christmas vocabulary with pictures: tree, reindeer, stocking…",
+"instr": "Look at the picture. What's this? Then answer the second question together.",
+"ph": [
+"It's a…",
+"Merry Christmas!",
+"I've got a…",
+"It's red / green"
+],
+"cards": [
+{
+"t": "Christmas tree",
+"ans": "It's a Christmas tree!"
+},
+{
+"t": "reindeer",
+"ans": "It's a reindeer!"
+},
+{
+"t": "Christmas presents",
+"ans": "They're presents!",
+"q": "christmas presents gifts"
+},
+{
+"t": "star",
+"ans": "It's a star!",
+"q": "christmas star ornament"
+},
+{
+"t": "stocking",
+"ans": "It's a stocking!",
+"q": "christmas stocking"
+},
+{
+"t": "candle",
+"ans": "It's a candle!",
+"q": "candle christmas"
+},
+{
+"t": "snowman",
+"ans": "It's a snowman!"
+},
+{
+"t": "Santa Claus",
+"ans": "It's Santa Claus!",
+"q": "santa claus"
+}
+],
+"guide": {
+"ind": [
+"Show the picture and ask the first question. Model the answer if needed.",
+"Ask the second question and use gestures.",
+"Reveal and repeat together, clapping the syllables."
+],
+"pair": [
+"Children point and ask each other the question.",
+"",
+""
+],
+"grp": [
+"The whole class answers together, then one child answers alone.",
+"Turn it into a game: 'Stand up if you've got one at home!'",
+"Keep it fast: 1 minute per picture."
+]
+},
+"end": "What do you want for Christmas?"
+},
+{
+"id": "spring-easter-words",
+"name": "Spring and Easter",
+"cat": "warm",
+"lv": [
+"A1"
+],
+"fmts": [
+"ind",
+"grp"
+],
+"kind": "single",
+"reveal": true,
+"img": true,
+"photoOnly": true,
+"ages": [
+"3-6",
+"6-8",
+"9-12"
+],
+"imgP": "a clear, colourful photo of {x}, simple background",
+"revealTag": "Spring",
+"ansLabel": "Let's say it!",
+"q": [
+"What's this?",
+"What colour is it?"
+],
+"desc": "Spring and Easter vocabulary: flowers, bunny, eggs, basket…",
+"instr": "Look at the picture. What's this? Then answer the second question together.",
+"ph": [
+"It's a…",
+"There's a…",
+"There are lots of…",
+"It's (yellow)"
+],
+"cards": [
+{
+"t": "flowers",
+"ans": "They're flowers!",
+"q": "spring flowers"
+},
+{
+"t": "sun",
+"ans": "It's the sun!",
+"q": "sun sky"
+},
+{
+"t": "bird",
+"ans": "It's a bird!",
+"q": "bird branch"
+},
+{
+"t": "tree",
+"ans": "It's a tree!",
+"q": "tree spring"
+},
+{
+"t": "butterfly",
+"ans": "It's a butterfly!"
+},
+{
+"t": "bunny",
+"ans": "It's a bunny!",
+"q": "rabbit"
+},
+{
+"t": "Easter eggs",
+"ans": "They're Easter eggs!",
+"q": "easter eggs"
+},
+{
+"t": "basket",
+"ans": "It's a basket!",
+"q": "easter basket"
+}
+],
+"guide": {
+"ind": [
+"Show the picture and ask the first question. Model the answer if needed.",
+"Ask the second question and use gestures.",
+"Reveal and repeat together, clapping the syllables."
+],
+"pair": [
+"Children point and ask each other the question.",
+"",
+""
+],
+"grp": [
+"The whole class answers together, then one child answers alone.",
+"Turn it into a game: 'Stand up if you've got one at home!'",
+"Keep it fast: 1 minute per picture."
+]
+},
+"end": "What can you see in spring?"
+},
+{
+"id": "simon-says",
+"name": "Simon Says",
+"cat": "game",
+"lv": [
+"A1"
+],
+"fmts": [
+"grp",
+"ind"
+],
+"kind": "single",
+"ages": [
+"3-6",
+"6-8",
+"9-12"
+],
+"gram": [
+"Present simple"
+],
+"focus": "Instructions and action verbs: jump, run, swim, clap, touch your…; 'Can you…? Yes, I can!'",
+"desc": "The classic action game with verbs and body parts.",
+"instr": "Do the action ONLY if the teacher says 'Simon says…'. If you move without 'Simon says', sit down!",
+"ph": [
+"Simon says…",
+"Can you…?",
+"Yes, I can!",
+"No, I can't!"
+],
+"cards": [
+"jump",
+"run on the spot",
+"swim",
+"fly like a bird",
+"dance",
+"sing",
+"clap your hands",
+"touch your nose",
+"touch your head",
+"shake your legs",
+"walk like a robot",
+"sleep",
+"eat a banana",
+"drink water",
+"climb a tree",
+"be a cat"
+],
+"guide": {
+"ind": [
+"Do it together: you give the instruction, the child does it, then swap roles.",
+"Add 'Can you…?' — 'Yes, I can!'",
+""
+],
+"pair": [
+"",
+"",
+""
+],
+"grp": [
+"Show the card and say the instruction (with or without 'Simon says').",
+"Children who move by mistake sit down; the last one standing is the next 'Simon'.",
+"Go faster and faster!"
+]
+},
+"end": "What's your favourite action?"
+},
+{
+"id": "feelings-mime",
+"name": "How Do You Feel?",
+"cat": "game",
+"lv": [
+"A1"
+],
+"fmts": [
+"grp",
+"pair"
+],
+"kind": "single",
+"secret": true,
+"ages": [
+"3-6",
+"6-8",
+"9-12"
+],
+"focus": "Feelings: Are you happy? Yes, I am / No, I'm not. I'm sad.",
+"desc": "One child acts a feeling; the others guess with 'Are you…?'",
+"instr": "Only the actor looks at the card. Show the feeling with your face and body. The others ask: 'Are you happy?'",
+"ph": [
+"Are you…?",
+"Yes, I am!",
+"No, I'm not!",
+"I'm…"
+],
+"cards": [
+"happy",
+"sad",
+"angry",
+"sleepy",
+"scared",
+"funny",
+"hungry",
+"tired",
+"surprised",
+"cold",
+"hot",
+"excited"
+],
+"guide": {
+"ind": [
+"You act, the child guesses; then swap.",
+"",
+""
+],
+"pair": [
+"Partners take turns acting and guessing (hide the card for the guesser).",
+"",
+""
+],
+"grp": [
+"Press H to hide the card. One child looks and acts in front of the class.",
+"The class asks 'Are you…?' until someone guesses.",
+""
+]
+},
+"end": "How do you feel today?"
+},
+{
+"id": "what-am-i-doing",
+"name": "What Am I Doing?",
+"cat": "game",
+"lv": [
+"A1",
+"A2"
+],
+"fmts": [
+"grp",
+"pair"
+],
+"kind": "single",
+"secret": true,
+"ages": [
+"6-8",
+"9-12"
+],
+"gram": [
+"Present continuous"
+],
+"focus": "Daily routines and housework: Are you making the bed? Yes, I am! I'm watering the plants.",
+"desc": "Mime daily routines and housework; the class guesses what you're doing.",
+"instr": "Only the actor looks at the card. Mime the action! The class guesses: 'Are you…ing?'",
+"ph": [
+"Are you…ing?",
+"Yes, I am!",
+"No, I'm not!",
+"I'm…ing"
+],
+"cards": [
+"making the bed",
+"watering the plants",
+"doing the shopping",
+"tidying up your room",
+"washing the car",
+"washing the dishes",
+"cooking",
+"brushing your teeth",
+"getting dressed",
+"having breakfast",
+"reading a book",
+"going to sleep"
+],
+"guide": {
+"ind": [
+"You mime, the child guesses; then swap.",
+"",
+""
+],
+"pair": [
+"Partners take turns (hide the card for the guesser).",
+"",
+""
+],
+"grp": [
+"Press H. One child mimes; the class asks 'Are you…ing?'",
+"Whoever guesses mimes next.",
+""
+]
+},
+"end": "What do you do every morning?"
+},
+{
+"id": "where-is-it",
+"name": "Where Is It?",
+"cat": "game",
+"lv": [
+"A1",
+"A2"
+],
+"fmts": [
+"grp",
+"ind"
+],
+"kind": "single",
+"ages": [
+"3-6",
+"6-8",
+"9-12"
+],
+"focus": "Prepositions of place: in, on, under, next to, behind, in front of, between",
+"desc": "Follow the instruction and put objects in the right place.",
+"instr": "Listen and do it! Then ask the class: 'Where's the…?' — 'It's under the…!'",
+"ph": [
+"Where's the…?",
+"It's in / on / under…",
+"It's next to…",
+"It's behind / in front of…"
+],
+"cards": [
+"Put the book UNDER the chair.",
+"Put the pencil IN the pencil case.",
+"Put your hands ON your head.",
+"Stand NEXT TO the door.",
+"Put the rubber BEHIND your back.",
+"Stand IN FRONT OF the board.",
+"Put the bag ON the table.",
+"Put the ball UNDER the table.",
+"Sit BETWEEN two friends.",
+"Put the crayon NEXT TO the book.",
+"Hide the teddy BEHIND the curtain.",
+"Put your shoe ON the chair!"
+],
+"guide": {
+"ind": [
+"Read the instruction; the child does it and then tells you where it is.",
+"Swap: the child gives you instructions.",
+""
+],
+"pair": [
+"",
+"",
+""
+],
+"grp": [
+"Choose a child to follow the instruction.",
+"Ask the class: 'Where's the book?' — 'It's under the chair!'",
+"Then the child gives the next instruction."
+]
+},
+"end": "Where's your school bag?"
+},
+{
+"id": "colour-number-hunt",
+"name": "Colour and Number Hunt",
+"cat": "warm",
+"lv": [
+"A1"
+],
+"fmts": [
+"grp"
+],
+"kind": "single",
+"ages": [
+"3-6",
+"6-8",
+"9-12"
+],
+"focus": "Colours and numbers: I've got something blue! Here are seven…",
+"desc": "Quick classroom hunts: find something blue, show seven fingers, stand up if…",
+"instr": "Do it as fast as you can! Then say what you found: 'It's blue!' / 'Seven!'",
+"ph": [
+"It's (blue)!",
+"I've got something…",
+"One, two, three…",
+"Here you are!"
+],
+"cards": [
+"Find something BLUE!",
+"Stand up if you've got something RED!",
+"Show me 7 fingers!",
+"Touch something GREEN!",
+"Count the chairs!",
+"Find something YELLOW and PINK!",
+"Clap 10 times!",
+"Find 3 pencils!",
+"Stand up if you're wearing BLACK!",
+"Jump 12 times!",
+"Find something ORANGE!",
+"Count to 20 together!"
+],
+"guide": {
+"ind": [
+"Do each challenge together with the child.",
+"",
+""
+],
+"pair": [
+"",
+"",
+""
+],
+"grp": [
+"Show the card; the first child to do it says the answer in English.",
+"Repeat in teams for points.",
+""
+]
+},
+"end": "What colour are your shoes?"
+},
+{
+"id": "monster-draw",
+"name": "Draw My Monster",
+"cat": "game",
+"lv": [
+"A1",
+"A2"
+],
+"fmts": [
+"grp",
+"pair",
+"ind"
+],
+"kind": "single",
+"ages": [
+"6-8",
+"9-12"
+],
+"focus": "Body parts and have got: It's got three eyes, two mouths and long blue hair.",
+"desc": "Listen to the description and draw the monster. Then describe your own.",
+"instr": "Listen and draw the monster! Then compare: are your monsters the same?",
+"ph": [
+"It's got… eyes",
+"It's got long / short hair",
+"Its nose is…",
+"My monster's got…"
+],
+"cards": [
+"It's got THREE eyes, ONE big nose and FOUR arms.",
+"It's got TWO heads, SIX legs and long red hair.",
+"It's got ONE eye, TEN teeth and big green ears.",
+"It's got FIVE eyes, a small mouth and short blue hair.",
+"It's got TWO noses, THREE mouths and long purple arms.",
+"It's got a big head, small feet and FOUR ears."
+],
+"guide": {
+"ind": [
+"Read it slowly while the child draws; then the child describes a monster for you to draw.",
+"",
+""
+],
+"pair": [
+"Partner A describes their own monster; B draws it without looking. Compare!",
+"",
+""
+],
+"grp": [
+"Read the description twice; everyone draws.",
+"Show the drawings: whose is most similar?",
+"Children describe their monster to the class."
+]
+},
+"end": "Describe your monster to a friend!"
+},
+{
+"id": "alphabet-game",
+"name": "Alphabet Game",
+"cat": "game",
+"lv": [
+"A1",
+"A2"
+],
+"fmts": [
+"grp",
+"pair",
+"ind"
+],
+"kind": "single",
+"timer": 30,
+"ages": [
+"6-8",
+"9-12"
+],
+"focus": "The alphabet and spelling: It starts with B! B-A-L-L, ball!",
+"desc": "Say as many words as you can that start with the letter on the card.",
+"instr": "How many words can you say that start with this letter? Then spell one of them!",
+"ph": [
+"It starts with…",
+"B-A-L-L",
+"How do you spell…?",
+"Another one!"
+],
+"cards": [
+"A",
+"B",
+"C",
+"D",
+"E",
+"F",
+"G",
+"H",
+"I",
+"J",
+"K",
+"L",
+"M",
+"N",
+"O",
+"P",
+"R",
+"S",
+"T",
+"W"
+],
+"guide": {
+"ind": [
+"Take turns saying words; the child spells one at the end.",
+"",
+""
+],
+"pair": [
+"Partners race for 30 seconds; count the words.",
+"",
+""
+],
+"grp": [
+"Teams take turns: one point per word.",
+"The team spells their best word for an extra point.",
+""
+]
+},
+"end": "Spell your name!"
+},
+{
+"id": "class-routines",
+"name": "Classroom Routines",
+"cat": "warm",
+"lv": [
+"A1"
+],
+"fmts": [
+"grp",
+"ind"
+],
+"kind": "single",
+"ages": [
+"3-6",
+"6-8",
+"9-12"
+],
+"focus": "Fixed classroom language for the whole year: Can I go to the toilet, please?, Thank you – You're welcome!, Can I have…?",
+"desc": "Poster slides for the sentences children use every day in class.",
+"instr": "Read and repeat. Then act it out with a friend!",
+"ph": [
+"Please",
+"Thank you!",
+"You're welcome!",
+"Can I…?"
+],
+"cards": [
+"Can I go to the toilet, please?",
+"Can I have a pencil, please?",
+"Thank you! — You're welcome!",
+"What's the weather like today? Today it's…",
+"What day is it today? It's Monday!",
+"How are you? I'm fine, thank you!",
+"Can I drink some water, please?",
+"Sorry, I don't understand.",
+"Can you help me, please?",
+"Good morning, teacher!",
+"Goodbye! See you tomorrow!",
+"Can I open the window, please?"
+],
+"guide": {
+"ind": [
+"Show the sentence; model it with gestures and practise it in a real situation.",
+"",
+""
+],
+"pair": [
+"Pairs act it out: one asks, the other answers.",
+"",
+""
+],
+"grp": [
+"Use the slide every day at the start of class.",
+"Choose one sentence of the week and reward children who use it.",
+""
+]
+},
+"end": "Which sentence did you use today?"
 }
 ]
