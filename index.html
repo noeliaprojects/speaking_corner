@@ -400,7 +400,7 @@ const LP=(function plannerImpl(){
  const clearReturn=()=>store.set(RET,null);
  const currentReturn=()=>{const x=store.get(RET,null);return get(x)?x:null;};
  const backLink=()=>currentReturn()?`<a class="back" href="#plan/${esc(currentReturn())}">← Lesson plan</a>`:`<a class="back" href="#">← All activities</a>`;
- const open=(pid,aid)=>{if(get(pid)&&byId(aid)){store.set(RET,pid);location.hash=aid;}};
+ const open=(pid,aid)=>{const p=get(pid);if(p&&byId(aid)){if(CL.byId(p.classId))CL.setActive(p.classId);store.set(RET,pid);location.hash=aid;}};
  function markPlayed(aid){const id=currentReturn();if(id)update(id,p=>{if(p.activities.includes(aid)&&!(p.done||[]).includes(aid)){p.done=p.done||[];p.done.push(aid);}});}
  function add(pid,aid){const p=get(pid);if(!p||!byId(aid)||p.activities.includes(aid))return false;update(pid,p=>p.activities.push(aid));return true;}
  function choose(aid){
