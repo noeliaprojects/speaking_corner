@@ -253,6 +253,7 @@ button,.btn{font-weight:500}
 @media (prefers-reduced-motion:reduce){.act{transition:none}}
 .chips button{font-weight:400;padding:6px 14px}
 .chips button[aria-pressed="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.stage.upper .s-body,.stage.upper .s-ph,.stage.upper .s-cover,.stage.upper .s-pick{text-transform:uppercase;letter-spacing:.02em}
 </style>
 
 <div class="wrap" id="app"></div>
@@ -405,6 +406,8 @@ const GUIDE={
 
 /* ---------- deck presenter ---------- */
 let D=null;
+const YOUNG=d=>(d.ages||[]).some(a=>a==="3-6"||a==="6-8");
+const ONLY_YOUNG=d=>(d.ages||[]).length&&(d.ages||[]).every(a=>a==="3-6"||a==="6-8");
 function stopDeck(){if(D){clearInterval(D.tid);document.removeEventListener("keydown",D.key);}D=null;}
 const PER_OK=d=>(d.kind==="grid"||d.kind==="single")&&!d.reveal;
 const ctext=c=>typeof c==="object"?c.t:c;
@@ -417,7 +420,7 @@ function buildSlides(d,order){const s=[{t:"title"}];
   s.push({t:"end"});return s;}
 function deckView(d){
   const order=[...d.cards.keys()];
-  D={d,order,slides:buildSlides(d,order),i:0,phr:true,hide:!!d.secret,tid:null,left:0,picked:[],pickName:null};
+  D={d,order,slides:buildSlides(d,order),i:0,phr:true,hide:!!d.secret,upper:ONLY_YOUNG(d)||F.age==="3-6"||F.age==="6-8",tid:null,left:0,picked:[],pickName:null};
   const p=PRINT[d.id],a=CL.active();
   app.innerHTML=`<div class="wrap" style="gap:14px">
     <div class="top"><a class="back" href="#">← All activities</a>${classSwitcher()}</div>
@@ -433,6 +436,7 @@ function deckView(d){
         <button class="ghost" id="tbtn">Timer</button>
         <button class="ghost" id="pickB" ${a?"":"disabled title=\"Choose a class first\""}>Pick a student</button>
         <button class="ghost" id="phB" aria-pressed="true">Phrases</button>
+        ${YOUNG(d)?`<button class="ghost" id="upB" aria-pressed="${D.upper}" title="Capital letters for young learners">ABC</button>`:""}
         <button class="ghost" id="fsB">Full screen</button>
       </div></div>
     <section class="card guide"><div class="row" style="justify-content:space-between"><h2>Teacher guide</h2>
@@ -448,6 +452,7 @@ function deckView(d){
   $("#prev").onclick=()=>go(-1);$("#next").onclick=()=>go(1);
   $("#shuf").onclick=()=>{D.order=shuffle(D.order);D.slides=buildSlides(d,D.order);D.i=Math.min(D.i,1);render();};
   if($("#perSel"))$("#perSel").onchange=e=>{const p=store.get("sc-per",{});p[d.id]=+e.target.value;store.set("sc-per",p);D.slides=buildSlides(d,D.order);D.i=Math.min(D.i,D.slides.length-1);render();};
+  if($("#upB"))$("#upB").onclick=()=>{D.upper=!D.upper;$("#upB").setAttribute("aria-pressed",D.upper);render();};
   $("#phB").onclick=()=>{D.phr=!D.phr;$("#phB").setAttribute("aria-pressed",D.phr);render();};
   if($("#hideB"))$("#hideB").onclick=()=>{D.hide=!D.hide;$("#hideB").setAttribute("aria-pressed",D.hide);render();};
   $("#tbtn").onclick=toggleTimer;
@@ -474,7 +479,7 @@ function doneRow(){const a=CL.active(),r=$("#doneRow");if(!r)return;
 function go(n){const k=D.i+n;if(k<0||k>=D.slides.length)return;D.i=k;D.pickName=null;render();}
 function phrases(d){return D.phr&&d.ph?`<div class="s-ph"><b>Useful language</b>${d.ph.map(p=>`<span>${esc(p)}</span>`).join("")}</div>`:"";}
 function img(d,i){const u=IMAGES[d.id+":"+i];return u?`<img src="${u}" alt="">`:"";}
-function render(){const d=D.d,s=D.slides[D.i],st=$("#stage"),n=D.slides.length;
+function render(){const d=D.d,s=D.slides[D.i],st=$("#stage"),n=D.slides.length;st.classList.toggle("upper",!!D.upper);
   const cardNo=s.t==="card"?`${D.order.indexOf(s.i)+1} / ${d.cards.length}`:"";
   let body="";
   if(s.t==="title"){
