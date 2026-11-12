@@ -293,6 +293,8 @@ button,.btn{font-weight:500}
 .brand{font-family:"Bricolage Grotesque","Lexend",system-ui,sans-serif;font-weight:800;font-size:clamp(2.1rem,6.5vw,3.4rem);letter-spacing:-.035em;line-height:1.05;text-shadow:1px 1px 0 rgba(31,36,39,.10),2px 3px 2px rgba(31,36,39,.09)}
 .brand span{color:var(--stamp);position:relative;display:inline-block;text-shadow:1px 1px 0 rgba(25,70,61,.28),2px 3px 1px rgba(25,70,61,.15)}
 .brand span::after{content:"";position:absolute;right:-.28em;top:.06em;width:.2em;height:.2em;background:var(--stamp);border-radius:50% 50% 50% 0;box-shadow:1px 2px 0 rgba(25,70,61,.18)}
+/* Collapsible panels override .card's display:flex */
+#prPanel[hidden],#guidePanel[hidden]{display:none!important}
 /* ---- printable cards ---- */
 #printArea{display:none}
 @media print{
@@ -312,6 +314,13 @@ button,.btn{font-weight:500}
   .pc-sub,.pc-no,.pc-ans{margin:0;font-size:calc(8pt + 18pt / var(--rows) / var(--cols) * 1.6);color:#555}
   .pc-no{color:#b0321f}
   .pc-foot{position:absolute;bottom:2mm;right:3mm;font-size:6pt;color:#999}
+  .pc-ph{align-self:stretch;flex:0 0 auto;border-top:.3mm solid #d6dfdc;padding-top:2mm;margin-top:1mm;text-align:left;color:#314d45;overflow-wrap:anywhere}
+  .pc-ph b{display:block;text-transform:uppercase;font-size:6.5pt;letter-spacing:.025em;font-weight:700;margin-bottom:.8mm}
+  .pc-ph ul{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:.75mm}
+  .pc-ph li{font-size:calc(6pt + 3pt / var(--cols));line-height:1.14}
+  .pa-up .pc-ph{text-transform:uppercase}
+  .pc:has(.pc-ph){gap:1.8mm}
+  .pc:has(.pc-ph) .pc-txt{min-height:0}
   .pc-vs{display:grid;grid-template-columns:1fr auto 1fr;gap:3mm;align-items:center;width:100%;height:100%}
   .pc-vs div{display:flex;flex-direction:column;gap:2mm;align-items:center;min-width:0;justify-content:center}
   .pc-vs img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:2mm}
@@ -595,13 +604,15 @@ function cardFaces(d){return d.cards.map((c,i)=>{const im=k=>IMAGES[d.id+":"+k]|
   if(d.kind==="board")return {html:`<p class="pc-main">${esc(c.w)}</p><p class="pc-no">${c.no.map(esc).join("<br>")}</p>`,img:""};
   if(typeof c==="object"){const main=d.photoOnly?(c.ans||c.t):c.t;return {html:`<p class="pc-main">${esc(main)}</p>${c.sub?`<p class="pc-sub">${c.sub.map(esc).join(" · ")}</p>`:""}${c.ans&&!d.photoOnly?`<p class="pc-ans">${esc(c.ans)}</p>`:""}`,img:im(i)};}
   return {html:`<p class="pc-main">${esc(c)}</p>`,img:im(i)};});}
-function printCards(d,n,withImg,upper){
+function printCards(d,n,withImg,upper,withPhrases){
   const L={2:[1,2],4:[2,2],6:[2,3],8:[2,4],9:[3,3],12:[3,4],16:[4,4]}[n],faces=cardFaces(d),pages=[];
+  const phrases=withPhrases&&Array.isArray(d.ph)?d.ph.filter(p=>typeof p==="string"&&p.trim()):[];
+  const help=phrases.length?`<div class="pc-ph"><b>Useful language</b><ul>${phrases.map(p=>`<li>${esc(p)}</li>`).join("")}</ul></div>`:"";
   for(let i=0;i<faces.length;i+=n)pages.push(faces.slice(i,i+n));
   let a=$("#printArea");if(!a){a=document.createElement("div");a.id="printArea";document.body.appendChild(a);}
   a.className=`pa-${n} ${withImg?"pa-img":"pa-noimg"} ${upper?"pa-up":""}`;
   a.style.setProperty("--cols",L[0]);a.style.setProperty("--rows",L[1]);
-  a.innerHTML=pages.map(pg=>`<section class="pa-page">${pg.map(f=>`<div class="pc">${withImg&&f.img?`<img class="pc-img" src="${f.img}" alt="">`:""}<div class="pc-txt">${f.html}</div><span class="pc-foot">${esc(d.name)}</span></div>`).join("")}${Array(n-pg.length).fill('<div class="pc pc-empty"></div>').join("")}</section>`).join("");
+  a.innerHTML=pages.map(pg=>`<section class="pa-page">${pg.map(f=>`<div class="pc">${withImg&&f.img?`<img class="pc-img" src="${f.img}" alt="">`:""}<div class="pc-txt">${f.html}</div>${help}<span class="pc-foot">${esc(d.name)}</span></div>`).join("")}${Array(n-pg.length).fill('<div class="pc pc-empty"></div>').join("")}</section>`).join("");
   if(!withImg)a.querySelectorAll(".pc-vs img,.pc-list img").forEach(x=>x.remove());
   const imgs=[...a.querySelectorAll("img")];
   Promise.all(imgs.map(x=>x.complete?1:new Promise(r=>{x.onload=x.onerror=r;}))).then(()=>{try{window.print();}catch(e){}});
@@ -636,7 +647,8 @@ function deckView(d){
         <button class="ghost" id="phB" aria-pressed="true">Phrases</button>
         ${YOUNG(d)?`<button class="ghost" id="upB" aria-pressed="${D.upper}" title="Capital letters for young learners">ABC</button>`:""}
         <button class="ghost" id="fsB">Full screen</button>
-        <button class="ghost" id="prB" aria-expanded="false">Print cards</button>
+        <button class="ghost" id="prB" aria-expanded="false" aria-controls="prPanel">Print cards</button>
+         <button class="ghost" id="insB" aria-expanded="false" aria-controls="guidePanel">Instructions</button>
          <button class="ghost" id="addLesson">+ Add to lesson</button>
       </div></div>
     <section class="card" id="prPanel" hidden><h2>Print cards</h2>
@@ -644,10 +656,11 @@ function deckView(d){
         <div class="field"><label class="label" for="prN">Cards per A4 page</label><select id="prN">${[2,4,6,8,9,12,16].map(n=>`<option ${n===(store.get("sc-prn",8))?"selected":""}>${n}</option>`).join("")}</select></div>
         <div class="field"><label class="label" for="prImg">Pictures</label><select id="prImg" ${hasImgs(d)?"":"disabled"}><option value="1">With pictures</option><option value="0" ${store.get("sc-primg",1)?"":"selected"}>Text only</option></select></div>
         <div class="field"><label class="label" for="prCase">Letters</label><select id="prCase"><option value="0">Normal</option><option value="1" ${D.upper?"selected":""}>CAPITALS</option></select></div>
+        <div class="field"><label class="label" for="prPhrases">Useful phrases</label><select id="prPhrases" ${Array.isArray(d.ph)&&d.ph.length?"":"disabled"}><option value="0" ${store.get("sc-prphr",0)?"":"selected"}>Don\'t include</option><option value="1" ${store.get("sc-prphr",0)?"selected":""}>Include on each card</option></select></div>
       </div>
       <p class="note">${d.cards.length} cards · ${hasImgs(d)?"":"this activity has no pictures · "}cut along the dashed lines. Print at 100% (actual size).</p>
       <div class="row"><button class="primary" id="prGo">Print</button></div></section>
-    <section class="card guide"><div class="row" style="justify-content:space-between"><h2>Teacher guide</h2>
+    <section class="card guide" id="guidePanel" hidden><div class="row" style="justify-content:space-between"><h2>Teacher guide</h2>
       <div class="tabs" role="tablist">${Object.keys(FMTS).map(f=>`<button role="tab" data-f="${f}" aria-selected="false">${FMTS[f]}${d.fmts.includes(f)?"":" (adapted)"}</button>`).join("")}</div></div>
       <div id="gbody"></div>
       ${d.focus?`<p class="focus"><b>Structure focus:</b> ${esc(d.focus)}</p>`:""}
@@ -666,8 +679,19 @@ function deckView(d){
   $("#addLesson").onclick=()=>LP.choose(d.id);
   $("#tbtn").onclick=toggleTimer;
   $("#pickB").onclick=pickStudent;
-  $("#prB").onclick=()=>{const p=$("#prPanel");p.hidden=!p.hidden;$("#prB").setAttribute("aria-expanded",!p.hidden);if(!p.hidden)p.scrollIntoView({block:"nearest",behavior:"smooth"});};
-  $("#prGo").onclick=()=>{const n=+$("#prN").value,im=$("#prImg").value==="1"&&hasImgs(d),up=$("#prCase").value==="1";store.set("sc-prn",n);store.set("sc-primg",im?1:0);printCards(d,n,im,up);};
+  const togglePanel=(id,button,otherId,otherButton)=>{
+    const panel=$(id),opening=panel.hidden;
+    if(opening){$(otherId).hidden=true;$(otherButton).setAttribute("aria-expanded","false");}
+    panel.hidden=!opening;$(button).setAttribute("aria-expanded",String(opening));
+    if(opening)panel.scrollIntoView({block:"nearest",behavior:"smooth"});
+  };
+  $("#prB").onclick=()=>togglePanel("#prPanel","#prB","#guidePanel","#insB");
+  $("#insB").onclick=()=>togglePanel("#guidePanel","#insB","#prPanel","#prB");
+  $("#prGo").onclick=()=>{
+    const n=+$("#prN").value,im=$("#prImg").value==="1"&&hasImgs(d),up=$("#prCase").value==="1",phr=$("#prPhrases").value==="1"&&Array.isArray(d.ph)&&d.ph.length>0;
+    store.set("sc-prn",n);store.set("sc-primg",im?1:0);store.set("sc-prphr",phr?1:0);
+    printCards(d,n,im,up,phr);
+  };
   $("#fsB").onclick=()=>{const st=$("#stage");try{document.fullscreenElement?document.exitFullscreen():st.requestFullscreen().catch(()=>{});}catch(e){}};
   wireClassSwitcher(()=>{$("#bn").innerHTML=doneBanner(d.id);D.picked=[];$("#pickB").disabled=!CL.active();doneRow();});
   D.key=e=>{if(/INPUT|SELECT|TEXTAREA/.test(e.target.tagName))return;
