@@ -37,7 +37,14 @@
 "Past simple",
 "Present perfect"
 ],
-"coverQ": "weekly planner desk coffee"
+"coverQ": "weekly planner desk coffee",
+"ages": [
+"12-14",
+"14-16",
+"16-18",
+"19-25",
+"adults"
+]
 },
 {
 "id": "strange-delivery",
@@ -76,6 +83,14 @@
 "imgP": "an open cardboard parcel on a doorstep containing {x}",
 "gram": [
 "Second conditional"
+],
+"ages": [
+"9-12",
+"12-14",
+"14-16",
+"16-18",
+"19-25",
+"adults"
 ]
 },
 {
@@ -115,7 +130,14 @@
 "gram": [
 "Present simple"
 ],
-"coverQ": "flat lay headphones mug book"
+"coverQ": "flat lay headphones mug book",
+"ages": [
+"12-14",
+"14-16",
+"16-18",
+"19-25",
+"adults"
+]
 },
 {
 "id": "main-character",
@@ -155,7 +177,14 @@
 "Present continuous",
 "Present simple"
 ],
-"coverQ": "film clapperboard camera"
+"coverQ": "film clapperboard camera",
+"ages": [
+"12-14",
+"14-16",
+"16-18",
+"19-25",
+"adults"
+]
 },
 {
 "id": "mood-menu",
@@ -194,6 +223,12 @@
 "imgP": "a cosy scene that captures the mood: {x}",
 "gram": [
 "Gerunds & infinitives"
+],
+"ages": [
+"14-16",
+"16-18",
+"19-25",
+"adults"
 ]
 },
 {
@@ -229,7 +264,15 @@
 "gram": [
 "Second conditional"
 ],
-"coverQ": "breakfast balcony morning"
+"coverQ": "breakfast balcony morning",
+"ages": [
+"9-12",
+"12-14",
+"14-16",
+"16-18",
+"19-25",
+"adults"
+]
 },
 {
 "id": "how-often",
@@ -273,6 +316,15 @@
 "imgP": "an everyday scene illustrating the activity '{x}'",
 "gram": [
 "Present simple"
+],
+"ages": [
+"6-8",
+"9-12",
+"12-14",
+"14-16",
+"16-18",
+"19-25",
+"adults"
 ]
 },
 {
@@ -312,7 +364,13 @@
 "things you have in your pocket"
 ],
 "img": true,
-"imgP": "a scene representing the category '{x}', showing several examples"
+"imgP": "a scene representing the category '{x}', showing several examples",
+"ages": [
+"6-8",
+"9-12",
+"12-14",
+"14-16"
+]
 },
 {
 "id": "use-it-for",
@@ -355,6 +413,15 @@
 "gram": [
 "Present simple",
 "Gerunds & infinitives"
+],
+"ages": [
+"6-8",
+"9-12",
+"12-14",
+"14-16",
+"16-18",
+"19-25",
+"adults"
 ]
 },
 {
@@ -397,7 +464,15 @@
 "gram": [
 "Relative clauses"
 ],
-"coverQ": "open dictionary"
+"coverQ": "open dictionary",
+"ages": [
+"9-12",
+"12-14",
+"14-16",
+"16-18",
+"19-25",
+"adults"
+]
 },
 {
 "id": "user-manual",
@@ -440,7 +515,13 @@
 "Zero conditional",
 "First conditional"
 ],
-"coverQ": "instruction manual"
+"coverQ": "instruction manual",
+"ages": [
+"14-16",
+"16-18",
+"19-25",
+"adults"
+]
 },
 {
 "id": "five-star-review",
@@ -485,6 +566,13 @@
 "gram": [
 "Past simple",
 "Present perfect"
+],
+"ages": [
+"12-14",
+"14-16",
+"16-18",
+"19-25",
+"adults"
 ]
 },
 {
@@ -529,7 +617,12 @@
 "Zero conditional",
 "Present simple"
 ],
-"coverQ": "red flag green flag"
+"coverQ": "red flag green flag",
+"ages": [
+"16-18",
+"19-25",
+"adults"
+]
 },
 {
 "id": "great-swap",
@@ -605,6 +698,14 @@
 "gram": [
 "Second conditional",
 "Comparatives & superlatives"
+],
+"ages": [
+"9-12",
+"12-14",
+"14-16",
+"16-18",
+"19-25",
+"adults"
 ]
 },
 {
@@ -676,6 +777,13 @@
 "gram": [
 "Present perfect",
 "Second conditional"
+],
+"ages": [
+"12-14",
+"14-16",
+"16-18",
+"19-25",
+"adults"
 ]
 },
 {
@@ -722,7 +830,15 @@
 "Past simple",
 "Question forms"
 ],
-"coverQ": "magnifying glass cards"
+"coverQ": "magnifying glass cards",
+"ages": [
+"9-12",
+"12-14",
+"14-16",
+"16-18",
+"19-25",
+"adults"
+]
 },
 {
 "id": "unwritten-rules",
@@ -765,7 +881,13 @@
 "gram": [
 "Modals: advice & obligation"
 ],
-"noSearch": true
+"noSearch": true,
+"ages": [
+"14-16",
+"16-18",
+"19-25",
+"adults"
+]
 },
 {
 "id": "the-catch",
@@ -808,6 +930,13 @@
 "imgP": "a dreamy, attractive photo of: {x}",
 "gram": [
 "Second conditional"
+],
+"ages": [
+"12-14",
+"14-16",
+"16-18",
+"19-25",
+"adults"
 ]
 },
 {
@@ -856,7 +985,13 @@
 "gram": [
 "Second conditional"
 ],
-"noSearch": true
+"noSearch": true,
+"ages": [
+"14-16",
+"16-18",
+"19-25",
+"adults"
+]
 },
 {
 "id": "designed-to-hook",
@@ -900,7 +1035,12 @@
 "gram": [
 "Passive voice"
 ],
-"noSearch": true
+"noSearch": true,
+"ages": [
+"16-18",
+"19-25",
+"adults"
+]
 },
 {
 "id": "convenient-creepy",
@@ -944,7 +1084,12 @@
 "Second conditional",
 "First conditional"
 ],
-"noSearch": true
+"noSearch": true,
+"ages": [
+"16-18",
+"19-25",
+"adults"
+]
 },
 {
 "id": "parallel-realities",
@@ -1018,6 +1163,11 @@
 "imgP": "{x}",
 "gram": [
 "Linkers"
+],
+"ages": [
+"16-18",
+"19-25",
+"adults"
 ]
 },
 {
@@ -1094,7 +1244,12 @@
 "gram": [
 "Linkers"
 ],
-"coverQ": "newspapers stack"
+"coverQ": "newspapers stack",
+"ages": [
+"16-18",
+"19-25",
+"adults"
+]
 },
 {
 "id": "defend-the-object",
@@ -1136,6 +1291,13 @@
 "end": "Vote: which object won the debate?",
 "gram": [
 "Second conditional"
+],
+"ages": [
+"12-14",
+"14-16",
+"16-18",
+"19-25",
+"adults"
 ]
 },
 {
@@ -1211,6 +1373,14 @@
 "gram": [
 "Second conditional",
 "Comparatives & superlatives"
+],
+"ages": [
+"9-12",
+"12-14",
+"14-16",
+"16-18",
+"19-25",
+"adults"
 ]
 },
 {
@@ -1254,7 +1424,13 @@
 "gram": [
 "Linkers"
 ],
-"noSearch": true
+"noSearch": true,
+"ages": [
+"14-16",
+"16-18",
+"19-25",
+"adults"
+]
 },
 {
 "id": "just-a-minute",
@@ -1296,6 +1472,13 @@
 "imgP": "{x}",
 "gram": [
 "Linkers"
+],
+"ages": [
+"12-14",
+"14-16",
+"16-18",
+"19-25",
+"adults"
 ]
 },
 {
@@ -1337,7 +1520,15 @@
 "gram": [
 "Narrative tenses"
 ],
-"noSearch": true
+"noSearch": true,
+"ages": [
+"9-12",
+"12-14",
+"14-16",
+"16-18",
+"19-25",
+"adults"
+]
 },
 {
 "id": "alibi",
@@ -1384,7 +1575,14 @@
 "Narrative tenses",
 "Question forms"
 ],
-"noSearch": true
+"noSearch": true,
+"ages": [
+"12-14",
+"14-16",
+"16-18",
+"19-25",
+"adults"
+]
 },
 {
 "id": "taboo",
@@ -1656,7 +1854,15 @@
 "gram": [
 "Relative clauses"
 ],
-"coverQ": "board game cards table"
+"coverQ": "board game cards table",
+"ages": [
+"9-12",
+"12-14",
+"14-16",
+"16-18",
+"19-25",
+"adults"
+]
 },
 {
 "id": "desert-island",
@@ -1701,6 +1907,13 @@
 "imgP": "{x} lying on a sandy tropical beach",
 "gram": [
 "Second conditional"
+],
+"ages": [
+"12-14",
+"14-16",
+"16-18",
+"19-25",
+"adults"
 ]
 },
 {
@@ -1752,6 +1965,14 @@
 "Second conditional",
 "Question forms",
 "Present perfect"
+],
+"ages": [
+"9-12",
+"12-14",
+"14-16",
+"16-18",
+"19-25",
+"adults"
 ]
 },
 {
@@ -1822,6 +2043,13 @@
 "imgP": "{x}",
 "gram": [
 "Narrative tenses"
+],
+"ages": [
+"6-8",
+"9-12",
+"12-14",
+"14-16",
+"16-18"
 ]
 },
 {
@@ -1917,6 +2145,11 @@
 "end": "Which fake definition was the most convincing today?",
 "gram": [
 "Relative clauses"
+],
+"ages": [
+"16-18",
+"19-25",
+"adults"
 ]
 },
 {
@@ -2033,6 +2266,13 @@
 "end": "Which product would actually sell? What would you call it?",
 "gram": [
 "Comparatives & superlatives"
+],
+"ages": [
+"12-14",
+"14-16",
+"16-18",
+"19-25",
+"adults"
 ]
 },
 {
@@ -2093,6 +2333,13 @@
 "gram": [
 "Third conditional",
 "Past continuous"
+],
+"ages": [
+"12-14",
+"14-16",
+"16-18",
+"19-25",
+"adults"
 ]
 },
 {
@@ -2152,6 +2399,12 @@
 "end": "Which hot take divided the class the most?",
 "gram": [
 "Comparatives & superlatives"
+],
+"ages": [
+"14-16",
+"16-18",
+"19-25",
+"adults"
 ]
 },
 {
@@ -2208,6 +2461,12 @@
 "end": "Who got the most votes today? Do they agree?",
 "gram": [
 "Comparatives & superlatives"
+],
+"ages": [
+"12-14",
+"14-16",
+"16-18",
+"19-25"
 ]
 },
 {
@@ -2264,6 +2523,12 @@
 "end": "Which theory was so convincing you almost believed it?",
 "gram": [
 "Linkers"
+],
+"ages": [
+"14-16",
+"16-18",
+"19-25",
+"adults"
 ]
 },
 {
@@ -2325,6 +2590,12 @@
 "end": "Who got the most investment? Would you really buy it?",
 "gram": [
 "Comparatives & superlatives"
+],
+"ages": [
+"14-16",
+"16-18",
+"19-25",
+"adults"
 ]
 },
 {
@@ -2473,6 +2744,14 @@
 "end": "Which ranking caused the biggest argument?",
 "gram": [
 "Comparatives & superlatives"
+],
+"ages": [
+"9-12",
+"12-14",
+"14-16",
+"16-18",
+"19-25",
+"adults"
 ]
 },
 {
@@ -2531,6 +2810,12 @@
 "end": "What was the funniest question of the day?",
 "gram": [
 "Question forms"
+],
+"ages": [
+"14-16",
+"16-18",
+"19-25",
+"adults"
 ]
 },
 {
@@ -2657,6 +2942,11 @@
 "end": "Who was the most convincing expert today?",
 "gram": [
 "Linkers"
+],
+"ages": [
+"16-18",
+"19-25",
+"adults"
 ]
 },
 {
@@ -2755,7 +3045,15 @@
 "Pick two students to share a personal 'If I…' habit."
 ]
 },
-"end": "Write three 'If…' facts about your daily routine."
+"end": "Write three 'If…' facts about your daily routine.",
+"ages": [
+"9-12",
+"12-14",
+"14-16",
+"16-18",
+"19-25",
+"adults"
+]
 },
 {
 "id": "chain-reaction",
@@ -2816,7 +3114,15 @@
 "Last students standing win."
 ]
 },
-"end": "What was the funniest chain? Where did it end?"
+"end": "What was the funniest chain? Where did it end?",
+"ages": [
+"9-12",
+"12-14",
+"14-16",
+"16-18",
+"19-25",
+"adults"
+]
 },
 {
 "id": "what-would-you-do",
@@ -2879,7 +3185,13 @@
 "Ask one student from each side to justify their choice."
 ]
 },
-"end": "Which dilemma was the hardest? Did anyone change their mind?"
+"end": "Which dilemma was the hardest? Did anyone change their mind?",
+"ages": [
+"14-16",
+"16-18",
+"19-25",
+"adults"
+]
 },
 {
 "id": "imagine-if",
@@ -2938,7 +3250,14 @@
 "The group with the most original ideas wins."
 ]
 },
-"end": "Which world would you like to live in?"
+"end": "Which world would you like to live in?",
+"ages": [
+"12-14",
+"14-16",
+"16-18",
+"19-25",
+"adults"
+]
 },
 {
 "id": "sliding-doors",
@@ -2997,7 +3316,12 @@
 "At the end, the class reads it aloud together."
 ]
 },
-"end": "Is there a small decision in your life that changed everything?"
+"end": "Is there a small decision in your life that changed everything?",
+"ages": [
+"16-18",
+"19-25",
+"adults"
+]
 },
 {
 "id": "mixed-up",
@@ -3055,7 +3379,12 @@
 "Finish with a quick correction round."
 ]
 },
-"end": "Write one mixed conditional about your own life."
+"end": "Write one mixed conditional about your own life.",
+"ages": [
+"16-18",
+"19-25",
+"adults"
+]
 },
 {
 "id": "who-am-i",
@@ -3117,7 +3446,13 @@
 "Whoever guesses becomes the next speaker."
 ]
 },
-"end": "Which one was the hardest to guess?"
+"end": "Which one was the hardest to guess?",
+"ages": [
+"6-8",
+"9-12",
+"12-14",
+"14-16"
+]
 },
 {
 "id": "mime-time",
@@ -3177,7 +3512,14 @@
 "A correct guess = 1 point; a correct guess with perfect grammar = 2."
 ]
 },
-"end": "Who was the best actor today?"
+"end": "Who was the best actor today?",
+"ages": [
+"6-8",
+"9-12",
+"12-14",
+"14-16",
+"16-18"
+]
 },
 {
 "id": "the-evidence",
@@ -3236,7 +3578,14 @@
 "The suspect tells the true story."
 ]
 },
-"end": "What have YOU been doing this week?"
+"end": "What have YOU been doing this week?",
+"ages": [
+"12-14",
+"14-16",
+"16-18",
+"19-25",
+"adults"
+]
 },
 {
 "id": "have-you-ever-liar",
@@ -3298,7 +3647,14 @@
 "Reveal and choose the next student."
 ]
 },
-"end": "Who was the best liar? What was the most surprising true story?"
+"end": "Who was the best liar? What was the most surprising true story?",
+"ages": [
+"12-14",
+"14-16",
+"16-18",
+"19-25",
+"adults"
+]
 },
 {
 "id": "epic-weekend",
@@ -3410,7 +3766,14 @@
 ]
 }
 ],
-"end": "Whose weekend would you like to have had?"
+"end": "Whose weekend would you like to have had?",
+"ages": [
+"12-14",
+"14-16",
+"16-18",
+"19-25",
+"adults"
+]
 },
 {
 "id": "when-it-happened",
@@ -3471,7 +3834,15 @@
 "Highlight the two tenses on the board."
 ]
 },
-"end": "What were you doing yesterday at 8 pm?"
+"end": "What were you doing yesterday at 8 pm?",
+"ages": [
+"9-12",
+"12-14",
+"14-16",
+"16-18",
+"19-25",
+"adults"
+]
 },
 {
 "id": "the-backstory",
@@ -3532,7 +3903,13 @@
 "Write a perfect example on the board."
 ]
 },
-"end": "Which backstory would make the best film?"
+"end": "Which backstory would make the best film?",
+"ages": [
+"14-16",
+"16-18",
+"19-25",
+"adults"
+]
 },
 {
 "id": "back-in-my-day",
@@ -3598,7 +3975,13 @@
 "Finish with a real 'When I was a child…' round."
 ]
 },
-"end": "What do you think people in 2080 will find funny about us?"
+"end": "What do you think people in 2080 will find funny about us?",
+"ages": [
+"14-16",
+"16-18",
+"19-25",
+"adults"
+]
 },
 {
 "id": "fortune-teller",
@@ -3657,7 +4040,15 @@
 "Rotate every topic."
 ]
 },
-"end": "Which prediction do you hope will come true?"
+"end": "Which prediction do you hope will come true?",
+"ages": [
+"9-12",
+"12-14",
+"14-16",
+"16-18",
+"19-25",
+"adults"
+]
 },
 {
 "id": "sorry-ill-be-busy",
@@ -3714,7 +4105,14 @@
 "Rotate the 'inviter'."
 ]
 },
-"end": "What will you be doing this time tomorrow?"
+"end": "What will you be doing this time tomorrow?",
+"ages": [
+"12-14",
+"14-16",
+"16-18",
+"19-25",
+"adults"
+]
 },
 {
 "id": "by-2050",
@@ -3774,7 +4172,12 @@
 "Write the best ones on the board as a 'time capsule'."
 ]
 },
-"end": "Write one prediction for yourself to read in 10 years."
+"end": "Write one prediction for yourself to read in 10 years.",
+"ages": [
+"16-18",
+"19-25",
+"adults"
+]
 },
 {
 "id": "agony-aunt",
@@ -3834,7 +4237,13 @@
 "Highlight should / ought to / had better on the board."
 ]
 },
-"end": "What's the best advice anyone has ever given you?"
+"end": "What's the best advice anyone has ever given you?",
+"ages": [
+"14-16",
+"16-18",
+"19-25",
+"adults"
+]
 },
 {
 "id": "alien-rulebook",
@@ -3894,7 +4303,15 @@
 "Vote on the silliest rule."
 ]
 },
-"end": "Which rule would the alien find the strangest?"
+"end": "Which rule would the alien find the strangest?",
+"ages": [
+"9-12",
+"12-14",
+"14-16",
+"16-18",
+"19-25",
+"adults"
+]
 },
 {
 "id": "whose-bag",
@@ -4032,7 +4449,14 @@
 "Write the best deductions on the board."
 ]
 },
-"end": "What would someone deduce about you from YOUR bag?"
+"end": "What would someone deduce about you from YOUR bag?",
+"ages": [
+"12-14",
+"14-16",
+"16-18",
+"19-25",
+"adults"
+]
 },
 {
 "id": "what-must-have-happened",
@@ -4091,7 +4515,12 @@
 "Correct past participles on the board."
 ]
 },
-"end": "Tell us about something you should have done differently this week."
+"end": "Tell us about something you should have done differently this week.",
+"ages": [
+"16-18",
+"19-25",
+"adults"
+]
 },
 {
 "id": "corrupt-a-wish",
@@ -4152,7 +4581,14 @@
 "Vote for the cruellest twist."
 ]
 },
-"end": "What's one thing you really wish you could change about your week?"
+"end": "What's one thing you really wish you could change about your week?",
+"ages": [
+"12-14",
+"14-16",
+"16-18",
+"19-25",
+"adults"
+]
 },
 {
 "id": "it-wasnt-me",
@@ -4212,7 +4648,15 @@
 "Write the best passive excuses on the board."
 ]
 },
-"end": "What's the best excuse you've ever heard?"
+"end": "What's the best excuse you've ever heard?",
+"ages": [
+"9-12",
+"12-14",
+"14-16",
+"16-18",
+"19-25",
+"adults"
+]
 },
 {
 "id": "made-built-written",
@@ -4303,7 +4747,14 @@
 "Teams invent a question for the other team."
 ]
 },
-"end": "Make a passive question about your city for a partner."
+"end": "Make a passive question about your city for a partner.",
+"ages": [
+"12-14",
+"14-16",
+"16-18",
+"19-25",
+"adults"
+]
 },
 {
 "id": "lazy-millionaire",
@@ -4363,7 +4814,13 @@
 "Write a few causative sentences on the board."
 ]
 },
-"end": "What would you pay someone to do for you if you could?"
+"end": "What would you pay someone to do for you if you could?",
+"ages": [
+"14-16",
+"16-18",
+"19-25",
+"adults"
+]
 },
 {
 "id": "pardon",
@@ -4422,7 +4879,15 @@
 "Finish with a gossip round: 'I heard that…'"
 ]
 },
-"end": "Report one thing someone said to you this week."
+"end": "Report one thing someone said to you this week.",
+"ages": [
+"9-12",
+"12-14",
+"14-16",
+"16-18",
+"19-25",
+"adults"
+]
 },
 {
 "id": "never-ending-sentence",
@@ -4481,7 +4946,14 @@
 "Write the record sentence on the board."
 ]
 },
-"end": "What's the longest sentence we built?"
+"end": "What's the longest sentence we built?",
+"ages": [
+"12-14",
+"14-16",
+"16-18",
+"19-25",
+"adults"
+]
 },
 {
 "id": "most-ever",
@@ -4542,7 +5014,14 @@
 "Vote for the most extreme story."
 ]
 },
-"end": "What's the best thing that has happened to you this week?"
+"end": "What's the best thing that has happened to you this week?",
+"ages": [
+"12-14",
+"14-16",
+"16-18",
+"19-25",
+"adults"
+]
 },
 {
 "id": "cant-stand",
@@ -4602,7 +5081,14 @@
 "Keep a class 'top 3 most hated' list."
 ]
 },
-"end": "What's something you'd like to start doing?"
+"end": "What's something you'd like to start doing?",
+"ages": [
+"12-14",
+"14-16",
+"16-18",
+"19-25",
+"adults"
+]
 },
 {
 "id": "heres-the-answer",
@@ -4663,7 +5149,14 @@
 "Ask some of the questions for real."
 ]
 },
-"end": "What's the most interesting question you heard today?"
+"end": "What's the most interesting question you heard today?",
+"ages": [
+"12-14",
+"14-16",
+"16-18",
+"19-25",
+"adults"
+]
 },
 {
 "id": "drama-queen",
@@ -4752,7 +5245,12 @@
 "Groups write a mini-drama with three inversions and perform it."
 ]
 },
-"end": "Tell us about something that happened this week, as dramatically as you can."
+"end": "Tell us about something that happened this week, as dramatically as you can.",
+"ages": [
+"16-18",
+"19-25",
+"adults"
+]
 },
 {
 "id": "what-i-really-mean",
@@ -4811,7 +5309,12 @@
 "Vote for the most passionate opinion."
 ]
 },
-"end": "What I've learnt today is…"
+"end": "What I've learnt today is…",
+"ages": [
+"16-18",
+"19-25",
+"adults"
+]
 },
 {
 "id": "linker-challenge",
@@ -4940,7 +5443,13 @@
 "Finish with the three most useful linkers of the day."
 ]
 },
-"end": "Which linker will you use in your next writing?"
+"end": "Which linker will you use in your next writing?",
+"ages": [
+"14-16",
+"16-18",
+"19-25",
+"adults"
+]
 },
 {
 "id": "guess-the-job",
@@ -5046,6 +5555,718 @@
 "Points for the correct job and for the best reasoning."
 ]
 },
-"end": "Who in this class looks like they could be a spy? Why?"
+"end": "Who in this class looks like they could be a spy? Why?",
+"ages": [
+"9-12",
+"12-14",
+"14-16",
+"16-18",
+"19-25",
+"adults"
+]
+},
+{
+"id": "look-and-say-animals",
+"name": "Look and Say: Animals",
+"cat": "warm",
+"lv": [
+"A1"
+],
+"fmts": [
+"ind",
+"grp"
+],
+"kind": "single",
+"reveal": true,
+"img": true,
+"photoOnly": true,
+"ages": [
+"3-6",
+"6-8"
+],
+"imgP": "a clear photo of {x}",
+"revealTag": "Look and say",
+"ansLabel": "It's…",
+"q": [
+"What's this?",
+"What colour is it? Is it big or small? What sound does it make?"
+],
+"desc": "Picture cards for little learners: name the animal, its colour and its sound.",
+"instr": "Look at the picture. What's this? Say the animal, then its colour and the sound it makes!",
+"ph": [
+"It's a…",
+"It's big / small",
+"It's brown",
+"It says…"
+],
+"cards": [
+{
+"t": "elephant",
+"ans": "It's an elephant!"
+},
+{
+"t": "lion",
+"ans": "It's a lion!"
+},
+{
+"t": "cow",
+"ans": "It's a cow!"
+},
+{
+"t": "duck",
+"ans": "It's a duck!"
+},
+{
+"t": "giraffe",
+"ans": "It's a giraffe!"
+},
+{
+"t": "rabbit",
+"ans": "It's a rabbit!"
+},
+{
+"t": "horse",
+"ans": "It's a horse!"
+},
+{
+"t": "monkey",
+"ans": "It's a monkey!"
+},
+{
+"t": "frog",
+"ans": "It's a frog!"
+},
+{
+"t": "penguin",
+"ans": "It's a penguin!"
+},
+{
+"t": "pig",
+"ans": "It's a pig!"
+},
+{
+"t": "zebra",
+"ans": "It's a zebra!"
+}
+],
+"guide": {
+"ind": [
+"Show the picture and ask 'What's this?'. Model the answer if needed.",
+"Ask one more question: colour, size or sound. Act it out together.",
+"Reveal the word and say it together, clapping the syllables."
+],
+"pair": [
+"Pairs point at the screen and take turns asking 'What's this?'.",
+"Add a mime: one child acts the animal, the other guesses.",
+""
+],
+"grp": [
+"Show the picture. The whole class shouts the answer, then makes the sound.",
+"Choose one child to act it out; the others copy.",
+"Play 'Stand up if it's big!'"
+]
+},
+"end": "Which animal do you like best?"
+},
+{
+"id": "look-and-say-food",
+"name": "Look and Say: Food",
+"cat": "warm",
+"lv": [
+"A1"
+],
+"fmts": [
+"ind",
+"grp"
+],
+"kind": "single",
+"reveal": true,
+"img": true,
+"photoOnly": true,
+"ages": [
+"3-6",
+"6-8"
+],
+"imgP": "a clear photo of {x}",
+"revealTag": "Yummy or yucky?",
+"ansLabel": "It's…",
+"q": [
+"What's this?",
+"Do you like it? Yummy or yucky?"
+],
+"desc": "Picture cards: name the food and say if you like it.",
+"instr": "What's this? Do you like it? Rub your tummy for 'yummy' or make a face for 'yucky'!",
+"ph": [
+"It's a… / It's…",
+"I like it!",
+"I don't like it!",
+"Yummy! / Yucky!"
+],
+"cards": [
+{
+"t": "banana",
+"ans": "It's a banana!"
+},
+{
+"t": "apple",
+"ans": "It's an apple!"
+},
+{
+"t": "pizza",
+"ans": "It's pizza!"
+},
+{
+"t": "ice cream cone",
+"ans": "It's an ice cream!"
+},
+{
+"t": "carrots",
+"ans": "They're carrots!"
+},
+{
+"t": "bread",
+"ans": "It's bread!"
+},
+{
+"t": "cheese",
+"ans": "It's cheese!"
+},
+{
+"t": "strawberries",
+"ans": "They're strawberries!"
+},
+{
+"t": "chocolate",
+"ans": "It's chocolate!"
+},
+{
+"t": "broccoli",
+"ans": "It's broccoli!"
+},
+{
+"t": "eggs",
+"ans": "They're eggs!"
+},
+{
+"t": "orange fruit",
+"ans": "It's an orange!"
+}
+],
+"guide": {
+"ind": [
+"Show the picture, ask 'What's this?' and 'Do you like it?'.",
+"Model 'I like… / I don't like…' with big gestures.",
+"Reveal and repeat together."
+],
+"pair": [
+"Children ask each other 'Do you like…?' and answer with a gesture.",
+"",
+""
+],
+"grp": [
+"Show the picture. Children answer with 'Yummy!' or 'Yucky!' and a gesture.",
+"Count hands: who likes it?",
+"Make a class 'favourite food' list."
+]
+},
+"end": "What's your favourite food?"
+},
+{
+"id": "lost-and-found",
+"name": "Lost and Found",
+"cat": "game",
+"lv": [
+"A1",
+"A2",
+"B1"
+],
+"fmts": [
+"pair",
+"grp"
+],
+"kind": "single",
+"secret": true,
+"ages": [
+"6-8",
+"9-12",
+"12-14"
+],
+"gram": [
+"Present simple",
+"Relative clauses"
+],
+"focus": "Describing objects: It's big/small, It's made of…, It has…, It's the one with…",
+"desc": "You've lost something. Describe it so well that the others can 'find' it.",
+"instr": "Only the 'owner' looks at the card. You've lost this object! Describe it: colour, size, what it's made of, what's on it. The others guess what it is.",
+"ph": [
+"I've lost my…",
+"It's (blue) and (small)",
+"It's made of…",
+"It has… on it"
+],
+"cards": [
+"a red water bottle with stickers",
+"a blue backpack with a broken zip",
+"a pencil case shaped like a cat",
+"a black umbrella with white spots",
+"a green jumper with a big star",
+"a teddy bear with one ear",
+"a yellow football",
+"a silver watch",
+"a pair of glasses in a purple case",
+"a lunchbox with dinosaurs on it",
+"a skateboard with flames",
+"a pink hat with a pompom"
+],
+"guide": {
+"ind": [
+"The student describes; you guess. Then swap.",
+"Push for 3 details: colour, size, material.",
+"Ask 'Where did you lose it?'"
+],
+"pair": [
+"Hide the card for the guesser. The owner describes; the partner asks yes/no questions.",
+"Swap.",
+""
+],
+"grp": [
+"One child looks at the card (press H). The class asks questions: 'Is it big? Is it blue?'",
+"Whoever guesses becomes the next owner.",
+""
+]
+},
+"end": "Have you ever lost something important?"
+},
+{
+"id": "pizza-party",
+"name": "Pizza Party",
+"cat": "opinion",
+"lv": [
+"A2",
+"B1"
+],
+"fmts": [
+"pair",
+"grp"
+],
+"kind": "single",
+"ages": [
+"9-12",
+"12-14",
+"14-16"
+],
+"gram": [
+"Modals: advice & obligation",
+"Comparatives & superlatives"
+],
+"focus": "Suggesting and agreeing: Let's order…, We should…, What about…?, He can't eat…",
+"desc": "Plan a pizza order for the class with only three pizzas. Everyone has different needs!",
+"instr": "You can only order three pizzas for the whole group. Look at the problem on the card and agree which pizzas to order.",
+"ph": [
+"Let's order… because…",
+"We can't get… because… is allergic",
+"What about…?",
+"OK, so we agree on…"
+],
+"cards": [
+"Two people are vegetarian and one person hates cheese.",
+"Someone is allergic to tomatoes.",
+"Half the group loves spicy food, half hates it.",
+"One person only eats pizza with pineapple.",
+"The budget is only 25 euros.",
+"Someone doesn't eat meat or fish.",
+"The teacher wants a pizza too, with anchovies!",
+"It's someone's birthday: they choose one pizza.",
+"Someone can't eat gluten.",
+"Nobody likes mushrooms except one person."
+],
+"guide": {
+"ind": [
+"Plan together: you play a difficult classmate with lots of demands.",
+"The student must find a solution and explain it.",
+""
+],
+"pair": [
+"Pairs agree on three pizzas in two minutes, then compare with another pair.",
+"",
+""
+],
+"grp": [
+"Groups of four plan the order, then present it.",
+"The class votes for the fairest plan.",
+""
+]
+},
+"end": "What's the best pizza in the world?"
+},
+{
+"id": "celebrity-holiday",
+"name": "Plan a Celebrity's Holiday",
+"cat": "opinion",
+"lv": [
+"A2",
+"B1",
+"B2"
+],
+"fmts": [
+"pair",
+"grp"
+],
+"kind": "single",
+"ages": [
+"12-14",
+"14-16",
+"16-18",
+"19-25",
+"adults"
+],
+"gram": [
+"Future forms",
+"Modals: advice & obligation"
+],
+"focus": "Planning: They're going to…, They should…, They'll love… because…",
+"desc": "You're a travel agent for a very demanding (invented) celebrity. Plan their perfect week.",
+"instr": "You work for a travel agency. Plan a one-week holiday for this client: where, where to stay, what to do and what to avoid.",
+"ph": [
+"They're going to stay at…",
+"They should avoid… because…",
+"On day one they'll…",
+"It's perfect for them because…"
+],
+"cards": [
+"A rock star who hates the sun and loves the night",
+"A famous chef who wants to discover new food",
+"A football player with an injured leg",
+"A shy actor who doesn't want to be recognised",
+"An influencer who needs 100 photos a day",
+"A singer who's scared of planes",
+"A billionaire who has been everywhere",
+"A grandmother who has just won the lottery",
+"A YouTuber who wants extreme adventures",
+"A writer who needs total silence"
+],
+"guide": {
+"ind": [
+"Plan the trip together; you're the difficult client and keep changing your mind.",
+"",
+""
+],
+"pair": [
+"Pairs plan the week, then 'sell' it to another pair, who play the client.",
+"",
+""
+],
+"grp": [
+"Groups plan a trip each, then present it like a TV ad.",
+"The class votes for the trip they'd most like to go on.",
+""
+]
+},
+"end": "Which client would be the worst to work for?"
+},
+{
+"id": "perfect-match",
+"name": "The Perfect Match",
+"cat": "opinion",
+"lv": [
+"B1",
+"B2",
+"C1"
+],
+"fmts": [
+"pair",
+"grp"
+],
+"kind": "single",
+"ages": [
+"16-18",
+"19-25",
+"adults"
+],
+"gram": [
+"Comparatives & superlatives",
+"Second conditional"
+],
+"focus": "Comparing and justifying: … would get on better with… because…, They're more… than…",
+"desc": "Read the profiles and decide who should share a flat, a holiday or a team.",
+"instr": "Read the four profiles. Make two pairs that would get on well. Explain your choice and say which pair would be a disaster!",
+"ph": [
+"… and … would get on well because…",
+"… would drive … crazy because…",
+"They're both… / Unlike…,",
+"I'd put … with … because…"
+],
+"cards": [
+{
+"t": "Flatmates",
+"sub": [
+"Ana: tidy, early riser, hates noise",
+"Ben: plays drums, night owl, cooks well",
+"Carla: always travelling, very social",
+"Dev: works from home, loves silence"
+]
+},
+{
+"t": "Holiday partners",
+"sub": [
+"Eli: loves museums and early mornings",
+"Fran: wants beach and parties",
+"Gus: adventure sports, no plans",
+"Hana: needs a detailed plan for every day"
+]
+},
+{
+"t": "Project team",
+"sub": [
+"Ivan: great ideas, always late",
+"Julia: organised, a bit bossy",
+"Kai: quiet, brilliant with numbers",
+"Lola: talks a lot, great presenter"
+]
+},
+{
+"t": "Road trip",
+"sub": [
+"Max: only listens to heavy metal",
+"Nora: gets car sick",
+"Omar: loves stopping everywhere for photos",
+"Pia: wants to arrive as fast as possible"
+]
+},
+{
+"t": "Dinner party seating",
+"sub": [
+"Quim: talks only about football",
+"Rosa: vegetarian activist",
+"Sam: hunter and steak lover",
+"Tina: football fan, very funny"
+]
+},
+{
+"t": "Gym partners",
+"sub": [
+"Uma: training for a marathon",
+"Vic: wants to chat, not train",
+"Will: very competitive",
+"Xia: complete beginner, a bit shy"
+]
+}
+],
+"guide": {
+"ind": [
+"The student pairs them up and justifies; you disagree with one pair.",
+"",
+""
+],
+"pair": [
+"Pairs make their choice, then compare with another pair and negotiate a final answer.",
+"",
+""
+],
+"grp": [
+"Groups decide, then defend their pairs to the class.",
+"",
+""
+]
+},
+"end": "Who would be YOUR perfect flatmate?"
+},
+{
+"id": "museum-robbery",
+"name": "The Museum Robbery",
+"cat": "game",
+"lv": [
+"A2",
+"B1",
+"B2"
+],
+"fmts": [
+"pair",
+"grp"
+],
+"kind": "single",
+"ages": [
+"9-12",
+"12-14",
+"14-16",
+"16-18",
+"19-25",
+"adults"
+],
+"gram": [
+"Past continuous",
+"Modals of deduction",
+"Question forms"
+],
+"focus": "Alibis and deduction: I was …ing, He must have…, She can't have… because…",
+"desc": "A painting was stolen last night. Read one clue per slide and work out who did it.",
+"instr": "Last night at 9 pm the famous painting 'Blue Moon' was stolen from the City Museum. There are four suspects. Read the clues one by one and decide who did it.",
+"ph": [
+"She can't have done it because…",
+"He must have…",
+"Where was … at 9 pm?",
+"So the thief must be…"
+],
+"cards": [
+"The suspects: the guard (Mr Grey), the cleaner (Ms Rose), the director (Dr Black) and a visitor (Mr Green).",
+"Clue 1: Mr Grey says he was watching football in the guard room.",
+"Clue 2: The football match on TV was cancelled last night because of rain.",
+"Clue 3: Ms Rose says she was cleaning the café on the ground floor.",
+"Clue 4: The painting was on the second floor. The lift was broken.",
+"Clue 5: Dr Black was having dinner at a restaurant. The waiter remembers her.",
+"Clue 6: Mr Green left the museum at 8 pm. The camera at the door shows it.",
+"Clue 7: There was a pair of wet shoes in the guard room.",
+"Clue 8: Ms Rose's mop and bucket were found on the second floor.",
+"Clue 9: Mr Grey has just bought a very expensive car.",
+"Who stole the painting? Decide as a group and explain why. (Teacher: there's no single answer — the best argued solution wins!)"
+],
+"guide": {
+"ind": [
+"Read the clues together. After each one, the student says who it could or couldn't be.",
+"At the end they accuse someone and justify it.",
+""
+],
+"pair": [
+"Pairs discuss each clue for one minute and keep a list of suspects.",
+"At the end, pairs compare their solution with another pair.",
+""
+],
+"grp": [
+"Groups of three or four are detective teams. Show one clue at a time.",
+"At the end, each team accuses someone and gives three reasons.",
+"The best-argued case wins."
+]
+},
+"end": "Who did it? Was it the best-argued case or the truth?"
+},
+{
+"id": "class-playlist",
+"name": "The Class Playlist",
+"cat": "opinion",
+"lv": [
+"A2",
+"B1",
+"B2"
+],
+"fmts": [
+"pair",
+"grp"
+],
+"kind": "single",
+"ages": [
+"9-12",
+"12-14",
+"14-16",
+"16-18",
+"19-25"
+],
+"gram": [
+"Gerunds & infinitives",
+"Comparatives & superlatives"
+],
+"focus": "Opinions and preferences: I'd rather…, I can't stand…, It's more… than…, Let's include…",
+"desc": "Agree on a five-song playlist for a specific situation.",
+"instr": "Make a playlist of five songs for this situation. Everyone must agree! Explain why each song fits.",
+"ph": [
+"I think we should include…",
+"It's perfect for… because…",
+"I'd rather… than…",
+"OK, let's compromise:…"
+],
+"cards": [
+"A long bus trip on a school excursion",
+"Studying for exams",
+"A party at the end of the year",
+"A rainy Sunday",
+"Going to the gym",
+"Cooking with friends",
+"A road trip with your family (everyone must like it!)",
+"The last day of summer",
+"Waking up on Monday morning",
+"A film about your life"
+],
+"guide": {
+"ind": [
+"The student chooses five songs and explains; you challenge two choices.",
+"",
+""
+],
+"pair": [
+"Pairs negotiate a list of five songs, then present them.",
+"",
+""
+],
+"grp": [
+"Groups agree on a playlist in five minutes. They can only keep a song if everyone accepts it.",
+"Groups present and the class votes.",
+""
+]
+},
+"end": "Which song would you never put on a playlist?"
+},
+{
+"id": "disaster-plan",
+"name": "Disaster Plan",
+"cat": "game",
+"lv": [
+"B1",
+"B2",
+"C1"
+],
+"fmts": [
+"pair",
+"grp"
+],
+"kind": "single",
+"ages": [
+"12-14",
+"14-16",
+"16-18",
+"19-25",
+"adults"
+],
+"gram": [
+"Modals: advice & obligation",
+"First conditional"
+],
+"focus": "Planning under pressure: We have to…, If we…, we'll…, We'd better…",
+"desc": "An emergency is coming. Agree on a plan in three minutes.",
+"instr": "You have three minutes to agree on a plan for this emergency. What will you do first? What will you take? Where will you go?",
+"ph": [
+"First, we have to…",
+"If we…, we'll…",
+"We'd better not…",
+"The most important thing is…"
+],
+"cards": [
+"A huge storm is arriving in two hours.",
+"You're lost in the mountains and it's getting dark.",
+"The power has gone off in the whole city for three days.",
+"Your house is flooding.",
+"You're stuck in a lift with three strangers.",
+"Your plane has landed on a desert island.",
+"A heatwave: 45°C for a week.",
+"The school is snowed in. Nobody can leave until tomorrow.",
+"Your car breaks down in the desert.",
+"There's a zombie outbreak in your town."
+],
+"guide": {
+"ind": [
+"Start the 3-minute timer. You and the student agree on a five-step plan.",
+"",
+""
+],
+"pair": [
+"Pairs make a plan, then compare it with another pair: whose would survive?",
+"",
+""
+],
+"grp": [
+"Groups make a plan in three minutes and present it.",
+"You (the teacher) add a new problem: they must adapt the plan.",
+""
+]
+},
+"end": "Which plan would really work?"
 }
 ]

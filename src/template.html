@@ -235,12 +235,13 @@ const GRAM_GROUPS={"Tenses":["Present simple","Present continuous","Present perf
  "Structures":["Passive voice","Causative have/get","Reported speech","Relative clauses","Comparatives & superlatives","Gerunds & infinitives","Question forms"],
  "Advanced (C1)":["Inversion","Cleft sentences","Linkers"]};
 const GRAMS=Object.values(GRAM_GROUPS).flat();
+const AGES={"3-6":"Little ones (3–6)","6-8":"Young learners (6–8)","9-12":"Kids (9–12)","12-14":"Pre-teens (12–14)","14-16":"Teens (14–16)","16-18":"Older teens (16–18)","19-25":"Young adults (19–25)","adults":"Adults"};
 const CATS={warm:"Warm-ups",you:"Talk about you",opinion:"Opinions & debate",game:"Games"};
 const FMTS={ind:"Individual",pair:"Pairs",grp:"Whole group"};
 const LEVELS=["A1","A2","B1","B2","C1"];
 const APPS=[
- {id:"secret-word",name:"Secret Word",cat:"game",lv:["A2","B1","B2"],fmts:["grp"],app:true,desc:"Slip a secret word into an improvised speech. The class tries to spot it."},
- {id:"small-talk-grid",name:"Small Talk Grid",cat:"game",lv:["A2","B1","B2"],fmts:["pair"],app:true,desc:"Pick a square and talk with your partner for a full minute. No awkward silences."}
+ {id:"secret-word",name:"Secret Word",cat:"game",lv:["A2","B1","B2"],fmts:["grp"],app:true,ages:["12-14","14-16","16-18","19-25","adults"],gram:["Linkers"],desc:"Slip a secret word into an improvised speech. The class tries to spot it."},
+ {id:"small-talk-grid",name:"Small Talk Grid",cat:"game",lv:["A2","B1","B2"],fmts:["pair"],app:true,ages:["12-14","14-16","16-18","19-25","adults"],gram:["Question forms"],desc:"Pick a square and talk with your partner for a full minute. No awkward silences."}
 ];
 const ALL=[...DECKS,...APPS];
 const byId=id=>ALL.find(a=>a.id===id);
@@ -301,11 +302,13 @@ function hub(){
     <label class="search"><span class="sr">Search</span><input id="q" type="search" placeholder="Search activities, topics or grammar (e.g. second conditional)" value="${esc(F.q||"")}" autocomplete="off"></label>
     <div class="chips" id="fFmt">${[["all","All formats"],...Object.entries(FMTS)].map(([k,v])=>`<button data-k="${k}" aria-pressed="${F.fmt===k}">${v}</button>`).join("")}</div>
     <div class="chips" id="fLv">${["all",...LEVELS].map(k=>`<button data-k="${k}" aria-pressed="${F.lv===k}">${k==="all"?"All levels":k}</button>`).join("")}</div>
-    <label class="grsel"><span class="chips-l">Grammar</span><select id="fGr"><option value="all">Any grammar</option>${Object.entries(GRAM_GROUPS).map(([g,l])=>`<optgroup label="${esc(g)}">${l.filter(x=>ALL.some(a=>(a.gram||[]).includes(x))).map(x=>`<option ${F.gr===x?"selected":""}>${esc(x)}</option>`).join("")}</optgroup>`).join("")}</select></label>
+    <div class="row"><label class="grsel"><span class="chips-l">Age</span><select id="fAge"><option value="all">Any age</option>${Object.entries(AGES).map(([k,v])=>`<option value="${k}" ${F.age===k?"selected":""}>${v}</option>`).join("")}</select></label>
+    <label class="grsel"><span class="chips-l">Grammar</span><select id="fGr"><option value="all">Any grammar</option>${Object.entries(GRAM_GROUPS).map(([g,l])=>`<optgroup label="${esc(g)}">${l.filter(x=>ALL.some(a=>(a.gram||[]).includes(x))).map(x=>`<option ${F.gr===x?"selected":""}>${esc(x)}</option>`).join("")}</optgroup>`).join("")}</select></label></div>
   </section>
   <div id="list" style="display:flex;flex-direction:column;gap:26px"></div>`;
   const bind=(id,key)=>$(id).querySelectorAll("button").forEach(b=>b.onclick=()=>{F[key]=b.dataset.k;store.set("sc-filters2",F);$(id).querySelectorAll("button").forEach(x=>x.setAttribute("aria-pressed",x===b));renderList();});
-  bind("#fFmt","fmt");bind("#fLv","lv");$("#fGr").onchange=e=>{F.gr=e.target.value;store.set("sc-filters2",F);renderList();};
+  bind("#fFmt","fmt");bind("#fLv","lv");$("#fAge").onchange=e=>{F.age=e.target.value;store.set("sc-filters2",F);renderList();};
+  $("#fGr").onchange=e=>{F.gr=e.target.value;store.set("sc-filters2",F);renderList();};
   $("#q").oninput=e=>{F.q=e.target.value;store.set("sc-filters2",F);renderList();};
   wireClassSwitcher(renderList);renderList();
 }
@@ -313,7 +316,7 @@ function renderList(){
   const a=CL.active();
   const q=(F.q||"").trim().toLowerCase(),words=q.split(/\s+/).filter(Boolean);
   const hay=g=>[g.name,g.desc,g.instr||"",(g.gram||[]).join(" "),...(g.cards||[]).map(c=>typeof c==="object"?JSON.stringify(c):c)].join(" ").toLowerCase();
-  const ok=g=>(F.fmt==="all"||g.fmts.includes(F.fmt))&&(F.lv==="all"||g.lv.includes(F.lv))&&(!F.gr||F.gr==="all"||(g.gram||[]).includes(F.gr))&&(!words.length||words.every(w=>hay(g).includes(w)));
+  const ok=g=>(F.fmt==="all"||g.fmts.includes(F.fmt))&&(F.lv==="all"||g.lv.includes(F.lv))&&(!F.gr||F.gr==="all"||(g.gram||[]).includes(F.gr))&&(!F.age||F.age==="all"||(g.ages||[]).includes(F.age))&&(!words.length||words.every(w=>hay(g).includes(w)));
   const card=g=>{const d=a?H.dates(a.id,g.id):[];return `<a class="act c-${g.cat}" href="#${g.id}">
     <h3>${esc(g.name)}</h3><p>${esc(g.desc)}</p>
     ${g.gram?`<div class="gram">${g.gram.map(x=>`<span>${esc(x)}</span>`).join("")}</div>`:""}
@@ -389,7 +392,7 @@ function deckView(d){
       ${d.printNote?`<p class="note">${esc(d.printNote)}</p>`:""}
       <div class="row" id="doneRow"></div></section></div>`;
   const tabs=app.querySelectorAll(".tabs button");
-  const showG=f=>{tabs.forEach(b=>b.setAttribute("aria-selected",b.dataset.f===f));const g=(d.guide&&d.guide[f])||GUIDE[d.kind][f];$("#gbody").innerHTML=`<ol>${g.map(x=>`<li>${esc(x)}</li>`).join("")}</ol>`;store.set("sc-fmt",f);};
+  const showG=f=>{tabs.forEach(b=>b.setAttribute("aria-selected",b.dataset.f===f));const g=(d.guide&&d.guide[f])||GUIDE[d.kind][f];$("#gbody").innerHTML=`<ol>${g.filter(Boolean).map(x=>`<li>${esc(x)}</li>`).join("")}</ol>`;store.set("sc-fmt",f);};
   tabs.forEach(b=>b.onclick=()=>showG(b.dataset.f));
   const pref=store.get("sc-fmt",null);showG(pref&&d.fmts.includes(pref)?pref:d.fmts[0]);
   $("#prev").onclick=()=>go(-1);$("#next").onclick=()=>go(1);
@@ -449,7 +452,7 @@ function render(){const d=D.d,s=D.slides[D.i],st=$("#stage"),n=D.slides.length;
   }else{
     const c=d.cards[s.i];let inner="";
     if(d.kind==="single"||d.kind==="grid"){const pic=d.img?img(d,s.i):"";
-      const ct=ctext(c),sub=typeof c==="object"&&c.sub?`<div class="s-ph" style="gap:10px">${c.sub.map(x=>`<span style="font-size:clamp(1rem,2.4vw,1.7rem);background:var(--tint);border:0">${esc(x)}</span>`).join("")}</div>`:"";
+      const ct=ctext(c),longSub=typeof c==="object"&&c.sub&&c.sub.some(x=>x.length>28),sub=longSub?`<div class="s-tiles" style="grid-template-columns:repeat(2,minmax(0,1fr))">${c.sub.map(x=>`<div style="font-size:clamp(.9rem,1.9vw,1.35rem)">${esc(x)}</div>`).join("")}</div>`:typeof c==="object"&&c.sub?`<div class="s-ph" style="gap:10px">${c.sub.map(x=>`<span style="font-size:clamp(1rem,2.4vw,1.7rem);background:var(--tint);border:0">${esc(x)}</span>`).join("")}</div>`:"";
       const txt=d.photoOnly?`<span class="s-tag">${esc(d.revealTag)}</span><p class="s-big mid">${esc(d.q[0])}</p>${pic?"":`<p class="s-ex">Clues: ${esc(ct)}</p>`}<ul class="s-q">${d.q.slice(1).map(q=>`<li>${esc(q)}</li>`).join("")}</ul>`:`${d.reveal?`<span class="s-tag">${esc(d.revealTag||"Real word · invent a meaning")}</span>`:""}<p class="s-big ${ct.length>40?"mid":""}">${esc(ct)}</p>${sub}${d.q?`<ul class="s-q">${d.q.map(q=>`<li>${esc(q)}</li>`).join("")}</ul>`:""}`;
       inner=pic?`<div class="s-split"><div style="display:flex;flex-direction:column;gap:16px">${txt}</div><div class="s-img">${pic}</div></div>`:txt;}
     else if(d.kind==="versus"){const L=d.labels||["",""];
