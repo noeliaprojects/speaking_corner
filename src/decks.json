@@ -6268,5 +6268,683 @@
 ]
 },
 "end": "Which plan would really work?"
+},
+{
+"id": "yes-no-game",
+"name": "The Yes/No Game",
+"cat": "game",
+"lv": [
+"A2",
+"B1",
+"B2"
+],
+"fmts": [
+"ind",
+"pair",
+"grp"
+],
+"kind": "single",
+"timer": 60,
+"ages": [
+"9-12",
+"12-14",
+"14-16",
+"16-18",
+"19-25",
+"adults"
+],
+"gram": [
+"Question forms"
+],
+"focus": "Answering without yes/no: I do, I have, I think so, Of course, Not at all, Absolutely…",
+"desc": "Answer quick-fire questions for one minute without saying 'yes' or 'no'.",
+"instr": "The class fires questions at one student for one minute. The student must answer without saying 'yes', 'no' (or nodding!). Use the questions on the card to start.",
+"ph": [
+"I do / I don't",
+"Of course! / Absolutely",
+"Not really / Not at all",
+"I think so / I'd say…"
+],
+"cards": [
+"Do you like chocolate? Are you sure? Really?",
+"Is your name…? Are you a student? Did you say…?",
+"Have you got a pet? Is it a dog? Do you love it?",
+"Do you live near here? Did you walk here today? Are you tired?",
+"Can you swim? Is the sea cold? Do you go every summer?",
+"Are you hungry? Did you have breakfast? Was it good?",
+"Do you play video games? Is that your favourite? Are you good at it?",
+"Is today Monday? Are you sure? Do you like Mondays?",
+"Have you been to London? Did you like it? Would you go back?",
+"Do you speak English? Are you speaking English now? Is it difficult?"
+],
+"guide": {
+"ind": [
+"Fire questions quickly at the student for one minute.",
+"Use tricks: ask the same question twice, ask 'Are you sure?'.",
+"Swap: the student asks you."
+],
+"pair": [
+"Partners take turns being in the hot seat for one minute.",
+"Count how long each one lasts.",
+""
+],
+"grp": [
+"One student comes to the front; the class asks as fast as possible.",
+"Whoever lasts longest wins.",
+"Collect useful alternatives to yes/no on the board."
+]
+},
+"end": "Which alternatives to 'yes' and 'no' did you use?"
+},
+{
+"id": "coffeepot",
+"name": "Coffeepot",
+"cat": "game",
+"lv": [
+"A2",
+"B1",
+"B2"
+],
+"fmts": [
+"grp",
+"pair"
+],
+"kind": "single",
+"secret": true,
+"ages": [
+"9-12",
+"12-14",
+"14-16",
+"16-18",
+"19-25",
+"adults"
+],
+"gram": [
+"Present simple",
+"Question forms"
+],
+"focus": "Yes/no questions in different tenses: Do you coffeepot…? Can you coffeepot…? Did you coffeepot yesterday?",
+"desc": "Guess the secret verb by asking questions with 'coffeepot' instead of the verb.",
+"instr": "One student knows the secret verb. The others ask questions using 'coffeepot' instead of the verb: 'Do you coffeepot every day?', 'Can you coffeepot in the kitchen?'",
+"ph": [
+"Do you coffeepot every day?",
+"Can you coffeepot alone?",
+"Do you need anything to coffeepot?",
+"Did you coffeepot yesterday?"
+],
+"cards": [
+"swim",
+"cook",
+"sleep",
+"dance",
+"drive",
+"sing",
+"shop",
+"read",
+"run",
+"laugh",
+"travel",
+"brush your teeth"
+],
+"guide": {
+"ind": [
+"Look at the card (press H to show/hide). The student asks you coffeepot questions.",
+"Then swap.",
+""
+],
+"pair": [
+"One partner looks; the other asks up to 15 questions.",
+"",
+""
+],
+"grp": [
+"One student looks at the card. The class asks questions; only yes/no answers.",
+"Whoever guesses becomes the next 'knower'.",
+""
+]
+},
+"end": "What was the hardest verb to guess?"
+},
+{
+"id": "odd-one-out",
+"name": "Odd One Out",
+"cat": "warm",
+"lv": [
+"A2",
+"B1",
+"B2",
+"C1"
+],
+"fmts": [
+"ind",
+"pair",
+"grp"
+],
+"kind": "single",
+"ages": [
+"9-12",
+"12-14",
+"14-16",
+"16-18",
+"19-25",
+"adults"
+],
+"gram": [
+"Comparatives & superlatives",
+"Relative clauses"
+],
+"focus": "Justifying: … is the odd one out because…, The others are all…, Unlike the others,…",
+"desc": "Which one is the odd one out? There's no single right answer: just a good reason.",
+"instr": "Which is the odd one out? Find a reason for EACH of the four to be the odd one out!",
+"ph": [
+"… is the odd one out because…",
+"The others are all…",
+"Unlike the others,…",
+"You could also say… because…"
+],
+"cards": [
+{
+"t": "Odd one out?",
+"sub": [
+"cat",
+"dog",
+"fish",
+"horse"
+]
+},
+{
+"t": "Odd one out?",
+"sub": [
+"pizza",
+"apple",
+"banana",
+"strawberry"
+]
+},
+{
+"t": "Odd one out?",
+"sub": [
+"London",
+"Paris",
+"Barcelona",
+"Rome"
+]
+},
+{
+"t": "Odd one out?",
+"sub": [
+"football",
+"chess",
+"tennis",
+"basketball"
+]
+},
+{
+"t": "Odd one out?",
+"sub": [
+"piano",
+"guitar",
+"violin",
+"drums"
+]
+},
+{
+"t": "Odd one out?",
+"sub": [
+"summer",
+"Christmas",
+"birthday",
+"weekend"
+]
+},
+{
+"t": "Odd one out?",
+"sub": [
+"phone",
+"book",
+"TV",
+"radio"
+]
+},
+{
+"t": "Odd one out?",
+"sub": [
+"doctor",
+"teacher",
+"footballer",
+"pilot"
+]
+},
+{
+"t": "Odd one out?",
+"sub": [
+"shark",
+"dolphin",
+"whale",
+"octopus"
+]
+},
+{
+"t": "Odd one out?",
+"sub": [
+"coffee",
+"tea",
+"water",
+"juice"
+]
+},
+{
+"t": "Odd one out?",
+"sub": [
+"bike",
+"car",
+"plane",
+"train"
+]
+},
+{
+"t": "Odd one out?",
+"sub": [
+"happy",
+"tired",
+"hungry",
+"angry"
+]
+}
+],
+"guide": {
+"ind": [
+"The student finds a reason for each item. You suggest a surprising one.",
+"",
+""
+],
+"pair": [
+"Pairs race to find a reason for all four.",
+"",
+""
+],
+"grp": [
+"Teams get one point for each different, valid reason.",
+"",
+""
+]
+},
+"end": "Which reason was the most creative?"
+},
+{
+"id": "balloon-debate",
+"name": "Balloon Debate",
+"cat": "opinion",
+"lv": [
+"B1",
+"B2",
+"C1"
+],
+"fmts": [
+"grp"
+],
+"kind": "single",
+"ages": [
+"12-14",
+"14-16",
+"16-18",
+"19-25",
+"adults"
+],
+"gram": [
+"Second conditional",
+"Linkers"
+],
+"focus": "Persuading: If you threw me out, nobody would…, I'm more useful than… because…, Without me,…",
+"desc": "A hot-air balloon is sinking. Each person argues why they deserve to stay on board.",
+"instr": "The balloon is losing height! Only one person can stay. Each student plays one character and has one minute to explain why they should stay. The class votes who jumps.",
+"ph": [
+"If you threw me out,…",
+"Without me, you would…",
+"I'm far more useful than… because…",
+"Let's be honest:…"
+],
+"cards": [
+{
+"t": "Who stays in the balloon?",
+"sub": [
+"a doctor",
+"a chef",
+"a comedian",
+"a pilot"
+]
+},
+{
+"t": "Who stays in the balloon?",
+"sub": [
+"a teacher",
+"a farmer",
+"a YouTuber",
+"an engineer"
+]
+},
+{
+"t": "Who stays in the balloon?",
+"sub": [
+"a firefighter",
+"a scientist",
+"a musician",
+"a lawyer"
+]
+},
+{
+"t": "Who stays in the balloon?",
+"sub": [
+"your mum",
+"your best friend",
+"your dog",
+"your favourite celebrity"
+]
+},
+{
+"t": "Who stays in the balloon?",
+"sub": [
+"Shakespeare",
+"Einstein",
+"Frida Kahlo",
+"Messi"
+]
+},
+{
+"t": "Who stays in the balloon?",
+"sub": [
+"a plumber",
+"a vet",
+"a politician",
+"a baker"
+]
+}
+],
+"guide": {
+"ind": [
+"The student defends one character for a minute; you attack with questions.",
+"Then defend another character together.",
+""
+],
+"pair": [
+"Partners defend two characters each, then decide who jumps.",
+"",
+""
+],
+"grp": [
+"Four volunteers each play a character and speak for one minute.",
+"The class asks one question each, then votes who jumps.",
+"Repeat until only one is left."
+]
+},
+"end": "Who should never have been in the balloon?"
+},
+{
+"id": "interruptions",
+"name": "Interruptions",
+"cat": "game",
+"lv": [
+"B1",
+"B2",
+"C1"
+],
+"fmts": [
+"pair",
+"grp"
+],
+"kind": "single",
+"timer": 120,
+"ages": [
+"12-14",
+"14-16",
+"16-18",
+"19-25",
+"adults"
+],
+"gram": [
+"Narrative tenses",
+"Question forms"
+],
+"focus": "Telling a story and handling questions: Where was that?, Why did you…?, As I was saying…",
+"desc": "Tell a story while the others constantly interrupt with questions. Keep going!",
+"instr": "Tell a story about the topic. The listeners MUST interrupt you with questions all the time. Answer each question, then get back to your story: 'Anyway, as I was saying…'",
+"ph": [
+"Sorry, can I ask…?",
+"Wait, why did you…?",
+"Anyway, as I was saying…",
+"Where was I? Oh yes,…"
+],
+"cards": [
+"The worst holiday I've ever had",
+"How I met my best friend",
+"A time I got lost",
+"My first day at school or work",
+"The strangest thing I've ever eaten",
+"A time I was really scared",
+"The best party I've ever been to",
+"A time something went very wrong",
+"My most embarrassing moment",
+"A time I helped someone"
+],
+"guide": {
+"ind": [
+"The student tells the story; you interrupt every 10–15 seconds.",
+"Make the questions more and more detailed.",
+"Swap roles."
+],
+"pair": [
+"Partner A tells the story; B interrupts at least five times.",
+"Swap with a new topic.",
+""
+],
+"grp": [
+"One storyteller, the class interrupts (raise your hand first!).",
+"The storyteller must answer everything and finish in two minutes.",
+""
+]
+},
+"end": "Who was the best at getting back to the story?"
+},
+{
+"id": "line-up",
+"name": "Line Up!",
+"cat": "warm",
+"lv": [
+"A1",
+"A2",
+"B1"
+],
+"fmts": [
+"grp"
+],
+"kind": "single",
+"ages": [
+"6-8",
+"9-12",
+"12-14",
+"14-16",
+"16-18",
+"19-25",
+"adults"
+],
+"gram": [
+"Question forms",
+"Present simple"
+],
+"focus": "Asking and answering: When's your birthday?, How many…?, What time do you…?",
+"desc": "Everyone stands up and lines up in order, but only by asking each other questions.",
+"instr": "Stand up! Get in a line in the right order. You can only find your place by asking questions in English. When you finish, check from one end to the other.",
+"ph": [
+"When's your birthday?",
+"How many… have you got?",
+"What time do you…?",
+"You go before / after me!"
+],
+"cards": [
+"Birthday: January → December",
+"How far you live from here: nearest → furthest",
+"Bedtime last night: earliest → latest",
+"Number of brothers and sisters: fewest → most",
+"Shoe size: smallest → biggest",
+"Alphabetical order of your first name",
+"How many countries you've visited: fewest → most",
+"What time you got up this morning: earliest → latest",
+"How many apps on your phone: fewest → most",
+"Favourite number: smallest → biggest"
+],
+"guide": {
+"ind": [
+"Private class version: put your family or famous people in order by asking questions about them.",
+"",
+""
+],
+"pair": [
+"Pairs: compare and put the whole class in order on paper by guessing.",
+"",
+""
+],
+"grp": [
+"Everyone stands up and lines up. Set a 2-minute timer.",
+"Check: each student says their answer in order.",
+"Repeat with a new card; try to beat the time."
+]
+},
+"end": "Who was the most surprising in the line?"
+},
+{
+"id": "desert-island-discs",
+"name": "Desert Island Discs",
+"cat": "you",
+"lv": [
+"B1",
+"B2",
+"C1"
+],
+"fmts": [
+"ind",
+"pair",
+"grp"
+],
+"kind": "single",
+"ages": [
+"14-16",
+"16-18",
+"19-25",
+"adults"
+],
+"gram": [
+"Second conditional",
+"Present perfect"
+],
+"focus": "Explaining choices and memories: I'd take… because…, It reminds me of…, I've loved it since…",
+"desc": "You're going to a desert island forever. Choose your songs, a book and one luxury.",
+"instr": "Like the famous radio show: you're going to live on a desert island. Choose and explain the item on the card. Tell a story or memory connected to it.",
+"ph": [
+"I'd definitely take…",
+"It reminds me of…",
+"I've loved it since…",
+"It means a lot to me because…"
+],
+"cards": [
+"The first song you'd take",
+"A song that reminds you of your childhood",
+"A song for a sad day",
+"A song to dance to alone",
+"One book (not a survival guide!)",
+"One film you could watch 100 times",
+"One luxury item",
+"One photo",
+"A smell you'd miss",
+"One person you'd call before leaving"
+],
+"guide": {
+"ind": [
+"The student chooses and tells the story behind it; you interview them like a radio host.",
+"",
+""
+],
+"pair": [
+"Partners interview each other like a radio show.",
+"",
+""
+],
+"grp": [
+"Pick a 'guest'; the class are the radio audience and ask follow-up questions.",
+"",
+""
+]
+},
+"end": "Which choice surprised you most?"
+},
+{
+"id": "animal-vegetable-mineral",
+"name": "20 Questions",
+"cat": "game",
+"lv": [
+"A1",
+"A2",
+"B1"
+],
+"fmts": [
+"ind",
+"pair",
+"grp"
+],
+"kind": "single",
+"secret": true,
+"ages": [
+"6-8",
+"9-12",
+"12-14",
+"14-16",
+"16-18",
+"19-25",
+"adults"
+],
+"gram": [
+"Question forms",
+"Present simple"
+],
+"focus": "Yes/no questions: Is it an animal?, Can you eat it?, Is it bigger than a chair?, Has it got…?",
+"desc": "Guess the secret thing in 20 yes/no questions or fewer.",
+"instr": "One person knows the secret word. Is it an animal, a food or an object? Ask yes/no questions to guess it in fewer than 20 questions.",
+"ph": [
+"Is it an animal / a food / an object?",
+"Is it bigger than…?",
+"Can you…it?",
+"Have you got one at home?"
+],
+"cards": [
+"an elephant",
+"a banana",
+"a toothbrush",
+"a penguin",
+"a pizza",
+"a bicycle",
+"a spider",
+"a pillow",
+"an orange",
+"an umbrella",
+"a crocodile",
+"a guitar"
+],
+"guide": {
+"ind": [
+"You look at the card (press H). The student asks questions; count them.",
+"Then swap.",
+""
+],
+"pair": [
+"One partner looks at the card; the other has 20 questions.",
+"",
+""
+],
+"grp": [
+"One student looks; the class asks. Write a tally on the board.",
+"Who guesses with fewest questions?",
+""
+]
+},
+"end": "What's the best first question to ask?"
 }
 ]

@@ -1,7 +1,7 @@
 <title>Speaking Corner</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap">
 <style>
 /* Layout: quiet hub (search, filters, plain activity cards grouped by type); each activity opens a white, projector-ready slide with teacher tools underneath. One accent colour, one typeface. */
 :root{
@@ -9,8 +9,8 @@
   --stamp:#2a6b61; --stamp-soft:#e7f0ed; --ok:#2a6b61; --ok-soft:#e7f0ed; --warn:#8a5a12; --warn-soft:#f6eedf;
   --c-warm:#2a6b61; --c-you:#2a6b61; --c-opinion:#2a6b61; --c-game:#2a6b61;
   --stage:#ffffff; --stage-2:#f4f4f1; --stage-ink:#1f2427; --stage-muted:#6b7176;
-  --display:"Figtree",system-ui,-apple-system,"Segoe UI",sans-serif;
-  --body:"Figtree",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --display:"Lexend",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --body:"Lexend",system-ui,-apple-system,"Segoe UI",sans-serif;
   --mono:"JetBrains Mono",ui-monospace,Menlo,monospace;
 }
 *{box-sizing:border-box}
@@ -208,6 +208,37 @@ details.more summary{cursor:pointer;font-weight:800}
 .prompt{background:var(--bg);border-radius:10px;padding:12px;font-family:var(--mono);font-size:.82rem;white-space:pre-wrap;word-break:break-word}
 @media (max-width:420px){.stg{gap:6px}.cell{min-height:68px;padding:8px 4px}}
 @media (prefers-reduced-motion:reduce){.bar i{transition:none}}
+
+/* ---- calm hub ---- */
+body{font-weight:300;font-size:15.5px;line-height:1.55}
+h1{font-weight:600;letter-spacing:-.03em;font-size:clamp(1.4rem,4vw,1.9rem)}
+h3,b,strong{font-weight:500}
+.top{padding-bottom:4px}
+.top nav{display:flex;align-items:center;gap:18px}
+.link{background:none;border:0;padding:0;font:inherit;font-weight:400;color:var(--muted);text-decoration:none;cursor:pointer}
+.link:hover{color:var(--ink)}
+.top .classpick{background:none;border:0;padding:0;gap:6px}
+.top .classpick .label{display:none}
+.top .classpick select{border:0;background:var(--stage-2);border-radius:8px;padding:7px 10px;font-weight:400}
+.filters{gap:10px}
+.search input{border:1px solid var(--line);background:var(--paper);border-radius:12px;padding:13px 16px;font-weight:300}
+.fbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.fsel select{width:auto;max-width:100%;background:var(--paper);border:1px solid var(--line);border-radius:99px;padding:6px 12px;font-weight:400;font-size:.9rem;color:var(--ink)}
+#list{display:flex;flex-direction:column;gap:34px;margin-top:6px}
+.cat{gap:14px}
+.cat h2{font-size:1rem;font-weight:500;letter-spacing:0;text-transform:none;color:var(--ink)}
+.cat h2 span{color:var(--muted);font-weight:300;margin-left:4px}
+.grid{grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:10px}
+.act{border:0;background:var(--paper);border-radius:12px;padding:16px 18px;gap:6px;box-shadow:0 1px 2px rgba(30,36,40,.04)}
+.act:hover{box-shadow:0 4px 14px rgba(30,36,40,.08)}
+.act h3{font-size:1rem;font-weight:500;letter-spacing:-.01em}
+.act p{font-size:.9rem;color:var(--muted);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.act .meta{font-size:.78rem;color:var(--muted);margin-top:auto;padding-top:4px;display:block}
+.m-print{color:var(--warn);font-weight:500}.m-done{color:var(--ok);font-weight:500}
+.s-title{font-weight:600}.s-big{font-weight:500}.s-opt div,.s-stat{font-weight:500}
+.s-instr{font-weight:300}
+button,.btn{font-weight:500}
+.label{font-weight:500}
 </style>
 
 <div class="wrap" id="app"></div>
@@ -278,7 +309,7 @@ const H={
 const parseNames=t=>t.split("\n").map(s=>s.trim()).filter(Boolean);
 function doneBanner(gid){const a=CL.active();if(!a)return "";const d=H.dates(a.id,gid).filter(x=>x!==today());
   return d.length?`<div class="banner warn" role="status">${esc(a.name)} already did this on ${d.map(niceDate).join(", ")}.</div>`:"";}
-function classSwitcher(){const l=CL.all();if(!l.length)return `<a class="btn ghost" href="#classes">+ Add a class</a>`;
+function classSwitcher(){const l=CL.all();if(!l.length)return `<a class="link" href="#classes">+ Add a class</a>`;
   return `<label class="classpick"><span class="label">Class</span><select id="clsSel">${CL.options(false)}</select></label>`;}
 function wireClassSwitcher(onChange){const s=$("#clsSel");if(s)s.onchange=()=>{CL.setActive(s.value);onChange();};}
 
@@ -295,36 +326,39 @@ window.addEventListener("hashchange",route);
 /* ---------- hub ---------- */
 const F=store.get("sc-filters2",{fmt:"all",lv:"all"});
 function hub(){
+  const sel=(id,label,opts,cur)=>`<label class="fsel"><span class="sr">${label}</span><select id="${id}">${opts.map(([v,l])=>`<option value="${esc(v)}" ${cur===v?"selected":""}>${esc(l)}</option>`).join("")}</select></label>`;
   app.innerHTML=`
-  <div class="top"><h1>Speaking Corner</h1>
-    <nav>${classSwitcher()}<a class="btn ghost" href="#classes">My classes</a><a class="btn ghost" href="#info">Info</a></nav></div>
+  <header class="top"><h1>Speaking Corner</h1>
+    <nav>${classSwitcher()}<a class="link" href="#classes">My classes</a><a class="link" href="#info">Info</a></nav></header>
   <section class="filters" aria-label="Filters">
-    <label class="search"><span class="sr">Search</span><input id="q" type="search" placeholder="Search activities, topics or grammar (e.g. second conditional)" value="${esc(F.q||"")}" autocomplete="off"></label>
-    <div class="chips" id="fFmt">${[["all","All formats"],...Object.entries(FMTS)].map(([k,v])=>`<button data-k="${k}" aria-pressed="${F.fmt===k}">${v}</button>`).join("")}</div>
-    <div class="chips" id="fLv">${["all",...LEVELS].map(k=>`<button data-k="${k}" aria-pressed="${F.lv===k}">${k==="all"?"All levels":k}</button>`).join("")}</div>
-    <div class="row"><label class="grsel"><span class="chips-l">Age</span><select id="fAge"><option value="all">Any age</option>${Object.entries(AGES).map(([k,v])=>`<option value="${k}" ${F.age===k?"selected":""}>${v}</option>`).join("")}</select></label>
-    <label class="grsel"><span class="chips-l">Grammar</span><select id="fGr"><option value="all">Any grammar</option>${Object.entries(GRAM_GROUPS).map(([g,l])=>`<optgroup label="${esc(g)}">${l.filter(x=>ALL.some(a=>(a.gram||[]).includes(x))).map(x=>`<option ${F.gr===x?"selected":""}>${esc(x)}</option>`).join("")}</optgroup>`).join("")}</select></label></div>
+    <label class="search"><span class="sr">Search</span><input id="q" type="search" placeholder="Search activities, topics or grammar" value="${esc(F.q||"")}" autocomplete="off"></label>
+    <div class="fbar">
+      ${sel("fLv","Level",[["all","Any level"],...LEVELS.map(l=>[l,l])],F.lv||"all")}
+      ${sel("fAge","Age",[["all","Any age"],...Object.entries(AGES)],F.age||"all")}
+      ${sel("fFmt","Format",[["all","Any format"],...Object.entries(FMTS)],F.fmt||"all")}
+      <label class="fsel"><span class="sr">Grammar</span><select id="fGr"><option value="all">Any grammar</option>${Object.entries(GRAM_GROUPS).map(([g,l])=>`<optgroup label="${esc(g)}">${l.filter(x=>ALL.some(a=>(a.gram||[]).includes(x))).map(x=>`<option ${F.gr===x?"selected":""}>${esc(x)}</option>`).join("")}</optgroup>`).join("")}</select></label>
+      <button class="link" id="clr" type="button">Clear</button>
+    </div>
   </section>
-  <div id="list" style="display:flex;flex-direction:column;gap:26px"></div>`;
-  const bind=(id,key)=>$(id).querySelectorAll("button").forEach(b=>b.onclick=()=>{F[key]=b.dataset.k;store.set("sc-filters2",F);$(id).querySelectorAll("button").forEach(x=>x.setAttribute("aria-pressed",x===b));renderList();});
-  bind("#fFmt","fmt");bind("#fLv","lv");$("#fAge").onchange=e=>{F.age=e.target.value;store.set("sc-filters2",F);renderList();};
-  $("#fGr").onchange=e=>{F.gr=e.target.value;store.set("sc-filters2",F);renderList();};
+  <div id="list"></div>`;
+  const on=(id,key)=>$(id).onchange=e=>{F[key]=e.target.value;store.set("sc-filters2",F);renderList();};
+  on("#fLv","lv");on("#fAge","age");on("#fFmt","fmt");on("#fGr","gr");
   $("#q").oninput=e=>{F.q=e.target.value;store.set("sc-filters2",F);renderList();};
+  $("#clr").onclick=()=>{Object.assign(F,{q:"",lv:"all",age:"all",fmt:"all",gr:"all"});store.set("sc-filters2",F);hub();};
   wireClassSwitcher(renderList);renderList();
 }
 function renderList(){
   const a=CL.active();
   const q=(F.q||"").trim().toLowerCase(),words=q.split(/\s+/).filter(Boolean);
   const hay=g=>[g.name,g.desc,g.instr||"",(g.gram||[]).join(" "),...(g.cards||[]).map(c=>typeof c==="object"?JSON.stringify(c):c)].join(" ").toLowerCase();
-  const ok=g=>(F.fmt==="all"||g.fmts.includes(F.fmt))&&(F.lv==="all"||g.lv.includes(F.lv))&&(!F.gr||F.gr==="all"||(g.gram||[]).includes(F.gr))&&(!F.age||F.age==="all"||(g.ages||[]).includes(F.age))&&(!words.length||words.every(w=>hay(g).includes(w)));
-  const card=g=>{const d=a?H.dates(a.id,g.id):[];return `<a class="act c-${g.cat}" href="#${g.id}">
+  const ok=g=>(!F.fmt||F.fmt==="all"||g.fmts.includes(F.fmt))&&(!F.lv||F.lv==="all"||g.lv.includes(F.lv))&&(!F.gr||F.gr==="all"||(g.gram||[]).includes(F.gr))&&(!F.age||F.age==="all"||(g.ages||[]).includes(F.age))&&(!words.length||words.every(w=>hay(g).includes(w)));
+  const fm=g=>g.fmts.length===3?"Any format":g.fmts.map(f=>FMTS[f]).join(", ");
+  const card=g=>{const d=a?H.dates(a.id,g.id):[];return `<a class="act" href="#${g.id}">
     <h3>${esc(g.name)}</h3><p>${esc(g.desc)}</p>
-    ${g.gram?`<div class="gram">${g.gram.map(x=>`<span>${esc(x)}</span>`).join("")}</div>`:""}
-    <div class="meta"><span class="lvl">${lvRange(g.lv)}</span><span class="fmt">${g.fmts.map(f=>FMTS[f]).join(" · ")}</span>
-      ${g.print==="required"?`<span class="flag print">Print</span>`:""}
-      ${d.length?`<span class="flag done">Done ${niceDate(d[d.length-1]).replace(/ \d{4}$/,"")}</span>`:""}</div></a>`;};
-  const html=Object.entries(CATS).map(([k,v])=>{const l=ALL.filter(g=>g.cat===k&&ok(g));if(!l.length)return "";
-    return `<section class="cat c-${k}"><div class="cat-h"><i></i><h2>${v}</h2></div><div class="grid">${l.map(card).join("")}</div></section>`;}).join("");
+    <div class="meta">${lvRange(g.lv)} · ${fm(g)}${g.print==="required"?` · <b class="m-print">Print</b>`:""}${d.length?` · <b class="m-done">Done ${niceDate(d[d.length-1]).replace(/ \d{4}$/,"")}</b>`:""}</div></a>`;};
+  let n=0;
+  const html=Object.entries(CATS).map(([k,v])=>{const l=ALL.filter(g=>g.cat===k&&ok(g));n+=l.length;if(!l.length)return "";
+    return `<section class="cat"><h2>${v} <span>${l.length}</span></h2><div class="grid">${l.map(card).join("")}</div></section>`;}).join("");
   $("#list").innerHTML=html||`<p class="empty">Nothing matches. Try another word or clear the filters.</p>`;
 }
 
@@ -452,7 +486,7 @@ function render(){const d=D.d,s=D.slides[D.i],st=$("#stage"),n=D.slides.length;
   }else{
     const c=d.cards[s.i];let inner="";
     if(d.kind==="single"||d.kind==="grid"){const pic=d.img?img(d,s.i):"";
-      const ct=ctext(c),longSub=typeof c==="object"&&c.sub&&c.sub.some(x=>x.length>28),sub=longSub?`<div class="s-tiles" style="grid-template-columns:repeat(2,minmax(0,1fr))">${c.sub.map(x=>`<div style="font-size:clamp(.9rem,1.9vw,1.35rem)">${esc(x)}</div>`).join("")}</div>`:typeof c==="object"&&c.sub?`<div class="s-ph" style="gap:10px">${c.sub.map(x=>`<span style="font-size:clamp(1rem,2.4vw,1.7rem);background:var(--tint);border:0">${esc(x)}</span>`).join("")}</div>`:"";
+      const ct=ctext(c),longSub=typeof c==="object"&&c.sub&&(c.sub.length===4||c.sub.some(x=>x.length>28)),sub=longSub?`<div class="s-tiles" style="grid-template-columns:repeat(2,minmax(0,1fr))">${c.sub.map(x=>`<div style="font-size:clamp(.9rem,1.9vw,1.35rem)">${esc(x)}</div>`).join("")}</div>`:typeof c==="object"&&c.sub?`<div class="s-ph" style="gap:10px">${c.sub.map(x=>`<span style="font-size:clamp(1rem,2.4vw,1.7rem);background:var(--tint);border:0">${esc(x)}</span>`).join("")}</div>`:"";
       const txt=d.photoOnly?`<span class="s-tag">${esc(d.revealTag)}</span><p class="s-big mid">${esc(d.q[0])}</p>${pic?"":`<p class="s-ex">Clues: ${esc(ct)}</p>`}<ul class="s-q">${d.q.slice(1).map(q=>`<li>${esc(q)}</li>`).join("")}</ul>`:`${d.reveal?`<span class="s-tag">${esc(d.revealTag||"Real word · invent a meaning")}</span>`:""}<p class="s-big ${ct.length>40?"mid":""}">${esc(ct)}</p>${sub}${d.q?`<ul class="s-q">${d.q.map(q=>`<li>${esc(q)}</li>`).join("")}</ul>`:""}`;
       inner=pic?`<div class="s-split"><div style="display:flex;flex-direction:column;gap:16px">${txt}</div><div class="s-img">${pic}</div></div>`:txt;}
     else if(d.kind==="versus"){const L=d.labels||["",""];
