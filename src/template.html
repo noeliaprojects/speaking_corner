@@ -226,7 +226,7 @@ function photoList(){const out=[];
     d.cards.forEach((c,i)=>{
       if(d.kind==="versus"){out.push({key:`${d.id}:${i}a`,file:`${d.id}-${nn(i)}a`,deck:d.name,txt:sub(c.a)});out.push({key:`${d.id}:${i}b`,file:`${d.id}-${nn(i)}b`,deck:d.name,txt:sub(c.b)});}
       else if(d.kind==="triple")c.forEach((x,k)=>out.push({key:`${d.id}:${i}-${k}`,file:`${d.id}-${nn(i)}-${k+1}`,deck:d.name,txt:sub(x)}));
-      else out.push({key:`${d.id}:${i}`,file:`${d.id}-${nn(i)}`,deck:d.name,txt:sub(c)});});});
+      else out.push({key:`${d.id}:${i}`,file:`${d.id}-${nn(i)}`,deck:d.name,txt:sub(typeof c==="object"?c.t:c)});});});
   return out;}
 const GRAM_GROUPS={"Tenses":["Present simple","Present continuous","Present perfect","Present perfect continuous","Past simple","Past continuous","Past perfect","Narrative tenses","Used to / would","Future forms","Future continuous","Future perfect"],
  "Conditionals & wishes":["Zero conditional","First conditional","Second conditional","Third conditional","Mixed conditionals","Wish / If only"],
@@ -428,6 +428,9 @@ function render(){const d=D.d,s=D.slides[D.i],st=$("#stage"),n=D.slides.length;
     const cv=IMAGES[d.id+":cover"],txt=`<h2 class="s-title">${esc(d.name)}</h2><p class="s-instr">${esc(d.instr)}</p>
       ${d.ex?`<p class="s-ex"><b>Example:</b> ${esc(d.ex)}</p>`:""}${d.note?`<p class="s-ex">${esc(d.note)}</p>`:""}`;
     body+=`<div class="s-body">${cv?`<div class="s-split"><div style="display:flex;flex-direction:column;gap:clamp(12px,2vw,22px)">${txt}</div><div class="s-img"><img src="${cv}" alt=""></div></div>`:txt}</div>${phrases(d)}`;
+  }else if(s.t==="ans"&&d.photoOnly){const c=d.cards[s.i],u=IMAGES[d.id+":"+s.i];
+    body=`<div class="s-eyebrow"><span>${esc(d.name)}</span><span>${esc(d.ansLabel)}</span></div>
+    <div class="s-body">${u?`<div class="s-split"><p class="s-big">${esc(c.ans)}</p><div class="s-img"><img src="${u}" alt=""></div></div>`:`<p class="s-instr">${esc(c.t)}</p><p class="s-big">${esc(c.ans)}</p>`}</div>`;
   }else if(s.t==="ans"){const c=d.cards[s.i];
     body=`<div class="s-eyebrow"><span>${esc(d.name)}</span><span>${esc(d.ansLabel||"The real meaning")}</span></div>
     <div class="s-body"><p class="s-big">${esc(c.t)}</p><p class="s-instr" style="font-size:clamp(1.3rem,3vw,2.3rem);color:var(--acc);font-weight:800">${esc(c.ans)}</p></div>`;
@@ -446,7 +449,7 @@ function render(){const d=D.d,s=D.slides[D.i],st=$("#stage"),n=D.slides.length;
     const c=d.cards[s.i];let inner="";
     if(d.kind==="single"||d.kind==="grid"){const pic=d.img?img(d,s.i):"";
       const ct=ctext(c),sub=typeof c==="object"&&c.sub?`<div class="s-ph" style="gap:10px">${c.sub.map(x=>`<span style="font-size:clamp(1rem,2.4vw,1.7rem);background:var(--tint);border:0">${esc(x)}</span>`).join("")}</div>`:"";
-      const txt=`${d.reveal?`<span class="s-tag">${esc(d.revealTag||"Real word · invent a meaning")}</span>`:""}<p class="s-big ${ct.length>40?"mid":""}">${esc(ct)}</p>${sub}${d.q?`<ul class="s-q">${d.q.map(q=>`<li>${esc(q)}</li>`).join("")}</ul>`:""}`;
+      const txt=d.photoOnly?`<span class="s-tag">${esc(d.revealTag)}</span><p class="s-big mid">${esc(d.q[0])}</p>${pic?"":`<p class="s-ex">Clues: ${esc(ct)}</p>`}<ul class="s-q">${d.q.slice(1).map(q=>`<li>${esc(q)}</li>`).join("")}</ul>`:`${d.reveal?`<span class="s-tag">${esc(d.revealTag||"Real word · invent a meaning")}</span>`:""}<p class="s-big ${ct.length>40?"mid":""}">${esc(ct)}</p>${sub}${d.q?`<ul class="s-q">${d.q.map(q=>`<li>${esc(q)}</li>`).join("")}</ul>`:""}`;
       inner=pic?`<div class="s-split"><div style="display:flex;flex-direction:column;gap:16px">${txt}</div><div class="s-img">${pic}</div></div>`:txt;}
     else if(d.kind==="versus"){const L=d.labels||["",""];
       const pa=d.img?img(d,s.i+"a"):"",pb=d.img?img(d,s.i+"b"):"",ph=pa&&pb;
@@ -527,7 +530,7 @@ function classesView(editId){
 function photoSection(){
   const L=photoList(),done=L.filter(p=>IMAGES[p.key]).length,B=[];
   for(let i=0;i<L.length;i+=10)B.push(L.slice(i,i+10));
-  const STYLE="Create 10 SEPARATE realistic photos (not a collage). Style for all: realistic photograph, natural light, simple and uncluttered, no text, no logos or brand names, people only from behind or far away (no recognisable faces), landscape 4:3, the photo must fill the whole frame (no borders, no blurred or empty bands at the top or bottom). Name each file EXACTLY as written before the colon, and give me all of them in one ZIP.";
+  const STYLE="Create 10 SEPARATE realistic photos (not a collage). Style for all: realistic photograph, natural light, simple and uncluttered, no text, no logos or brand names, people only from behind or far away (no recognisable faces) unless the item says otherwise, landscape 4:3, the photo must fill the whole frame (no borders, no blurred or empty bands at the top or bottom). Name each file EXACTLY as written before the colon, and give me all of them in one ZIP.";
   return `<p class="sub">${done} of ${L.length} photos added. Copy one batch at a time into ChatGPT, then send me the ZIP.</p>
   <div class="bar" style="height:10px"><i style="width:${L.length?done/L.length*100:100}%;background:var(--ok)"></i></div>
   ${B.map((b,n)=>{const ok=b.every(p=>IMAGES[p.key]),decks=[...new Set(b.map(p=>p.deck))].join(", ");

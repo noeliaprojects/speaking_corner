@@ -4924,5 +4924,111 @@
 ]
 },
 "end": "Which linker will you use in your next writing?"
+},
+{
+"id": "guess-the-job",
+"name": "Guess the Job",
+"cat": "game",
+"lv": [
+"B1",
+"B2",
+"C1"
+],
+"fmts": [
+"ind",
+"pair",
+"grp"
+],
+"kind": "single",
+"reveal": true,
+"img": true,
+"photoOnly": true,
+"revealTag": "Modals of speculation",
+"ansLabel": "The answer",
+"imgP": "an invented person (not a real or famous person), face clearly visible, waist-up portrait in their workplace, with visual clues about their job ({x}) — do NOT show any text or name badge",
+"gram": [
+"Modals of deduction"
+],
+"focus": "Speculation with evidence: He must be… because…, She might/could be…, He can't be… because…, She looks like…",
+"desc": "Look at the photo and speculate about the person's job using must, might and can't.",
+"instr": "Look at the person in the photo. What's their job? Give at least two reasons using the evidence you can see. Then the answer is revealed.",
+"ph": [
+"He must be a… because he's wearing…",
+"She might be a… / She could be a…",
+"He can't be a… because…",
+"She looks like a…"
+],
+"q": [
+"What's their job?",
+"What else can you guess: age, personality, where they live?"
+],
+"cards": [
+{
+"t": "a man in a dark suit and tie speaking at a podium with several microphones and flags behind him",
+"ans": "He's a politician."
+},
+{
+"t": "a very stylish young woman posing in front of a white backdrop with studio lights",
+"ans": "She's a model."
+},
+{
+"t": "a woman in a white coat with a stethoscope walking along a hospital corridor",
+"ans": "She's a doctor."
+},
+{
+"t": "a man with flour on his apron at 5 am, holding a tray of fresh bread",
+"ans": "He's a baker."
+},
+{
+"t": "a woman in a hard hat and high-visibility vest looking at plans on a building site",
+"ans": "She's an architect."
+},
+{
+"t": "a young man in paint-stained clothes holding brushes in front of a large canvas",
+"ans": "He's a painter (an artist)."
+},
+{
+"t": "a woman in a dark uniform with a cap and gold stripes on her sleeves, pulling a small suitcase at an airport",
+"ans": "She's a pilot."
+},
+{
+"t": "a man in a hoodie with headphones around his neck, sitting in front of three screens full of code",
+"ans": "He's a software developer."
+},
+{
+"t": "an older man with muddy boots and gloves pushing a wheelbarrow full of plants",
+"ans": "He's a gardener."
+},
+{
+"t": "a woman in a tracksuit with a whistle and a clipboard on a football pitch",
+"ans": "She's a football coach."
+},
+{
+"t": "a serious man in black clothes and sunglasses with an earpiece, standing outside a concert venue",
+"ans": "He's a bodyguard."
+},
+{
+"t": "a woman holding a microphone in front of a TV camera in the rain",
+"ans": "She's a TV reporter."
+}
+],
+"guide": {
+"ind": [
+"Show the photo. The student makes three speculations with reasons before you reveal.",
+"Ask 'What else?': age, personality, a typical day.",
+"Challenge them: 'Are you sure? Couldn't he be…?'"
+],
+"pair": [
+"Partners take turns speculating; the other must agree or disagree with a reason.",
+"Before the reveal, they agree on one final answer.",
+"One point for each correct guess."
+],
+"grp": [
+"Show the photo. Teams have 30 seconds to agree on a job and two reasons.",
+"Each team says its answer with a modal; then reveal.",
+"Points for the correct job and for the best reasoning."
+]
+},
+"end": "Who in this class looks like they could be a spy? Why?"
 }
 ]
