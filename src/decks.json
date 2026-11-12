@@ -10407,10 +10407,10 @@
         "follow": "Which requires more support from others?"
       },
       {
-        "a": "Moving abroad",
-        "b": "Starting a new job",
-        "q": "How might the people feel about these changes?",
-        "follow": "Which could be harder at first?"
+        "a": "Cooking for a large family",
+        "b": "Managing a project",
+        "q": "How might these people deal with competing responsibilities?",
+        "follow": "Which task might need the most planning?"
       },
       {
         "a": "Outdoor concert",
@@ -10432,7 +10432,7 @@
       "1b": "great-swap:7b",
       "2a": "parallel-realities:1a",
       "2b": "parallel-realities:1b",
-      "3a": "parallel-realities:3a",
+      "3a": "parallel-realities:4a",
       "3b": "parallel-realities:3b",
       "4a": "great-swap:4a",
       "4b": "great-swap:4b",
@@ -10833,7 +10833,7 @@
         "Taking a phone-free break"
       ],
       [
-        "Moving to another country",
+        "Cooking for a large group",
         "Starting a new job",
         "Learning a new language"
       ],
@@ -10856,7 +10856,7 @@
     "questions": [
       "Why might people deliberately seek unfamiliar experiences?",
       "How might these activities help people feel a sense of belonging?",
-      "What might motivate people to make a significant personal change?",
+      "What might motivate people to take on demanding new commitments?",
       "In what ways might people find satisfaction in helping others?",
       "How might people respond to setbacks in these situations?",
       "Why might gradual improvement matter more than immediate success?"
@@ -10864,7 +10864,7 @@
     "followUps": [
       "Which experience might change someone the most?",
       "Which activity might offer the most lasting satisfaction?",
-      "Which change requires the greatest personal sacrifice?",
+      "Which commitment could have the greatest long-term impact?",
       "Can helping others ever become a burden?",
       "Which experience might require the strongest mindset?",
       "Which activity best teaches patience?"
@@ -10876,7 +10876,7 @@
       "1-0": "try-do-skip:2-0",
       "1-1": "try-do-skip:2-1",
       "1-2": "try-do-skip:2-2",
-      "2-0": "parallel-realities:3a",
+      "2-0": "parallel-realities:4a",
       "2-1": "parallel-realities:3b",
       "2-2": "parallel-realities:5a",
       "3-0": "try-do-skip:7-0",
