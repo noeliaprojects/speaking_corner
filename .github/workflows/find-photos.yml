@@ -3,6 +3,7 @@ on:
   push:
     paths:
       - '.github/workflows/find-photos.yml'
+      - 'src/photo_queries.json'
   workflow_dispatch:
     inputs:
       max_images:
