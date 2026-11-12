@@ -239,6 +239,19 @@ h3,b,strong{font-weight:500}
 .s-instr{font-weight:300}
 button,.btn{font-weight:500}
 .label{font-weight:500}
+
+/* ---- bordered cards ---- */
+.grid{grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px}
+.act{border:1px solid var(--ink);border-radius:20px;padding:20px 22px;gap:8px;box-shadow:none;background:var(--paper)}
+.act:hover{box-shadow:0 6px 0 var(--ink);transform:translateY(-3px);border-color:var(--ink)}
+.act{transition:transform .15s,box-shadow .15s}
+.lvls{display:flex;gap:6px;margin-bottom:6px}
+.lvls span{width:34px;height:34px;border-radius:50%;background:#ffe66d;display:grid;place-items:center;font-size:.78rem;font-weight:500;color:var(--ink)}
+.kind{font-size:.82rem;color:var(--muted)}
+.act h3{font-size:1.08rem;font-weight:600}
+.act p{font-size:.9rem;color:#3d4347}
+.act .meta{padding-top:10px}
+@media (prefers-reduced-motion:reduce){.act,.act:hover{transition:none;transform:none}}
 </style>
 
 <div class="wrap" id="app"></div>
@@ -354,8 +367,10 @@ function renderList(){
   const ok=g=>(!F.fmt||F.fmt==="all"||g.fmts.includes(F.fmt))&&(!F.lv||F.lv==="all"||g.lv.includes(F.lv))&&(!F.gr||F.gr==="all"||(g.gram||[]).includes(F.gr))&&(!F.age||F.age==="all"||(g.ages||[]).includes(F.age))&&(!words.length||words.every(w=>hay(g).includes(w)));
   const fm=g=>g.fmts.length===3?"Any format":g.fmts.map(f=>FMTS[f]).join(", ");
   const card=g=>{const d=a?H.dates(a.id,g.id):[];return `<a class="act" href="#${g.id}">
+    <div class="lvls">${g.lv.map(l=>`<span>${l}</span>`).join("")}</div>
+    <span class="kind">${esc(g.gram?g.gram.slice(0,2).join(" · "):"Speaking")}</span>
     <h3>${esc(g.name)}</h3><p>${esc(g.desc)}</p>
-    <div class="meta">${lvRange(g.lv)} · ${fm(g)}${g.print==="required"?` · <b class="m-print">Print</b>`:""}${d.length?` · <b class="m-done">Done ${niceDate(d[d.length-1]).replace(/ \d{4}$/,"")}</b>`:""}</div></a>`;};
+    <div class="meta">${fm(g)}${g.print==="required"?` · <b class="m-print">Print</b>`:""}${d.length?` · <b class="m-done">Done ${niceDate(d[d.length-1]).replace(/ \d{4}$/,"")}</b>`:""}</div></a>`;};
   let n=0;
   const html=Object.entries(CATS).map(([k,v])=>{const l=ALL.filter(g=>g.cat===k&&ok(g));n+=l.length;if(!l.length)return "";
     return `<section class="cat"><h2>${v} <span>${l.length}</span></h2><div class="grid">${l.map(card).join("")}</div></section>`;}).join("");
