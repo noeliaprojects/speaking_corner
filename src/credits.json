@@ -2103,14 +2103,6 @@
   "title": "Green Parrot",
   "query": "parrot"
  },
- "parallel-realities-04a": {
-  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/36/Orange_hand_truck_pulling_a_variety_of_blue_cartons.jpg/1920px-Orange_hand_truck_pulling_a_variety_of_blue_cartons.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-  "author": "Ser Amantio di Nicolao",
-  "license": "CC BY-SA 4.0",
-  "source": "https://commons.wikimedia.org/wiki/File:Orange_hand_truck_pulling_a_variety_of_blue_cartons.jpg",
-  "title": "File:Orange hand truck pulling a variety of blue cartons.jpg",
-  "query": "moving van boxes"
- },
  "look-and-say-toys-01": {
   "url": "https://images.rawpixel.com/editor_1024/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvZnJlZXJhbmdlcGV4ZWxzMDY4MDktaW1hZ2Uta3d2eDB4OGIuanBn.jpg",
   "author": "Unknown",
@@ -2118,14 +2110,6 @@
   "source": "https://www.rawpixel.com/image/5918504/image-background-public-domain-person",
   "title": "Free dog holding red ball",
   "query": "red ball"
- },
- "look-and-say-toys-04": {
-  "url": "https://cdn.stocksnap.io/img-thumbs/960w/25UJEQQO2O.jpg",
-  "author": "Bob Richards",
-  "license": "CC0",
-  "source": "https://stocksnap.io/photo/flying-kite-25UJEQQO2O",
-  "title": "Flying Kite",
-  "query": "kite flying sky"
  },
  "look-and-say-toys-07": {
   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d8/Kick_scooters_parking.jpg/1920px-Kick_scooters_parking.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
@@ -2135,22 +2119,6 @@
   "title": "File:Kick scooters parking.jpg",
   "query": "push scooter"
  },
- "look-and-say-school-02": {
-  "url": "https://images.rawpixel.com/editor_1024/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvcHg3NTk0NjQtaW1hZ2Uta3d2eGVxYWUuanBn.jpg",
-  "author": "Unknown",
-  "license": "CC0",
-  "source": "https://www.rawpixel.com/image/5920922/photo-image-public-domain-free-drink",
-  "title": "Free flat lay view coffee",
-  "query": "pink eraser"
- },
- "look-and-say-school-06": {
-  "url": "https://images.rawpixel.com/editor_1024/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTExL2ZsNDg2MDg1NTUwNDEtaW1hZ2UuanBn.jpg",
-  "author": "Unknown",
-  "license": "CC0",
-  "source": "https://www.rawpixel.com/image/9658098/image-people-woman-public-domain",
-  "title": "Back School Cops & Barbers",
-  "query": "school backpack"
- },
  "look-and-say-school-08": {
   "url": "https://images.rawpixel.com/editor_1024/cHJpdmF0ZS9zdGF0aWMvaW1hZ2Uvd2Vic2l0ZS8yMDIyLTA0L2xyL2ZydGFibGVfY2hhaXJzX2NvbG91cl9tb2Rlcm4taW1hZ2Uta3liY2tlZ2wuanBn.jpg",
   "author": "Unknown",
@@ -2158,22 +2126,6 @@
   "source": "https://www.rawpixel.com/image/6031098/photo-image-public-domain-wooden-free",
   "title": "Closeup wooden chair",
   "query": "wooden chair"
- },
- "look-and-say-clothes-04": {
-  "url": "https://cdn.stocksnap.io/img-thumbs/960w/GZUHDFGSCN.jpg",
-  "author": "Sherry Zhu",
-  "license": "CC0",
-  "source": "https://stocksnap.io/photo/people-woman-GZUHDFGSCN",
-  "title": "People Woman",
-  "query": "denim shorts"
- },
- "look-and-say-clothes-07": {
-  "url": "https://images.rawpixel.com/editor_1024/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTA3L21pYTI1MDcwLWltYWdlLmpwZw.jpg",
-  "author": "Unknown",
-  "license": "CC0",
-  "source": "https://www.rawpixel.com/image/7454978/mudcloth-skirt-cloth-type-cheli-dju",
-  "title": "mudcloth skirt; cloth type: Cheli",
-  "query": "skirt clothing"
  },
  "look-and-say-clothes-09": {
   "url": "https://images.rawpixel.com/editor_1024/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTExL2ZsNDg4OTkxNTUxMDMtaW1hZ2UuanBn.jpg",
@@ -2183,14 +2135,6 @@
   "title": "Knitted scarf",
   "query": "knitted scarf"
  },
- "look-and-say-clothes-10": {
-  "url": "https://upload.wikimedia.org/wikipedia/commons/f/f4/RidgefieldCT_CainGloverMillSite_2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
-  "author": "Magicpiano",
-  "license": "CC BY-SA 3.0",
-  "source": "https://commons.wikimedia.org/wiki/File:RidgefieldCT_CainGloverMillSite_2.jpg",
-  "title": "File:RidgefieldCT CainGloverMillSite 2.jpg",
-  "query": "woolen gloves"
- },
  "look-and-say-clothes-12": {
   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a0/Wellington_boots_in_Wellington_Road%2C_Oxton.JPG/1920px-Wellington_boots_in_Wellington_Road%2C_Oxton.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
   "author": "Rept0n1x",
@@ -2198,14 +2142,6 @@
   "source": "https://commons.wikimedia.org/wiki/File:Wellington_boots_in_Wellington_Road,_Oxton.JPG",
   "title": "File:Wellington boots in Wellington Road, Oxton.JPG",
   "query": "wellington boots"
- },
- "look-and-say-house-01": {
-  "url": "https://images.rawpixel.com/editor_1024/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTA0L3Vwd2s2MjE0NzgxNi13aWtpbWVkaWEtaW1hZ2Uta293bmtjZHguanBn.jpg",
-  "author": "Unknown",
-  "license": "CC0",
-  "source": "https://www.rawpixel.com/image/3297382/free-photo-image-cat-bathroom-kitchen-floor",
-  "title": "Cat doorway Berlin home kitchen",
-  "query": "home kitchen"
  },
  "look-and-say-house-05": {
   "url": "https://cdn.stocksnap.io/img-thumbs/960w/41BD5M8SUI.jpg",
@@ -2222,22 +2158,6 @@
   "source": "https://stocksnap.io/photo/bed-bedroom-U8QOG5XQA4",
   "title": "Bed Bedroom",
   "query": "bed bedroom"
- },
- "look-and-say-house-08": {
-  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7a/California_Kitchen_Space_for_Fridge%2BOven_Row.jpg/1920px-California_Kitchen_Space_for_Fridge%2BOven_Row.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-  "author": "Stilfehler",
-  "license": "CC BY-SA 4.0",
-  "source": "https://commons.wikimedia.org/wiki/File:California_Kitchen_Space_for_Fridge%2BOven_Row.jpg",
-  "title": "File:California Kitchen Space for Fridge+Oven Row.jpg",
-  "query": "kitchen fridge"
- },
- "look-and-say-house-11": {
-  "url": "https://cdn.stocksnap.io/img-thumbs/960w/OMC9TJFWS8.jpg",
-  "author": "Bruce Mars",
-  "license": "CC0",
-  "source": "https://stocksnap.io/photo/woman-bath-OMC9TJFWS8",
-  "title": "Woman Bath",
-  "query": "bathroom shower"
  },
  "look-and-say-house-12": {
   "url": "https://images.rawpixel.com/editor_1024/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvZnJzcGlyYWxfc3RhaXJjYXNlX3N0YWlyc193b29kLWltYWdlLWt5YmNvYWFiLmpwZw.jpg",
@@ -2287,22 +2207,6 @@
   "title": "Lake Mountains",
   "query": "cold winter snow"
  },
- "halloween-words-02": {
-  "url": "https://upload.wikimedia.org/wikipedia/commons/6/61/The_History_of_Witches_and_Wizards%2C_1720_Wellcome_L0026615.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
-  "author": "Unknown",
-  "license": "CC BY 4.0",
-  "source": "https://commons.wikimedia.org/wiki/File:The_History_of_Witches_and_Wizards,_1720_Wellcome_L0026615.jpg",
-  "title": "File:The History of Witches and Wizards, 1720 Wellcome L0026615.jpg",
-  "query": "witch hat"
- },
- "halloween-words-06": {
-  "url": "https://images.rawpixel.com/editor_1024/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDI0LTAyL2xyL3djcDlramE4YWstaW1hZ2UuanBn.jpg",
-  "author": "Unknown",
-  "license": "CC0",
-  "source": "https://www.rawpixel.com/image/13963371/bird-bat-fly-penicillidia-dufouri-coloured-drawing-aje-terzi",
-  "title": "bird bat fly (Penicillidia dufouri)",
-  "query": "bat flying"
- },
  "halloween-words-07": {
   "url": "https://images.rawpixel.com/editor_1024/cHJpdmF0ZS9zdGF0aWMvaW1hZ2Uvd2Vic2l0ZS8yMDIyLTA0L2xyL3B4NzkxMjM2LWltYWdlLWt3dnV6dHd4LmpwZw.jpg",
   "author": "Unknown",
@@ -2326,14 +2230,6 @@
   "source": "https://www.rawpixel.com/image/6083712/butterfly",
   "title": "Colorful butterfly on flower",
   "query": "colorful butterfly"
- },
- "spring-easter-words-06": {
-  "url": "https://cdn.stocksnap.io/img-thumbs/960w/WA6CV9TYGD.jpg",
-  "author": "World Wildlife",
-  "license": "CC0",
-  "source": "https://stocksnap.io/photo/rabbit-field-WA6CV9TYGD",
-  "title": "Rabbit Field",
-  "query": "bunny rabbit"
  },
  "animal-top-trumps-01b": {
   "url": "https://images.rawpixel.com/editor_1024/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTA1L2ZybW91c2Vfcm9kZW50X2N1dGVfbWFtbWFsXzEzLWltYWdlLWt5YmQ1M2s4LmpwZw.jpg",
