@@ -240,18 +240,17 @@ h3,b,strong{font-weight:500}
 button,.btn{font-weight:500}
 .label{font-weight:500}
 
-/* ---- bordered cards ---- */
-.grid{grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px}
-.act{border:1px solid var(--ink);border-radius:20px;padding:20px 22px;gap:8px;box-shadow:none;background:var(--paper)}
-.act:hover{box-shadow:0 6px 0 var(--ink);transform:translateY(-3px);border-color:var(--ink)}
-.act{transition:transform .15s,box-shadow .15s}
-.lvls{display:flex;gap:6px;margin-bottom:6px}
-.lvls span{width:34px;height:34px;border-radius:50%;background:#ffe66d;display:grid;place-items:center;font-size:.78rem;font-weight:500;color:var(--ink)}
-.kind{font-size:.82rem;color:var(--muted)}
+/* ---- speech-bubble cards ---- */
+.grid{grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:16px}
+.act{position:relative;border:1.5px solid var(--ink);border-radius:18px 18px 18px 4px;padding:18px 20px 16px;gap:8px;box-shadow:none;background:var(--paper);transition:box-shadow .15s,border-color .15s}
+.act:hover{border-color:var(--stamp);box-shadow:5px 5px 0 var(--stamp-soft),5px 5px 0 1.5px var(--stamp)}
+.top-row{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:4px}
+.lvpill{font-size:.78rem;font-weight:500;color:var(--stamp);background:var(--stamp-soft);border-radius:6px;padding:3px 9px;white-space:nowrap}
+.kind{font-size:.78rem;color:var(--muted);text-align:right;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0}
 .act h3{font-size:1.08rem;font-weight:600}
 .act p{font-size:.9rem;color:#3d4347}
 .act .meta{padding-top:10px}
-@media (prefers-reduced-motion:reduce){.act,.act:hover{transition:none;transform:none}}
+@media (prefers-reduced-motion:reduce){.act{transition:none}}
 </style>
 
 <div class="wrap" id="app"></div>
@@ -367,8 +366,7 @@ function renderList(){
   const ok=g=>(!F.fmt||F.fmt==="all"||g.fmts.includes(F.fmt))&&(!F.lv||F.lv==="all"||g.lv.includes(F.lv))&&(!F.gr||F.gr==="all"||(g.gram||[]).includes(F.gr))&&(!F.age||F.age==="all"||(g.ages||[]).includes(F.age))&&(!words.length||words.every(w=>hay(g).includes(w)));
   const fm=g=>g.fmts.length===3?"Any format":g.fmts.map(f=>FMTS[f]).join(", ");
   const card=g=>{const d=a?H.dates(a.id,g.id):[];return `<a class="act" href="#${g.id}">
-    <div class="lvls">${g.lv.map(l=>`<span>${l}</span>`).join("")}</div>
-    <span class="kind">${esc(g.gram?g.gram.slice(0,2).join(" · "):"Speaking")}</span>
+    <div class="top-row"><span class="lvpill">${lvRange(g.lv)}</span><span class="kind">${esc(g.gram?g.gram[0]:"")}</span></div>
     <h3>${esc(g.name)}</h3><p>${esc(g.desc)}</p>
     <div class="meta">${fm(g)}${g.print==="required"?` · <b class="m-print">Print</b>`:""}${d.length?` · <b class="m-done">Done ${niceDate(d[d.length-1]).replace(/ \d{4}$/,"")}</b>`:""}</div></a>`;};
   let n=0;
