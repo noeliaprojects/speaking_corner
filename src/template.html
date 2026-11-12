@@ -686,10 +686,12 @@ function importLanguage(data){
 let D=null;
 const YOUNG=d=>(d.ages||[]).some(a=>a==="3-6"||a==="6-8");
 const ONLY_YOUNG=d=>(d.ages||[]).length&&(d.ages||[]).every(a=>a==="3-6"||a==="6-8");
-function hasImgs(d){return Object.keys(IMAGES).some(k=>k.startsWith(d.id+":")&&k!==d.id+":cover");}
-function cardFaces(d){return d.cards.map((c,i)=>{const im=k=>IMAGES[d.id+":"+k]||"";
-  if(d.kind==="versus")return {html:`<div class="pc-vs"><div>${im(i+"a")?`<img src="${im(i+"a")}" alt="">`:""}<b>${esc(c.a)}</b></div><i>or</i><div>${im(i+"b")?`<img src="${im(i+"b")}" alt="">`:""}<b>${esc(c.b)}</b></div></div>`,img:""};
-  if(d.kind==="triple")return {html:`<ul class="pc-list">${c.map((x,k)=>`<li>${im(i+"-"+k)?`<img src="${im(i+"-"+k)}" alt="">`:""}<span>${esc(x)}</span></li>`).join("")}</ul>`,img:""};
+function imageUrl(d,k){return IMAGES[d.id+":"+k]||(d.imageRefs?IMAGES[d.imageRefs[k]]:"")||"";}
+function hasImgs(d){return Object.keys(IMAGES).some(k=>k.startsWith(d.id+":")&&k!==d.id+":cover")||
+   !!(d.imageRefs&&Object.values(d.imageRefs).some(k=>IMAGES[k]));}
+function cardFaces(d){return d.cards.map((c,i)=>{const im=k=>imageUrl(d,k);
+  if(d.kind==="versus")return {html:`<div class="pc-vs"><div>${im(i+"a")?`<img src="${im(i+"a")}" alt="">`:""}<b>${esc(c.a)}</b></div><i>${d.compare?"⇄":"or"}</i><div>${im(i+"b")?`<img src="${im(i+"b")}" alt="">`:""}<b>${esc(c.b)}</b></div></div>${d.compare?`<p class="pc-sub">${esc(c.q||d.questions?.[i]||"Compare these two photos.")}</p>`:""}`,img:""};
+  if(d.kind==="triple")return {html:`<ul class="pc-list">${c.map((x,k)=>`<li>${im(i+"-"+k)?`<img src="${im(i+"-"+k)}" alt="">`:""}<span>${esc(x)}</span></li>`).join("")}</ul>${d.compare?`<p class="pc-sub">${esc(d.questions?.[i]||"Choose any two photos to compare.")}</p>`:""}`,img:""};
   if(d.kind==="stat")return {html:`<p class="pc-main">“${esc(c.s)}”</p><p class="pc-sub">${esc(c.q)}</p>`,img:""};
   if(d.kind==="board")return {html:`<p class="pc-main">${esc(c.w)}</p><p class="pc-no">${c.no.map(esc).join("<br>")}</p>`,img:""};
   if(typeof c==="object"){const main=d.photoOnly?(c.ans||c.t):c.t;return {html:`<p class="pc-main">${esc(main)}</p>${c.sub?`<p class="pc-sub">${c.sub.map(esc).join(" · ")}</p>`:""}${c.ans&&!d.photoOnly?`<p class="pc-ans">${esc(c.ans)}</p>`:""}`,img:im(i)};}
@@ -771,7 +773,7 @@ function deckView(d){
        </div>
        <p class="note" id="langMsg" role="status">Saved locally on this browser. Include them in your My classes backup when moving devices.</p>
      </section>
-     <section class="card guide" id="guidePanel" hidden><div class="row" style="justify-content:space-between"><h2>Teacher guide</h2>
+     <section class="card guide" id="guidePanel" hidden>${d.examPart?`<p class="note"><b>Behind the game:</b> ${esc(d.examPart)}. A practice game, not an official exam task.</p>`:""}<div class="row"> style="justify-content:space-between"><h2>Teacher guide</h2>
       <div class="tabs" role="tablist">${Object.keys(FMTS).map(f=>`<button role="tab" data-f="${f}" aria-selected="false">${FMTS[f]}${d.fmts.includes(f)?"":" (adapted)"}</button>`).join("")}</div></div>
       <div id="gbody"></div>
       ${d.focus?`<p class="focus"><b>Structure focus:</b> ${esc(d.focus)}</p>`:""}
@@ -867,7 +869,7 @@ function doneRow(){const a=CL.active(),r=$("#doneRow");if(!r)return;
   if($("#undoDone"))$("#undoDone").onclick=()=>{H.unmarkToday(a.id,D.d.id);doneRow();};}
 function go(n){const k=D.i+n;if(k<0||k>=D.slides.length)return;D.i=k;D.pickName=null;render();}
 function phrases(d){const p=languageFor(d);return D.phr&&p.length?`<div class="s-ph"><b>Useful language</b>${p.map(x=>`<span>${esc(x)}</span>`).join("")}</div>`:"";}
-function img(d,i){const u=IMAGES[d.id+":"+i];return u?`<img src="${u}" alt="">`:"";}
+function img(d,i){const u=imageUrl(d,i);return u?`<img src="${esc(u)}" alt="">`:"";}
 function render(){const d=D.d,s=D.slides[D.i],st=$("#stage"),n=D.slides.length;st.classList.toggle("upper",!!D.upper);
   const cardNo=s.t==="card"?`${D.order.indexOf(s.i)+1} / ${d.cards.length}`:"";
   let body="";
@@ -900,17 +902,19 @@ function render(){const d=D.d,s=D.slides[D.i],st=$("#stage"),n=D.slides.length;s
       const txt=d.photoOnly?`<span class="s-tag">${esc(d.revealTag)}</span><p class="s-big mid">${esc(d.q[0])}</p>${pic?"":`<p class="s-ex">Clues: ${esc(ct)}</p>`}<ul class="s-q">${d.q.slice(1).map(q=>`<li>${esc(q)}</li>`).join("")}</ul>`:`${d.reveal?`<span class="s-tag">${esc(d.revealTag||"Real word · invent a meaning")}</span>`:""}<p class="s-big ${ct.length>40?"mid":""}">${esc(ct)}</p>${sub}${d.q?`<ul class="s-q">${d.q.map(q=>`<li>${esc(q)}</li>`).join("")}</ul>`:""}`;
       inner=pic?`<div class="s-split"><div style="display:flex;flex-direction:column;gap:16px">${txt}</div><div class="s-img">${pic}</div></div>`:txt;}
     else if(d.kind==="versus"){const L=d.labels||["",""];
-      const pa=d.img?img(d,s.i+"a"):"",pb=d.img?img(d,s.i+"b"):"",ph=pa&&pb;
+      const pa=(d.img||d.imageRefs)?img(d,s.i+"a"):"",pb=(d.img||d.imageRefs)?img(d,s.i+"b"):"",ph=pa&&pb;
       const opt=(p,l,x)=>ph?`<div class="s-opt ph">${p}<div class="cap">${l?`<small>${esc(l)}</small>`:""}<div>${esc(x)}</div></div></div>`:`<div class="s-opt">${l?`<small>${esc(l)}</small>`:""}<div>${esc(x)}</div></div>`;
-      inner=`<div class="s-vs ${ph?"ph":""}">${opt(pa,L[0],c.a)}<span class="s-or">OR</span>${opt(pb,L[1],c.b)}</div>`;}
+      inner=`<div class="s-vs ${ph?"ph":""}">${opt(pa,L[0],c.a)}<span class="s-or">${d.compare?"⇄":"OR"}</span>${opt(pb,L[1],c.b)}</div>`;}
     else if(d.kind==="triple"){
-      const tl=(x,k)=>{const u=IMAGES[`${d.id}:${s.i}-${k}`];return u?`<div class="ptile"><img src="${u}" alt=""><span>${esc(x)}</span></div>`:`<div ${d.id==="story-chain"?'style="justify-content:center;font-size:clamp(1.2rem,3vw,2.2rem)"':""}>${esc(x)}</div>`;};
-      inner=`<div class="s-tiles">${c.map(tl).join("")}</div>${d.id==="story-chain"?"":`<p class="s-instr" style="font-size:clamp(.95rem,1.8vw,1.3rem)">Done it? Want to try it? Would you skip it?</p>`}`;}
+      const tl=(x,k)=>{const u=imageUrl(d,`${s.i}-${k}`);return u?`<div class="ptile"><img src="${u}" alt=""><span>${esc(x)}</span></div>`:`<div ${d.id==="story-chain"?'style="justify-content:center;font-size:clamp(1.2rem,3vw,2.2rem)"':""}>${esc(x)}</div>`;};
+      inner=`<div class="s-tiles">${c.map(tl).join("")}</div>${d.compare||d.id==="story-chain"?"":`<p class="s-instr" style="font-size:clamp(.95rem,1.8vw,1.3rem)">Done it? Want to try it? Would you skip it?</p>`}`;}
     else if(d.kind==="stat"){
       inner=`<span class="s-tag">Imagined headline</span><p class="s-stat">“${esc(c.s)}”</p><ul class="s-q">${d.q.map(q=>`<li>${esc(q)}</li>`).join("")}<li><b>${esc(c.q)}</b></li></ul>`;}
     else if(d.kind==="board"){
       inner=`<div class="s-split"><p class="s-big">${esc(c.w)}</p><div class="s-no"><small class="label" style="color:var(--acc)">Don't say</small>${c.no.map(x=>`<span>${esc(x)}</span>`).join("")}</div></div>`;}
-    body=`<div class="s-eyebrow"><span>${esc(d.name)}</span><span>${cardNo}</span></div><div class="s-body">${inner}</div>${phrases(d)}`;
+    body=`<div class="s-eyebrow"><span>${esc(d.name)}</span><span>${cardNo}</span></div><div class="s-body">${inner}
+     ${d.compare?`<div class="s-compare"><p>${esc(d.kind==="versus"?(c.q||d.questions?.[s.i]||"Compare these two pictures."):(d.questions?.[s.i]||"Choose TWO of the three photographs to compare."))}</p>
+       ${(d.kind==="versus"?c.follow:d.followUps?.[s.i])?`<small>Partner's challenge: ${esc(d.kind==="versus"?c.follow:d.followUps?.[s.i])}</small>`:""}</div>`:""}</div>${phrases(d)}`;
     if((d.kind==="board"||d.secret)&&D.hide)body+=`<div class="s-cover"><span class="label" style="color:var(--stage-muted)">${d.secret?"Only the speaker looks":"Next word"}</span><p class="s-title">${d.secret?"Eyes closed!":"Ready?"}</p><p class="s-instr">${d.secret?"Everyone except the speaker closes their eyes. Press H to show the card, and H again to hide it.":"Press Hide card again to show it."}</p></div>`;
   }
   st.innerHTML=body+`<div class="s-overlay">${D.tid||D.left>0?`<span class="s-pill ${D.left<=10?"low":""}" id="tpill">${fmt(Math.max(D.left,0))}</span>`:""}</div>
