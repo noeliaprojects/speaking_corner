@@ -308,7 +308,9 @@ button,.btn{font-weight:500}
   .pc-main{margin:0;font-weight:600;line-height:1.15;font-size:calc(10pt + 60pt / var(--rows) / var(--cols) * 1.6);overflow-wrap:anywhere}
   .pc-sub,.pc-no,.pc-ans{margin:0;font-size:calc(8pt + 18pt / var(--rows) / var(--cols) * 1.6);color:#555}
   .pc-no{color:#b0321f}
-  .pc-foot{position:absolute;bottom:2mm;right:3mm;font-size:6pt;color:#999}
+  .pc-foot{position:absolute;bottom:2mm;right:3mm;max-width:calc(100% - 6mm);display:flex;flex-direction:column;align-items:flex-end;gap:.3mm;text-align:right;line-height:1.1}
+  .pc-foot .pc-brand{font-size:6pt;font-weight:700;letter-spacing:.01em;color:#2a6b61}
+  .pc-foot .pc-deck{font-size:5.5pt;font-weight:400;color:#777}
   .pc-ph{align-self:stretch;flex:0 0 auto;border-top:.3mm solid #d6dfdc;padding-top:2mm;margin-top:1mm;text-align:left;color:#314d45;overflow-wrap:anywhere}
   .pc-ph b{display:block;text-transform:uppercase;font-size:6.5pt;letter-spacing:.025em;font-weight:700;margin-bottom:.8mm}
   .pc-ph ul{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:.75mm}
@@ -605,7 +607,7 @@ function printCards(d,n,withImg,upper,withPhrases){
   let a=$("#printArea");if(!a){a=document.createElement("div");a.id="printArea";document.body.appendChild(a);}
   a.className=`pa-${n} ${withImg?"pa-img":"pa-noimg"} ${upper?"pa-up":""}`;
   a.style.setProperty("--cols",L[0]);a.style.setProperty("--rows",L[1]);
-  a.innerHTML=pages.map(pg=>`<section class="pa-page">${pg.map(f=>`<div class="pc">${withImg&&f.img?`<img class="pc-img" src="${f.img}" alt="">`:""}<div class="pc-txt">${f.html}</div>${help}<span class="pc-foot">${esc(d.name)}</span></div>`).join("")}${Array(n-pg.length).fill('<div class="pc pc-empty"></div>').join("")}</section>`).join("");
+  a.innerHTML=pages.map(pg=>`<section class="pa-page">${pg.map(f=>`<div class="pc">${withImg&&f.img?`<img class="pc-img" src="${f.img}" alt="">`:""}<div class="pc-txt">${f.html}</div>${help}<span class="pc-foot"><span class="pc-brand">Speaking Corner</span><span class="pc-deck">${esc(d.name)}</span></span></div>`).join("")}${Array(n-pg.length).fill('<div class="pc pc-empty"></div>').join("")}</section>`).join("");
   if(!withImg)a.querySelectorAll(".pc-vs img,.pc-list img").forEach(x=>x.remove());
   const imgs=[...a.querySelectorAll("img")];
   Promise.all(imgs.map(x=>x.complete?1:new Promise(r=>{x.onload=x.onerror=r;}))).then(()=>{
