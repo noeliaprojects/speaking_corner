@@ -36,7 +36,8 @@
 "gram": [
 "Past simple",
 "Present perfect"
-]
+],
+"coverQ": "weekly planner desk coffee"
 },
 {
 "id": "strange-delivery",
@@ -113,7 +114,8 @@
 "coverP": "a cosy flat lay of favourite everyday things: a mug, headphones, a snack, a book and trainers",
 "gram": [
 "Present simple"
-]
+],
+"coverQ": "flat lay headphones mug book"
 },
 {
 "id": "main-character",
@@ -152,7 +154,8 @@
 "gram": [
 "Present continuous",
 "Present simple"
-]
+],
+"coverQ": "film clapperboard camera"
 },
 {
 "id": "mood-menu",
@@ -225,7 +228,8 @@
 "coverP": "a sunny Saturday morning: breakfast on a balcony with a view",
 "gram": [
 "Second conditional"
-]
+],
+"coverQ": "breakfast balcony morning"
 },
 {
 "id": "how-often",
@@ -392,7 +396,8 @@
 "coverP": "an open dictionary on a wooden table with a magnifying glass",
 "gram": [
 "Relative clauses"
-]
+],
+"coverQ": "open dictionary"
 },
 {
 "id": "user-manual",
@@ -434,7 +439,8 @@
 "gram": [
 "Zero conditional",
 "First conditional"
-]
+],
+"coverQ": "instruction manual"
 },
 {
 "id": "five-star-review",
@@ -522,7 +528,8 @@
 "gram": [
 "Zero conditional",
 "Present simple"
-]
+],
+"coverQ": "red flag green flag"
 },
 {
 "id": "great-swap",
@@ -714,7 +721,8 @@
 "gram": [
 "Past simple",
 "Question forms"
-]
+],
+"coverQ": "magnifying glass cards"
 },
 {
 "id": "unwritten-rules",
@@ -756,7 +764,8 @@
 "imgP": "an everyday scene of this situation: {x}",
 "gram": [
 "Modals: advice & obligation"
-]
+],
+"noSearch": true
 },
 {
 "id": "the-catch",
@@ -846,7 +855,8 @@
 "imgP": "a slightly funny everyday scene of: {x}",
 "gram": [
 "Second conditional"
-]
+],
+"noSearch": true
 },
 {
 "id": "designed-to-hook",
@@ -889,7 +899,8 @@
 "imgP": "a photo representing: {x} (generic, no real brands or app logos)",
 "gram": [
 "Passive voice"
-]
+],
+"noSearch": true
 },
 {
 "id": "convenient-creepy",
@@ -932,7 +943,8 @@
 "gram": [
 "Second conditional",
 "First conditional"
-]
+],
+"noSearch": true
 },
 {
 "id": "parallel-realities",
@@ -1081,7 +1093,8 @@
 "coverP": "a pile of newspapers and a smartphone showing a chart, on a café table",
 "gram": [
 "Linkers"
-]
+],
+"coverQ": "newspapers stack"
 },
 {
 "id": "defend-the-object",
@@ -1240,7 +1253,8 @@
 "imgP": "a playful photo representing the topic: {x}",
 "gram": [
 "Linkers"
-]
+],
+"noSearch": true
 },
 {
 "id": "just-a-minute",
@@ -1322,7 +1336,8 @@
 "imgP": "the story moment: {x}",
 "gram": [
 "Narrative tenses"
-]
+],
+"noSearch": true
 },
 {
 "id": "alibi",
@@ -1368,7 +1383,8 @@
 "Past continuous",
 "Narrative tenses",
 "Question forms"
-]
+],
+"noSearch": true
 },
 {
 "id": "taboo",
@@ -1639,7 +1655,8 @@
 "coverP": "a stack of blank game cards and a sand timer on a table",
 "gram": [
 "Relative clauses"
-]
+],
+"coverQ": "board game cards table"
 },
 {
 "id": "desert-island",

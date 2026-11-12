@@ -23,6 +23,9 @@ for f in sorted(os.listdir(os.path.join(ROOT, "img"))):
             break
 t = open(os.path.join(ROOT, "src/template.html")).read()
 t = re.sub(r"const IMAGES=\{.*?\};", "const IMAGES=" + json.dumps(imgs) + ";", t, count=1)
+cp = os.path.join(ROOT, "src/credits.json")
+credits = {k: {x: v[x] for x in ("title", "author", "license", "source")} for k, v in (json.load(open(cp)).items() if os.path.exists(cp) else [])}
+t = t.replace("const CREDITS={};", "const CREDITS=" + json.dumps(credits, ensure_ascii=False) + ";", 1)
 body = t.replace("/*DECKS*/[]", json.dumps(decks, ensure_ascii=False))
 page = ('<!doctype html>\n<html lang="en">\n<head>\n<meta charset="utf-8">\n'
         '<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">\n'

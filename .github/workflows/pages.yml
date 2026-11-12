@@ -3,7 +3,7 @@ on:
   push:
     branches: [main]
   workflow_run:
-    workflows: ["Generate photos"]
+    workflows: ["Generate photos", "Find photos"]
     types: [completed]
   workflow_dispatch:
 permissions:

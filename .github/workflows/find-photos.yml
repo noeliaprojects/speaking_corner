@@ -1,0 +1,35 @@
+name: Find photos
+on:
+  workflow_dispatch:
+    inputs:
+      max_images:
+        description: "How many photos to look for in this run"
+        default: "60"
+      only:
+        description: "Only this activity (e.g. guess-the-job). Leave empty for all."
+        default: ""
+      redo:
+        description: "Replace these photos (comma-separated names, e.g. how-often-03,mood-menu-02)"
+        default: ""
+permissions:
+  contents: write
+concurrency:
+  group: photos
+jobs:
+  find:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install pillow
+      - run: python3 scripts/find_photos.py --max "${{ inputs.max_images }}" --only "${{ inputs.only }}" --redo "${{ inputs.redo }}"
+      - run: python3 build.py
+      - name: Save the new photos
+        run: |
+          git config user.name "Speaking Corner bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add img index.html src/credits.json
+          git diff --cached --quiet || (git commit -m "Add photos from open-licence sources" && git push)
