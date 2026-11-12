@@ -314,6 +314,20 @@ button,.btn{font-weight:500}
 .lang-line input{flex:1 1 auto;min-width:0}
 .lang-line button{flex:0 0 auto;padding:9px 12px}
 .lang-editor-actions{display:flex;gap:8px;flex-wrap:wrap}
+
+/* Photo comparisons and private teacher library */
+.s-compare{align-self:stretch;display:flex;flex-direction:column;gap:5px;padding:9px 12px;border-left:3px solid var(--stamp);background:var(--stamp-soft);border-radius:3px 8px 8px 3px}
+.s-compare p{font-size:clamp(.95rem,1.55vw,1.2rem);line-height:1.3;font-weight:600}
+.s-compare small{font-size:.82rem;color:#51625e}
+.my-activities .my-summary{align-items:flex-start}
+.my-buttons{display:flex;flex-wrap:wrap;align-items:center;gap:6px}
+.my-buttons .btn,.my-buttons button{font-size:.78rem;padding:7px 9px}
+.my-activities #myCardsFields,.my-activities #myPdfFields{display:flex;flex-direction:column;gap:12px}
+.my-activities #myCardsFields[hidden],.my-activities #myPdfFields[hidden]{display:none!important}
+.my-activities textarea{min-height:85px}
+.my-activities #myCards{min-height:155px}
+@media(max-width:580px){.my-activities .my-summary{flex-direction:column}.my-buttons{width:100%}}
+
 /* ---- printable cards ---- */
 #printArea{display:none}
 @media print{
@@ -356,6 +370,7 @@ button,.btn{font-weight:500}
 
 <div class="wrap" id="app"></div>
 
+<script src="src/my_activities.js"></script>
 <script>
 const DECKS=/*DECKS*/[];
 const CREDITS={}; /* filled by build.py */
@@ -380,7 +395,7 @@ const GRAM_GROUPS={"Tenses":["Present simple","Present continuous","Present perf
  "Advanced (C1)":["Inversion","Cleft sentences","Linkers"]};
 const GRAMS=Object.values(GRAM_GROUPS).flat();
 const AGES={"3-6":"Little ones (3–6)","6-8":"Young learners (6–8)","9-12":"Kids (9–12)","12-14":"Pre-teens (12–14)","14-16":"Teens (14–16)","16-18":"Older teens (16–18)","19-25":"Young adults (19–25)","adults":"Adults"};
-const CATS={warm:"Warm-ups",you:"Talk about you",opinion:"Opinions & debate",game:"Games"};
+const CATS={warm:"Warm-ups",you:"Talk about you",opinion:"Opinions & debate",game:"Games",b2:"B2 First · Speaking games",c1:"C1 Advanced · Speaking games",mine:"My activities"};
 const FMTS={ind:"Individual",pair:"Pairs",grp:"Whole group"};
 const LEVELS=["A1","A2","B1","B2","C1"];
 const APPS=[
@@ -388,7 +403,7 @@ const APPS=[
  {id:"small-talk-grid",name:"Small Talk Grid",cat:"game",lv:["A2","B1","B2"],fmts:["pair"],app:true,ages:["12-14","14-16","16-18","19-25","adults"],gram:["Question forms"],desc:"Pick a square and talk with your partner for a full minute. No awkward silences."}
 ];
 const ALL=[...DECKS,...APPS];
-const byId=id=>ALL.find(a=>a.id===id);
+const byId=id=>ALL.find(a=>a.id===id)||MY.deck(id);
 
 /* ---------- helpers ---------- */
 const $=s=>document.querySelector(s);
@@ -485,7 +500,7 @@ const LP=(function plannerImpl(){
    };
  }
  function planView(id){
-   clearReturn();const p=get(id);if(!p){location.hash="plans";return;}const done=p.done||[],available=ALL.slice().sort((a,b)=>a.name.localeCompare(b.name));
+   clearReturn();const p=get(id);if(!p){location.hash="plans";return;}const done=p.done||[],available=[...ALL,...MY.deckEntries()].sort((a,b)=>a.name.localeCompare(b.name));
    app.innerHTML=`<div class="narrow"><div class="top"><a class="back" href="#plans">← My lesson plans</a><a class="back" href="#">All activities</a></div><h1>Lesson <span>plan</span></h1>
 
      <section class="card"><h2>Activities <span class="note">${done.length} of ${p.activities.length} done</span></h2>
@@ -534,12 +549,14 @@ const LP=(function plannerImpl(){
 /* ---------- router ---------- */
 function route(){stopTimer();stopDeck();const h=location.hash.slice(1);window.scrollTo(0,0);
   if(h==="plans")return LP.listView();
+  if(h==="my-activities")return MY.view();
+  if(h.startsWith("mine/")){const item=MY.deck(h.slice(5));if(!item)return MY.view();return item.minePdf?MY.pdfView(item.id):deckView(item);}
   if(h.startsWith("plan/"))return LP.planView(h.slice(5));
   if(h==="classes")return classesView();
   if(h==="info")return infoView();
   if(h==="secret-word")return SW.setup();
   if(h==="small-talk-grid")return STGame.setup();
-  const d=DECKS.find(x=>x.id===h); if(d)return deckView(d);
+  const d=byId(h);if(d){if(d.minePdf)return MY.pdfView(d.id);if(d.kind&&!d.app)return deckView(d);}
   hub();}
 window.addEventListener("hashchange",route);
 
@@ -550,7 +567,7 @@ function hub(){
   const sel=(id,label,opts,cur)=>`<label class="fsel"><span class="sr">${label}</span><select id="${id}">${opts.map(([v,l])=>`<option value="${esc(v)}" ${cur===v?"selected":""}>${esc(l)}</option>`).join("")}</select></label>`;
   app.innerHTML=`
   <header class="top"><h1 class="brand">Speaking <span>Corner</span></h1>
-    <nav>${classSwitcher()}<a class="link" href="#classes">My classes</a><a class="link" href="#plans">My lesson plans</a><a class="link" href="#info">Info</a></nav></header>
+    <nav>${classSwitcher()}<a class="link" href="#classes">My classes</a><a class="link" href="#plans">My lesson plans</a><a class="link" href="#my-activities">My activities</a><a class="link" href="#info">Info</a></nav></header>
   <section class="filters" aria-label="Filters">
     <label class="search"><span class="sr">Search</span><input id="q" type="search" placeholder="Search activities, topics or grammar" value="${esc(F.q||"")}" autocomplete="off"></label>
     <div class="chips" id="fFmt">${[["all","All formats"],...Object.entries(FMTS)].map(([k,v])=>`<button data-k="${k}" aria-pressed="${(F.fmt||"all")===k}">${v}</button>`).join("")}</div>
@@ -929,7 +946,7 @@ function classesView(editId){
      :`<p class="note">No classes yet. Fill in the form above to save your first group.</p>`}</section>
    <section class="card"><details class="more"><summary>Back up or move your classes</summary>
      <div class="bank">
-       <div class="field"><label class="label" for="exp">Backup code (classes, history, lessons and useful language)</label><textarea id="exp" readonly>${esc(JSON.stringify({classes:list,history:H.all(),plans:LP.all(),usefulLanguage:languageData()}))}</textarea></div>
+       <div class="field"><label class="label" for="exp">Backup code (classes, history, lessons and useful language)</label><textarea id="exp" readonly>${esc(JSON.stringify({classes:list,history:H.all(),plans:LP.all(),usefulLanguage:languageData(),myActivities:MY.all()}))}</textarea></div>
        <div class="row"><button class="ghost" id="copyB">Copy backup</button><span class="note" id="copyMsg"></span></div>
        <div class="field"><label class="label" for="imp">Restore from a backup</label><textarea id="imp" placeholder="Paste a backup code here"></textarea></div>
        <div class="row"><button class="ghost" id="impB">Restore</button><span class="note" id="impMsg"></span></div>
@@ -954,7 +971,7 @@ function classesView(editId){
   $("#impB").onclick=()=>{try{let data=JSON.parse($("#imp").value);const cls=Array.isArray(data)?data:data.classes;if(!Array.isArray(cls))throw 0;
       const l=CL.all(),hist=H.all(),map={};cls.forEach((c,n)=>{if(c&&c.name&&Array.isArray(c.students)){const id=l.some(x=>x.id===c.id)?"c"+Date.now().toString(36)+n:(c.id||"c"+Date.now().toString(36)+n);
         l.push({id,name:String(c.name),students:c.students.map(String)});map[c.id]=id;if(data.history&&data.history[c.id])hist[id]=data.history[c.id];}});
-      CL.save(l);store.set("sc-hist",hist);LP.importPlans(data.plans,map);importLanguage(data.usefulLanguage);classesView(null);}catch(e){$("#impMsg").textContent="That code isn't valid. Paste the full backup code.";}};
+      CL.save(l);store.set("sc-hist",hist);MY.importRecords(data.myActivities);LP.importPlans(data.plans,map);importLanguage(data.usefulLanguage);classesView(null);}catch(e){$("#impMsg").textContent="That code isn't valid. Paste the full backup code.";}};
 }
 
 /* ---------- info ---------- */
@@ -981,7 +998,9 @@ function infoView(){
     <li>Save each group once in <b>My classes</b>. For a private student, create a class with just their name.</li>
     <li>Press <b>Mark as done</b> after an activity. Next time you choose that class, the activity shows a warning with the date.</li>
     <li>Use <b>My lesson plans</b> to prepare, order and open activities for each group, then mark them complete.</li><li>Groups, history and lesson plans are saved on this browser and device. Back them up in My classes when changing devices.</li></ul></section>
-  <section class="card"><h2>Printing</h2><ul class="rules">
+  <section class="card"><h2>My activities</h2><p class="note">Create speaking cards or attach your own PDFs. The cards and PDF metadata are saved on your browser; the PDF files must be transferred separately when switching devices.</p><a class="btn ghost" href="#my-activities">Open My activities</a></section>
+    <section class="card"><h2>Cambridge speaking games</h2><p class="note">B2 First and C1 Advanced games practise spontaneous answers, photo comparison, collaborative decisions and extended discussion. The teacher guide identifies the exam skill, while students see a game.</p></section>
+    <section class="card"><h2>Printing</h2><ul class="rules">
     <li>Activities marked <b>Print</b> need cards. Their page has a button to open the PDF.</li>
     <li>Cards fill the whole A4 page with shared cut lines, so you only need straight cuts. Print at 100% (actual size).</li></ul></section>
   <section class="card"><h2>Photos for the slides</h2>${photoSection()}</section>
