@@ -26,10 +26,12 @@ jobs:
           python-version: "3.12"
       - run: pip install pillow
       - run: python3 scripts/find_photos.py --max "${{ inputs.max_images }}" --only "${{ inputs.only }}" --redo "${{ inputs.redo }}"
-      - run: python3 build.py
       - name: Save the new photos
         run: |
           git config user.name "Speaking Corner bot"
           git config user.email "actions@users.noreply.github.com"
-          git add img index.html src/credits.json
-          git diff --cached --quiet || (git commit -m "Add photos from open-licence sources" && git push)
+          git add img src/credits.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Add photos from open-licence sources"
+          for i in 1 2 3 4 5; do git pull --rebase -X theirs origin main && git push && exit 0; sleep 5; done
+          exit 1

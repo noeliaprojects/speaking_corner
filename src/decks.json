@@ -325,6 +325,10 @@
 "16-18",
 "19-25",
 "adults"
+],
+"books": [
+"Game Changer 1 · U5",
+"Lead the Way 3 · U1"
 ]
 },
 {
@@ -1381,6 +1385,9 @@
 "16-18",
 "19-25",
 "adults"
+],
+"books": [
+"Game Changer 3 · U1"
 ]
 },
 {
@@ -2752,6 +2759,9 @@
 "16-18",
 "19-25",
 "adults"
+],
+"books": [
+"Game Changer 3 · U1–2"
 ]
 },
 {
@@ -3053,6 +3063,9 @@
 "16-18",
 "19-25",
 "adults"
+],
+"books": [
+"Game Changer 4 · U4"
 ]
 },
 {
@@ -3122,6 +3135,9 @@
 "16-18",
 "19-25",
 "adults"
+],
+"books": [
+"Game Changer 4 · U4"
 ]
 },
 {
@@ -3191,6 +3207,9 @@
 "16-18",
 "19-25",
 "adults"
+],
+"books": [
+"Game Changer 4 · U5"
 ]
 },
 {
@@ -3257,6 +3276,9 @@
 "16-18",
 "19-25",
 "adults"
+],
+"books": [
+"Game Changer 4 · U5"
 ]
 },
 {
@@ -3452,6 +3474,9 @@
 "9-12",
 "12-14",
 "14-16"
+],
+"books": [
+"Game Changer 1 · U6"
 ]
 },
 {
@@ -3519,6 +3544,9 @@
 "12-14",
 "14-16",
 "16-18"
+],
+"books": [
+"Game Changer 1 · U7"
 ]
 },
 {
@@ -3654,6 +3682,9 @@
 "16-18",
 "19-25",
 "adults"
+],
+"books": [
+"Game Changer 4 · U6–8"
 ]
 },
 {
@@ -3773,6 +3804,9 @@
 "16-18",
 "19-25",
 "adults"
+],
+"books": [
+"Game Changer 2 · U4"
 ]
 },
 {
@@ -3842,6 +3876,9 @@
 "16-18",
 "19-25",
 "adults"
+],
+"books": [
+"Game Changer 2 · U6–7"
 ]
 },
 {
@@ -4048,6 +4085,9 @@
 "16-18",
 "19-25",
 "adults"
+],
+"books": [
+"Game Changer 4 · U1"
 ]
 },
 {
@@ -4243,6 +4283,10 @@
 "16-18",
 "19-25",
 "adults"
+],
+"books": [
+"Game Changer 3 · U4",
+"Game Changer 4 · U2"
 ]
 },
 {
@@ -4311,6 +4355,9 @@
 "16-18",
 "19-25",
 "adults"
+],
+"books": [
+"Game Changer 4 · U3"
 ]
 },
 {
@@ -4953,6 +5000,9 @@
 "16-18",
 "19-25",
 "adults"
+],
+"books": [
+"Game Changer 3 · U8"
 ]
 },
 {
@@ -5021,6 +5071,9 @@
 "16-18",
 "19-25",
 "adults"
+],
+"books": [
+"Game Changer 4 · U8"
 ]
 },
 {
@@ -5666,7 +5719,10 @@
 "Play 'Stand up if it's big!'"
 ]
 },
-"end": "Which animal do you like best?"
+"end": "Which animal do you like best?",
+"books": [
+"Lead the Way 3 · U3"
+]
 },
 {
 "id": "look-and-say-food",
@@ -5769,7 +5825,10 @@
 "Make a class 'favourite food' list."
 ]
 },
-"end": "What's your favourite food?"
+"end": "What's your favourite food?",
+"books": [
+"Lead the Way 1 · U4"
+]
 },
 {
 "id": "lost-and-found",
@@ -5897,7 +5956,10 @@
 ""
 ]
 },
-"end": "What's the best pizza in the world?"
+"end": "What's the best pizza in the world?",
+"books": [
+"Game Changer 2 · U2"
+]
 },
 {
 "id": "celebrity-holiday",
@@ -5962,7 +6024,10 @@
 ""
 ]
 },
-"end": "Which client would be the worst to work for?"
+"end": "Which client would be the worst to work for?",
+"books": [
+"Game Changer 2 · U3"
+]
 },
 {
 "id": "perfect-match",
@@ -6202,7 +6267,10 @@
 ""
 ]
 },
-"end": "Which song would you never put on a playlist?"
+"end": "Which song would you never put on a playlist?",
+"books": [
+"Game Changer 3 · U7"
+]
 },
 {
 "id": "disaster-plan",
@@ -6743,7 +6811,10 @@
 ""
 ]
 },
-"end": "Who was the best at getting back to the story?"
+"end": "Who was the best at getting back to the story?",
+"books": [
+"Game Changer 2 · U7"
+]
 },
 {
 "id": "line-up",
@@ -7053,7 +7124,10 @@
 "Keep it fast: 1 minute per picture."
 ]
 },
-"end": "What's your favourite toy?"
+"end": "What's your favourite toy?",
+"books": [
+"Lead the Way 1 · U1"
+]
 },
 {
 "id": "look-and-say-school",
@@ -7159,7 +7233,10 @@
 "Keep it fast: 1 minute per picture."
 ]
 },
-"end": "Show me your pencil case!"
+"end": "Show me your pencil case!",
+"books": [
+"Lead the Way 1 · U2"
+]
 },
 {
 "id": "look-and-say-clothes",
@@ -7267,7 +7344,11 @@
 "Keep it fast: 1 minute per picture."
 ]
 },
-"end": "What are you wearing today?"
+"end": "What are you wearing today?",
+"books": [
+"Lead the Way 1 · U8",
+"Lead the Way 3 · U4"
+]
 },
 {
 "id": "look-and-say-house",
@@ -7375,7 +7456,10 @@
 "Keep it fast: 1 minute per picture."
 ]
 },
-"end": "What's your favourite room?"
+"end": "What's your favourite room?",
+"books": [
+"Lead the Way 1 · U6"
+]
 },
 {
 "id": "look-and-say-farm",
@@ -7485,7 +7569,10 @@
 "Keep it fast: 1 minute per picture."
 ]
 },
-"end": "Which animal can you hear on a farm?"
+"end": "Which animal can you hear on a farm?",
+"books": [
+"Lead the Way 1 · U5"
+]
 },
 {
 "id": "whats-the-weather",
@@ -7581,7 +7668,11 @@
 "Keep it fast: 1 minute per picture."
 ]
 },
-"end": "What's the weather like today?"
+"end": "What's the weather like today?",
+"books": [
+"Lead the Way 1 · U8",
+"Lead the Way 2 · U2"
+]
 },
 {
 "id": "halloween-words",
@@ -7929,7 +8020,10 @@
 "Go faster and faster!"
 ]
 },
-"end": "What's your favourite action?"
+"end": "What's your favourite action?",
+"books": [
+"Lead the Way 1 · U7"
+]
 },
 {
 "id": "feelings-mime",
@@ -7989,7 +8083,11 @@
 ""
 ]
 },
-"end": "How do you feel today?"
+"end": "How do you feel today?",
+"books": [
+"Lead the Way 1 · U2",
+"Lead the Way 3 · U5"
+]
 },
 {
 "id": "what-am-i-doing",
@@ -8052,7 +8150,11 @@
 ""
 ]
 },
-"end": "What do you do every morning?"
+"end": "What do you do every morning?",
+"books": [
+"Lead the Way 1 · U9",
+"Lead the Way 3 · U8"
+]
 },
 {
 "id": "where-is-it",
@@ -8112,7 +8214,10 @@
 "Then the child gives the next instruction."
 ]
 },
-"end": "Where's your school bag?"
+"end": "Where's your school bag?",
+"books": [
+"Lead the Way 1 · U5"
+]
 },
 {
 "id": "colour-number-hunt",
@@ -8224,7 +8329,10 @@
 "Children describe their monster to the class."
 ]
 },
-"end": "Describe your monster to a friend!"
+"end": "Describe your monster to a friend!",
+"books": [
+"Lead the Way 1 · U3"
+]
 },
 {
 "id": "alphabet-game",
@@ -8353,5 +8461,1573 @@
 ]
 },
 "end": "Which sentence did you use today?"
+},
+{
+"id": "dream-house-tour",
+"name": "Dream House Tour",
+"cat": "you",
+"lv": [
+"A1",
+"A2"
+],
+"fmts": [
+"ind",
+"pair",
+"grp"
+],
+"ages": [
+"9-12",
+"12-14",
+"14-16",
+"16-18"
+],
+"gram": [
+"Present simple"
+],
+"books": [
+"Game Changer 1 · U3"
+],
+"kind": "single",
+"desc": "Give a tour of your dream house. Your partner reacts with enthusiasm!",
+"instr": "Describe your dream house using the card. Your partner must react positively to everything!",
+"ph": [
+"There's a… / There are…",
+"There isn't a… but…",
+"Wow, that's amazing!",
+"Cool! / How fantastic!"
+],
+"cards": [
+"The living room",
+"Your bedroom",
+"The kitchen",
+"The garden",
+"A secret room",
+"The bathroom",
+"The games room",
+"The roof"
+],
+"guide": {
+"ind": [
+"The student describes; you react with 'Wow! That's amazing!' and ask questions.",
+"",
+""
+],
+"pair": [
+"A gives the tour, B reacts positively and asks two questions. Swap.",
+"",
+""
+],
+"grp": [
+"Volunteers describe one room; the class reacts and votes for the best house.",
+"",
+""
+]
+},
+"end": "Which room would you love to have?",
+"focus": "There is/are + reacting positively: Wow!, Cool!, That sounds great!"
+},
+{
+"id": "class-survey",
+"name": "Class Survey",
+"cat": "warm",
+"lv": [
+"A1",
+"A2"
+],
+"fmts": [
+"grp",
+"pair"
+],
+"ages": [
+"9-12",
+"12-14",
+"14-16",
+"16-18"
+],
+"gram": [
+"Present simple",
+"Question forms"
+],
+"books": [
+"Game Changer 1 · U5"
+],
+"kind": "single",
+"desc": "Ask your classmates about their routines and report the results.",
+"instr": "Walk around and ask three classmates the question. Then report: 'Two people… One person…'",
+"ph": [
+"Do you… every day?",
+"How often do you…?",
+"Most of us…",
+"Nobody… / Only one person…"
+],
+"cards": [
+"What time do you get up?",
+"How do you get to school?",
+"What do you have for breakfast?",
+"How often do you play video games?",
+"What do you do after school?",
+"When do you do your homework?",
+"What time do you go to bed?",
+"What do you do at the weekend?"
+],
+"guide": {
+"ind": [
+"Interview the student, then they interview you and compare.",
+"",
+""
+],
+"pair": [
+"Pairs ask each other and find three differences.",
+"",
+""
+],
+"grp": [
+"Each student gets a question and asks 5 classmates.",
+"They report the results with 'Most of us… / Nobody…'.",
+""
+]
+},
+"end": "What's the most common routine in our class?",
+"focus": "Present simple questions and reporting results: Most of us…, Nobody…"
+},
+{
+"id": "talent-show",
+"name": "Talent Show",
+"cat": "game",
+"lv": [
+"A1",
+"A2"
+],
+"fmts": [
+"grp",
+"pair"
+],
+"ages": [
+"9-12",
+"12-14",
+"14-16",
+"16-18"
+],
+"gram": [
+"Modals: advice & obligation"
+],
+"books": [
+"Game Changer 1 · U8"
+],
+"kind": "single",
+"desc": "Find out what everyone can and can't do, then choose the class talent show acts.",
+"instr": "Ask 'Can you…?' to find classmates for each act. Then plan the show!",
+"ph": [
+"Can you…?",
+"Yes, I can. / No, I can't.",
+"I can… really well",
+"She can… but she can't…"
+],
+"cards": [
+"juggle",
+"sing in English",
+"do a cartwheel",
+"play an instrument",
+"whistle a song",
+"dance hip hop",
+"draw a cartoon",
+"tell a joke",
+"touch your nose with your tongue",
+"stand on one leg for a minute"
+],
+"guide": {
+"ind": [
+"Ask each other about all the cards. Who can do more?",
+"",
+""
+],
+"pair": [
+"Pairs find two acts they could do together.",
+"",
+""
+],
+"grp": [
+"Students mingle asking 'Can you…?'. Then groups plan a 5-act show.",
+"Volunteers demonstrate (if they want!).",
+""
+]
+},
+"end": "What's your hidden talent?",
+"focus": "can/can't for ability"
+},
+{
+"id": "whos-who",
+"name": "Who's Who?",
+"cat": "game",
+"lv": [
+"A1",
+"A2"
+],
+"fmts": [
+"grp"
+],
+"ages": [
+"9-12",
+"12-14",
+"14-16",
+"16-18"
+],
+"gram": [
+"Present continuous"
+],
+"books": [
+"Game Changer 1 · U7"
+],
+"kind": "single",
+"desc": "Describe what a classmate is wearing. The class guesses who it is.",
+"instr": "Choose a classmate secretly. Describe what they're wearing and what they're doing. The others guess!",
+"ph": [
+"He's/She's wearing…",
+"He's got a… on",
+"She's sitting next to…",
+"Is it…?"
+],
+"cards": [
+"Start with their shoes",
+"Start with something blue",
+"Start with what they're doing right now",
+"Only use colours",
+"Describe them in three sentences",
+"Describe them without saying 'he' or 'she'"
+],
+"guide": {
+"ind": [
+"Describe people in a photo or video together.",
+"",
+""
+],
+"pair": [
+"",
+"",
+""
+],
+"grp": [
+"One student describes a classmate; the class guesses.",
+"The person guessed describes the next.",
+""
+]
+},
+"end": "What are you wearing today?",
+"focus": "Present continuous for clothes and actions: She's wearing…, He's sitting…"
+},
+{
+"id": "find-your-way",
+"name": "Find Your Way",
+"cat": "game",
+"lv": [
+"A2",
+"B1"
+],
+"fmts": [
+"pair",
+"grp"
+],
+"ages": [
+"9-12",
+"12-14",
+"14-16",
+"16-18"
+],
+"gram": [
+"Modals: advice & obligation"
+],
+"books": [
+"Game Changer 2 · U1"
+],
+"kind": "single",
+"desc": "Give directions from the classroom (or school) to a secret place. Your partner follows and guesses.",
+"instr": "Give directions from here to the secret place on the card, without saying its name. Your partner follows in their head and guesses!",
+"ph": [
+"Go straight on…",
+"Turn left / right at…",
+"It's next to / opposite…",
+"Go past the…"
+],
+"cards": [
+"the school gym",
+"the nearest supermarket",
+"the playground",
+"the toilets",
+"the bus stop",
+"the library",
+"the headteacher's office",
+"the canteen",
+"the nearest park",
+"your favourite café"
+],
+"guide": {
+"ind": [
+"Give directions to the student; then they give them to you.",
+"",
+""
+],
+"pair": [
+"A gives directions; B guesses. Swap.",
+"",
+""
+],
+"grp": [
+"Show the card to one student; they give directions to the class.",
+"The class guesses the place.",
+""
+]
+},
+"end": "How do you get from home to school?",
+"focus": "Directions: go straight on, turn left, it's opposite…",
+"secret": true
+},
+{
+"id": "holiday-postcard",
+"name": "What a Holiday!",
+"cat": "you",
+"lv": [
+"A2",
+"B1"
+],
+"fmts": [
+"ind",
+"pair",
+"grp"
+],
+"ages": [
+"12-14",
+"14-16",
+"16-18",
+"19-25",
+"adults"
+],
+"gram": [
+"Past simple"
+],
+"books": [
+"Game Changer 2 · U3"
+],
+"kind": "single",
+"desc": "Talk about a holiday (real or invented) using the prompts.",
+"instr": "Tell your partner about a holiday. Use the prompt on the card. Your partner asks two more questions.",
+"ph": [
+"It was…",
+"There was / There were…",
+"We went to…",
+"The best part was…"
+],
+"cards": [
+"Where was it? Who were you with?",
+"What was the hotel or house like?",
+"What was the weather like?",
+"Was there anything bad?",
+"What did you eat?",
+"Was there a pool or a beach?",
+"What was the best day?",
+"Would you go back?"
+],
+"guide": {
+"ind": [
+"The student answers; you ask follow-ups.",
+"",
+""
+],
+"pair": [
+"Pairs interview each other about their last holiday.",
+"",
+""
+],
+"grp": [
+"Use Pick a student; each answers one prompt.",
+"",
+""
+]
+},
+"end": "Where was your best holiday?",
+"focus": "Past simple of be and there was/were"
+},
+{
+"id": "really-tell-me-more",
+"name": "Really? Tell Me More!",
+"cat": "you",
+"lv": [
+"A2",
+"B1",
+"B2"
+],
+"fmts": [
+"pair",
+"grp"
+],
+"ages": [
+"12-14",
+"14-16",
+"16-18",
+"19-25",
+"adults"
+],
+"gram": [
+"Past simple",
+"Question forms"
+],
+"books": [
+"Game Changer 2 · U4"
+],
+"kind": "single",
+"desc": "Tell short stories. The listener must show interest and keep you talking.",
+"instr": "Tell a short true story about the topic. Your partner shows interest ('Really? What happened next?') and asks at least three questions.",
+"ph": [
+"Really?",
+"No way!",
+"What happened next?",
+"How did you feel?"
+],
+"cards": [
+"A time you laughed a lot",
+"Something you lost",
+"A great surprise",
+"A time you were late",
+"Your first time doing something",
+"A strange dream",
+"A meal you'll never forget",
+"A time you helped someone"
+],
+"guide": {
+"ind": [
+"The student tells a story; you model showing interest. Swap.",
+"",
+""
+],
+"pair": [
+"A tells, B shows interest with at least five reactions. Swap.",
+"",
+""
+],
+"grp": [
+"One student tells a story; the class reacts. Count the reactions!",
+"",
+""
+]
+},
+"end": "What's the best reaction you heard today?",
+"focus": "Showing interest: Really?, No way!, What happened next?"
+},
+{
+"id": "my-hero",
+"name": "My Hero",
+"cat": "you",
+"lv": [
+"A2",
+"B1",
+"B2"
+],
+"fmts": [
+"ind",
+"pair",
+"grp"
+],
+"ages": [
+"12-14",
+"14-16",
+"16-18",
+"19-25",
+"adults"
+],
+"gram": [
+"Past continuous",
+"Past simple"
+],
+"books": [
+"Game Changer 2 · U6"
+],
+"kind": "single",
+"desc": "Describe a person who made a difference, real or famous.",
+"instr": "Describe the person on the card from your life. What are they like? What were they doing when you met them?",
+"ph": [
+"He/She is really… (brave, kind…)",
+"I was …ing when I met…",
+"He/She always…",
+"I admire… because…"
+],
+"cards": [
+"Someone who helped you",
+"A teacher you remember",
+"A family member you admire",
+"A famous person you admire",
+"A brave person you know",
+"A friend who makes you laugh",
+"Someone who changed your mind",
+"A sports hero"
+],
+"guide": {
+"ind": [
+"The student describes; you ask about personality and a story.",
+"",
+""
+],
+"pair": [
+"Pairs describe a hero each and find one quality in common.",
+"",
+""
+],
+"grp": [
+"Students vote: which quality makes a real hero?",
+"",
+""
+]
+},
+"end": "What makes someone a hero?",
+"focus": "Personality adjectives and past continuous for background"
+},
+{
+"id": "festival-planners",
+"name": "Festival Planners",
+"cat": "opinion",
+"lv": [
+"A2",
+"B1",
+"B2"
+],
+"fmts": [
+"pair",
+"grp"
+],
+"ages": [
+"12-14",
+"14-16",
+"16-18",
+"19-25",
+"adults"
+],
+"gram": [
+"Comparatives & superlatives"
+],
+"books": [
+"Game Changer 3 · U1"
+],
+"kind": "single",
+"desc": "Plan a festival for your town: suggest, compare and agree.",
+"instr": "Plan the festival on the card. Make suggestions, compare options and agree on a final plan.",
+"ph": [
+"Why don't we…?",
+"How about…?",
+"That's a great idea!",
+"It's cheaper / more fun than…"
+],
+"cards": [
+"A summer music festival",
+"A food festival",
+"A school sports day",
+"A Halloween festival",
+"A film festival",
+"A festival of cultures",
+"A science fair",
+"A winter market"
+],
+"guide": {
+"ind": [
+"Plan together; you make weak suggestions and the student improves them.",
+"",
+""
+],
+"pair": [
+"Pairs plan and present their festival.",
+"",
+""
+],
+"grp": [
+"Groups plan; the class votes for the best festival.",
+"",
+""
+]
+},
+"end": "Which festival would you go to?",
+"focus": "Making and accepting suggestions; comparatives"
+},
+{
+"id": "wow-records",
+"name": "Wow! World Records",
+"cat": "game",
+"lv": [
+"A2",
+"B1",
+"B2"
+],
+"fmts": [
+"ind",
+"pair",
+"grp"
+],
+"ages": [
+"9-12",
+"12-14",
+"14-16",
+"16-18",
+"19-25",
+"adults"
+],
+"gram": [
+"Comparatives & superlatives"
+],
+"books": [
+"Game Changer 3 · U2"
+],
+"kind": "single",
+"desc": "Guess the world's biggest, tallest, longest… and react with amazement.",
+"instr": "Guess the answer! Then react to the real answer with amazement.",
+"ph": [
+"I think the… is…",
+"It's the biggest / highest…",
+"Wow! That's incredible!",
+"I can't believe it!"
+],
+"cards": [
+{
+"t": "The longest river in the world?",
+"ans": "The Nile (or the Amazon — experts still argue!)"
+},
+{
+"t": "The highest mountain in the world?",
+"ans": "Mount Everest (8,849 m)"
+},
+{
+"t": "The biggest ocean?",
+"ans": "The Pacific Ocean"
+},
+{
+"t": "The hottest planet?",
+"ans": "Venus"
+},
+{
+"t": "The biggest animal ever?",
+"ans": "The blue whale"
+},
+{
+"t": "The fastest land animal?",
+"ans": "The cheetah"
+},
+{
+"t": "The largest desert?",
+"ans": "Antarctica (a cold desert!)"
+},
+{
+"t": "The smallest country?",
+"ans": "Vatican City"
+},
+{
+"t": "The country with the most people?",
+"ans": "India"
+},
+{
+"t": "The tallest animal?",
+"ans": "The giraffe"
+}
+],
+"guide": {
+"ind": [
+"The student guesses with a full superlative sentence before the reveal.",
+"",
+""
+],
+"pair": [
+"Pairs agree on a guess before the reveal.",
+"",
+""
+],
+"grp": [
+"Teams write their guess; points for correct answers and for the best reaction.",
+"",
+""
+]
+},
+"end": "What's the most amazing place you've been to?",
+"focus": "Superlatives and expressing amazement",
+"reveal": true,
+"revealTag": "Guess and react",
+"ansLabel": "The answer"
+},
+{
+"id": "at-the-shop",
+"name": "At the Shop",
+"cat": "game",
+"lv": [
+"A2",
+"B1"
+],
+"fmts": [
+"pair",
+"grp"
+],
+"ages": [
+"9-12",
+"12-14",
+"14-16",
+"16-18",
+"19-25",
+"adults"
+],
+"gram": [
+"Modals: advice & obligation",
+"Question forms"
+],
+"books": [
+"Game Changer 3 · U4–5"
+],
+"kind": "single",
+"desc": "Role-play buying something tricky. The shop assistant has a problem!",
+"instr": "Student A is the customer, B is the shop assistant. Buy the item on the card. The assistant has a problem to solve!",
+"ph": [
+"Can I help you?",
+"I'm looking for…",
+"How much is it?",
+"Have you got it in…?"
+],
+"cards": [
+"Trainers — they only have size 46",
+"A birthday present for your grandma — budget €10",
+"A phone case — it's the last one and it's pink",
+"A cake for 20 people — for today!",
+"A jacket — you want to pay with coins",
+"A video game — it's sold out",
+"Sunglasses — you want to try 15 pairs",
+"A gift — you don't know what you want"
+],
+"guide": {
+"ind": [
+"You're the assistant first, then swap.",
+"",
+""
+],
+"pair": [
+"Pairs role-play; swap roles each card.",
+"",
+""
+],
+"grp": [
+"Volunteers act it out for the class.",
+"",
+""
+]
+},
+"end": "What's the hardest thing you've ever tried to buy?",
+"focus": "Shopping language and asking for what you want"
+},
+{
+"id": "lets-meet-up",
+"name": "Let's Meet Up!",
+"cat": "game",
+"lv": [
+"A2",
+"B1",
+"B2"
+],
+"fmts": [
+"pair"
+],
+"ages": [
+"12-14",
+"14-16",
+"16-18",
+"19-25",
+"adults"
+],
+"gram": [
+"Future forms"
+],
+"books": [
+"Game Changer 3 · U7"
+],
+"kind": "single",
+"desc": "Find a time to meet. Both of you have very busy weeks!",
+"instr": "Each partner invents a busy week. Find a time when you're both free to do the activity on the card.",
+"ph": [
+"What are you doing on…?",
+"I'm …ing on Monday",
+"Would you like to…?",
+"How about Friday at 5?"
+],
+"cards": [
+"Go to the cinema",
+"Study together for a test",
+"Go to a concert",
+"Have a picnic",
+"Play a video game tournament",
+"Go shopping",
+"Visit a museum",
+"Bake a cake"
+],
+"guide": {
+"ind": [
+"You and the student both invent a busy week and negotiate.",
+"",
+""
+],
+"pair": [
+"Pairs write their week quickly (3 minutes), then negotiate a time.",
+"",
+""
+],
+"grp": [
+"",
+"",
+""
+]
+},
+"end": "What are you doing this weekend?",
+"focus": "Present continuous for arrangements; would like to"
+},
+{
+"id": "describe-the-place",
+"name": "Describe the Place",
+"cat": "game",
+"lv": [
+"B1",
+"B2"
+],
+"fmts": [
+"ind",
+"pair",
+"grp"
+],
+"ages": [
+"12-14",
+"14-16",
+"16-18",
+"19-25",
+"adults"
+],
+"gram": [
+"Relative clauses"
+],
+"books": [
+"Game Changer 3 · U8"
+],
+"kind": "single",
+"desc": "Describe a place using relative clauses. The others guess.",
+"instr": "Only the speaker looks at the card. Describe the place with relative clauses ('It's a place where…'). The others guess.",
+"ph": [
+"It's a place where…",
+"It's a building which…",
+"It's somewhere that…",
+"People who… go there"
+],
+"cards": [
+"a library",
+"an airport",
+"a hospital",
+"a museum",
+"a gym",
+"a beach",
+"a cinema",
+"a train station",
+"a zoo",
+"a supermarket",
+"a hotel",
+"a stadium"
+],
+"guide": {
+"ind": [
+"The student describes; you guess. Then swap.",
+"",
+""
+],
+"pair": [
+"Hide the card for the guesser.",
+"",
+""
+],
+"grp": [
+"One student looks; the class guesses.",
+"",
+""
+]
+},
+"end": "Describe your favourite place in your town.",
+"focus": "Defining relative clauses: where, which, that, who",
+"secret": true
+},
+{
+"id": "invite-me",
+"name": "Invite Me!",
+"cat": "game",
+"lv": [
+"B1",
+"B2"
+],
+"fmts": [
+"pair",
+"grp"
+],
+"ages": [
+"12-14",
+"14-16",
+"16-18",
+"19-25",
+"adults"
+],
+"gram": [
+"Modals: advice & obligation",
+"Question forms"
+],
+"books": [
+"Game Changer 4 · U2"
+],
+"kind": "single",
+"desc": "Invite your partner to things. They must accept or refuse politely.",
+"instr": "Invite your partner. They accept or refuse politely with a reason. Use question tags to check: 'You like football, don't you?'",
+"ph": [
+"Do you fancy…?",
+"Would you like to…?",
+"I'd love to! / I'm afraid I can't…",
+"You…, don't you?"
+],
+"cards": [
+"A football match",
+"A yoga class at 7 am",
+"A horror film marathon",
+"A cooking workshop",
+"A climbing trip",
+"A karaoke night",
+"A charity run",
+"A board game afternoon"
+],
+"guide": {
+"ind": [
+"You invite; the student accepts or refuses. Swap.",
+"",
+""
+],
+"pair": [
+"Pairs take turns; each must refuse at least twice, politely.",
+"",
+""
+],
+"grp": [
+"",
+"",
+""
+]
+},
+"end": "What's the best invitation you've ever had?",
+"focus": "Making, accepting and refusing invitations; should; question tags"
+},
+{
+"id": "keep-it-going",
+"name": "Keep It Going",
+"cat": "game",
+"lv": [
+"B1",
+"B2"
+],
+"fmts": [
+"pair"
+],
+"ages": [
+"12-14",
+"14-16",
+"16-18",
+"19-25",
+"adults"
+],
+"gram": [
+"Question forms"
+],
+"books": [
+"Game Changer 4 · U3"
+],
+"kind": "single",
+"desc": "Have a two-minute conversation. Every answer must end with a question.",
+"instr": "Talk about the topic for two minutes. Every time you answer, you must also ask a question back to keep the conversation going.",
+"ph": [
+"What about you?",
+"And you?",
+"How about…?",
+"That's interesting! Do you…?"
+],
+"cards": [
+"Shopping",
+"Adverts you love or hate",
+"Pocket money",
+"Your favourite brand",
+"Online shopping",
+"Saving money",
+"The best present to buy a friend",
+"Things you have to do at home"
+],
+"guide": {
+"ind": [
+"Start the timer and chat; you model keeping it going.",
+"",
+""
+],
+"pair": [
+"Pairs talk for two minutes; the first silence loses.",
+"",
+""
+],
+"grp": [
+"",
+"",
+""
+]
+},
+"end": "Which question kept the conversation going best?",
+"focus": "Keeping a conversation going: What about you?, And you?, Really? Why?",
+"timer": 120
+},
+{
+"id": "certain-or-not",
+"name": "Certain or Not?",
+"cat": "opinion",
+"lv": [
+"B1",
+"B2"
+],
+"fmts": [
+"ind",
+"pair",
+"grp"
+],
+"ages": [
+"12-14",
+"14-16",
+"16-18",
+"19-25",
+"adults"
+],
+"gram": [
+"Future forms"
+],
+"books": [
+"Game Changer 4 · U1"
+],
+"kind": "single",
+"desc": "Make predictions about your future and say how sure you are.",
+"instr": "Make a prediction about yourself. Say how sure you are. Your partner reacts and asks why.",
+"ph": [
+"I'm sure I'll…",
+"I'll probably…",
+"I might…",
+"I definitely won't…"
+],
+"cards": [
+"Your job in 10 years",
+"Where you'll live",
+"Your next holiday",
+"Whether you'll speak 3 languages",
+"Getting a pet",
+"Learning to drive",
+"Going to university",
+"Living abroad",
+"Your next birthday",
+"Becoming famous"
+],
+"guide": {
+"ind": [
+"The student predicts and rates their certainty; you challenge.",
+"",
+""
+],
+"pair": [
+"Pairs compare predictions on a 'certainty line'.",
+"",
+""
+],
+"grp": [
+"",
+"",
+""
+]
+},
+"end": "What are you most sure about in your future?",
+"focus": "will / be going to / might; expressing certainty and uncertainty"
+},
+{
+"id": "act-it-out-adverbs",
+"name": "Act It Out: Adverbs",
+"cat": "game",
+"lv": [
+"A1",
+"A2"
+],
+"fmts": [
+"grp",
+"pair"
+],
+"ages": [
+"6-8",
+"9-12",
+"12-14"
+],
+"gram": [
+"Present continuous"
+],
+"books": [
+"Lead the Way 3 · U4"
+],
+"kind": "single",
+"desc": "Do an action in a certain way. The class guesses the adverb.",
+"instr": "Only the actor looks at the card. Do the action in that way! The class guesses: 'You're walking slowly!'",
+"ph": [
+"You're …ing slowly!",
+"Are you …ing quietly?",
+"Yes, I am!",
+"No, I'm …ing quickly!"
+],
+"cards": [
+"walk SLOWLY",
+"eat HAPPILY",
+"read QUIETLY",
+"dance BADLY",
+"run QUICKLY",
+"sing LOUDLY",
+"write CAREFULLY",
+"talk ANGRILY",
+"walk SADLY",
+"jump HAPPILY"
+],
+"guide": {
+"ind": [
+"You act, the child guesses; then swap.",
+"",
+""
+],
+"pair": [
+"",
+"",
+""
+],
+"grp": [
+"Press H to hide the card. One child acts; the class guesses the verb and the adverb.",
+"",
+""
+]
+},
+"end": "How do you walk to school?",
+"focus": "Adverbs of manner: slowly, quickly, quietly, loudly…",
+"secret": true
+},
+{
+"id": "animal-top-trumps",
+"name": "Animal Top Trumps",
+"cat": "game",
+"lv": [
+"A1",
+"A2"
+],
+"fmts": [
+"pair",
+"grp"
+],
+"ages": [
+"6-8",
+"9-12",
+"12-14"
+],
+"gram": [
+"Comparatives & superlatives"
+],
+"books": [
+"Lead the Way 3 · U3"
+],
+"kind": "versus",
+"desc": "Compare two wild animals: which is bigger, faster, more dangerous?",
+"instr": "Compare the two animals. Use comparatives! Then say which is your favourite.",
+"ph": [
+"The… is bigger than the…",
+"The… is more dangerous than…",
+"The… is faster",
+"I think the… is the best!"
+],
+"cards": [
+{
+"t": "elephant vs mouse",
+"a": "elephant",
+"b": "mouse"
+},
+{
+"t": "cheetah vs tortoise",
+"a": "cheetah",
+"b": "tortoise"
+},
+{
+"t": "lion vs giraffe",
+"a": "lion",
+"b": "giraffe"
+},
+{
+"t": "crocodile vs dolphin",
+"a": "crocodile",
+"b": "dolphin"
+},
+{
+"t": "snake vs monkey",
+"a": "snake",
+"b": "monkey"
+},
+{
+"t": "shark vs penguin",
+"a": "shark",
+"b": "penguin"
+},
+{
+"t": "bear vs rabbit",
+"a": "bear",
+"b": "rabbit"
+},
+{
+"t": "eagle vs parrot",
+"a": "eagle",
+"b": "parrot"
+}
+],
+"guide": {
+"ind": [
+"The child makes three comparisons; you agree or disagree.",
+"",
+""
+],
+"pair": [
+"Partners take turns comparing.",
+"",
+""
+],
+"grp": [
+"Teams: one point per correct comparison.",
+"",
+""
+]
+},
+"end": "Which animal would you like to be?",
+"focus": "Comparatives: bigger than, faster than, more dangerous than",
+"labels": [
+"",
+""
+],
+"img": true,
+"imgP": "a clear photo of {x} in the wild"
+},
+{
+"id": "healthy-or-not",
+"name": "Healthy or Not?",
+"cat": "warm",
+"lv": [
+"A1",
+"A2"
+],
+"fmts": [
+"ind",
+"pair",
+"grp"
+],
+"ages": [
+"6-8",
+"9-12",
+"12-14"
+],
+"gram": [
+"Present simple"
+],
+"books": [
+"Lead the Way 3 · U1"
+],
+"kind": "single",
+"desc": "Is it a healthy or unhealthy habit? How often do you do it?",
+"instr": "Healthy or unhealthy? How often do you do it? Use always, usually, sometimes or never.",
+"ph": [
+"It's healthy / unhealthy",
+"I always…",
+"I sometimes…",
+"I never…"
+],
+"cards": [
+"eat fruit",
+"play video games all night",
+"brush your teeth",
+"drink lots of water",
+"eat sweets for breakfast",
+"go to bed late",
+"do sport",
+"walk to school",
+"eat vegetables",
+"watch TV for 5 hours"
+],
+"guide": {
+"ind": [
+"The child answers both questions; you share yours.",
+"",
+""
+],
+"pair": [
+"Partners compare: who is healthier?",
+"",
+""
+],
+"grp": [
+"Show the card; children stand up for 'healthy', sit down for 'unhealthy'.",
+"Then ask 'How often…?'",
+""
+]
+},
+"end": "What healthy habit do you want to start?",
+"focus": "Adverbs of frequency: always, usually, sometimes, never"
+},
+{
+"id": "robot-helper",
+"name": "My Robot Helper",
+"cat": "you",
+"lv": [
+"A1",
+"A2"
+],
+"fmts": [
+"ind",
+"pair",
+"grp"
+],
+"ages": [
+"6-8",
+"9-12",
+"12-14"
+],
+"gram": [
+"Present simple",
+"Modals: advice & obligation"
+],
+"books": [
+"Lead the Way 3 · U8"
+],
+"kind": "single",
+"desc": "Invent a robot that does household chores. What can it do?",
+"instr": "Design your robot helper! What chores can it do? What can't it do? Present it to the class.",
+"ph": [
+"My robot can…",
+"It can't…",
+"It does the… every day",
+"It's got…"
+],
+"cards": [
+"make the bed",
+"wash the dishes",
+"do the shopping",
+"tidy your room",
+"cook dinner",
+"walk the dog",
+"do your homework",
+"water the plants",
+"clean the windows",
+"iron clothes"
+],
+"guide": {
+"ind": [
+"The child chooses three chores and describes the robot; you ask questions.",
+"",
+""
+],
+"pair": [
+"Pairs design one robot together and present it.",
+"",
+""
+],
+"grp": [
+"Children draw and present their robot; the class votes.",
+"",
+""
+]
+},
+"end": "Which chore do you hate the most?",
+"focus": "can/can't and household chores"
+},
+{
+"id": "holiday-packing",
+"name": "Holiday Packing",
+"cat": "game",
+"lv": [
+"A1",
+"A2"
+],
+"fmts": [
+"pair",
+"grp"
+],
+"ages": [
+"6-8",
+"9-12",
+"12-14"
+],
+"gram": [
+"Future forms"
+],
+"books": [
+"Lead the Way 3 · U9"
+],
+"kind": "single",
+"desc": "You're going on holiday. What are you going to take and do?",
+"instr": "Where are you going? Say three things you're going to take and three things you're going to do.",
+"ph": [
+"I'm going to take…",
+"I'm going to…",
+"I'm not going to…",
+"Don't forget your…!"
+],
+"cards": [
+"to the beach",
+"to the mountains",
+"camping in a forest",
+"to a big city",
+"to a snowy place",
+"on a boat trip",
+"to a theme park",
+"to a desert island"
+],
+"guide": {
+"ind": [
+"The child plans; you remind them of things they forgot.",
+"",
+""
+],
+"pair": [
+"Partners plan a trip together.",
+"",
+""
+],
+"grp": [
+"Teams list as many items as possible in one minute.",
+"",
+""
+]
+},
+"end": "Where are you going to go next summer?",
+"focus": "be going to for plans; holiday objects and activities"
+},
+{
+"id": "town-or-country",
+"name": "Town or Country?",
+"cat": "opinion",
+"lv": [
+"A1",
+"A2"
+],
+"fmts": [
+"ind",
+"pair",
+"grp"
+],
+"ages": [
+"6-8",
+"9-12",
+"12-14"
+],
+"gram": [
+"Comparatives & superlatives"
+],
+"books": [
+"Lead the Way 3 · U6",
+"Lead the Way 2 · U5"
+],
+"kind": "single",
+"desc": "Is it in the town or in the countryside? Where would you like to live?",
+"instr": "Is this place in the town or the countryside? Is there one near your house?",
+"ph": [
+"It's in the town / countryside",
+"There's a… near my house",
+"There isn't a…",
+"I'd like to live in…"
+],
+"cards": [
+"a farm",
+"a cinema",
+"a river",
+"a supermarket",
+"a forest",
+"a hospital",
+"a mountain",
+"a sports centre",
+"a lake",
+"a swimming pool",
+"a field",
+"a museum"
+],
+"guide": {
+"ind": [
+"The child answers; you ask 'Do you go there? When?'",
+"",
+""
+],
+"pair": [
+"Partners sort the cards into town and countryside.",
+"",
+""
+],
+"grp": [
+"Children point left for town, right for country.",
+"",
+""
+]
+},
+"end": "Town or country: where would you like to live?",
+"focus": "There is/isn't; places in town and countryside"
+},
+{
+"id": "weather-forecast",
+"name": "Weather Forecast",
+"cat": "game",
+"lv": [
+"A1",
+"A2"
+],
+"fmts": [
+"ind",
+"grp"
+],
+"ages": [
+"6-8",
+"9-12",
+"12-14"
+],
+"gram": [
+"Present simple"
+],
+"books": [
+"Lead the Way 2 · U2"
+],
+"kind": "single",
+"desc": "Be the TV weather presenter for a city.",
+"instr": "You're on TV! Give the weather forecast for this place. Say what people should wear.",
+"ph": [
+"Good morning! Here's the weather.",
+"Today it's sunny / rainy / foggy",
+"It's going to be…",
+"Don't forget your…!"
+],
+"cards": [
+"London: rainy and windy",
+"Madrid: sunny and hot",
+"Moscow: snowy and icy",
+"Paris: cloudy",
+"Sydney: stormy",
+"Barcelona: dry and sunny",
+"Oslo: foggy and cold",
+"Tokyo: wet and windy"
+],
+"guide": {
+"ind": [
+"The child presents; you're the TV interviewer.",
+"",
+""
+],
+"pair": [
+"",
+"",
+""
+],
+"grp": [
+"Volunteers present like on TV; the class claps for the best presenter.",
+"",
+""
+]
+},
+"end": "What's the weather like today?",
+"focus": "Weather words: sunny, rainy, icy, wet, dry, cloudy, windy, stormy, snowy, foggy"
 }
 ]

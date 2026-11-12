@@ -386,27 +386,28 @@ function hub(){
     <div class="chips" id="fAge">${[["all","All ages"],...Object.keys(AGES).map(k=>[k,k==="adults"?"Adults":k.replace("-","–")])].map(([k,v])=>`<button data-k="${k}" aria-pressed="${(F.age||"all")===k}" title="${esc(AGES[k]||"")}">${v}</button>`).join("")}</div>
     <div class="fbar">
       <label class="fsel"><span class="sr">Grammar</span><select id="fGr"><option value="all">Any grammar</option>${Object.entries(GRAM_GROUPS).map(([g,l])=>`<optgroup label="${esc(g)}">${l.filter(x=>ALL.some(a=>(a.gram||[]).includes(x))).map(x=>`<option ${F.gr===x?"selected":""}>${esc(x)}</option>`).join("")}</optgroup>`).join("")}</select></label>
+      <label class="fsel"><span class="sr">Book</span><select id="fBk"><option value="all">Any book</option>${[...new Set(ALL.flatMap(a=>(a.books||[]).map(b=>b.split(" · ")[0])))].sort().map(b=>`<option ${F.bk===b?"selected":""}>${esc(b)}</option>`).join("")}</select></label>
       <button class="link" id="clr" type="button">Clear</button>
     </div>
   </section>
   <div id="list"></div>`;
   const on=(id,key)=>$(id).onchange=e=>{F[key]=e.target.value;store.set("sc-filters2",F);renderList();};
   const bind=(id,key)=>$(id).querySelectorAll("button").forEach(b=>b.onclick=()=>{F[key]=b.dataset.k;store.set("sc-filters2",F);$(id).querySelectorAll("button").forEach(x=>x.setAttribute("aria-pressed",x===b));renderList();});
-  bind("#fFmt","fmt");bind("#fLv","lv");bind("#fAge","age");on("#fGr","gr");
+  bind("#fFmt","fmt");bind("#fLv","lv");bind("#fAge","age");on("#fGr","gr");on("#fBk","bk");
   $("#q").oninput=e=>{F.q=e.target.value;store.set("sc-filters2",F);renderList();};
-  $("#clr").onclick=()=>{Object.assign(F,{q:"",lv:"all",age:"all",fmt:"all",gr:"all"});store.set("sc-filters2",F);hub();};
+  $("#clr").onclick=()=>{Object.assign(F,{q:"",lv:"all",age:"all",fmt:"all",gr:"all",bk:"all"});store.set("sc-filters2",F);hub();};
   wireClassSwitcher(renderList);renderList();
 }
 function renderList(){
   const a=CL.active();
   const q=(F.q||"").trim().toLowerCase(),words=q.split(/\s+/).filter(Boolean);
-  const hay=g=>[g.name,g.desc,g.instr||"",(g.gram||[]).join(" "),...(g.cards||[]).map(c=>typeof c==="object"?JSON.stringify(c):c)].join(" ").toLowerCase();
-  const ok=g=>(!F.fmt||F.fmt==="all"||g.fmts.includes(F.fmt))&&(!F.lv||F.lv==="all"||g.lv.includes(F.lv))&&(!F.gr||F.gr==="all"||(g.gram||[]).includes(F.gr))&&(!F.age||F.age==="all"||(g.ages||[]).includes(F.age))&&(!words.length||words.every(w=>hay(g).includes(w)));
+  const hay=g=>[g.name,g.desc,g.instr||"",(g.gram||[]).join(" "),(g.books||[]).join(" "),...(g.cards||[]).map(c=>typeof c==="object"?JSON.stringify(c):c)].join(" ").toLowerCase();
+  const ok=g=>(!F.fmt||F.fmt==="all"||g.fmts.includes(F.fmt))&&(!F.lv||F.lv==="all"||g.lv.includes(F.lv))&&(!F.gr||F.gr==="all"||(g.gram||[]).includes(F.gr))&&(!F.age||F.age==="all"||(g.ages||[]).includes(F.age))&&(!F.bk||F.bk==="all"||(g.books||[]).some(b=>b.startsWith(F.bk+" ")||b===F.bk))&&(!words.length||words.every(w=>hay(g).includes(w)));
   const fm=g=>g.fmts.length===3?"Any format":g.fmts.map(f=>FMTS[f]).join(", ");
   const card=g=>{const d=a?H.dates(a.id,g.id):[];return `<a class="act" href="#${g.id}">
     <div class="top-row"><span class="lvpill">${lvRange(g.lv)}</span><span class="kind">${esc(g.gram?g.gram[0]:"")}</span></div>
     <h3>${esc(g.name)}</h3><p>${esc(g.desc)}</p>
-    <div class="meta">${fm(g)}${g.print==="required"?` · <b class="m-print">Print</b>`:""}${d.length?` · <b class="m-done">Done ${niceDate(d[d.length-1]).replace(/ \d{4}$/,"")}</b>`:""}</div></a>`;};
+    <div class="meta">${F.bk&&F.bk!=="all"&&g.books?esc(g.books.filter(b=>b.startsWith(F.bk)).map(b=>b.split(" · ")[1]).join(", "))+" · ":""}${fm(g)}${g.print==="required"?` · <b class="m-print">Print</b>`:""}${d.length?` · <b class="m-done">Done ${niceDate(d[d.length-1]).replace(/ \d{4}$/,"")}</b>`:""}</div></a>`;};
   let n=0;
   const html=Object.entries(CATS).map(([k,v])=>{const l=ALL.filter(g=>g.cat===k&&ok(g));n+=l.length;if(!l.length)return "";
     return `<section class="cat"><h2>${v} <span>${l.length}</span></h2><div class="grid">${l.map(card).join("")}</div></section>`;}).join("");
