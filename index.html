@@ -656,7 +656,7 @@ function deckView(d){
         <div class="field"><label class="label" for="prN">Cards per A4 page</label><select id="prN">${[2,4,6,8,9,12,16].map(n=>`<option ${n===(store.get("sc-prn",8))?"selected":""}>${n}</option>`).join("")}</select></div>
         <div class="field"><label class="label" for="prImg">Pictures</label><select id="prImg" ${hasImgs(d)?"":"disabled"}><option value="1">With pictures</option><option value="0" ${store.get("sc-primg",1)?"":"selected"}>Text only</option></select></div>
         <div class="field"><label class="label" for="prCase">Letters</label><select id="prCase"><option value="0">Normal</option><option value="1" ${D.upper?"selected":""}>CAPITALS</option></select></div>
-        <div class="field"><label class="label" for="prPhrases">Useful phrases</label><select id="prPhrases" ${Array.isArray(d.ph)&&d.ph.length?"":"disabled"}><option value="0" ${store.get("sc-prphr",0)?"":"selected"}>Don\'t include</option><option value="1" ${store.get("sc-prphr",0)?"selected":""}>Include on each card</option></select></div>
+        <div class="field"><label class="label" for="prPhrases">Useful phrases</label><select id="prPhrases" ${Array.isArray(d.ph)&&d.ph.length?"":"disabled"}><option value="0" ${store.get("sc-prphr",0)?"":"selected"}>Do not include</option><option value="1" ${store.get("sc-prphr",0)?"selected":""}>Include on each card</option></select></div>
       </div>
       <p class="note">${d.cards.length} cards · ${hasImgs(d)?"":"this activity has no pictures · "}cut along the dashed lines. Print at 100% (actual size).</p>
       <div class="row"><button class="primary" id="prGo">Print</button></div></section>
