@@ -307,6 +307,13 @@ button,.btn{font-weight:500}
 .brand span::after{content:"";position:absolute;right:-.28em;top:.06em;width:.2em;height:.2em;background:var(--stamp);border-radius:50% 50% 50% 0;box-shadow:1px 1px 0 rgba(25,70,61,.32),2px 2px 0 rgba(25,70,61,.2),3px 4px 4px rgba(25,70,61,.14)}
 /* Collapsible panels override .card's display:flex */
 #prPanel[hidden],#guidePanel[hidden]{display:none!important}
+/* Custom useful-language editor */
+#langPanel[hidden]{display:none!important}
+.lang-list{display:flex;flex-direction:column;gap:9px}
+.lang-line{display:flex;align-items:center;gap:8px}
+.lang-line input{flex:1 1 auto;min-width:0}
+.lang-line button{flex:0 0 auto;padding:9px 12px}
+.lang-editor-actions{display:flex;gap:8px;flex-wrap:wrap}
 /* ---- printable cards ---- */
 #printArea{display:none}
 @media print{
@@ -629,6 +636,35 @@ const GUIDE={
    grp:["Make groups of 3–4.","Each group agrees on five items in 8 minutes.","Each group presents its list; the class votes for the best survival plan."]}
 };
 
+/* Custom phrases are stored per activity; an empty saved list means intentionally hidden. */
+const LANGUAGE_KEY="sc-custom-language";
+function languageData(){
+  const data=store.get(LANGUAGE_KEY,{});
+  return data&&typeof data==="object"&&!Array.isArray(data)?data:{};
+}
+function languageFor(d){
+  const data=languageData();
+  const value=Object.prototype.hasOwnProperty.call(data,d.id)?data[d.id]:d.ph;
+  return Array.isArray(value)?value.filter(p=>typeof p==="string"&&p.trim()).map(p=>p.trim()):[];
+}
+function saveLanguage(d,phrases){
+  const data=languageData();
+  data[d.id]=phrases.filter(p=>typeof p==="string").map(p=>p.trim()).filter(Boolean);
+  store.set(LANGUAGE_KEY,data);
+}
+function resetLanguage(d){
+  const data=languageData();delete data[d.id];store.set(LANGUAGE_KEY,data);
+}
+function importLanguage(data){
+  if(!data||typeof data!=="object"||Array.isArray(data))return;
+  const saved=languageData();
+  for(const [id,phrases] of Object.entries(data)){
+    if(!byId(id)||!Array.isArray(phrases))continue;
+    saved[id]=phrases.filter(p=>typeof p==="string").map(p=>p.trim().slice(0,180)).filter(Boolean).slice(0,20);
+  }
+  store.set(LANGUAGE_KEY,saved);
+}
+
 /* ---------- deck presenter ---------- */
 let D=null;
 const YOUNG=d=>(d.ages||[]).some(a=>a==="3-6"||a==="6-8");
@@ -643,7 +679,7 @@ function cardFaces(d){return d.cards.map((c,i)=>{const im=k=>IMAGES[d.id+":"+k]|
   return {html:`<p class="pc-main">${esc(c)}</p>`,img:im(i)};});}
 function printCards(d,n,withImg,upper,withPhrases){
   const L={2:[1,2],4:[2,2],6:[2,3],8:[2,4],9:[3,3],12:[3,4],16:[4,4]}[n],faces=cardFaces(d),pages=[];
-  const phrases=withPhrases&&Array.isArray(d.ph)?d.ph.filter(p=>typeof p==="string"&&p.trim()):[];
+  const phrases=withPhrases?languageFor(d):[];
   const help=phrases.length?`<div class="pc-ph"><b>Useful language</b><ul>${phrases.map(p=>`<li>${esc(p)}</li>`).join("")}</ul></div>`:"";
   for(let i=0;i<faces.length;i+=n)pages.push(faces.slice(i,i+n));
   let a=$("#printArea");if(!a){a=document.createElement("div");a.id="printArea";document.body.appendChild(a);}
@@ -691,6 +727,7 @@ function deckView(d){
         <button class="ghost" id="tbtn">Timer</button>
         <button class="ghost" id="pickB" ${a?"":"disabled title=\"Choose a class first\""}>Pick a student</button>
         <button class="ghost" id="phB" aria-pressed="true">Phrases</button>
+         <button class="ghost" id="langB" aria-expanded="false" aria-controls="langPanel">Edit useful language</button>
         ${YOUNG(d)?`<button class="ghost" id="upB" aria-pressed="${D.upper}" title="Capital letters for young learners">ABC</button>`:""}
         <button class="ghost" id="fsB">Full screen</button>
         <button class="ghost" id="prB" aria-expanded="false" aria-controls="prPanel">Print cards</button>
@@ -702,11 +739,22 @@ function deckView(d){
         <div class="field"><label class="label" for="prN">Cards per A4 page</label><select id="prN">${[2,4,6,8,9,12,16].map(n=>`<option ${n===(store.get("sc-prn",8))?"selected":""}>${n}</option>`).join("")}</select></div>
         <div class="field"><label class="label" for="prImg">Pictures</label><select id="prImg" ${hasImgs(d)?"":"disabled"}><option value="1">With pictures</option><option value="0" ${store.get("sc-primg",1)?"":"selected"}>Text only</option></select></div>
         <div class="field"><label class="label" for="prCase">Letters</label><select id="prCase"><option value="0">Normal</option><option value="1" ${D.upper?"selected":""}>CAPITALS</option></select></div>
-        <div class="field"><label class="label" for="prPhrases">Useful phrases</label><select id="prPhrases" ${Array.isArray(d.ph)&&d.ph.length?"":"disabled"}><option value="0" ${store.get("sc-prphr",0)?"":"selected"}>Do not include</option><option value="1" ${store.get("sc-prphr",0)?"selected":""}>Include on each card</option></select></div>
+        <div class="field"><label class="label" for="prPhrases">Useful phrases</label><select id="prPhrases" ${languageFor(d).length?"":"disabled"}><option value="0" ${store.get("sc-prphr",0)?"":"selected"}>Do not include</option><option value="1" ${store.get("sc-prphr",0)?"selected":""}>Include on each card</option></select></div>
       </div>
       <p class="note">${d.cards.length} cards · ${hasImgs(d)?"":"this activity has no pictures · "}cut along the dashed lines. Print at 100% (actual size).</p>
       <div class="row"><button class="primary" id="prGo">Print</button></div></section>
-    <section class="card guide" id="guidePanel" hidden><div class="row" style="justify-content:space-between"><h2>Teacher guide</h2>
+    <section class="card lang-editor" id="langPanel" hidden>
+       <h2>Edit useful language</h2>
+       <p class="note">Add or remove expressions for this activity. Save changes to update both the projected slides and printed cards.</p>
+       <div id="langRows" class="lang-list"></div>
+       <div class="lang-editor-actions">
+         <button class="ghost" id="langAdd" type="button">+ Add phrase</button>
+         <button class="primary" id="langSave" type="button">Save phrases</button>
+         <button class="ghost" id="langReset" type="button">Restore defaults</button>
+       </div>
+       <p class="note" id="langMsg" role="status">Saved locally on this browser. Include them in your My classes backup when moving devices.</p>
+     </section>
+     <section class="card guide" id="guidePanel" hidden><div class="row" style="justify-content:space-between"><h2>Teacher guide</h2>
       <div class="tabs" role="tablist">${Object.keys(FMTS).map(f=>`<button role="tab" data-f="${f}" aria-selected="false">${FMTS[f]}${d.fmts.includes(f)?"":" (adapted)"}</button>`).join("")}</div></div>
       <div id="gbody"></div>
       ${d.focus?`<p class="focus"><b>Structure focus:</b> ${esc(d.focus)}</p>`:""}
@@ -725,16 +773,59 @@ function deckView(d){
   $("#addLesson").onclick=()=>LP.choose(d.id);
   $("#tbtn").onclick=toggleTimer;
   $("#pickB").onclick=pickStudent;
-  const togglePanel=(id,button,otherId,otherButton)=>{
+  // Editing phrases never modifies the original deck data.
+  let editing=languageFor(d).slice();
+  const langRows=()=>$("#langRows");
+  function showLanguageRows(){
+    langRows().innerHTML=editing.length?editing.map((line,i)=>`<div class="lang-line">
+      <input type="text" data-lang-input="${i}" value="${esc(line)}" maxlength="180" aria-label="Useful phrase ${i+1}" placeholder="e.g. In my opinion, …">
+      <button class="ghost" type="button" data-lang-remove="${i}" aria-label="Remove phrase ${i+1}">Remove</button>
+    </div>`).join(""):`<p class="note">No phrases selected. Add one below to start.</p>`;
+    langRows().querySelectorAll("[data-lang-input]").forEach(input=>{
+      input.oninput=()=>{editing[+input.dataset.langInput]=input.value;};
+    });
+    langRows().querySelectorAll("[data-lang-remove]").forEach(button=>{
+      button.onclick=()=>{editing.splice(+button.dataset.langRemove,1);showLanguageRows();};
+    });
+  }
+  showLanguageRows();
+  function refreshLanguage(){
+    const has=languageFor(d).length>0;
+    $("#prPhrases").disabled=!has;
+    if(!has)$("#prPhrases").value="0";
+    render();
+  }
+  $("#langAdd").onclick=()=>{
+    if(editing.length>=20){$("#langMsg").textContent="Maximum 20 phrases per activity.";return;}
+    editing.push("");showLanguageRows();
+    const inputs=langRows().querySelectorAll("[data-lang-input]");
+    if(inputs.length)inputs[inputs.length-1].focus();
+  };
+  $("#langSave").onclick=()=>{
+    editing=editing.map(p=>p.trim().slice(0,180)).filter(Boolean);
+    saveLanguage(d,editing);showLanguageRows();refreshLanguage();
+    $("#langMsg").textContent="Saved. The slides and printed cards now use these phrases.";
+  };
+  $("#langReset").onclick=()=>{
+    resetLanguage(d);editing=languageFor(d).slice();showLanguageRows();refreshLanguage();
+    $("#langMsg").textContent="Original phrases restored.";
+  };
+  const togglePanel=(id,button)=>{
     const panel=$(id),opening=panel.hidden;
-    if(opening){$(otherId).hidden=true;$(otherButton).setAttribute("aria-expanded","false");}
+    if(opening){
+      for(const [other,control] of [["#prPanel","#prB"],["#guidePanel","#insB"],["#langPanel","#langB"]]){
+        if(other!==id){$(other).hidden=true;$(control).setAttribute("aria-expanded","false");}
+      }
+      if(id==="#langPanel"){editing=languageFor(d).slice();showLanguageRows();}
+    }
     panel.hidden=!opening;$(button).setAttribute("aria-expanded",String(opening));
     if(opening)panel.scrollIntoView({block:"nearest",behavior:"smooth"});
   };
-  $("#prB").onclick=()=>togglePanel("#prPanel","#prB","#guidePanel","#insB");
-  $("#insB").onclick=()=>togglePanel("#guidePanel","#insB","#prPanel","#prB");
+  $("#prB").onclick=()=>togglePanel("#prPanel","#prB");
+  $("#insB").onclick=()=>togglePanel("#guidePanel","#insB");
+  $("#langB").onclick=()=>togglePanel("#langPanel","#langB");
   $("#prGo").onclick=()=>{
-    const n=+$("#prN").value,im=$("#prImg").value==="1"&&hasImgs(d),up=$("#prCase").value==="1",phr=$("#prPhrases").value==="1"&&Array.isArray(d.ph)&&d.ph.length>0;
+    const n=+$("#prN").value,im=$("#prImg").value==="1"&&hasImgs(d),up=$("#prCase").value==="1",phr=$("#prPhrases").value==="1"&&languageFor(d).length>0;
     store.set("sc-prn",n);store.set("sc-primg",im?1:0);store.set("sc-prphr",phr?1:0);
     printCards(d,n,im,up,phr);
   };
@@ -758,7 +849,7 @@ function doneRow(){const a=CL.active(),r=$("#doneRow");if(!r)return;
   if($("#markDone"))$("#markDone").onclick=()=>{H.mark(a.id,D.d.id);LP.markPlayed(D.d.id);doneRow();};
   if($("#undoDone"))$("#undoDone").onclick=()=>{H.unmarkToday(a.id,D.d.id);doneRow();};}
 function go(n){const k=D.i+n;if(k<0||k>=D.slides.length)return;D.i=k;D.pickName=null;render();}
-function phrases(d){return D.phr&&d.ph?`<div class="s-ph"><b>Useful language</b>${d.ph.map(p=>`<span>${esc(p)}</span>`).join("")}</div>`:"";}
+function phrases(d){const p=languageFor(d);return D.phr&&p.length?`<div class="s-ph"><b>Useful language</b>${p.map(x=>`<span>${esc(x)}</span>`).join("")}</div>`:"";}
 function img(d,i){const u=IMAGES[d.id+":"+i];return u?`<img src="${u}" alt="">`:"";}
 function render(){const d=D.d,s=D.slides[D.i],st=$("#stage"),n=D.slides.length;st.classList.toggle("upper",!!D.upper);
   const cardNo=s.t==="card"?`${D.order.indexOf(s.i)+1} / ${d.cards.length}`:"";
@@ -838,7 +929,7 @@ function classesView(editId){
      :`<p class="note">No classes yet. Fill in the form above to save your first group.</p>`}</section>
    <section class="card"><details class="more"><summary>Back up or move your classes</summary>
      <div class="bank">
-       <div class="field"><label class="label" for="exp">Backup code (classes and history)</label><textarea id="exp" readonly>${esc(JSON.stringify({classes:list,history:H.all(),plans:LP.all()}))}</textarea></div>
+       <div class="field"><label class="label" for="exp">Backup code (classes, history, lessons and useful language)</label><textarea id="exp" readonly>${esc(JSON.stringify({classes:list,history:H.all(),plans:LP.all(),usefulLanguage:languageData()}))}</textarea></div>
        <div class="row"><button class="ghost" id="copyB">Copy backup</button><span class="note" id="copyMsg"></span></div>
        <div class="field"><label class="label" for="imp">Restore from a backup</label><textarea id="imp" placeholder="Paste a backup code here"></textarea></div>
        <div class="row"><button class="ghost" id="impB">Restore</button><span class="note" id="impMsg"></span></div>
@@ -863,7 +954,7 @@ function classesView(editId){
   $("#impB").onclick=()=>{try{let data=JSON.parse($("#imp").value);const cls=Array.isArray(data)?data:data.classes;if(!Array.isArray(cls))throw 0;
       const l=CL.all(),hist=H.all(),map={};cls.forEach((c,n)=>{if(c&&c.name&&Array.isArray(c.students)){const id=l.some(x=>x.id===c.id)?"c"+Date.now().toString(36)+n:(c.id||"c"+Date.now().toString(36)+n);
         l.push({id,name:String(c.name),students:c.students.map(String)});map[c.id]=id;if(data.history&&data.history[c.id])hist[id]=data.history[c.id];}});
-      CL.save(l);store.set("sc-hist",hist);LP.importPlans(data.plans,map);classesView(null);}catch(e){$("#impMsg").textContent="That code isn't valid. Paste the full backup code.";}};
+      CL.save(l);store.set("sc-hist",hist);LP.importPlans(data.plans,map);importLanguage(data.usefulLanguage);classesView(null);}catch(e){$("#impMsg").textContent="That code isn't valid. Paste the full backup code.";}};
 }
 
 /* ---------- info ---------- */
