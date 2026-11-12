@@ -269,6 +269,17 @@ h3,b,strong{font-weight:500}
 button,.btn{font-weight:500}
 .label{font-weight:500}
 
+/* Small, accessible visual legends on the activity cards */
+.act .meta{display:flex;flex-direction:column;align-items:stretch;gap:5px;padding-top:10px}
+.meta-icons-row{display:flex;justify-content:space-between;align-items:center;gap:12px;min-height:22px}
+.format-icons,.resource-icons{display:inline-flex;align-items:center;gap:8px;flex-wrap:wrap}
+.resource-icons{margin-left:auto;color:var(--stamp)}
+.format-icons{color:var(--muted)}
+.meta-icon{display:inline-flex;align-items:center;justify-content:center;width:19px;height:19px;flex:0 0 auto;cursor:help}
+.meta-icon svg{display:block;width:19px;height:19px;stroke:currentColor;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.meta-icon:hover{color:var(--stamp)}
+.act .m-done{display:block;align-self:flex-start;font-size:.75rem}
+
 /* ---- speech-bubble cards ---- */
 .grid{grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:16px}
 .act{position:relative;border:1.5px solid var(--ink);border-radius:18px 18px 18px 4px;padding:18px 20px 16px;gap:8px;box-shadow:none;background:var(--paper);transition:box-shadow .15s,border-color .15s}
@@ -545,16 +556,37 @@ function hub(){
   $("#clr").onclick=()=>{Object.assign(F,{q:"",lv:"all",age:"all",fmt:"all",gr:"all"});store.set("sc-filters2",F);hub();};
   wireClassSwitcher(renderList);renderList();
 }
+/* Formats and materials: icons share one calm visual language. */
+const META_ICON_SHAPES={
+  ind:'<circle cx="12" cy="7" r="3"/><path d="M5 21v-2a7 7 0 0 1 14 0v2"/>',
+  pair:'<circle cx="8" cy="7" r="2.5"/><circle cx="17" cy="7" r="2.5"/><path d="M1.5 20v-1.5a6.5 6.5 0 0 1 11-4.7"/><path d="M10.5 20v-1.5a6.5 6.5 0 0 1 12 0V20"/>',
+  grp:'<circle cx="12" cy="6.5" r="2.5"/><circle cx="4.5" cy="9" r="2"/><circle cx="19.5" cy="9" r="2"/><path d="M6 20v-2a6 6 0 0 1 12 0v2"/><path d="M1 19v-2a4 4 0 0 1 4-4"/><path d="M23 19v-2a4 4 0 0 0-4-4"/>',
+  screen:'<rect x="2.5" y="4" width="19" height="13" rx="2"/><path d="M8 21h8M12 17v4"/>',
+  phone:'<rect x="7" y="2" width="10" height="20" rx="2.4"/><path d="M11 18.5h2"/>',
+  cards:'<rect x="3.5" y="4" width="14" height="17" rx="2"/><path d="M7.5 8h6M7.5 12h6M18.5 7H20a1 1 0 0 1 1 1v11"/>'
+};
+function metaIcon(key,label){
+  return '<span class="meta-icon" title="'+esc(label)+'" aria-label="'+esc(label)+'"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">'+META_ICON_SHAPES[key]+'</svg></span>';
+}
+function formatIcons(g){return (g.fmts||[]).map(k=>metaIcon(k,FMTS[k]||k)).join("");}
+function materialIcons(g){
+  const icons=[g.app
+    ?metaIcon("phone","Interactive activity: use a phone, tablet or computer")
+    :metaIcon("screen","Present on a screen, projector or tablet")];
+  if(g.print==="required")icons.push(metaIcon("cards","Printed cards required"));
+  if(g.print==="optional")icons.push(metaIcon("cards","Printed cards optional"));
+  return icons.join("");
+}
+
 function renderList(){
   const a=CL.active();
   const q=(F.q||"").trim().toLowerCase(),words=q.split(/\s+/).filter(Boolean);
   const hay=g=>[g.name,g.desc,g.instr||"",(g.gram||[]).join(" "),(g.books||[]).join(" "),...(g.cards||[]).map(c=>typeof c==="object"?JSON.stringify(c):c)].join(" ").toLowerCase();
   const ok=g=>(!F.fmt||F.fmt==="all"||g.fmts.includes(F.fmt))&&(!F.lv||F.lv==="all"||g.lv.includes(F.lv))&&(!F.gr||F.gr==="all"||(g.gram||[]).includes(F.gr))&&(!F.age||F.age==="all"||(g.ages||[]).includes(F.age))&&(!words.length||words.every(w=>hay(g).includes(w)));
-  const fm=g=>g.fmts.length===3?"Any format":g.fmts.map(f=>FMTS[f]).join(", ");
   const card=g=>{const d=a?H.dates(a.id,g.id):[];return `<article class="lesson-card"><a class="act" href="#${g.id}">
     <div class="top-row"><span class="lvpill">${lvRange(g.lv)}</span><span class="kind">${esc(g.gram?g.gram[0]:"")}</span></div>
     <h3>${esc(g.name)}</h3><p>${esc(g.desc)}</p>
-    <div class="meta">${fm(g)}${g.print==="required"?` · <b class="m-print">Print</b>`:""}${d.length?` · <b class="m-done">Done ${niceDate(d[d.length-1]).replace(/ \d{4}$/,"")}</b>`:""}</div></a><button type="button" class="lesson-add" data-add-activity="${esc(g.id)}" aria-label="Add ${esc(g.name)} to lesson" title="Add to lesson">+</button></article>`;};
+    <div class="meta">${d.length?`<span class="m-done">Done ${niceDate(d[d.length-1]).replace(/ \d{4}$/,"")}</span>`:""}<div class="meta-icons-row"><span class="format-icons" role="group" aria-label="Activity formats">${formatIcons(g)}</span><span class="resource-icons" role="group" aria-label="Materials and devices">${materialIcons(g)}</span></div></div></a><button type="button" class="lesson-add" data-add-activity="${esc(g.id)}" aria-label="Add ${esc(g.name)} to lesson" title="Add to lesson">+</button></article>`;};
   let n=0;
   const html=Object.entries(CATS).map(([k,v])=>{const l=ALL.filter(g=>g.cat===k&&ok(g));n+=l.length;if(!l.length)return "";
     return `<section class="cat"><h2>${v} <span>${l.length}</span></h2><div class="grid">${l.map(card).join("")}</div></section>`;}).join("");
