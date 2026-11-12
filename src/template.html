@@ -55,7 +55,7 @@ a{color:inherit}
 .lesson-card .top-row{padding-left:35px}
 button.lesson-add{position:absolute;z-index:2;top:19px;left:20px;width:26px;height:26px;min-width:26px;display:flex;justify-content:center;align-items:center;border:1px solid var(--stamp);border-radius:8px;background:var(--paper);color:var(--stamp);font-size:1.2rem;font-weight:500;line-height:1;padding:0;box-shadow:none;transition:background .15s,color .15s}
 button.lesson-add:hover,button.lesson-add:focus-visible{background:var(--stamp);color:#fff}
-button.lesson-add::after{content:"Add to lesson";position:absolute;top:calc(100% + 8px);left:0;background:var(--ink);color:#fff;border-radius:6px;padding:6px 9px;font-size:.78rem;font-weight:500;line-height:1.2;white-space:nowrap;pointer-events:none;opacity:0;transform:translateY(-3px);transition:opacity .12s,transform .12s;visibility:hidden}
+button.lesson-add::after{content:"Add to lesson";position:absolute;z-index:12;top:calc(100% + 8px);left:0;background:var(--ink);color:#fff;border-radius:6px;padding:6px 9px;font-family:var(--body);font-size:.78rem;font-weight:500;line-height:1.2;white-space:nowrap;pointer-events:none;opacity:0;transform:translateY(-3px);transition:opacity .12s,transform .12s;visibility:hidden;box-shadow:0 3px 10px rgba(0,0,0,.12)}
 button.lesson-add:hover::after,button.lesson-add:focus-visible::after{opacity:1;transform:translateY(0);visibility:visible}
 @media (prefers-reduced-motion:reduce){button.lesson-add,button.lesson-add::after{transition:none}}
 .lp-list{display:flex;flex-direction:column;gap:8px}
@@ -275,10 +275,10 @@ button,.btn{font-weight:500}
 .format-icons,.resource-icons{display:inline-flex;align-items:center;gap:8px;flex-wrap:wrap}
 .resource-icons{margin-left:auto;color:var(--stamp)}
 .format-icons{color:var(--muted)}
-.meta-icon{display:inline-flex;align-items:center;justify-content:center;width:19px;height:19px;flex:0 0 auto;cursor:help}
+.meta-icon{display:inline-flex;align-items:center;justify-content:center;width:19px;height:19px;flex:0 0 auto;position:relative;cursor:pointer}
 .meta-icon svg{display:block;width:19px;height:19px;stroke:currentColor;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
 .meta-icon:hover{color:var(--stamp)}
-.meta-icon{position:relative;cursor:default}
+
 .meta-icon::after{content:attr(data-tip);position:absolute;z-index:12;top:calc(100% + 8px);left:0;background:var(--ink);color:#fff;border-radius:6px;padding:6px 9px;font-family:var(--body);font-size:.78rem;font-weight:500;letter-spacing:0;line-height:1.2;white-space:nowrap;pointer-events:none;opacity:0;transform:translateY(-3px);transition:opacity .12s,transform .12s;visibility:hidden;box-shadow:0 3px 10px rgba(0,0,0,.12)}
 .meta-icon:hover::after,.meta-icon:focus-visible::after{opacity:1;transform:translateY(0);visibility:visible}
 .resource-icons .meta-icon::after{left:auto;right:0}
@@ -572,7 +572,7 @@ const META_ICON_SHAPES={
   cards:'<rect x="3.5" y="4" width="14" height="17" rx="2"/><path d="M7.5 8h6M7.5 12h6M18.5 7H20a1 1 0 0 1 1 1v11"/>'
 };
 function metaIcon(key,label){
-  return '<span class="meta-icon" data-tip="'+esc(label)+'" role="img" aria-label="'+esc(label)+'" tabindex="0"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">'+META_ICON_SHAPES[key]+'</svg></span>';
+  return '<span class="meta-icon" data-tip="'+esc(label)+'" tabindex="0"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">'+META_ICON_SHAPES[key]+'</svg><span class="sr">'+esc(label)+'</span></span>';
 }
 function formatIcons(g){return (g.fmts||[]).map(k=>metaIcon(k,FMTS[k]||k)).join("");}
 function materialIcons(g){
@@ -596,7 +596,7 @@ function renderList(){
   const card=g=>{const d=a?H.dates(a.id,g.id):[];return `<article class="lesson-card"><a class="act" href="#${g.id}">
     <div class="top-row"><span class="lvpill">${lvRange(g.lv)}</span><span class="kind">${esc(g.gram?g.gram[0]:"")}</span></div>
     <h3>${esc(g.name)}</h3><p>${esc(g.desc)}</p>
-    <div class="meta">${d.length?`<span class="m-done">Done ${niceDate(d[d.length-1]).replace(/ \d{4}$/,"")}</span>`:""}<div class="meta-icons-row"><span class="format-icons" role="group" aria-label="Activity formats">${formatIcons(g)}</span><span class="resource-icons" role="group" aria-label="Materials and devices">${materialIcons(g)}</span></div></div></a><button type="button" class="lesson-add" data-add-activity="${esc(g.id)}" aria-label="Add ${esc(g.name)} to lesson">+</button></article>`;};
+    <div class="meta">${d.length?`<span class="m-done">Done ${niceDate(d[d.length-1]).replace(/ \d{4}$/,"")}</span>`:""}<div class="meta-icons-row"><span class="format-icons" role="group" aria-label="Activity formats">${formatIcons(g)}</span><span class="resource-icons" role="group" aria-label="Materials and devices">${materialIcons(g)}</span></div></div></a><button type="button" class="lesson-add" data-add-activity="${esc(g.id)}" ><span aria-hidden="true">+</span><span class="sr">Add ${esc(g.name)} to lesson</span></button></article>`;};
   let n=0;
   const html=Object.entries(CATS).map(([k,v])=>{const l=ALL.filter(g=>g.cat===k&&ok(g));n+=l.length;if(!l.length)return "";
     return `<section class="cat"><h2>${v} <span>${l.length}</span></h2><div class="grid">${l.map(card).join("")}</div></section>`;}).join("");
