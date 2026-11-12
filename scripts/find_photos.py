@@ -16,7 +16,7 @@ def get(url, binary=False):
         return r.read() if binary else json.load(r)
 
 QUERIES = json.load(open(os.path.join(ROOT, "src/photo_queries.json"))) if os.path.exists(os.path.join(ROOT, "src/photo_queries.json")) else {}
-BAD = re.compile(r"engraving|illustration|drawing|painting|caricature|diagram|map of|poster|logo|screenshot|stereograph|lithograph|print|cartoon|sketch", re.I)
+BAD = re.compile(r"engraving|illustration|drawing|painting|caricature|diagram|map of|poster|logo|screenshot|stereograph|lithograph|print|cartoon|sketch|stereo|obama|trump|biden|president|white house|vintage|black and white|\b1[89]\d\d\b", re.I)
 
 def query_for(deck, card, name):
     if name in QUERIES:
