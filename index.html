@@ -49,9 +49,14 @@ a{color:inherit}
 
 
 /* Lesson planning */
-.lesson-card{min-width:0;display:flex;flex-direction:column}.lesson-card .act{flex:1;border-radius:12px 12px 0 0}
-button.lesson-add{width:100%;justify-content:center;background:var(--paper);border:1px solid var(--line);border-top:0;border-radius:0 0 12px 12px;font-size:.84rem;padding:9px}
-button.lesson-add:hover{background:var(--stage-2);border-color:var(--muted)}
+.lesson-card{position:relative;min-width:0;display:flex;flex-direction:column}
+.lesson-card .act{flex:1}
+.lesson-card .top-row{padding-left:35px}
+button.lesson-add{position:absolute;z-index:2;top:19px;left:20px;width:26px;height:26px;min-width:26px;display:flex;justify-content:center;align-items:center;border:1px solid var(--stamp);border-radius:8px;background:var(--paper);color:var(--stamp);font-size:1.2rem;font-weight:500;line-height:1;padding:0;box-shadow:none;transition:background .15s,color .15s}
+button.lesson-add:hover,button.lesson-add:focus-visible{background:var(--stamp);color:#fff}
+button.lesson-add::after{content:"Add to lesson";position:absolute;top:calc(100% + 8px);left:0;background:var(--ink);color:#fff;border-radius:6px;padding:6px 9px;font-size:.78rem;font-weight:500;line-height:1.2;white-space:nowrap;pointer-events:none;opacity:0;transform:translateY(-3px);transition:opacity .12s,transform .12s;visibility:hidden}
+button.lesson-add:hover::after,button.lesson-add:focus-visible::after{opacity:1;transform:translateY(0);visibility:visible}
+@media (prefers-reduced-motion:reduce){button.lesson-add,button.lesson-add::after{transition:none}}
 .lp-list{display:flex;flex-direction:column;gap:8px}
 .lp-summary{border:1px solid var(--line);border-radius:10px;text-decoration:none;display:flex;justify-content:space-between;align-items:center;gap:12px;padding:14px;background:var(--bg)}
 .lp-summary:hover{border-color:var(--muted)}.lp-summary span:first-child{display:flex;flex-direction:column;gap:3px;min-width:0}
@@ -268,7 +273,7 @@ button,.btn{font-weight:500}
 .act{position:relative;border:1.5px solid var(--ink);border-radius:18px 18px 18px 4px;padding:18px 20px 16px;gap:8px;box-shadow:none;background:var(--paper);transition:box-shadow .15s,border-color .15s}
 .act:hover{border-color:var(--stamp);box-shadow:5px 5px 0 var(--stamp-soft),5px 5px 0 1.5px var(--stamp)}
 .top-row{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:4px}
-.lvpill{font-size:.8rem;font-weight:600;color:#fff;background:#2f5bea;border-radius:99px 99px 99px 3px;padding:4px 11px;white-space:nowrap;letter-spacing:.01em}
+.lvpill{font-size:.8rem;font-weight:600;color:#fff;background:var(--stamp);border-radius:99px 99px 99px 3px;padding:4px 11px;white-space:nowrap;letter-spacing:.01em}
 .kind{font-size:.78rem;color:var(--muted);text-align:right;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0}
 .act h3{font-size:1.08rem;font-weight:600}
 .act p{font-size:.9rem;color:#3d4347}
@@ -279,9 +284,9 @@ button,.btn{font-weight:500}
 .stage.upper .s-body,.stage.upper .s-ph,.stage.upper .s-cover,.stage.upper .s-pick{text-transform:uppercase;letter-spacing:.02em}
 
 /* ---- brand title ---- */
-.brand{font-family:"Bricolage Grotesque","Lexend",system-ui,sans-serif;font-weight:800;font-size:clamp(2.1rem,6.5vw,3.4rem);letter-spacing:-.035em;line-height:.95}
-.brand span{color:#2f5bea;position:relative;display:inline-block}
-.brand span::after{content:"";position:absolute;right:-.28em;top:.06em;width:.2em;height:.2em;background:#2f5bea;border-radius:50% 50% 50% 0}
+.brand{font-family:"Bricolage Grotesque","Lexend",system-ui,sans-serif;font-weight:800;font-size:clamp(2.1rem,6.5vw,3.4rem);letter-spacing:-.035em;line-height:1.05;text-shadow:1px 1px 0 rgba(31,36,39,.10),2px 3px 2px rgba(31,36,39,.09)}
+.brand span{color:var(--stamp);position:relative;display:inline-block;text-shadow:1px 1px 0 rgba(25,70,61,.28),2px 3px 1px rgba(25,70,61,.15)}
+.brand span::after{content:"";position:absolute;right:-.28em;top:.06em;width:.2em;height:.2em;background:var(--stamp);border-radius:50% 50% 50% 0;box-shadow:1px 2px 0 rgba(25,70,61,.18)}
 /* ---- printable cards ---- */
 #printArea{display:none}
 @media print{
@@ -535,7 +540,7 @@ function renderList(){
   const card=g=>{const d=a?H.dates(a.id,g.id):[];return `<article class="lesson-card"><a class="act" href="#${g.id}">
     <div class="top-row"><span class="lvpill">${lvRange(g.lv)}</span><span class="kind">${esc(g.gram?g.gram[0]:"")}</span></div>
     <h3>${esc(g.name)}</h3><p>${esc(g.desc)}</p>
-    <div class="meta">${fm(g)}${g.print==="required"?` · <b class="m-print">Print</b>`:""}${d.length?` · <b class="m-done">Done ${niceDate(d[d.length-1]).replace(/ \d{4}$/,"")}</b>`:""}</div></a><button type="button" class="lesson-add" data-add-activity="${esc(g.id)}">+ Add to lesson</button></article>`;};
+    <div class="meta">${fm(g)}${g.print==="required"?` · <b class="m-print">Print</b>`:""}${d.length?` · <b class="m-done">Done ${niceDate(d[d.length-1]).replace(/ \d{4}$/,"")}</b>`:""}</div></a><button type="button" class="lesson-add" data-add-activity="${esc(g.id)}" aria-label="Add ${esc(g.name)} to lesson" title="Add to lesson">+</button></article>`;};
   let n=0;
   const html=Object.entries(CATS).map(([k,v])=>{const l=ALL.filter(g=>g.cat===k&&ok(g));n+=l.length;if(!l.length)return "";
     return `<section class="cat"><h2>${v} <span>${l.length}</span></h2><div class="grid">${l.map(card).join("")}</div></section>`;}).join("");
