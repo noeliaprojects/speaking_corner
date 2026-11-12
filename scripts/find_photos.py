@@ -15,7 +15,12 @@ def get(url, binary=False):
     with urllib.request.urlopen(req, timeout=60) as r:
         return r.read() if binary else json.load(r)
 
+QUERIES = json.load(open(os.path.join(ROOT, "src/photo_queries.json"))) if os.path.exists(os.path.join(ROOT, "src/photo_queries.json")) else {}
+BAD = re.compile(r"engraving|illustration|drawing|painting|caricature|diagram|map of|poster|logo|screenshot|stereograph|lithograph|print|cartoon|sketch", re.I)
+
 def query_for(deck, card, name):
+    if name in QUERIES:
+        return QUERIES[name]
     if deck.get("qP"):
         base = deck["qP"]
     else:
@@ -32,10 +37,10 @@ def query_for(deck, card, name):
 
 def openverse(q, used):
     p = urllib.parse.urlencode({"q": q, "license": "cc0,pdm,by,by-sa", "category": "photograph",
-                                "aspect_ratio": "wide", "size": "large", "page_size": 20, "mature": "false"})
+                                "aspect_ratio": "wide", "size": "large", "page_size": 20, "mature": "false", "source": "flickr,wikimedia,stocksnap,rawpixel,nappy"})
     res = get(f"https://api.openverse.org/v1/images/?{p}").get("results", [])
     for r in res:
-        if r["url"] in used or (r.get("width") or 0) < 800:
+        if r["url"] in used or (r.get("width") or 0) < 800 or BAD.search((r.get("title") or "") + " " + " ".join(t.get("name", "") for t in r.get("tags") or [])):
             continue
         lic = f"CC {r['license'].upper()} {r.get('license_version') or ''}".strip() if r["license"] not in ("cc0", "pdm") else ("CC0" if r["license"] == "cc0" else "Public domain")
         return {"url": r["url"], "author": r.get("creator") or "Unknown", "license": lic,
@@ -49,7 +54,7 @@ def commons(q, used):
     pages = get(f"https://commons.wikimedia.org/w/api.php?{p}").get("query", {}).get("pages", {})
     for pg in sorted(pages.values(), key=lambda x: x.get("index", 99)):
         ii = pg.get("imageinfo", [{}])[0]
-        if ii.get("width", 0) < 800 or ii.get("width", 0) < ii.get("height", 1):
+        if ii.get("width", 0) < 800 or ii.get("width", 0) < ii.get("height", 1) or BAD.search(pg.get("title", "")):
             continue
         meta = ii.get("extmetadata", {})
         lic = meta.get("LicenseShortName", {}).get("value", "")
