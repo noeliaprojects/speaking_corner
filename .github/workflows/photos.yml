@@ -1,0 +1,38 @@
+name: Generate photos
+on:
+  workflow_dispatch:
+    inputs:
+      max_images:
+        description: "How many photos to make in this run"
+        default: "20"
+      quality:
+        description: "low (cheapest), medium or high"
+        default: "medium"
+      only:
+        description: "Only this activity (e.g. guess-the-job). Leave empty for all."
+        default: ""
+permissions:
+  contents: write
+concurrency:
+  group: photos
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install pillow
+      - name: Generate missing photos
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: python3 scripts/generate_photos.py --max "${{ inputs.max_images }}" --quality "${{ inputs.quality }}" --only "${{ inputs.only }}"
+      - run: python3 build.py
+      - name: Save the new photos
+        run: |
+          git config user.name "Speaking Corner bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add img index.html
+          git diff --cached --quiet || (git commit -m "Add generated photos" && git push)
