@@ -51,6 +51,9 @@ a{color:inherit}
 .chips{display:flex;gap:6px;flex-wrap:wrap}
 .chips{align-items:center}
 .chips button{padding:5px 12px;border-width:1px;border-color:var(--line);font-weight:500;border-radius:99px;font-size:.92rem}
+.grsel{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.grsel select{width:auto;max-width:100%;background:var(--paper);padding:7px 12px;border-radius:99px;font-weight:500}
+.focus{background:var(--stamp-soft);border-radius:8px;padding:10px 12px;font-size:.95rem}
 .chips-l{font-size:.85rem;color:var(--muted);margin-right:4px}
 .search input{background:var(--paper);padding:12px 14px;font-size:1rem;border-radius:10px}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
@@ -225,7 +228,12 @@ function photoList(){const out=[];
       else if(d.kind==="triple")c.forEach((x,k)=>out.push({key:`${d.id}:${i}-${k}`,file:`${d.id}-${nn(i)}-${k+1}`,deck:d.name,txt:sub(x)}));
       else out.push({key:`${d.id}:${i}`,file:`${d.id}-${nn(i)}`,deck:d.name,txt:sub(c)});});});
   return out;}
-const GRAMS=["Zero conditional","First conditional","Second conditional","Third conditional","Mixed conditionals"];
+const GRAM_GROUPS={"Tenses":["Present simple","Present continuous","Present perfect","Present perfect continuous","Past simple","Past continuous","Past perfect","Narrative tenses","Used to / would","Future forms","Future continuous","Future perfect"],
+ "Conditionals & wishes":["Zero conditional","First conditional","Second conditional","Third conditional","Mixed conditionals","Wish / If only"],
+ "Modals":["Modals: advice & obligation","Modals of deduction","Past modals"],
+ "Structures":["Passive voice","Causative have/get","Reported speech","Relative clauses","Comparatives & superlatives","Gerunds & infinitives","Question forms"],
+ "Advanced (C1)":["Inversion","Cleft sentences","Linkers"]};
+const GRAMS=Object.values(GRAM_GROUPS).flat();
 const CATS={warm:"Warm-ups",you:"Talk about you",opinion:"Opinions & debate",game:"Games"};
 const FMTS={ind:"Individual",pair:"Pairs",grp:"Whole group"};
 const LEVELS=["A1","A2","B1","B2","C1"];
@@ -292,11 +300,11 @@ function hub(){
     <label class="search"><span class="sr">Search</span><input id="q" type="search" placeholder="Search activities, topics or grammar (e.g. second conditional)" value="${esc(F.q||"")}" autocomplete="off"></label>
     <div class="chips" id="fFmt">${[["all","All formats"],...Object.entries(FMTS)].map(([k,v])=>`<button data-k="${k}" aria-pressed="${F.fmt===k}">${v}</button>`).join("")}</div>
     <div class="chips" id="fLv">${["all",...LEVELS].map(k=>`<button data-k="${k}" aria-pressed="${F.lv===k}">${k==="all"?"All levels":k}</button>`).join("")}</div>
-    <div class="chips" id="fGr"><span class="chips-l">Grammar</span>${["all",...GRAMS].map(k=>`<button data-k="${k}" aria-pressed="${(F.gr||"all")===k}">${k==="all"?"Any":k}</button>`).join("")}</div>
+    <label class="grsel"><span class="chips-l">Grammar</span><select id="fGr"><option value="all">Any grammar</option>${Object.entries(GRAM_GROUPS).map(([g,l])=>`<optgroup label="${esc(g)}">${l.filter(x=>ALL.some(a=>(a.gram||[]).includes(x))).map(x=>`<option ${F.gr===x?"selected":""}>${esc(x)}</option>`).join("")}</optgroup>`).join("")}</select></label>
   </section>
   <div id="list" style="display:flex;flex-direction:column;gap:26px"></div>`;
   const bind=(id,key)=>$(id).querySelectorAll("button").forEach(b=>b.onclick=()=>{F[key]=b.dataset.k;store.set("sc-filters2",F);$(id).querySelectorAll("button").forEach(x=>x.setAttribute("aria-pressed",x===b));renderList();});
-  bind("#fFmt","fmt");bind("#fLv","lv");bind("#fGr","gr");
+  bind("#fFmt","fmt");bind("#fLv","lv");$("#fGr").onchange=e=>{F.gr=e.target.value;store.set("sc-filters2",F);renderList();};
   $("#q").oninput=e=>{F.q=e.target.value;store.set("sc-filters2",F);renderList();};
   wireClassSwitcher(renderList);renderList();
 }
@@ -355,7 +363,7 @@ function buildSlides(d,order){const s=[{t:"title"}];
   s.push({t:"end"});return s;}
 function deckView(d){
   const order=[...d.cards.keys()];
-  D={d,order,slides:buildSlides(d,order),i:0,phr:true,hide:false,tid:null,left:0,picked:[],pickName:null};
+  D={d,order,slides:buildSlides(d,order),i:0,phr:true,hide:!!d.secret,tid:null,left:0,picked:[],pickName:null};
   const p=PRINT[d.id],a=CL.active();
   app.innerHTML=`<div class="wrap" style="gap:14px">
     <div class="top"><a class="back" href="#">← All activities</a>${classSwitcher()}</div>
@@ -366,7 +374,7 @@ function deckView(d){
       <div class="tools">
         ${PER_OK(d)?`<select id="perSel" aria-label="Cards per slide">${[1,2,3,4,6,9].map(n=>`<option value="${n}" ${perOf(d)===n?"selected":""}>${n} ${n===1?"card":"cards"} per slide</option>`).join("")}</select>`:""}
         <button class="ghost" id="shuf">Shuffle</button>
-        ${d.kind==="board"?`<button class="ghost" id="hideB" aria-pressed="false">Hide card</button>`:""}
+        ${d.kind==="board"||d.secret?`<button class="ghost" id="hideB" aria-pressed="${!!d.secret}">Hide card</button>`:""}
         <select id="tsel" aria-label="Timer length"><option value="30">0:30</option><option value="60" ${(d.timer||60)===60?"selected":""}>1:00</option><option value="120" ${d.timer===120?"selected":""}>2:00</option><option value="180">3:00</option><option value="300">5:00</option><option value="480">8:00</option></select>
         <button class="ghost" id="tbtn">Timer</button>
         <button class="ghost" id="pickB" ${a?"":"disabled title=\"Choose a class first\""}>Pick a student</button>
@@ -376,6 +384,7 @@ function deckView(d){
     <section class="card guide"><div class="row" style="justify-content:space-between"><h2>Teacher guide</h2>
       <div class="tabs" role="tablist">${Object.keys(FMTS).map(f=>`<button role="tab" data-f="${f}" aria-selected="false">${FMTS[f]}${d.fmts.includes(f)?"":" (adapted)"}</button>`).join("")}</div></div>
       <div id="gbody"></div>
+      ${d.focus?`<p class="focus"><b>Structure focus:</b> ${esc(d.focus)}</p>`:""}
       ${d.printNote?`<p class="note">${esc(d.printNote)}</p>`:""}
       <div class="row" id="doneRow"></div></section></div>`;
   const tabs=app.querySelectorAll(".tabs button");
@@ -396,7 +405,8 @@ function deckView(d){
     else if(e.key==="ArrowLeft"||e.key==="PageUp"){e.preventDefault();go(-1);}
     else if(e.key==="f"||e.key==="F")$("#fsB").click();
     else if(e.key==="p"||e.key==="P")$("#phB").click();
-    else if(e.key==="t"||e.key==="T")toggleTimer();};
+    else if(e.key==="t"||e.key==="T")toggleTimer();
+    else if((e.key==="h"||e.key==="H")&&$("#hideB"))$("#hideB").click();};
   document.addEventListener("keydown",D.key);
   doneRow();render();
 }
@@ -450,7 +460,7 @@ function render(){const d=D.d,s=D.slides[D.i],st=$("#stage"),n=D.slides.length;
     else if(d.kind==="board"){
       inner=`<div class="s-split"><p class="s-big">${esc(c.w)}</p><div class="s-no"><small class="label" style="color:var(--acc)">Don't say</small>${c.no.map(x=>`<span>${esc(x)}</span>`).join("")}</div></div>`;}
     body=`<div class="s-eyebrow"><span>${esc(d.name)}</span><span>${cardNo}</span></div><div class="s-body">${inner}</div>${phrases(d)}`;
-    if(d.kind==="board"&&D.hide)body+=`<div class="s-cover"><span class="label" style="color:var(--stage-muted)">Next word</span><p class="s-title">Ready?</p><p class="s-instr">Press Hide card again to show it.</p></div>`;
+    if((d.kind==="board"||d.secret)&&D.hide)body+=`<div class="s-cover"><span class="label" style="color:var(--stage-muted)">${d.secret?"Only the speaker looks":"Next word"}</span><p class="s-title">${d.secret?"Eyes closed!":"Ready?"}</p><p class="s-instr">${d.secret?"Everyone except the speaker closes their eyes. Press H to show the card, and H again to hide it.":"Press Hide card again to show it."}</p></div>`;
   }
   st.innerHTML=body+`<div class="s-overlay">${D.tid||D.left>0?`<span class="s-pill ${D.left<=10?"low":""}" id="tpill">${fmt(Math.max(D.left,0))}</span>`:""}</div>
     ${D.up?`<div class="s-up">Time's up!</div>`:""}${D.pickName?`<div class="s-pick">${esc(D.pickName)}</div>`:""}

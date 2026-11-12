@@ -32,7 +32,11 @@
 "Next week I'm looking forward to…",
 "This week I finally…"
 ],
-"coverP": "a weekly planner open on a desk with a coffee, a pen and sticky notes"
+"coverP": "a weekly planner open on a desk with a coffee, a pen and sticky notes",
+"gram": [
+"Past simple",
+"Present perfect"
+]
 },
 {
 "id": "strange-delivery",
@@ -106,7 +110,10 @@
 "My go-to outfit",
 "My go-to café or restaurant"
 ],
-"coverP": "a cosy flat lay of favourite everyday things: a mug, headphones, a snack, a book and trainers"
+"coverP": "a cosy flat lay of favourite everyday things: a mug, headphones, a snack, a book and trainers",
+"gram": [
+"Present simple"
+]
 },
 {
 "id": "main-character",
@@ -141,7 +148,11 @@
 "How does the film end?",
 "Would people watch a sequel?"
 ],
-"coverP": "an old cinema clapperboard and a film camera on a city street at golden hour"
+"coverP": "an old cinema clapperboard and a film camera on a city street at golden hour",
+"gram": [
+"Present continuous",
+"Present simple"
+]
 },
 {
 "id": "mood-menu",
@@ -177,7 +188,10 @@
 "A video game marathon"
 ],
 "img": true,
-"imgP": "a cosy scene that captures the mood: {x}"
+"imgP": "a cosy scene that captures the mood: {x}",
+"gram": [
+"Gerunds & infinitives"
+]
 },
 {
 "id": "ideal-weekend",
@@ -208,7 +222,10 @@
 "What would you wear?",
 "What would you do on Sunday night?"
 ],
-"coverP": "a sunny Saturday morning: breakfast on a balcony with a view"
+"coverP": "a sunny Saturday morning: breakfast on a balcony with a view",
+"gram": [
+"Second conditional"
+]
 },
 {
 "id": "how-often",
@@ -249,7 +266,10 @@
 "eat pizza"
 ],
 "img": true,
-"imgP": "an everyday scene illustrating the activity '{x}'"
+"imgP": "an everyday scene illustrating the activity '{x}'",
+"gram": [
+"Present simple"
+]
 },
 {
 "id": "name-three",
@@ -327,6 +347,10 @@
 "washing machine",
 "camera",
 "key"
+],
+"gram": [
+"Present simple",
+"Gerunds & infinitives"
 ]
 },
 {
@@ -365,7 +389,10 @@
 "a great birthday",
 "a true friend"
 ],
-"coverP": "an open dictionary on a wooden table with a magnifying glass"
+"coverP": "an open dictionary on a wooden table with a magnifying glass",
+"gram": [
+"Relative clauses"
+]
 },
 {
 "id": "user-manual",
@@ -448,7 +475,11 @@
 "Getting up early"
 ],
 "img": true,
-"imgP": "a scene representing the experience: {x}"
+"imgP": "a scene representing the experience: {x}",
+"gram": [
+"Past simple",
+"Present perfect"
+]
 },
 {
 "id": "red-green-flags",
@@ -489,7 +520,8 @@
 ],
 "coverP": "a red flag and a green flag waving on a beach against a blue sky",
 "gram": [
-"Zero conditional"
+"Zero conditional",
+"Present simple"
 ]
 },
 {
@@ -564,7 +596,8 @@
 }
 ],
 "gram": [
-"Second conditional"
+"Second conditional",
+"Comparatives & superlatives"
 ]
 },
 {
@@ -632,7 +665,11 @@
 ]
 ],
 "img": true,
-"imgP": "the activity: {x}"
+"imgP": "the activity: {x}",
+"gram": [
+"Present perfect",
+"Second conditional"
+]
 },
 {
 "id": "two-truths",
@@ -673,7 +710,11 @@
 "Strange habits"
 ],
 "end": "Who was the best liar? Which lie was the hardest to spot?",
-"coverP": "a detective magnifying glass over three paper cards on a table"
+"coverP": "a detective magnifying glass over three paper cards on a table",
+"gram": [
+"Past simple",
+"Question forms"
+]
 },
 {
 "id": "unwritten-rules",
@@ -712,7 +753,10 @@
 "Not replying to a message for three days"
 ],
 "img": true,
-"imgP": "an everyday scene of this situation: {x}"
+"imgP": "an everyday scene of this situation: {x}",
+"gram": [
+"Modals: advice & obligation"
+]
 },
 {
 "id": "the-catch",
@@ -842,7 +886,10 @@
 "Coffee shop loyalty cards"
 ],
 "img": true,
-"imgP": "a photo representing: {x} (generic, no real brands or app logos)"
+"imgP": "a photo representing: {x} (generic, no real brands or app logos)",
+"gram": [
+"Passive voice"
+]
 },
 {
 "id": "convenient-creepy",
@@ -956,7 +1003,10 @@
 }
 ],
 "img": true,
-"imgP": "{x}"
+"imgP": "{x}",
+"gram": [
+"Linkers"
+]
 },
 {
 "id": "headline-vs-life",
@@ -1028,7 +1078,10 @@
 }
 ],
 "note": "These headlines are invented for discussion, not real statistics.",
-"coverP": "a pile of newspapers and a smartphone showing a chart, on a café table"
+"coverP": "a pile of newspapers and a smartphone showing a chart, on a café table",
+"gram": [
+"Linkers"
+]
 },
 {
 "id": "defend-the-object",
@@ -1143,7 +1196,8 @@
 "img": true,
 "imgP": "a photo representing: {x}",
 "gram": [
-"Second conditional"
+"Second conditional",
+"Comparatives & superlatives"
 ]
 },
 {
@@ -1183,7 +1237,10 @@
 ],
 "end": "Class vote: which debate was the most convincing?",
 "img": true,
-"imgP": "a playful photo representing the topic: {x}"
+"imgP": "a playful photo representing the topic: {x}",
+"gram": [
+"Linkers"
+]
 },
 {
 "id": "just-a-minute",
@@ -1222,7 +1279,10 @@
 "Superpowers"
 ],
 "img": true,
-"imgP": "{x}"
+"imgP": "{x}",
+"gram": [
+"Linkers"
+]
 },
 {
 "id": "fortunately",
@@ -1259,7 +1319,10 @@
 "It started snowing in July."
 ],
 "img": true,
-"imgP": "the story moment: {x}"
+"imgP": "the story moment: {x}",
+"gram": [
+"Narrative tenses"
+]
 },
 {
 "id": "alibi",
@@ -1300,7 +1363,12 @@
 ],
 "end": "Guilty or not guilty? If their stories differ in three details, they're guilty!",
 "img": true,
-"imgP": "a funny scene of the aftermath: {x}"
+"imgP": "a funny scene of the aftermath: {x}",
+"gram": [
+"Past continuous",
+"Narrative tenses",
+"Question forms"
+]
 },
 {
 "id": "taboo",
@@ -1568,7 +1636,10 @@
 ]
 }
 ],
-"coverP": "a stack of blank game cards and a sand timer on a table"
+"coverP": "a stack of blank game cards and a sand timer on a table",
+"gram": [
+"Relative clauses"
+]
 },
 {
 "id": "desert-island",
@@ -1661,7 +1732,9 @@
 "img": true,
 "imgP": "{x}, shown through their setting, uniform or tools",
 "gram": [
-"Second conditional"
+"Second conditional",
+"Question forms",
+"Present perfect"
 ]
 },
 {
@@ -1729,7 +1802,10 @@
 ]
 ],
 "img": true,
-"imgP": "{x}"
+"imgP": "{x}",
+"gram": [
+"Narrative tenses"
+]
 },
 {
 "id": "fake-definitions",
@@ -1821,7 +1897,10 @@
 "Everyone votes. A team scores 1 point for each vote its fake gets, and 2 points for guessing the real one. Then reveal."
 ]
 },
-"end": "Which fake definition was the most convincing today?"
+"end": "Which fake definition was the most convincing today?",
+"gram": [
+"Relative clauses"
+]
 },
 {
 "id": "sell-it",
@@ -1934,7 +2013,10 @@
 "Class votes for the product they'd actually buy."
 ]
 },
-"end": "Which product would actually sell? What would you call it?"
+"end": "Which product would actually sell? What would you call it?",
+"gram": [
+"Comparatives & superlatives"
+]
 },
 {
 "id": "excuses",
@@ -1992,7 +2074,8 @@
 },
 "end": "Who gave the best excuse today?",
 "gram": [
-"Third conditional"
+"Third conditional",
+"Past continuous"
 ]
 },
 {
@@ -2049,7 +2132,10 @@
 "Anyone can move if they're convinced. Ask the people who moved why."
 ]
 },
-"end": "Which hot take divided the class the most?"
+"end": "Which hot take divided the class the most?",
+"gram": [
+"Comparatives & superlatives"
+]
 },
 {
 "id": "most-likely",
@@ -2102,7 +2188,10 @@
 "Keep it light: ban answers that could be hurtful."
 ]
 },
-"end": "Who got the most votes today? Do they agree?"
+"end": "Who got the most votes today? Do they agree?",
+"gram": [
+"Comparatives & superlatives"
+]
 },
 {
 "id": "silly-conspiracies",
@@ -2155,7 +2244,10 @@
 "Vote: which group was the most convincing?"
 ]
 },
-"end": "Which theory was so convincing you almost believed it?"
+"end": "Which theory was so convincing you almost believed it?",
+"gram": [
+"Linkers"
+]
 },
 {
 "id": "the-pitch",
@@ -2213,7 +2305,10 @@
 "Investors announce who gets their money and why."
 ]
 },
-"end": "Who got the most investment? Would you really buy it?"
+"end": "Who got the most investment? Would you really buy it?",
+"gram": [
+"Comparatives & superlatives"
+]
 },
 {
 "id": "rank-it",
@@ -2358,7 +2453,10 @@
 "Build a class ranking on the board."
 ]
 },
-"end": "Which ranking caused the biggest argument?"
+"end": "Which ranking caused the biggest argument?",
+"gram": [
+"Comparatives & superlatives"
+]
 },
 {
 "id": "questions-only",
@@ -2413,7 +2511,10 @@
 "Keep the same scene running as long as possible."
 ]
 },
-"end": "What was the funniest question of the day?"
+"end": "What was the funniest question of the day?",
+"gram": [
+"Question forms"
+]
 },
 {
 "id": "slide-roulette",
@@ -2536,7 +2637,10 @@
 "The audience asks two questions. Applause is mandatory!"
 ]
 },
-"end": "Who was the most convincing expert today?"
+"end": "Who was the most convincing expert today?",
+"gram": [
+"Linkers"
+]
 },
 {
 "id": "facts-of-life",
@@ -2935,5 +3039,1890 @@
 ]
 },
 "end": "Write one mixed conditional about your own life."
+},
+{
+"id": "who-am-i",
+"name": "Who Am I?",
+"cat": "game",
+"lv": [
+"A1",
+"A2",
+"B1"
+],
+"fmts": [
+"ind",
+"pair",
+"grp"
+],
+"kind": "single",
+"secret": true,
+"gram": [
+"Present simple"
+],
+"focus": "Present simple for routines: I get up…, I work…, I don't…, I usually…",
+"desc": "Be a person, animal or object and describe your typical day. The others guess who you are.",
+"instr": "Only the speaker looks at the card. Describe your typical day as if you were that person, animal or thing. Don't say the word! The others guess.",
+"ph": [
+"Every day I…",
+"I usually… but I never…",
+"I don't… because…",
+"In the evening I…"
+],
+"ex": "I sleep all day. At night I go out. I don't like garlic. I never look in mirrors… (a vampire)",
+"cards": [
+"a cat",
+"a lifeguard",
+"a fridge",
+"a postman",
+"a vampire",
+"a baker",
+"a smartphone",
+"a footballer",
+"a pilot",
+"a teacher",
+"a goldfish",
+"Father Christmas"
+],
+"guide": {
+"ind": [
+"The student looks at the card and describes their day in five sentences; you guess.",
+"Then swap: you describe, they guess.",
+"Correct third-person -s when they ask 'Do you…? / Does it…?'"
+],
+"pair": [
+"Hide the slide: one partner looks, the other doesn't.",
+"The listener can ask yes/no questions: 'Do you work at night?'",
+"Swap after each guess."
+],
+"grp": [
+"One student comes to the front and looks at the card (press Hide card for the class).",
+"The class asks yes/no questions in the present simple.",
+"Whoever guesses becomes the next speaker."
+]
+},
+"end": "Which one was the hardest to guess?"
+},
+{
+"id": "mime-time",
+"name": "Mime Time",
+"cat": "game",
+"lv": [
+"A1",
+"A2",
+"B1"
+],
+"fmts": [
+"grp",
+"pair"
+],
+"kind": "single",
+"secret": true,
+"gram": [
+"Present continuous"
+],
+"focus": "Present continuous for actions in progress: Are you …ing? You're …ing!",
+"desc": "Mime a funny action. The class guesses what you're doing right now.",
+"instr": "Only the actor looks at the card. Mime the action. The class must guess using the present continuous: 'Are you…ing?'",
+"ph": [
+"Are you…ing?",
+"You're…ing!",
+"Is it heavy? Are you enjoying it?",
+"No, I'm not. Yes, I am!"
+],
+"cards": [
+"taking a selfie in the rain",
+"walking a very big dog",
+"eating spaghetti on a first date",
+"trying to catch a fly",
+"carrying a heavy suitcase upstairs",
+"ironing a shirt",
+"waiting for a late bus",
+"painting a wall",
+"learning to ice skate",
+"opening a jar that's stuck",
+"looking for wifi signal",
+"changing a baby's nappy"
+],
+"guide": {
+"ind": [
+"Take turns: you mime, the student guesses, then swap.",
+"Insist on full questions: 'Are you…ing?' not just the verb.",
+"Add a follow-up: 'Why are you doing that?'"
+],
+"pair": [
+"Partners take turns miming, using the hidden slide.",
+"The guesser can only ask yes/no questions.",
+"Count how many they guess in 3 minutes."
+],
+"grp": [
+"Press Hide card. The actor comes to look and mimes for the class.",
+"Teams take turns guessing with 'Are you…ing?'",
+"A correct guess = 1 point; a correct guess with perfect grammar = 2."
+]
+},
+"end": "Who was the best actor today?"
+},
+{
+"id": "the-evidence",
+"name": "The Evidence",
+"cat": "game",
+"lv": [
+"B1",
+"B2"
+],
+"fmts": [
+"ind",
+"pair",
+"grp"
+],
+"kind": "single",
+"gram": [
+"Present perfect continuous"
+],
+"focus": "Present perfect continuous for visible results: You've been …ing! Have you been …ing?",
+"desc": "Look at the evidence and work out what someone has been doing.",
+"instr": "Look at the evidence. What has this person been doing? Make at least three guesses. The 'suspect' invents the true story.",
+"ph": [
+"You've been…ing, haven't you?",
+"Have you been…ing?",
+"I think she's been…",
+"No, I've been…ing all morning!"
+],
+"cards": [
+"Your face is covered in paint.",
+"You're out of breath and very sweaty.",
+"Your eyes are red and you have tissues everywhere.",
+"There's flour all over the kitchen.",
+"Your hands are full of soil.",
+"You can't stop yawning.",
+"Your phone battery is at 1%.",
+"Your hair is wet but it isn't raining.",
+"You're smiling and you can't stop.",
+"Your voice has almost gone.",
+"There are 15 empty coffee cups on your desk.",
+"You smell of smoke."
+],
+"guide": {
+"ind": [
+"You're the 'suspect'. The student makes three guesses, then you invent the true story.",
+"Swap roles on the next card.",
+"Contrast with the present perfect simple: 'I've painted the kitchen' vs 'I've been painting'."
+],
+"pair": [
+"Partner A is the suspect, Partner B makes three guesses.",
+"The suspect reveals what they have really been doing, the more creative the better.",
+"Swap."
+],
+"grp": [
+"Choose a 'suspect' to stand at the front.",
+"The class makes guesses: the most creative correct sentence wins a point.",
+"The suspect tells the true story."
+]
+},
+"end": "What have YOU been doing this week?"
+},
+{
+"id": "have-you-ever-liar",
+"name": "Have You Ever… (Liar Edition)",
+"cat": "game",
+"lv": [
+"A2",
+"B1",
+"B2"
+],
+"fmts": [
+"ind",
+"pair",
+"grp"
+],
+"kind": "single",
+"gram": [
+"Present perfect",
+"Past simple",
+"Question forms"
+],
+"focus": "Have you ever…? (present perfect) → When/where/what happened? (past simple)",
+"desc": "Answer 'yes' to every question, even if it's a lie. The others ask follow-ups to catch you.",
+"instr": "Ask 'Have you ever…?' The speaker ALWAYS says yes. Then ask three follow-up questions in the past simple. True or lie? Vote!",
+"ph": [
+"Have you ever…?",
+"Yes, I have. / No, I haven't.",
+"When did you…? Where were you?",
+"What happened next? Who was with you?"
+],
+"cards": [
+"been on TV",
+"met a famous person",
+"broken a bone",
+"eaten something really strange",
+"slept outside",
+"lost your phone",
+"won a competition",
+"sung in public",
+"got lost in a city",
+"fallen asleep in class or at work",
+"seen a ghost",
+"cried at a film"
+],
+"guide": {
+"ind": [
+"The student asks you; you answer yes and they ask three follow-ups. Then swap.",
+"They decide: truth or lie?",
+"Highlight the switch: Have you ever…? → When did you…?"
+],
+"pair": [
+"Partners take turns. The speaker secretly decides to tell the truth or lie.",
+"The listener asks three past simple questions and guesses.",
+"1 point for a correct guess, 1 point for a successful lie."
+],
+"grp": [
+"One student in the hot seat. The class asks follow-ups (max five).",
+"Everyone votes: truth or lie?",
+"Reveal and choose the next student."
+]
+},
+"end": "Who was the best liar? What was the most surprising true story?"
+},
+{
+"id": "epic-weekend",
+"name": "Epic Weekend",
+"cat": "you",
+"lv": [
+"A2",
+"B1",
+"B2"
+],
+"fmts": [
+"ind",
+"pair",
+"grp"
+],
+"kind": "single",
+"gram": [
+"Past simple",
+"Narrative tenses"
+],
+"focus": "Past simple for a sequence of events: First I…, then I…, after that…",
+"desc": "Tell the story of your weekend, but it must include three surprising things.",
+"instr": "Tell the story of your last weekend. It must include the three things on the card! Make it believable. The others ask questions.",
+"ph": [
+"On Saturday morning I…",
+"Then, suddenly,…",
+"After that, we…",
+"In the end,…"
+],
+"cards": [
+{
+"t": "Last weekend…",
+"sub": [
+"a llama",
+"your old teacher",
+"a broken umbrella"
+]
+},
+{
+"t": "Last weekend…",
+"sub": [
+"a helicopter",
+"a birthday cake",
+"your grandmother"
+]
+},
+{
+"t": "Last weekend…",
+"sub": [
+"a famous singer",
+"a flat tyre",
+"100 euros"
+]
+},
+{
+"t": "Last weekend…",
+"sub": [
+"a lost dog",
+"a wedding",
+"the police"
+]
+},
+{
+"t": "Last weekend…",
+"sub": [
+"a karaoke bar",
+"a fire alarm",
+"a pizza"
+]
+},
+{
+"t": "Last weekend…",
+"sub": [
+"a boat",
+"a strange message",
+"a cat"
+]
+},
+{
+"t": "Last weekend…",
+"sub": [
+"a TV camera",
+"a marathon",
+"your neighbour"
+]
+},
+{
+"t": "Last weekend…",
+"sub": [
+"a mountain",
+"a snake",
+"a picnic"
+]
+},
+{
+"t": "Last weekend…",
+"sub": [
+"a supermarket",
+"a superhero costume",
+"a baby"
+]
+},
+{
+"t": "Last weekend…",
+"sub": [
+"a train",
+"a secret",
+"a chocolate factory"
+]
+}
+],
+"end": "Whose weekend would you like to have had?"
+},
+{
+"id": "when-it-happened",
+"name": "When It Happened",
+"cat": "you",
+"lv": [
+"A2",
+"B1",
+"B2"
+],
+"fmts": [
+"ind",
+"pair",
+"grp"
+],
+"kind": "single",
+"gram": [
+"Past continuous",
+"Past simple"
+],
+"focus": "Past continuous + past simple: I was …ing when…",
+"desc": "Something strange happened. What were you doing at that exact moment?",
+"instr": "Imagine this happened yesterday. What were you doing when it happened? What did you do next?",
+"ph": [
+"I was…ing when…",
+"While I was…ing,…",
+"At that moment, I was…",
+"So I immediately…"
+],
+"cards": [
+"The lights went out in the whole city.",
+"A cow walked into the classroom.",
+"Your phone rang with an unknown number at 3 am.",
+"It started snowing in the middle of summer.",
+"Someone famous knocked on your door.",
+"The fire alarm went off.",
+"You heard a very strange noise in the kitchen.",
+"Your best friend sent you a message: 'Help!'",
+"A bird flew into the room.",
+"The internet stopped working all over the world.",
+"You saw yourself on the TV news.",
+"Your chair broke."
+],
+"guide": {
+"ind": [
+"The student answers with 'I was…ing when…' and continues the story.",
+"Ask what other people were doing.",
+"You answer too and compare."
+],
+"pair": [
+"Each partner says what they were doing and what they did next.",
+"Then they combine both stories into one.",
+"Share the funniest with the class."
+],
+"grp": [
+"Show the card. Go round the class: everyone says what they were doing (no repeats!).",
+"Pick one answer and build a class story from it.",
+"Highlight the two tenses on the board."
+]
+},
+"end": "What were you doing yesterday at 8 pm?"
+},
+{
+"id": "the-backstory",
+"name": "The Backstory",
+"cat": "opinion",
+"lv": [
+"B1",
+"B2",
+"C1"
+],
+"fmts": [
+"ind",
+"pair",
+"grp"
+],
+"kind": "single",
+"gram": [
+"Past perfect",
+"Narrative tenses"
+],
+"focus": "Past perfect for what happened before: She had already…, He hadn't…",
+"desc": "Something happened. Invent what had happened before to explain it.",
+"instr": "Explain the situation: what had happened before? Give at least three possible explanations, then choose the best one.",
+"ph": [
+"Maybe she had…",
+"He hadn't… so…",
+"By the time…, they had already…",
+"It turned out that…"
+],
+"cards": [
+"When Ana got home, she was absolutely furious.",
+"Tom arrived at work in his pyjamas.",
+"The teacher came into the class and started laughing.",
+"When we arrived at the party, everybody had gone.",
+"He opened the fridge and screamed.",
+"She was crying at the airport, but she was smiling.",
+"The dog was sitting on the sofa looking very guilty.",
+"My neighbour knocked on my door at midnight holding a cake.",
+"The whole team was singing in the office on Monday morning.",
+"When I got to the cinema, I realised I was alone.",
+"My grandmother suddenly bought a motorbike.",
+"The chef walked out of his own restaurant."
+],
+"guide": {
+"ind": [
+"The student gives three explanations with the past perfect.",
+"You choose the best one and ask questions about it.",
+"Correct: 'had + past participle' for the earlier action."
+],
+"pair": [
+"Partners compete: who can give the most original explanation?",
+"Then they tell the full story in order.",
+"Swap who starts."
+],
+"grp": [
+"Show the situation. Groups have one minute to invent the backstory.",
+"Each group tells theirs; the class votes for the best.",
+"Write a perfect example on the board."
+]
+},
+"end": "Which backstory would make the best film?"
+},
+{
+"id": "back-in-my-day",
+"name": "Back in My Day…",
+"cat": "you",
+"lv": [
+"A2",
+"B1",
+"B2"
+],
+"fmts": [
+"ind",
+"pair",
+"grp"
+],
+"kind": "single",
+"gram": [
+"Used to / would",
+"Past simple"
+],
+"focus": "used to / would for past habits: We used to…, We didn't use to…, We would…",
+"desc": "It's the year 2080 and you're very old. Tell the young people how life used to be in the 2020s.",
+"instr": "It's 2080 and you're a grandparent. Tell the 'kids' how things used to be when you were young. Then talk about your real childhood.",
+"ph": [
+"Back in my day, we used to…",
+"We didn't use to…",
+"Every weekend we would…",
+"Can you believe we used to…?"
+],
+"ex": "Back in my day, we used to carry our phones in our pockets! And we would wait 5 minutes for a pizza delivery. Terrible!",
+"cards": [
+"Phones",
+"School",
+"Transport",
+"Shopping",
+"Music",
+"Money",
+"Holidays",
+"TV and films",
+"Food",
+"Work",
+"Games and toys",
+"Friends and social media"
+],
+"q": [
+"How did it use to be in YOUR childhood?",
+"What do you miss?"
+],
+"guide": {
+"ind": [
+"The student plays the 2080 grandparent; you're the shocked grandchild.",
+"Then talk about their real childhood: 'When I was a child, I used to…'",
+"Note the difference between used to and would."
+],
+"pair": [
+"One partner is the 2080 grandparent, the other asks questions.",
+"Swap, then compare real childhoods.",
+"Find three things you both used to do."
+],
+"grp": [
+"Show the topic. Volunteers play the grandparent for one minute.",
+"The class reacts and asks questions.",
+"Finish with a real 'When I was a child…' round."
+]
+},
+"end": "What do you think people in 2080 will find funny about us?"
+},
+{
+"id": "fortune-teller",
+"name": "Fortune Teller",
+"cat": "game",
+"lv": [
+"A2",
+"B1",
+"B2"
+],
+"fmts": [
+"pair",
+"grp"
+],
+"kind": "single",
+"gram": [
+"Future forms"
+],
+"focus": "will / going to / might for predictions: You will…, You're going to…, You might…",
+"desc": "Read your partner's future. Make the predictions as dramatic as possible!",
+"instr": "You're a fortune teller. Look into the crystal ball and predict your partner's future about this topic. Your partner reacts!",
+"ph": [
+"I can see that you will…",
+"You're going to… very soon.",
+"You might… but be careful!",
+"You won't… until…"
+],
+"cards": [
+"Love",
+"Money",
+"Travel",
+"Your next job",
+"This weekend",
+"Your next birthday",
+"A big surprise",
+"Your future house",
+"A new friend",
+"Your health",
+"Your next holiday",
+"Something you'll lose"
+],
+"guide": {
+"ind": [
+"You're the fortune teller first, then the student.",
+"Push for three predictions per topic.",
+"Point out 'going to' when there's evidence: 'Look at the clouds! It's going to rain.'"
+],
+"pair": [
+"Partners take turns being the fortune teller.",
+"The 'client' must react: 'Really? When will that happen?'",
+"At the end, each says which prediction they hope comes true."
+],
+"grp": [
+"Choose a fortune teller and a client to come to the front.",
+"The class can add 'extra visions'.",
+"Rotate every topic."
+]
+},
+"end": "Which prediction do you hope will come true?"
+},
+{
+"id": "sorry-ill-be-busy",
+"name": "Sorry, I'll Be Busy",
+"cat": "game",
+"lv": [
+"B1",
+"B2"
+],
+"fmts": [
+"pair",
+"grp"
+],
+"kind": "single",
+"gram": [
+"Future continuous",
+"Future forms"
+],
+"focus": "Future continuous for actions in progress in the future: I'll be …ing at 6.",
+"desc": "Someone keeps inviting you to boring things. Invent creative reasons why you'll be busy.",
+"instr": "Your partner invites you to this. You don't want to go! Say what you'll be doing at that time. Be creative. Your partner suggests another time…",
+"ph": [
+"Sorry, at that time I'll be…ing.",
+"I'd love to, but I'll be…ing all day.",
+"What about…? / How about…?",
+"No, I'll be…ing then too!"
+],
+"cards": [
+"Can you help me move house on Saturday at 9 am?",
+"Do you want to come to my cousin's poetry reading tonight?",
+"Can you look after my five cats this weekend?",
+"Shall we go running at 6 am tomorrow?",
+"Come to my 3-hour presentation about stamps!",
+"Can you help me paint my fence on Sunday?",
+"Do you want to watch all 8 Harry Potter films tomorrow?",
+"Can you drive me to the airport at 4 am?",
+"Want to help me clean the garage next Saturday?",
+"Can you come to my karaoke practice tonight?"
+],
+"guide": {
+"ind": [
+"You invite; the student refuses with 'I'll be…ing'. Keep suggesting new times.",
+"Swap roles.",
+"Contrast: 'I'll be working at 6' vs 'I'll work tomorrow'."
+],
+"pair": [
+"Partner A invites and suggests three different times.",
+"Partner B must refuse each time with a new excuse.",
+"Swap after each card."
+],
+"grp": [
+"One student invites the class; volunteers refuse with creative excuses.",
+"The class votes for the most creative excuse.",
+"Rotate the 'inviter'."
+]
+},
+"end": "What will you be doing this time tomorrow?"
+},
+{
+"id": "by-2050",
+"name": "By the Year 2050",
+"cat": "opinion",
+"lv": [
+"B2",
+"C1"
+],
+"fmts": [
+"ind",
+"pair",
+"grp"
+],
+"kind": "single",
+"gram": [
+"Future perfect",
+"Future continuous"
+],
+"focus": "Future perfect: By 2050, we will have…; Future continuous: People will be …ing.",
+"desc": "Predict what will have changed by a certain point in the future.",
+"instr": "Make predictions. What will have happened by then? What will people be doing? Agree or disagree with each other.",
+"ph": [
+"By then, we will have…",
+"I don't think we'll have… by…",
+"People will be…ing",
+"By the time I'm…, I'll have…"
+],
+"cards": [
+"By 2050… transport",
+"By 2050… schools",
+"By 2050… food",
+"By 2050… holidays",
+"By 2050… languages",
+"By 2050… jobs",
+"By the end of this year, I…",
+"By the time I'm 40, I…",
+"By the end of this course, we…",
+"By next summer, I…",
+"By 2100… the planet",
+"By 2050… phones"
+],
+"guide": {
+"ind": [
+"The student makes three predictions; you agree or disagree.",
+"Do the personal cards (By the time I'm 40…) slowly and ask why.",
+"Point out 'by' + future perfect."
+],
+"pair": [
+"Partners make predictions and rate each other's: likely, possible or impossible.",
+"Find one prediction you both agree on.",
+"Share it with the class."
+],
+"grp": [
+"Show the card. Groups write three predictions in two minutes.",
+"Groups read them; the class votes for the most likely.",
+"Write the best ones on the board as a 'time capsule'."
+]
+},
+"end": "Write one prediction for yourself to read in 10 years."
+},
+{
+"id": "agony-aunt",
+"name": "Dear Agony Aunt",
+"cat": "opinion",
+"lv": [
+"A2",
+"B1",
+"B2"
+],
+"fmts": [
+"ind",
+"pair",
+"grp"
+],
+"kind": "single",
+"gram": [
+"Modals: advice & obligation"
+],
+"focus": "Advice: You should…, You ought to…, You'd better…, If I were you, I'd…",
+"desc": "Give advice to people with funny or tricky problems.",
+"instr": "This person has written to the advice column. Give them at least three pieces of advice. What shouldn't they do?",
+"ph": [
+"You should…",
+"You shouldn't…",
+"If I were you, I'd…",
+"You'd better… / Why don't you…?"
+],
+"cards": [
+"My flatmate eats all my food.",
+"I've accidentally liked my ex's photo from 5 years ago.",
+"My best friend sings terribly but wants to go on a talent show.",
+"I can't stop checking my phone.",
+"My boss always calls me on Sundays.",
+"My dog hates my new partner.",
+"I've said yes to two parties on the same night.",
+"My neighbour practises the drums at midnight.",
+"I want to learn English but I have no time.",
+"I told everyone I can cook… and now I have to cook for 10 people.",
+"My parents want to join my group chat.",
+"I'm scared of flying but I've won a free trip to Japan."
+],
+"guide": {
+"ind": [
+"The student gives three pieces of advice; you choose the best and ask why.",
+"Then the student writes you a problem.",
+"Practise softening: 'Maybe you could…'"
+],
+"pair": [
+"Partner A reads the problem as if it's theirs; B gives advice.",
+"A chooses the best advice.",
+"Swap."
+],
+"grp": [
+"Show the problem. Students have one minute to write their best advice.",
+"Read a few aloud; the class votes.",
+"Highlight should / ought to / had better on the board."
+]
+},
+"end": "What's the best advice anyone has ever given you?"
+},
+{
+"id": "alien-rulebook",
+"name": "The Alien Rulebook",
+"cat": "game",
+"lv": [
+"A2",
+"B1",
+"B2"
+],
+"fmts": [
+"ind",
+"pair",
+"grp"
+],
+"kind": "single",
+"gram": [
+"Modals: advice & obligation"
+],
+"focus": "Rules: You have to…, You must…, You mustn't…, You don't have to…, You can…",
+"desc": "An alien is coming to live in your town. Teach it the rules nobody explains.",
+"instr": "An alien has just arrived and wants to fit in. Explain the rules for this place: what you have to do, what you mustn't do and what you don't have to do.",
+"ph": [
+"You have to…",
+"You mustn't…",
+"You don't have to…, but…",
+"You're allowed to… / You can…"
+],
+"cards": [
+"At a Spanish family dinner",
+"On the metro",
+"In a lift",
+"At a wedding",
+"At the beach",
+"At school",
+"In a WhatsApp group",
+"At the cinema",
+"At the gym",
+"At a job interview",
+"At a birthday party",
+"In a library"
+],
+"guide": {
+"ind": [
+"The student explains the rules; you're the confused alien and ask 'Why?'",
+"Ask for one rule that's different in another country.",
+"Contrast mustn't vs don't have to."
+],
+"pair": [
+"One partner is the alien and asks questions; the other explains.",
+"Swap every card.",
+"Find a rule that you think is silly."
+],
+"grp": [
+"Show the place. The class gives rules; you write them in three columns (have to / mustn't / don't have to).",
+"Ask: which rule is the most important?",
+"Vote on the silliest rule."
+]
+},
+"end": "Which rule would the alien find the strangest?"
+},
+{
+"id": "whose-bag",
+"name": "Whose Bag Is This?",
+"cat": "game",
+"lv": [
+"B1",
+"B2",
+"C1"
+],
+"fmts": [
+"ind",
+"pair",
+"grp"
+],
+"kind": "single",
+"gram": [
+"Modals of deduction"
+],
+"focus": "Deduction: It must be…, It might/could be…, It can't be…",
+"desc": "Look at what's inside a lost bag and work out who it belongs to.",
+"instr": "This bag was found on a train. Look at what's inside. Who does it belong to? What do they do? Use must, might and can't.",
+"ph": [
+"It must belong to…",
+"It might be… / It could be…",
+"It can't be… because…",
+"He/She probably…"
+],
+"cards": [
+{
+"t": "Lost bag #1",
+"sub": [
+"a whistle",
+"a stopwatch",
+"energy bars",
+"a list of names"
+]
+},
+{
+"t": "Lost bag #2",
+"sub": [
+"dog biscuits",
+"a ball",
+"a lead",
+"a map of the park"
+]
+},
+{
+"t": "Lost bag #3",
+"sub": [
+"a passport",
+"a phrase book",
+"sun cream",
+"a camera"
+]
+},
+{
+"t": "Lost bag #4",
+"sub": [
+"red pens",
+"30 exam papers",
+"a coffee flask",
+"headache tablets"
+]
+},
+{
+"t": "Lost bag #5",
+"sub": [
+"a baby bottle",
+"nappies",
+"a toy giraffe",
+"an energy drink"
+]
+},
+{
+"t": "Lost bag #6",
+"sub": [
+"a wedding invitation",
+"a tie",
+"a speech",
+"tissues"
+]
+},
+{
+"t": "Lost bag #7",
+"sub": [
+"a stethoscope",
+"chewing gum",
+"a phone charger",
+"a novel"
+]
+},
+{
+"t": "Lost bag #8",
+"sub": [
+"paint brushes",
+"a sketchbook",
+"a croissant",
+"a train ticket to Paris"
+]
+},
+{
+"t": "Lost bag #9",
+"sub": [
+"a ring box",
+"flowers",
+"a restaurant booking",
+"a very nervous note"
+]
+},
+{
+"t": "Lost bag #10",
+"sub": [
+"a microphone",
+"a setlist",
+"earplugs",
+"a guitar pick"
+]
+}
+],
+"guide": {
+"ind": [
+"The student makes at least three deductions; you challenge them ('Are you sure?').",
+"Ask them to describe the owner's day.",
+"Contrast must / might / can't with how sure they are."
+],
+"pair": [
+"Partners make deductions and agree on one 'owner profile'.",
+"Compare with another pair.",
+"Swap who starts."
+],
+"grp": [
+"Show the bag. Groups write a profile of the owner in two minutes.",
+"Groups present; the class decides which is most logical.",
+"Write the best deductions on the board."
+]
+},
+"end": "What would someone deduce about you from YOUR bag?"
+},
+{
+"id": "what-must-have-happened",
+"name": "What Must Have Happened?",
+"cat": "opinion",
+"lv": [
+"B2",
+"C1"
+],
+"fmts": [
+"ind",
+"pair",
+"grp"
+],
+"kind": "single",
+"gram": [
+"Past modals"
+],
+"focus": "Past deduction: must have / might have / can't have + past participle; criticism: should have…",
+"desc": "Mysterious situations: work out what happened and who should have done things differently.",
+"instr": "What must have happened? Give three possible explanations, then say what someone should or shouldn't have done.",
+"ph": [
+"Someone must have…",
+"They might have… / could have…",
+"She can't have… because…",
+"He should have… / shouldn't have…"
+],
+"cards": [
+"The kitchen is flooded and the dog is wet.",
+"Your friend didn't come to your birthday party.",
+"The car has a parking ticket and a broken mirror.",
+"Your phone has 47 missed calls from your mum.",
+"The cake in the fridge has a big bite out of it.",
+"Your neighbour's garden is full of footprints.",
+"The teacher came to class with one shoe.",
+"All the lights in the office were on on Monday morning.",
+"Your plant is dead after your holiday.",
+"There's a stranger asleep on your sofa.",
+"Your laptop screen is cracked.",
+"The pizza arrived two hours late and cold."
+],
+"guide": {
+"ind": [
+"The student gives three deductions, then one criticism.",
+"Ask them to tell the 'true story' in the end.",
+"Contrast must have (sure) vs might have (possible)."
+],
+"pair": [
+"Partners take turns making deductions until one sounds right.",
+"Then they decide who should have done what.",
+"Share with the class."
+],
+"grp": [
+"Show the situation. Groups think of the most logical and the funniest explanation.",
+"Groups present; vote for each.",
+"Correct past participles on the board."
+]
+},
+"end": "Tell us about something you should have done differently this week."
+},
+{
+"id": "corrupt-a-wish",
+"name": "Corrupt a Wish",
+"cat": "game",
+"lv": [
+"B1",
+"B2",
+"C1"
+],
+"fmts": [
+"pair",
+"grp"
+],
+"kind": "single",
+"gram": [
+"Wish / If only",
+"Second conditional"
+],
+"focus": "I wish I had/could…, If only…, I wish I hadn't… — and the genie's twist: 'Granted, but…'",
+"desc": "Make a wish. The next person grants it… but adds a terrible twist.",
+"instr": "Make a wish about the topic: 'I wish I…'. The next student is the genie: 'Granted, but…' and adds a twist. Then they make a new wish.",
+"ph": [
+"I wish I had / could / were…",
+"If only I…",
+"Granted, but…",
+"Now I wish I hadn't wished for that!"
+],
+"ex": "A: I wish I could fly. B: Granted, but you can only fly at 2 km per hour. B: I wish I were rich. C: Granted, but all your money is in coins.",
+"cards": [
+"Money",
+"Free time",
+"Being famous",
+"Superpowers",
+"Your house",
+"School or work",
+"Your appearance",
+"Food",
+"Holidays",
+"Your phone",
+"The weather",
+"Talents"
+],
+"guide": {
+"ind": [
+"You're the genie first. The student wishes, you twist it. Then swap.",
+"Finish with a real regret: 'I wish I hadn't…'",
+"Point out: wish + past simple (present), wish + past perfect (past)."
+],
+"pair": [
+"Partners take turns wishing and twisting for 2 minutes per topic.",
+"Count the twists: the funniest pair shares one.",
+"Swap topics."
+],
+"grp": [
+"Students sit in a circle. The wish travels round the class.",
+"Anyone who can't think of a twist in 5 seconds is out.",
+"Vote for the cruellest twist."
+]
+},
+"end": "What's one thing you really wish you could change about your week?"
+},
+{
+"id": "it-wasnt-me",
+"name": "It Wasn't Me!",
+"cat": "game",
+"lv": [
+"B1",
+"B2"
+],
+"fmts": [
+"ind",
+"pair",
+"grp"
+],
+"kind": "single",
+"gram": [
+"Passive voice",
+"Past modals"
+],
+"focus": "Passive to avoid blame: The vase was broken…, The cake has been eaten…, It must have been…",
+"desc": "Something went wrong and you don't want to be blamed. Explain it with the passive.",
+"instr": "Your parent, boss or flatmate is angry. Explain what happened without saying it was you! Use the passive.",
+"ph": [
+"It was broken when I…",
+"Mistakes were made…",
+"The… has been… by someone",
+"It must have been… by the cat"
+],
+"cards": [
+"The vase is broken.",
+"All the biscuits have been eaten.",
+"The car is scratched.",
+"The homework is missing.",
+"The plant is dead.",
+"The TV remote has disappeared.",
+"The walls have been painted pink.",
+"The wifi password has been changed.",
+"Your sister's jumper is ruined.",
+"The boss's chair is broken.",
+"The dog has been dyed blue.",
+"The fridge door was left open all night."
+],
+"guide": {
+"ind": [
+"You're the angry parent or boss and ask questions; the student defends themselves with the passive.",
+"Swap roles.",
+"Show how the passive hides who did it."
+],
+"pair": [
+"One partner accuses, the other avoids the blame.",
+"The accuser decides: guilty or not guilty?",
+"Swap."
+],
+"grp": [
+"Groups play a family. 'Parents' ask questions; 'siblings' blame each other using the passive.",
+"Act out the best one for the class.",
+"Write the best passive excuses on the board."
+]
+},
+"end": "What's the best excuse you've ever heard?"
+},
+{
+"id": "made-built-written",
+"name": "Made, Built, Written…",
+"cat": "warm",
+"lv": [
+"A2",
+"B1",
+"B2"
+],
+"fmts": [
+"ind",
+"pair",
+"grp"
+],
+"kind": "single",
+"reveal": true,
+"revealTag": "Passive quiz · say the full sentence",
+"ansLabel": "The answer",
+"gram": [
+"Passive voice"
+],
+"focus": "Past passive with by: It was painted by…, It was invented by…",
+"desc": "A passive quiz: who made it? Say the full sentence before the answer is revealed.",
+"instr": "Who made it? Answer with a full passive sentence: 'It was painted by…'. Then tell your partner one more fact you know.",
+"ph": [
+"It was painted by…",
+"It was written by…",
+"It was invented / discovered by…",
+"I think it was built in…"
+],
+"cards": [
+{
+"t": "The Mona Lisa / paint",
+"ans": "It was painted by Leonardo da Vinci."
+},
+{
+"t": "The Sagrada Família / design",
+"ans": "It was designed by Antoni Gaudí."
+},
+{
+"t": "Harry Potter / write",
+"ans": "It was written by J.K. Rowling."
+},
+{
+"t": "Penicillin / discover",
+"ans": "It was discovered by Alexander Fleming in 1928."
+},
+{
+"t": "The World Wide Web / invent",
+"ans": "It was invented by Tim Berners-Lee in 1989."
+},
+{
+"t": "Guernica / paint",
+"ans": "It was painted by Pablo Picasso in 1937."
+},
+{
+"t": "Romeo and Juliet / write",
+"ans": "It was written by William Shakespeare."
+},
+{
+"t": "Radium / discover",
+"ans": "It was discovered by Marie and Pierre Curie in 1898."
+},
+{
+"t": "The theory of relativity / develop",
+"ans": "It was developed by Albert Einstein."
+},
+{
+"t": "Don Quixote / write",
+"ans": "It was written by Miguel de Cervantes."
+}
+],
+"guide": {
+"ind": [
+"The student answers in a full passive sentence before you reveal.",
+"Ask: 'Where was it made? When?' to get more passives.",
+"Then ask them to make a quiz question for you."
+],
+"pair": [
+"Pairs answer before each reveal; one point per correct full sentence.",
+"After the quiz, each pair writes two new questions for another pair.",
+"Swap questions."
+],
+"grp": [
+"Teams answer on mini whiteboards: only full passive sentences score.",
+"Reveal and give points.",
+"Teams invent a question for the other team."
+]
+},
+"end": "Make a passive question about your city for a partner."
+},
+{
+"id": "lazy-millionaire",
+"name": "The Lazy Millionaire",
+"cat": "you",
+"lv": [
+"B1",
+"B2",
+"C1"
+],
+"fmts": [
+"ind",
+"pair",
+"grp"
+],
+"kind": "single",
+"gram": [
+"Causative have/get"
+],
+"focus": "Causative: I have my… done, I get someone to…, I had it repaired",
+"desc": "You're a millionaire who never does anything yourself. Explain how you get things done.",
+"instr": "You're a very lazy millionaire. Explain how you get this done — you never do it yourself! Then say what you really do yourself in real life.",
+"ph": [
+"I have my… done every…",
+"I get someone to…",
+"I had it… last week",
+"In real life, I… myself."
+],
+"cards": [
+"your hair",
+"your car",
+"your house cleaned",
+"your shopping",
+"your nails",
+"your dog",
+"your photos",
+"your clothes",
+"your meals",
+"your homework or emails",
+"your garden",
+"your birthday party"
+],
+"guide": {
+"ind": [
+"The student plays the millionaire; you're the journalist asking questions.",
+"Switch to real life: 'When did you last have your hair cut?'",
+"Compare 'I cut my hair' vs 'I had my hair cut'."
+],
+"pair": [
+"One partner is the millionaire, the other the interviewer.",
+"Swap, then compare what you do yourselves in real life.",
+"Who's the laziest?"
+],
+"grp": [
+"Show the card. Volunteers answer as millionaires.",
+"Then a real-life round: hands up if you do it yourself.",
+"Write a few causative sentences on the board."
+]
+},
+"end": "What would you pay someone to do for you if you could?"
+},
+{
+"id": "pardon",
+"name": "Pardon? What Did She Say?",
+"cat": "game",
+"lv": [
+"A2",
+"B1",
+"B2"
+],
+"fmts": [
+"grp",
+"pair"
+],
+"kind": "single",
+"gram": [
+"Reported speech"
+],
+"focus": "Reported speech: She said (that)…, He told me…, She asked if…, He wanted to know…",
+"desc": "Grandma can't hear well. Repeat what people said using reported speech.",
+"instr": "Student A says the sentence. Student B is grandma and says 'Pardon?' Student C reports it: 'She said that…'. Watch the tenses!",
+"ph": [
+"She said (that)…",
+"He told me (that)…",
+"She asked if…",
+"He wanted to know where…"
+],
+"cards": [
+"\"I've lost my keys again!\"",
+"\"I'm going to Paris tomorrow.\"",
+"\"Are you coming to my party?\"",
+"\"I can't find my glasses.\"",
+"\"I'll call you later.\"",
+"\"Where did you buy that hat?\"",
+"\"I don't like this soup.\"",
+"\"We're getting married!\"",
+"\"Have you seen my cat?\"",
+"\"I was sleeping when you called.\"",
+"\"Don't touch the cake!\"",
+"\"I've never been so tired in my life.\""
+],
+"guide": {
+"ind": [
+"You say the sentence, play grandma, and the student reports it. Then swap.",
+"Show the backshift: am → was, will → would, have → had.",
+"Add a twist: report what someone said to them this week."
+],
+"pair": [
+"Groups of three: speaker, grandma, reporter. Rotate roles every card.",
+"Grandma can say 'Pardon?' twice: the reporter must say it in a different way the second time.",
+"Report the funniest sentence to the class."
+],
+"grp": [
+"Choose a speaker and a grandma. The class reports in turns.",
+"Points for correct tense changes.",
+"Finish with a gossip round: 'I heard that…'"
+]
+},
+"end": "Report one thing someone said to you this week."
+},
+{
+"id": "never-ending-sentence",
+"name": "The Never-Ending Sentence",
+"cat": "game",
+"lv": [
+"B1",
+"B2",
+"C1"
+],
+"fmts": [
+"pair",
+"grp"
+],
+"kind": "single",
+"timer": 120,
+"gram": [
+"Relative clauses"
+],
+"focus": "Relative clauses: who, which, that, where, whose, when",
+"desc": "Build one huge sentence together, adding relative clauses one by one.",
+"instr": "Continue the sentence by adding a relative clause (who, which, that, where, whose, when). How long can the class make it?",
+"ph": [
+"…who…",
+"…which…",
+"…where…",
+"…whose…"
+],
+"ex": "This is the man who lives in the house which has a garden where a dog whose name is Max sleeps…",
+"cards": [
+"This is the man…",
+"I found a phone…",
+"We went to a restaurant…",
+"She married a millionaire…",
+"I met a girl…",
+"They bought a house…",
+"He has a car…",
+"I'll never forget the day…",
+"There's a shop in my town…",
+"My teacher has a cat…"
+],
+"guide": {
+"ind": [
+"You and the student take turns adding a clause until it breaks.",
+"Then say the whole sentence from the beginning.",
+"Focus on whose and where."
+],
+"pair": [
+"Partners alternate clauses for two minutes.",
+"Count the clauses. Try to beat your record on the next card.",
+"Read the final sentence to the class."
+],
+"grp": [
+"Go round the class: each student repeats the sentence and adds a clause.",
+"If someone forgets, the sentence starts again.",
+"Write the record sentence on the board."
+]
+},
+"end": "What's the longest sentence we built?"
+},
+{
+"id": "most-ever",
+"name": "The Most… Ever",
+"cat": "you",
+"lv": [
+"A2",
+"B1",
+"B2"
+],
+"fmts": [
+"ind",
+"pair",
+"grp"
+],
+"kind": "single",
+"gram": [
+"Comparatives & superlatives",
+"Present perfect"
+],
+"focus": "Superlative + present perfect: the best… I've ever…; comparatives to compare answers",
+"desc": "Talk about the best, worst and strangest things you've ever experienced.",
+"instr": "Answer with a superlative and the present perfect, then tell the story. Your partner compares: 'Mine was even worse than yours!'",
+"ph": [
+"The best… I've ever… was…",
+"It was the most… I've ever…",
+"Mine was even… than yours!",
+"It wasn't as… as…"
+],
+"cards": [
+"the best present you've ever received",
+"the worst meal you've ever eaten",
+"the most beautiful place you've ever visited",
+"the strangest dream you've ever had",
+"the most embarrassing moment you've ever had",
+"the longest journey you've ever made",
+"the best concert you've ever been to",
+"the most boring film you've ever seen",
+"the scariest thing you've ever done",
+"the funniest person you've ever met",
+"the most expensive thing you've ever bought",
+"the hardest exam you've ever taken"
+],
+"guide": {
+"ind": [
+"The student answers and tells the story; you compare with yours.",
+"Push for comparatives: 'Was it worse than…?'",
+"Correct 'the most + adjective' and 'I've ever'."
+],
+"pair": [
+"Partners answer and compare: whose was the best/worst?",
+"Each pair chooses one story to tell the class.",
+"Swap who starts."
+],
+"grp": [
+"Show the card. Students answer in small groups.",
+"Each group picks the 'winner' and tells the class.",
+"Vote for the most extreme story."
+]
+},
+"end": "What's the best thing that has happened to you this week?"
+},
+{
+"id": "cant-stand",
+"name": "Can't Stand, Can't Live Without",
+"cat": "warm",
+"lv": [
+"A2",
+"B1",
+"B2"
+],
+"fmts": [
+"ind",
+"pair",
+"grp"
+],
+"kind": "single",
+"gram": [
+"Gerunds & infinitives"
+],
+"focus": "Verb patterns: love/enjoy/can't stand/don't mind + -ing; want/hope/would like/decide + to",
+"desc": "Say how you feel about everyday activities and find classmates with the same tastes.",
+"instr": "How do you feel about this? Use a verb + -ing or + to. Then try to convince your partner to like it as much as you do (or hate it!).",
+"ph": [
+"I really enjoy / love…ing",
+"I can't stand / don't mind…ing",
+"I'd like to / I'm hoping to…",
+"I've decided to stop…ing"
+],
+"cards": [
+"getting up early",
+"cooking for other people",
+"dancing in public",
+"waiting in queues",
+"travelling alone",
+"talking on the phone",
+"going to the gym",
+"doing nothing all day",
+"shopping for clothes",
+"learning new apps",
+"singing in the shower",
+"camping"
+],
+"guide": {
+"ind": [
+"The student gives their opinion with two different verb patterns.",
+"Ask: 'Would you like to… more often?' to get the infinitive.",
+"Share yours and disagree."
+],
+"pair": [
+"Partners find out who likes each activity more.",
+"Each tries to convince the other in 30 seconds.",
+"Find two things you both can't stand."
+],
+"grp": [
+"Show the card. Students move: love it (left), don't mind (middle), can't stand (right).",
+"Ask people in each group to explain.",
+"Keep a class 'top 3 most hated' list."
+]
+},
+"end": "What's something you'd like to start doing?"
+},
+{
+"id": "heres-the-answer",
+"name": "Here's the Answer",
+"cat": "game",
+"lv": [
+"A2",
+"B1",
+"B2",
+"C1"
+],
+"fmts": [
+"ind",
+"pair",
+"grp"
+],
+"kind": "single",
+"gram": [
+"Question forms"
+],
+"focus": "Question forms in all tenses: word order, auxiliaries (do/did/have/will), subject questions",
+"desc": "Jeopardy style: you get the answer, you invent the question.",
+"instr": "Here's the answer. What was the question? Think of at least two different questions. Then ask your partner one of them for real.",
+"ph": [
+"How long have you…?",
+"When did you…?",
+"Why do you…?",
+"Who…? / Which…? / How often…?"
+],
+"cards": [
+"Yes, twice.",
+"In a small village near the sea.",
+"Because I was hungry.",
+"Next Friday at 6.",
+"My grandmother.",
+"No, never.",
+"About three hours.",
+"By bus.",
+"A red one.",
+"Since I was eight.",
+"Pizza, definitely.",
+"Only if it's sunny."
+],
+"guide": {
+"ind": [
+"The student makes two questions for each answer.",
+"Then ask them one of their questions for real.",
+"Check auxiliaries and word order."
+],
+"pair": [
+"Partners race: who can make the most correct questions in one minute?",
+"Then they ask each other one question for real.",
+"Swap who starts."
+],
+"grp": [
+"Teams write as many questions as they can in one minute.",
+"One point per correct question; two for a question nobody else has.",
+"Ask some of the questions for real."
+]
+},
+"end": "What's the most interesting question you heard today?"
+},
+{
+"id": "drama-queen",
+"name": "Drama Queen",
+"cat": "game",
+"lv": [
+"C1"
+],
+"fmts": [
+"ind",
+"pair",
+"grp"
+],
+"kind": "single",
+"reveal": true,
+"revealTag": "Inversion · make it dramatic",
+"ansLabel": "The dramatic version",
+"gram": [
+"Inversion"
+],
+"focus": "Negative inversion: Never have I…, Not only did…, Hardly had… when…, Under no circumstances…",
+"desc": "Turn boring sentences into dramatic ones with inversion, then tell a dramatic story.",
+"instr": "Say this sentence in the most dramatic way, starting with the word in brackets. Then continue the story with one more dramatic sentence!",
+"ph": [
+"Never have I…",
+"Not only did…, but…",
+"Hardly had… when…",
+"Under no circumstances will…"
+],
+"cards": [
+{
+"t": "I have never seen such a mess. (Never…)",
+"ans": "Never have I seen such a mess!"
+},
+{
+"t": "She was late and she forgot the present. (Not only…)",
+"ans": "Not only was she late, but she also forgot the present."
+},
+{
+"t": "We had just sat down when the fire alarm rang. (Hardly…)",
+"ans": "Hardly had we sat down when the fire alarm rang."
+},
+{
+"t": "You must not open this door. (Under no circumstances…)",
+"ans": "Under no circumstances must you open this door."
+},
+{
+"t": "I realised the truth only later. (Only later…)",
+"ans": "Only later did I realise the truth."
+},
+{
+"t": "I have rarely eaten such a good meal. (Rarely…)",
+"ans": "Rarely have I eaten such a good meal."
+},
+{
+"t": "He didn't say a word all evening. (Not once…)",
+"ans": "Not once did he say a word all evening."
+},
+{
+"t": "You'll understand when you have children. (Only when…)",
+"ans": "Only when you have children will you understand."
+},
+{
+"t": "I had no idea he was a spy. (Little…)",
+"ans": "Little did I know that he was a spy."
+},
+{
+"t": "We arrived and it started to rain immediately. (No sooner…)",
+"ans": "No sooner had we arrived than it started to rain."
+}
+],
+"guide": {
+"ind": [
+"The student says the dramatic version before the reveal, with lots of drama.",
+"Then continue the story with one more inverted sentence.",
+"Focus on the auxiliary after the adverbial."
+],
+"pair": [
+"Partners take turns: one reads, the other 'dramatises'.",
+"After each reveal, they add one more line to the story.",
+"Act out the best story."
+],
+"grp": [
+"Show the sentence. Volunteers perform it like an actor.",
+"The class checks the grammar on the reveal.",
+"Groups write a mini-drama with three inversions and perform it."
+]
+},
+"end": "Tell us about something that happened this week, as dramatically as you can."
+},
+{
+"id": "what-i-really-mean",
+"name": "What I Really Mean Is…",
+"cat": "opinion",
+"lv": [
+"B2",
+"C1"
+],
+"fmts": [
+"ind",
+"pair",
+"grp"
+],
+"kind": "single",
+"gram": [
+"Cleft sentences"
+],
+"focus": "Cleft sentences for emphasis: What I love about… is…, The thing that annoys me is…, It was… that…",
+"desc": "Give strong opinions with emphasis using cleft sentences.",
+"instr": "Say what you love and what annoys you about this topic. Start your sentences with 'What I…' or 'The thing that…'.",
+"ph": [
+"What I love about… is…",
+"The thing that drives me crazy is…",
+"What I don't understand is why…",
+"It's… that really…"
+],
+"cards": [
+"Mondays",
+"Your city",
+"Your phone",
+"Summer",
+"Your job or school",
+"Social media",
+"Travelling",
+"Your best friend",
+"Learning English",
+"Cooking",
+"Family dinners",
+"Weekends"
+],
+"guide": {
+"ind": [
+"The student gives one positive and one negative cleft sentence per topic.",
+"Ask 'Why?' and get a second cleft sentence.",
+"Compare: 'I love…' vs 'What I love is…' — which sounds stronger?"
+],
+"pair": [
+"Partners take turns. The listener must react with a cleft sentence too: 'What surprises me is…'",
+"Swap every card.",
+"Share the strongest opinion with the class."
+],
+"grp": [
+"Show the topic. Go round the class: each student adds a cleft sentence without repeating.",
+"Write the best ones on the board.",
+"Vote for the most passionate opinion."
+]
+},
+"end": "What I've learnt today is…"
+},
+{
+"id": "linker-challenge",
+"name": "Linker Challenge",
+"cat": "opinion",
+"lv": [
+"B1",
+"B2",
+"C1"
+],
+"fmts": [
+"ind",
+"pair",
+"grp"
+],
+"kind": "single",
+"timer": 60,
+"gram": [
+"Linkers"
+],
+"focus": "Linkers and discourse markers: however, on the other hand, what's more, having said that, as a result…",
+"desc": "Talk for one minute about a topic and use all three linkers on the card.",
+"instr": "Talk for one minute about the topic. You MUST use all three linkers on the card. The others tick them off when they hear them!",
+"ph": [
+"First of all,…",
+"However,…",
+"Having said that,…",
+"All in all,…"
+],
+"cards": [
+{
+"t": "Living in a big city",
+"sub": [
+"however",
+"what's more",
+"as a result"
+]
+},
+{
+"t": "Social media",
+"sub": [
+"on the other hand",
+"for instance",
+"in my opinion"
+]
+},
+{
+"t": "Working from home",
+"sub": [
+"although",
+"moreover",
+"all in all"
+]
+},
+{
+"t": "Fast food",
+"sub": [
+"despite",
+"therefore",
+"having said that"
+]
+},
+{
+"t": "Learning languages",
+"sub": [
+"not only… but also",
+"whereas",
+"to sum up"
+]
+},
+{
+"t": "Homework",
+"sub": [
+"in contrast",
+"besides",
+"consequently"
+]
+},
+{
+"t": "Travelling alone",
+"sub": [
+"even though",
+"on top of that",
+"in conclusion"
+]
+},
+{
+"t": "Video games",
+"sub": [
+"nevertheless",
+"for example",
+"as a matter of fact"
+]
+},
+{
+"t": "Summer holidays",
+"sub": [
+"while",
+"furthermore",
+"overall"
+]
+},
+{
+"t": "Having a pet",
+"sub": [
+"in spite of",
+"because of this",
+"to be honest"
+]
+}
+],
+"guide": {
+"ind": [
+"The student talks for one minute; you tick the linkers.",
+"Give feedback: was each linker used correctly?",
+"Repeat with a new card and a higher target."
+],
+"pair": [
+"Partner A talks, B ticks the linkers and gives a point for each correct one.",
+"Swap every card.",
+"Who got the most points?"
+],
+"grp": [
+"Use Pick a student. The class listens and raises a hand at each linker.",
+"Correct use = 1 point, wrong use = 0.",
+"Finish with the three most useful linkers of the day."
+]
+},
+"end": "Which linker will you use in your next writing?"
 }
 ]
