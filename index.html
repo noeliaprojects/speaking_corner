@@ -826,7 +826,7 @@ function deckView(d){
        </div>
        <p class="note" id="langMsg" role="status">Saved locally on this browser. Include them in your My classes backup when moving devices.</p>
      </section>
-     <section class="card guide" id="guidePanel" hidden>${d.examPart?`<p class="note"><b>Behind the game:</b> ${esc(d.examPart)}. A practice game, not an official exam task.</p>`:""}<div class="row"> style="justify-content:space-between"><h2>Teacher guide</h2>
+     <section class="card guide" id="guidePanel" hidden>${d.examPart?`<p class="note"><b>Behind the game:</b> ${esc(d.examPart)}. A practice game, not an official exam task.</p>`:""}<div class="row" style="justify-content:space-between"><h2>Teacher guide</h2>
       <div class="tabs" role="tablist">${Object.keys(FMTS).map(f=>`<button role="tab" data-f="${f}" aria-selected="false">${FMTS[f]}${d.fmts.includes(f)?"":" (adapted)"}</button>`).join("")}</div></div>
       <div id="gbody"></div>
       ${d.focus?`<p class="focus"><b>Structure focus:</b> ${esc(d.focus)}</p>`:""}
