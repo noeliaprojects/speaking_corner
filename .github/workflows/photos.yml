@@ -1,5 +1,8 @@
 name: Generate photos
 on:
+  push:
+    paths:
+      - '.github/workflows/photos.yml'
   workflow_dispatch:
     inputs:
       max_images:
@@ -28,11 +31,18 @@ jobs:
       - name: Generate missing photos
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-        run: python3 scripts/generate_photos.py --max "${{ inputs.max_images }}" --quality "${{ inputs.quality }}" --only "${{ inputs.only }}"
+        run: python3 scripts/generate_photos.py --max "${{ inputs.max_images || '100' }}" --quality "${{ inputs.quality || 'medium' }}" --only "${{ inputs.only || '' }}"
       - run: python3 build.py
       - name: Save the new photos
         run: |
           git config user.name "Speaking Corner bot"
           git config user.email "actions@users.noreply.github.com"
           git add img index.html
-          git diff --cached --quiet || (git commit -m "Add generated photos" && git push)
+          if ! git diff --cached --quiet; then
+            git commit -m "Add generated photos"
+            for i in 1 2 3 4 5; do
+              git pull --rebase origin main && git push && exit 0
+              sleep 5
+            done
+            exit 1
+          fi
