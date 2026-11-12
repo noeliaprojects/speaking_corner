@@ -286,6 +286,14 @@ button,.btn{font-weight:500}
 @media (prefers-reduced-motion:reduce){.meta-icon::after{transition:none}}
 .act .m-done{display:block;align-self:flex-start;font-size:.75rem}
 
+/* Cambridge games: a single, easy-to-find block with two distinct levels */
+.exam-cat{padding:18px;border:1px solid var(--line);border-radius:16px;background:var(--stamp-soft);gap:14px}
+.exam-cat>h2{font-family:var(--display);font-size:1.22rem;letter-spacing:-.01em}
+.exam-level{display:flex;flex-direction:column;gap:10px}
+.exam-level>h3{font-size:.88rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--stamp);display:flex;gap:8px;align-items:baseline}
+.exam-level .grid{gap:12px}
+@media(max-width:580px){.exam-cat{padding:14px}}
+
 /* ---- speech-bubble cards ---- */
 .grid{grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:16px}
 .act{position:relative;border:1.5px solid var(--ink);border-radius:18px 18px 18px 4px;padding:18px 20px 16px;gap:8px;box-shadow:none;background:var(--paper);transition:box-shadow .15s,border-color .15s}
@@ -622,8 +630,19 @@ function renderList(){
     <h3>${esc(g.name)}</h3><p>${esc(g.desc)}</p>
     <div class="meta">${d.length?`<span class="m-done">Done ${niceDate(d[d.length-1]).replace(/ \d{4}$/,"")}</span>`:""}<div class="meta-icons-row"><span class="format-icons" role="group" aria-label="Activity formats">${formatIcons(g)}</span><span class="resource-icons" role="group" aria-label="Materials and devices">${materialIcons(g)}</span></div></div></a><button type="button" class="lesson-add" data-add-activity="${esc(g.id)}" ><span aria-hidden="true">+</span><span class="sr">Add ${esc(g.name)} to lesson</span></button></article>`;};
   let n=0;
-  const html=Object.entries(CATS).map(([k,v])=>{const l=ALL.filter(g=>g.cat===k&&ok(g));n+=l.length;if(!l.length)return "";
-    return `<section class="cat"><h2>${v} <span>${l.length}</span></h2><div class="grid">${l.map(card).join("")}</div></section>`;}).join("");
+  const html=Object.entries(CATS).map(([k,v])=>{
+    if(k==="c1")return ""; // Both Cambridge levels belong in one distinct game section.
+    if(k==="b2"){
+      const b2=ALL.filter(g=>g.cat==="b2"&&ok(g)),c1=ALL.filter(g=>g.cat==="c1"&&ok(g)),count=b2.length+c1.length;
+      n+=count;if(!count)return "";
+      const level=(games,title)=>games.length?`<div class="exam-level"><h3>${title} <span class="note">${games.length} games</span></h3><div class="grid">${games.map(card).join("")}</div></div>`:"";
+      return `<section class="cat exam-cat"><h2>The Hidden Exam <span>${count}</span></h2>
+        <p class="note">Cambridge speaking skills, disguised as games.</p>
+        ${level(b2,"B2 First")}${level(c1,"C1 Advanced")}</section>`;
+    }
+    const l=ALL.filter(g=>g.cat===k&&ok(g));n+=l.length;if(!l.length)return "";
+    return `<section class="cat"><h2>${v} <span>${l.length}</span></h2><div class="grid">${l.map(card).join("")}</div></section>`;
+  }).join("");
   $("#list").innerHTML=html||`<p class="empty">Nothing matches. Try another word or clear the filters.</p>`;
   app.querySelectorAll("[data-add-activity]").forEach(b=>b.onclick=()=>LP.choose(b.dataset.addActivity));
 }
