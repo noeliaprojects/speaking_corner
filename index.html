@@ -615,7 +615,16 @@ function printCards(d,n,withImg,upper,withPhrases){
   a.innerHTML=pages.map(pg=>`<section class="pa-page">${pg.map(f=>`<div class="pc">${withImg&&f.img?`<img class="pc-img" src="${f.img}" alt="">`:""}<div class="pc-txt">${f.html}</div>${help}<span class="pc-foot">${esc(d.name)}</span></div>`).join("")}${Array(n-pg.length).fill('<div class="pc pc-empty"></div>').join("")}</section>`).join("");
   if(!withImg)a.querySelectorAll(".pc-vs img,.pc-list img").forEach(x=>x.remove());
   const imgs=[...a.querySelectorAll("img")];
-  Promise.all(imgs.map(x=>x.complete?1:new Promise(r=>{x.onload=x.onerror=r;}))).then(()=>{try{window.print();}catch(e){}});
+  Promise.all(imgs.map(x=>x.complete?1:new Promise(r=>{x.onload=x.onerror=r;}))).then(()=>{
+    // Browser PDF printers generally suggest the page title as the file name.
+    const originalTitle=document.title;
+    const activityName=String(d.name||"Cards").replace(/[\\/:*?"<>|]/g,"").trim()||"Cards";
+    const restoreTitle=()=>{document.title=originalTitle;};
+    window.addEventListener("afterprint",restoreTitle,{once:true});
+    document.title="Speaking Corner_"+activityName;
+    try{window.print();}
+    catch(e){window.removeEventListener("afterprint",restoreTitle);restoreTitle();}
+  });
 }
 function stopDeck(){if(D){clearInterval(D.tid);document.removeEventListener("keydown",D.key);}D=null;}
 const PER_OK=d=>(d.kind==="grid"||d.kind==="single")&&!d.reveal;
