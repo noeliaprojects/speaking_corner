@@ -83,7 +83,8 @@ def main():
     credits = json.load(open(cpath)) if os.path.exists(cpath) else {}
     redo = set(filter(None, a.redo.split(",")))
     have = {f.rsplit(".", 1)[0] for f in os.listdir(os.path.join(ROOT, "img"))} - redo
-    used = {c["url"] for c in credits.values()}
+    rpath = os.path.join(ROOT, "src/rejected.json")
+    used = {c["url"] for c in credits.values()} | set(json.load(open(rpath)) if os.path.exists(rpath) else [])
     todo = []
     for name, _ in photo_list(decks):
         if name in have or (a.only and not name.startswith(a.only + "-")):

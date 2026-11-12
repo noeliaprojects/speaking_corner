@@ -1375,14 +1375,6 @@
   "title": "Oranges Fruits",
   "query": "orange fruit"
  },
- "five-star-review-04": {
-  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/81/Engelbosteler_Damm_1_Hannover-Nordstadt%2C_Haus_Lincke%2C_Metropol-Fahrschule.jpg/1920px-Engelbosteler_Damm_1_Hannover-Nordstadt%2C_Haus_Lincke%2C_Metropol-Fahrschule.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-  "author": "Bernd Schwabe in Hannover",
-  "license": "CC BY-SA 4.0",
-  "source": "https://commons.wikimedia.org/wiki/File:Engelbosteler_Damm_1_Hannover-Nordstadt,_Haus_Lincke,_Metropol-Fahrschule.jpg",
-  "title": "File:Engelbosteler Damm 1 Hannover-Nordstadt, Haus Lincke, Metropol-Fahrschule.jpg",
-  "query": "driving lesson"
- },
  "try-do-skip-02-3": {
   "url": "https://images.rawpixel.com/editor_1024/cHJpdmF0ZS9zdGF0aWMvaW1hZ2Uvd2Vic2l0ZS8yMDIyLTA0L2xyL3B4NjM3MzE4LWltYWdlLWt3dnY5eDh2LmpwZw.jpg",
   "author": "Unknown",
@@ -1415,22 +1407,6 @@
   "title": "Somalian girls, students studying school",
   "query": "student studying"
  },
- "parallel-realities-04a": {
-  "url": "https://images.rawpixel.com/editor_1024/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIzLTAzL2ZsNTI2MjA0NDU0MjUtaW1hZ2UuanBn.jpg",
-  "author": "Unknown",
-  "license": "CC0",
-  "source": "https://www.rawpixel.com/image/11073059/photo-image-face-person-public-domain",
-  "title": "Returns Warehouse Forklift moving boxes",
-  "query": "moving boxes"
- },
- "would-you-rather-01b": {
-  "url": "https://upload.wikimedia.org/wikipedia/commons/8/8f/Invisible_Man_reveals_himself_-_The_Invisible_Man_Appears.gif?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
-  "author": "Daiei Film",
-  "license": "Public domain",
-  "source": "https://commons.wikimedia.org/wiki/File:Invisible_Man_reveals_himself_-_The_Invisible_Man_Appears.gif",
-  "title": "File:Invisible Man reveals himself - The Invisible Man Appears.gif",
-  "query": "invisible man"
- },
  "would-you-rather-03b": {
   "url": "https://images.rawpixel.com/editor_1024/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvcHUyMzQ5MTM3LWltYWdlLWt3eXJwd3FvLmpwZw.jpg",
   "author": "Unknown",
@@ -1438,38 +1414,6 @@
   "source": "https://www.rawpixel.com/image/5965615/photo-image-public-domain-room",
   "title": "Waiting Room Sultan Aji Muhammad",
   "query": "waiting room"
- },
- "hot-seat-11": {
-  "url": "https://images.rawpixel.com/editor_1024/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIzLTAzL2ZsNTI2ODA3Mzg5NDktaW1hZ2UuanBn.jpg",
-  "author": "usdhs",
-  "license": "CC0",
-  "source": "https://www.rawpixel.com/image/10995752/canine-security-checking-detection-dog",
-  "title": "Canine security checking, detection dog",
-  "query": "detective"
- },
- "guess-the-job-05": {
-  "url": "https://images.rawpixel.com/editor_1024/cHJpdmF0ZS9zdGF0aWMvaW1hZ2Uvd2Vic2l0ZS8yMDIyLTA0L2xyL3B4NTQ1NjgwLWltYWdlLWt3dnZlemR2LmpwZw.jpg",
-  "author": "Unknown",
-  "license": "CC0",
-  "source": "https://www.rawpixel.com/image/5908245/photo-image-public-domain-wall-windows",
-  "title": "Free architect building photo",
-  "query": "architect"
- },
- "guess-the-job-11": {
-  "url": "https://cdn.stocksnap.io/img-thumbs/960w/F63HS8BMUJ.jpg",
-  "author": "Avi Richards",
-  "license": "CC0",
-  "source": "https://stocksnap.io/photo/security-guard-F63HS8BMUJ",
-  "title": "Security Guard",
-  "query": "security guard"
- },
- "look-and-say-animals-06": {
-  "url": "https://cdn.stocksnap.io/img-thumbs/960w/508E960C84.jpg",
-  "author": "Ryan McGuire",
-  "license": "CC0",
-  "source": "https://stocksnap.io/photo/bunny-rabbit-508E960C84",
-  "title": "Bunny Rabbit",
-  "query": "rabbit"
  },
  "look-and-say-animals-09": {
   "url": "https://cdn.stocksnap.io/img-thumbs/960w/392F0F8089.jpg",
@@ -1494,13 +1438,5 @@
   "source": "https://stocksnap.io/photo/apples-fruits-91E0HB20F8",
   "title": "Apples Fruits",
   "query": "apple fruit"
- },
- "look-and-say-food-09": {
-  "url": "https://cdn.stocksnap.io/img-thumbs/960w/7LZI1C9X75.jpg",
-  "author": "Caio Resende",
-  "license": "CC0",
-  "source": "https://stocksnap.io/photo/m&ms-chocolate-7LZI1C9X75",
-  "title": "M&Ms Chocolate",
-  "query": "chocolate"
  }
 }
