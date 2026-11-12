@@ -68,7 +68,10 @@
 "A painting of your house"
 ],
 "img": true,
-"imgP": "an open cardboard parcel on a doorstep containing {x}"
+"imgP": "an open cardboard parcel on a doorstep containing {x}",
+"gram": [
+"Second conditional"
+]
 },
 {
 "id": "my-go-to",
@@ -400,7 +403,11 @@
 "My battery runs out when…",
 "To become my friend, …"
 ],
-"coverP": "an open instruction manual booklet next to a cup of tea"
+"coverP": "an open instruction manual booklet next to a cup of tea",
+"gram": [
+"Zero conditional",
+"First conditional"
+]
 },
 {
 "id": "five-star-review",
@@ -480,7 +487,10 @@
 "A job interview",
 "A sports team"
 ],
-"coverP": "a red flag and a green flag waving on a beach against a blue sky"
+"coverP": "a red flag and a green flag waving on a beach against a blue sky",
+"gram": [
+"Zero conditional"
+]
 },
 {
 "id": "great-swap",
@@ -552,6 +562,9 @@
 "a": "A road trip",
 "b": "A cabin in the mountains"
 }
+],
+"gram": [
+"Second conditional"
 ]
 },
 {
@@ -739,7 +752,10 @@
 "A holiday on a private island"
 ],
 "img": true,
-"imgP": "a dreamy, attractive photo of: {x}"
+"imgP": "a dreamy, attractive photo of: {x}",
+"gram": [
+"Second conditional"
+]
 },
 {
 "id": "job-nobody-wants",
@@ -783,7 +799,10 @@
 "The person who has to say no to the boss"
 ],
 "img": true,
-"imgP": "a slightly funny everyday scene of: {x}"
+"imgP": "a slightly funny everyday scene of: {x}",
+"gram": [
+"Second conditional"
+]
 },
 {
 "id": "designed-to-hook",
@@ -862,7 +881,11 @@
 "Ads for something you only talked about"
 ],
 "img": true,
-"imgP": "a photo of this technology scenario: {x}"
+"imgP": "a photo of this technology scenario: {x}",
+"gram": [
+"Second conditional",
+"First conditional"
+]
 },
 {
 "id": "parallel-realities",
@@ -1044,7 +1067,10 @@
 "coat hanger",
 "fridge magnet"
 ],
-"end": "Vote: which object won the debate?"
+"end": "Vote: which object won the debate?",
+"gram": [
+"Second conditional"
+]
 },
 {
 "id": "would-you-rather",
@@ -1115,7 +1141,10 @@
 }
 ],
 "img": true,
-"imgP": "a photo representing: {x}"
+"imgP": "a photo representing: {x}",
+"gram": [
+"Second conditional"
+]
 },
 {
 "id": "speed-debate",
@@ -1581,7 +1610,10 @@
 ],
 "end": "Each group presents its five items. Which group would survive?",
 "img": true,
-"imgP": "{x} lying on a sandy tropical beach"
+"imgP": "{x} lying on a sandy tropical beach",
+"gram": [
+"Second conditional"
+]
 },
 {
 "id": "hot-seat",
@@ -1627,7 +1659,10 @@
 ],
 "printNote": "Guessing version: give the student a secret role card. The class asks yes/no questions until someone guesses who they are.",
 "img": true,
-"imgP": "{x}, shown through their setting, uniform or tools"
+"imgP": "{x}, shown through their setting, uniform or tools",
+"gram": [
+"Second conditional"
+]
 },
 {
 "id": "story-chain",
@@ -1955,7 +1990,10 @@
 "The class votes: most creative and most believable."
 ]
 },
-"end": "Who gave the best excuse today?"
+"end": "Who gave the best excuse today?",
+"gram": [
+"Third conditional"
+]
 },
 {
 "id": "hot-takes",
@@ -2499,5 +2537,403 @@
 ]
 },
 "end": "Who was the most convincing expert today?"
+},
+{
+"id": "facts-of-life",
+"name": "What Happens If…?",
+"cat": "warm",
+"lv": [
+"A2",
+"B1"
+],
+"fmts": [
+"ind",
+"pair",
+"grp"
+],
+"kind": "single",
+"reveal": true,
+"revealTag": "Zero conditional · general truths",
+"ansLabel": "What usually happens",
+"gram": [
+"Zero conditional"
+],
+"desc": "Say what always happens in everyday situations, then compare with the answer.",
+"instr": "What always happens? Answer with a full sentence. Then add one more 'If…' fact about your own life.",
+"ph": [
+"If you…, it…",
+"If you…, you…",
+"When I…, I always…",
+"If I don't…, I get…"
+],
+"ex": "If you don't sleep, you feel tired. If I drink coffee after 6 pm, I can't sleep.",
+"cards": [
+{
+"t": "If you heat ice…",
+"ans": "it melts."
+},
+{
+"t": "If you don't water a plant…",
+"ans": "it dies."
+},
+{
+"t": "If you mix red and blue…",
+"ans": "you get purple."
+},
+{
+"t": "If you leave milk out of the fridge…",
+"ans": "it goes off."
+},
+{
+"t": "If you don't charge your phone…",
+"ans": "the battery runs out."
+},
+{
+"t": "If you eat too much chocolate…",
+"ans": "you feel sick."
+},
+{
+"t": "If you press the snooze button…",
+"ans": "you're late."
+},
+{
+"t": "If you drop your phone in water…",
+"ans": "it usually stops working."
+},
+{
+"t": "If you don't wear sun cream at the beach…",
+"ans": "you get sunburnt."
+},
+{
+"t": "If a baby is hungry…",
+"ans": "it cries."
+},
+{
+"t": "If you shout in a library…",
+"ans": "people look at you."
+},
+{
+"t": "If you don't practise a language…",
+"ans": "you forget it."
+}
+],
+"guide": {
+"ind": [
+"Show the beginning. The student finishes it before you reveal the answer.",
+"Ask: 'And in your case?' The student makes one personal zero-conditional sentence.",
+"Correct the structure: present + present (no 'will')."
+],
+"pair": [
+"Partners take turns finishing the sentence before the reveal.",
+"After each card, each partner says one personal 'If I…, I…' habit.",
+"Find one habit you both share."
+],
+"grp": [
+"Show the card. Students write their ending on a mini whiteboard or say it to a partner.",
+"Reveal: who said the same?",
+"Pick two students to share a personal 'If I…' habit."
+]
+},
+"end": "Write three 'If…' facts about your daily routine."
+},
+{
+"id": "chain-reaction",
+"name": "Chain Reaction",
+"cat": "game",
+"lv": [
+"A2",
+"B1",
+"B2"
+],
+"fmts": [
+"ind",
+"pair",
+"grp"
+],
+"kind": "single",
+"timer": 60,
+"gram": [
+"First conditional"
+],
+"desc": "Build a chain of consequences: each result becomes the next 'If…'.",
+"instr": "Continue the chain. Take the result of the last sentence and start a new one with 'If…'. How long can you keep it going?",
+"ph": [
+"If + present, … will…",
+"…, I'll probably…",
+"…, I might…",
+"…, I won't…"
+],
+"ex": "If it rains tomorrow, I'll stay at home. If I stay at home, I'll watch films all day. If I watch films all day, I'll eat too much popcorn…",
+"cards": [
+"If it rains tomorrow,…",
+"If I win the match on Saturday,…",
+"If I wake up late tomorrow,…",
+"If my phone breaks today,…",
+"If I go to the party tonight,…",
+"If it snows next weekend,…",
+"If I pass all my exams,…",
+"If my best friend visits me,…",
+"If I save some money this month,…",
+"If the teacher gives us homework,…",
+"If I get a dog,…",
+"If I miss the last bus tonight,…"
+],
+"guide": {
+"ind": [
+"You and the student take turns adding one link to the chain.",
+"Each link must start with the result of the previous one.",
+"Stop at 8 links and read the whole chain back."
+],
+"pair": [
+"Partners alternate links for one minute (use the timer).",
+"Count the links. Can they beat their score on the next card?",
+"Swap who starts."
+],
+"grp": [
+"Students stand in a circle. Each adds one link.",
+"Anyone who hesitates for more than 5 seconds or makes a mistake sits down.",
+"Last students standing win."
+]
+},
+"end": "What was the funniest chain? Where did it end?"
+},
+{
+"id": "what-would-you-do",
+"name": "What Would You Do?",
+"cat": "opinion",
+"lv": [
+"B1",
+"B2",
+"C1"
+],
+"fmts": [
+"ind",
+"pair",
+"grp"
+],
+"kind": "single",
+"gram": [
+"Second conditional"
+],
+"desc": "Real-life dilemmas: what would you do, and why?",
+"instr": "Read the situation. What would you do? Explain why, and say what you definitely wouldn't do.",
+"ph": [
+"If I were in that situation, I'd…",
+"I'd probably…, because…",
+"I wouldn't… unless…",
+"If it were me, I might…"
+],
+"q": [
+"What would you do first?",
+"Would your answer change if nobody was watching?"
+],
+"cards": [
+"You find €500 in the street.",
+"You see your friend's partner on a date with someone else.",
+"A shop gives you too much change.",
+"You win a free trip, but it's on your best friend's wedding day.",
+"Your boss offers you a promotion in another city.",
+"You break a glass at a friend's house and nobody sees it.",
+"A stranger asks you to look after their dog for an hour.",
+"You hear your neighbours arguing loudly at 2 am.",
+"Someone in a restaurant is talking very loudly on the phone.",
+"You get a message meant for someone else.",
+"You're offered your dream job, but the salary is lower.",
+"Your friend asks what you think of their terrible haircut."
+],
+"guide": {
+"ind": [
+"The student answers and explains. Push with 'And if…?' to change one detail.",
+"Share what you would do and disagree on purpose.",
+"Note errors with 'would' + infinitive and 'If I were…'."
+],
+"pair": [
+"Each partner answers; the other asks 'What if…?' with a new detail.",
+"They must find one thing they would both do.",
+"Swap who starts."
+],
+"grp": [
+"Show the dilemma and give 30 seconds to think.",
+"Vote with hands for the two most popular options.",
+"Ask one student from each side to justify their choice."
+]
+},
+"end": "Which dilemma was the hardest? Did anyone change their mind?"
+},
+{
+"id": "imagine-if",
+"name": "Imagine If…",
+"cat": "opinion",
+"lv": [
+"B1",
+"B2",
+"C1"
+],
+"fmts": [
+"ind",
+"pair",
+"grp"
+],
+"kind": "single",
+"gram": [
+"Second conditional"
+],
+"desc": "Imagine a different world and describe how life would change.",
+"instr": "Imagine this was true. How would life be different? Think about school, work, free time and your own day.",
+"ph": [
+"If…, people would…",
+"We wouldn't need…",
+"I think I'd…",
+"The best/worst thing would be…"
+],
+"cards": [
+"If there was no internet",
+"If everyone could read minds",
+"If humans could breathe underwater",
+"If school started at 12 pm",
+"If we only needed to sleep one hour a day",
+"If animals could talk",
+"If money didn't exist",
+"If everybody spoke the same language",
+"If it was summer all year",
+"If cars were banned in cities",
+"If you could stop time",
+"If nobody could lie"
+],
+"guide": {
+"ind": [
+"The student gives at least three consequences.",
+"Ask about their personal day: 'What would you do?'",
+"Correct 'would' in the result clause and past simple in the if-clause."
+],
+"pair": [
+"Partners take turns adding one consequence each, for one minute.",
+"Then decide: would the world be better or worse?",
+"Share the best idea with the class."
+],
+"grp": [
+"Show the card. Groups list as many consequences as possible in 2 minutes.",
+"Groups read their lists. Repeated ideas don't count.",
+"The group with the most original ideas wins."
+]
+},
+"end": "Which world would you like to live in?"
+},
+{
+"id": "sliding-doors",
+"name": "Sliding Doors",
+"cat": "you",
+"lv": [
+"B2",
+"C1"
+],
+"fmts": [
+"ind",
+"pair",
+"grp"
+],
+"kind": "single",
+"gram": [
+"Third conditional"
+],
+"desc": "One small change in the past. How would everything have been different?",
+"instr": "Imagine this had happened differently. Build a chain: what would or wouldn't have happened?",
+"ph": [
+"If…had…, … would have…",
+"…, I wouldn't have…",
+"…, I might have…",
+"Looking back, if I hadn't…"
+],
+"ex": "If I hadn't missed the bus, I wouldn't have met Ana. If I hadn't met Ana, I wouldn't have joined the choir…",
+"cards": [
+"You missed the bus this morning.",
+"Your parents had never met.",
+"You hadn't started learning English.",
+"The Titanic had seen the iceberg in time.",
+"You had been born in another country.",
+"The internet had never been invented.",
+"You had chosen a different school or job.",
+"You hadn't gone out last Saturday.",
+"Smartphones had never been invented.",
+"You had said yes to the last invitation you said no to.",
+"Your favourite band had never formed.",
+"You hadn't met your best friend."
+],
+"guide": {
+"ind": [
+"The student builds a chain of at least four third-conditional links.",
+"Ask about real regrets: 'Is there anything you would have done differently?'",
+"Drill the contraction: 'I'd have' / 'I wouldn't have'."
+],
+"pair": [
+"Partners alternate links until they reach something surprising.",
+"Then each shares one real past decision and how life could have been different.",
+"Report the funniest chain to the class."
+],
+"grp": [
+"Show the card. One student starts, the next continues the chain.",
+"Write the chain on the board as it grows.",
+"At the end, the class reads it aloud together."
+]
+},
+"end": "Is there a small decision in your life that changed everything?"
+},
+{
+"id": "mixed-up",
+"name": "Mixed Up Lives",
+"cat": "you",
+"lv": [
+"C1"
+],
+"fmts": [
+"ind",
+"pair",
+"grp"
+],
+"kind": "single",
+"gram": [
+"Mixed conditionals"
+],
+"desc": "A different past, a different present: talk about who you'd be now.",
+"instr": "Imagine this had been different in the past. How would your life be different NOW?",
+"ph": [
+"If I had…, I would be… now.",
+"If I hadn't…, I wouldn't have… now.",
+"If I were…, I would have… (past)",
+"I'd probably be living in…"
+],
+"ex": "If I had studied medicine, I would be working in a hospital now. If I weren't so shy, I would have spoken to her yesterday.",
+"cards": [
+"If you had been born 100 years ago…",
+"If you had studied something completely different…",
+"If you had grown up in another country…",
+"If you had never learnt to use a computer…",
+"If you had been born a twin…",
+"If you had become famous as a child…",
+"If you weren't afraid of anything… (what would you have done last year?)",
+"If you were a morning person… (what would you have done this morning?)",
+"If you had moved house five years ago…",
+"If you had saved all the money you've spent on coffee…",
+"If you spoke five languages… (what would you have done differently?)",
+"If you had said yes to your first job offer…"
+],
+"guide": {
+"ind": [
+"The student answers with at least two mixed-conditional sentences.",
+"Ask them to switch: past→present, then present→past.",
+"Highlight the two patterns on the board."
+],
+"pair": [
+"Partners take turns. The listener checks the tenses and asks one follow-up.",
+"After each card, partners compare: whose 'other life' sounds better?",
+"Swap who starts."
+],
+"grp": [
+"Show the card and give a minute of thinking time.",
+"Pick students to share; the class identifies which pattern they used.",
+"Finish with a quick correction round."
+]
+},
+"end": "Write one mixed conditional about your own life."
 }
 ]
