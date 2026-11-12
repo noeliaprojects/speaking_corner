@@ -1,5 +1,8 @@
 name: Find photos
 on:
+  push:
+    paths:
+      - '.github/workflows/find-photos.yml'
   workflow_dispatch:
     inputs:
       max_images:
@@ -25,7 +28,7 @@ jobs:
         with:
           python-version: "3.12"
       - run: pip install pillow
-      - run: python3 scripts/find_photos.py --max "${{ inputs.max_images }}" --only "${{ inputs.only }}" --redo "${{ inputs.redo }}"
+      - run: python3 scripts/find_photos.py --max "${{ inputs.max_images || '100' }}" --only "${{ inputs.only || '' }}" --redo "${{ inputs.redo || '' }}"
       - name: Save the new photos
         run: |
           git config user.name "Speaking Corner bot"
