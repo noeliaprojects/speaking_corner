@@ -95,7 +95,7 @@ def main():
         else:
             i = int(rest[:2]) - 1; c = d["cards"][i]
             card = c["a"] if rest.endswith("a") and d["kind"] == "versus" else c["b"] if rest.endswith("b") and d["kind"] == "versus" else c[int(rest[3]) - 1] if d["kind"] == "triple" else c
-        if d.get("noSearch") and rest != "cover":
+        if d.get("noSearch") and rest != "cover" and name not in QUERIES:
             continue
         todo.append((name, query_for(d, card, name)))
     print(f"{len(todo)} photos to find; trying up to {a.max}")
