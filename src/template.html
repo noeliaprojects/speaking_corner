@@ -43,6 +43,12 @@ a{color:inherit}
 .back:hover{color:var(--ink)}
 
 
+/* Compact lesson editors: regular-height fields instead of flexing vertically */
+.lp-compact{gap:12px}
+.lp-compact>.field{flex:0 0 auto}
+.lp-compact>.row>.field{flex:1 1 175px}
+.lp-compact textarea{min-height:96px}
+
 /* Lesson planning */
 .lesson-card{position:relative;min-width:0;display:flex;flex-direction:column}
 .lesson-card .act{flex:1}
@@ -426,14 +432,16 @@ const LP=(function plannerImpl(){
  function listView(){
    clearReturn();const groups=CL.all(),plans=all().slice().sort((a,b)=>b.date.localeCompare(a.date)),pending=store.get("sc-lesson-pending",null);
    app.innerHTML=`<div class="narrow"><div class="top"><a class="back" href="#">← All activities</a><a class="back" href="#classes">My classes</a></div>
-     <h1>My <span>lesson plans</span></h1><section class="card"><h2>Prepare a lesson</h2>
+     <h1>My <span>lesson plans</span></h1>
+     <section class="card"><h2>Saved lessons <span class="note">${plans.length}</span></h2>
+     ${plans.length?`<div class="lp-list">${plans.map(p=>`<a class="lp-summary" href="#plan/${esc(p.id)}"><span><strong>${esc(p.title)}</strong><small>${esc(groupName(p.classId))} · ${esc(p.date)}</small></span><span class="note">${(p.done||[]).length}/${p.activities.length} done →</span></a>`).join("")}</div>`:`<p class="note">No lesson plans yet. Create one below, then add the activities you want to teach.</p>`}</section>
+     <section class="card lp-compact"><h2>Prepare a lesson</h2>
      ${pending&&byId(pending)?`<p class="note">Your new plan will include <b>${esc(byId(pending).name)}</b>.</p>`:""}
      ${!groups.length?`<p class="note">Create a class first.</p><a class="btn primary" href="#classes">+ Add a class</a>`:`<div class="field"><label class="label" for="lpName">Lesson name</label><input id="lpName" placeholder="e.g. Thursday speaking · Unit 3" maxlength="120"></div>
      <div class="row"><div class="field"><label class="label" for="lpClass">Class</label><select id="lpClass">${groupOptions((CL.active()||groups[0]).id)}</select></div>
      <div class="field"><label class="label" for="lpDate">Date</label><input type="date" id="lpDate" value="${today()}"></div></div>
      <button class="primary" id="lpCreate">+ Create lesson plan</button>`}</section>
-     <section class="card"><h2>Saved lessons <span class="note">${plans.length}</span></h2>
-     ${plans.length?`<div class="lp-list">${plans.map(p=>`<a class="lp-summary" href="#plan/${esc(p.id)}"><span><strong>${esc(p.title)}</strong><small>${esc(groupName(p.classId))} · ${esc(p.date)}</small></span><span class="note">${(p.done||[]).length}/${p.activities.length} done →</span></a>`).join("")}</div>`:`<p class="note">No lesson plans yet. Create one above, then add the activities you want to teach.</p>`}</section>
+
      <p class="note">Lesson plans are saved on this browser and device. To transfer them, use the backup in My classes.</p></div>`;
    if($("#lpCreate"))$("#lpCreate").onclick=()=>{
      const cid=$("#lpClass").value;if(!CL.byId(cid))return;
@@ -444,11 +452,7 @@ const LP=(function plannerImpl(){
  function planView(id){
    clearReturn();const p=get(id);if(!p){location.hash="plans";return;}const done=p.done||[],available=ALL.slice().sort((a,b)=>a.name.localeCompare(b.name));
    app.innerHTML=`<div class="narrow"><div class="top"><a class="back" href="#plans">← My lesson plans</a><a class="back" href="#">All activities</a></div><h1>Lesson <span>plan</span></h1>
-     <section class="card"><div class="field"><label class="label" for="lpTitle">Lesson name</label><input id="lpTitle" value="${esc(p.title)}" maxlength="120"></div>
-       <div class="row"><div class="field"><label class="label" for="lpDateEdit">Date</label><input type="date" id="lpDateEdit" value="${esc(p.date)}"></div>
-       <div class="field"><label class="label" for="lpGroupEdit">Class</label><select id="lpGroupEdit">${groupOptions(p.classId)}</select></div></div>
-       <div class="field"><label class="label" for="lpNotes">Teacher notes (optional)</label><textarea id="lpNotes" placeholder="Materials, timing, homework…">${esc(p.notes||"")}</textarea></div>
-       <div class="row"><button class="primary" id="lpSave">Save details</button><span class="note" id="lpSaved" role="status"></span></div></section>
+
      <section class="card"><h2>Activities <span class="note">${done.length} of ${p.activities.length} done</span></h2>
        <p class="note">Open each activity during class. Tick it after you finish, or use Mark as done inside the activity.</p>
        ${p.activities.length?`<ol class="lp-steps">${p.activities.map((aid,i)=>{const a=byId(aid);if(!a)return "";return `<li class="lp-step">
@@ -458,7 +462,13 @@ const LP=(function plannerImpl(){
          <button class="ghost" data-down="${i}" ${i===p.activities.length-1?"disabled":""} aria-label="Move down ${esc(a.name)}">↓</button><button class="ghost" data-remove="${i}" aria-label="Remove ${esc(a.name)}">×</button></div></li>`;}).join("")}</ol>`:`<p class="note">This plan has no activities yet. Add one below.</p>`}
        <label class="field"><span class="label">Add an activity</span><select id="lpActivity">${available.map(a=>`<option value="${esc(a.id)}">${esc(a.name)} · ${esc(lvRange(a.lv))}</option>`).join("")}</select></label>
        <div class="row"><button class="primary" id="lpAdd">+ Add activity</button><a class="btn ghost" href="#">Browse all activities</a></div><p class="note" id="lpAddMessage" role="status"></p>
-     </section><section class="card"><div class="row"><button class="ghost" id="lpDuplicate">Duplicate lesson</button><button class="ghost" id="lpDelete">Delete lesson</button></div></section></div>`;
+     </section>
+     <section class="card lp-compact"><h2>Lesson details</h2><div class="field"><label class="label" for="lpTitle">Lesson name</label><input id="lpTitle" value="${esc(p.title)}" maxlength="120"></div>
+       <div class="row"><div class="field"><label class="label" for="lpDateEdit">Date</label><input type="date" id="lpDateEdit" value="${esc(p.date)}"></div>
+       <div class="field"><label class="label" for="lpGroupEdit">Class</label><select id="lpGroupEdit">${groupOptions(p.classId)}</select></div></div>
+       <div class="field"><label class="label" for="lpNotes">Teacher notes (optional)</label><textarea id="lpNotes" placeholder="Materials, timing, homework…">${esc(p.notes||"")}</textarea></div>
+       <div class="row"><button class="primary" id="lpSave">Save details</button><span class="note" id="lpSaved" role="status"></span></div></section>
+     <section class="card"><div class="row"><button class="ghost" id="lpDuplicate">Duplicate lesson</button><button class="ghost" id="lpDelete">Delete lesson</button></div></section></div>`;
    $("#lpSave").onclick=()=>{const title=$("#lpTitle").value.trim(),date=$("#lpDateEdit").value,cid=$("#lpGroupEdit").value;
      if(!title||!date||!CL.byId(cid)){$("#lpSaved").textContent="Enter a name, date and class.";return;}
      update(id,p=>{p.title=title;p.date=date;p.classId=cid;p.notes=$("#lpNotes").value;});$("#lpSaved").textContent="Saved.";};
