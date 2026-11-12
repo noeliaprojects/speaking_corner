@@ -4949,11 +4949,11 @@
 "gram": [
 "Modals of deduction"
 ],
-"focus": "Speculation with evidence: He must be… because…, She might/could be…, He can't be… because…, She looks like…",
+"focus": "Speculation with a reason: He must be… because…, She might/could be…, He can't be… because…, She looks like… (clothes, place, objects, expression, posture…)",
 "desc": "Look at the photo and speculate about the person's job using must, might and can't.",
-"instr": "Look at the person in the photo. What's their job? Give at least two reasons using the evidence you can see. Then the answer is revealed.",
+"instr": "Look at the person in the photo. What's their job? Give at least two reasons: think about the place, the objects, their clothes, their expression or what they're doing.",
 "ph": [
-"He must be a… because he's wearing…",
+"He must be a… because…",
 "She might be a… / She could be a…",
 "He can't be a… because…",
 "She looks like a…"
