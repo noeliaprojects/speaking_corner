@@ -11057,5 +11057,697 @@
         "Form two teams that alternate claims and ethical complications. Stop if the debate becomes repetitive."
       ]
     }
+  },
+  {
+    "id": "rather-than",
+    "name": "I'd Rather… Than…",
+    "cat": "game",
+    "lv": [
+      "A2",
+      "B1"
+    ],
+    "fmts": [
+      "ind",
+      "pair",
+      "grp"
+    ],
+    "kind": "versus",
+    "gram": [
+      "Would rather / had better"
+    ],
+    "focus": "would rather + base verb + than + base verb · I'd rather not… · Would you rather…?",
+    "desc": "Two options, no escape. Answer every time with a full 'I'd rather… than…' sentence — then report what your partner said.",
+    "instr": "Ask: 'Would you rather… or…?' Answer with a complete sentence: 'I'd rather… than…' + one reason. No one-word answers!",
+    "ph": [
+      "Would you rather… or…?",
+      "I'd rather… than…",
+      "I'd rather not… because…",
+      "She'd rather… than… (report it!)"
+    ],
+    "ex": "Would you rather live without music or without TV? — I'd rather live without TV than without music, because I listen to music all day.",
+    "cards": [
+      {
+        "a": "live without music",
+        "b": "live without TV"
+      },
+      {
+        "a": "eat pizza every day",
+        "b": "never eat pizza again"
+      },
+      {
+        "a": "walk to school in the rain",
+        "b": "take a crowded bus"
+      },
+      {
+        "a": "be able to fly",
+        "b": "be able to become invisible"
+      },
+      {
+        "a": "stay at home on Saturday night",
+        "b": "go to a big party"
+      },
+      {
+        "a": "have a dog",
+        "b": "have a cat"
+      },
+      {
+        "a": "live in a big city",
+        "b": "live in a tiny village"
+      },
+      {
+        "a": "do homework on Friday",
+        "b": "do it on Sunday night"
+      },
+      {
+        "a": "read the book",
+        "b": "watch the film"
+      },
+      {
+        "a": "go to the beach",
+        "b": "go to the mountains"
+      },
+      {
+        "a": "be really famous",
+        "b": "be really rich"
+      },
+      {
+        "a": "lose your phone",
+        "b": "lose your keys"
+      },
+      {
+        "a": "cook dinner",
+        "b": "wash the dishes"
+      },
+      {
+        "a": "travel by train",
+        "b": "travel by plane"
+      },
+      {
+        "a": "speak ten languages",
+        "b": "play ten instruments"
+      },
+      {
+        "a": "get up at 5 am",
+        "b": "go to bed at 3 am"
+      }
+    ],
+    "guide": {
+      "ind": [
+        "Ask the question; the student must answer with 'I'd rather… than…' + a reason. Insist on the full sentence.",
+        "Then the student asks you. Answer, and they repeat it back: 'You'd rather… than…'.",
+        "Last round: answer with 'I'd rather not… either!' when both options are bad."
+      ],
+      "pair": [
+        "A asks, B answers with a full 'I'd rather… than…' sentence. Swap every card.",
+        "After 4 cards, each student tells another pair: 'Marta would rather… than…'.",
+        "Fast round: answer in 3 seconds or lose the point."
+      ],
+      "grp": [
+        "Everyone stands. Read the question; students go to the left wall (A) or the right wall (B).",
+        "Pick two students from each side: they must say 'I'd rather… than… because…'.",
+        "Someone from the other side reports: 'Leo would rather… than…'. Next card."
+      ]
+    },
+    "end": "Which question was the hardest to answer? Why?",
+    "ages": [
+      "9-12",
+      "12-14",
+      "14-16",
+      "16-18",
+      "19-25",
+      "adults"
+    ]
+  },
+  {
+    "id": "youd-better",
+    "name": "You'd Better…!",
+    "cat": "game",
+    "lv": [
+      "A2",
+      "B1"
+    ],
+    "fmts": [
+      "ind",
+      "pair",
+      "grp"
+    ],
+    "kind": "single",
+    "gram": [
+      "Would rather / had better"
+    ],
+    "timer": 45,
+    "focus": "had better ('d better) + base verb · had better not + base verb — strong, urgent advice",
+    "desc": "Someone is in trouble right now. Give three pieces of urgent advice with 'You'd better…' and one with 'You'd better not…' before the timer ends.",
+    "instr": "Read the problem. Quick! Give 3 pieces of advice with 'You'd better…' and 1 with 'You'd better not…'. The person in trouble chooses the best one.",
+    "ph": [
+      "You'd better… right now!",
+      "You'd better not…, or…",
+      "If I were you, I'd…",
+      "Good idea! / That won't work because…"
+    ],
+    "ex": "'I've got an exam tomorrow and I haven't studied.' — You'd better switch off your phone. You'd better make a summary. You'd better go to bed early. You'd better not stay up all night!",
+    "cards": [
+      "I've got an exam tomorrow and I haven't studied.",
+      "My phone battery is at 2% and I'm lost in the city.",
+      "I've just broken my mum's favourite vase.",
+      "My bus leaves in 5 minutes and I'm still in bed.",
+      "I've forgotten my best friend's birthday — it's today!",
+      "There's a huge spider in my bedroom.",
+      "I think I've got a fever and I have a match tonight.",
+      "I lent my brother my bike and he lost it.",
+      "I've spent all my money and it's only the 10th of the month.",
+      "My dog has eaten my homework. Really!",
+      "It's snowing and I want to drive up the mountain.",
+      "My teacher saw me copying in the test.",
+      "I posted a photo and now everyone is laughing at me.",
+      "I've locked my keys inside the house."
+    ],
+    "guide": {
+      "ind": [
+        "Read the problem as if it's yours, acting worried. The student gives 3 'You'd better…' + 1 'You'd better not…'.",
+        "Choose the best piece of advice and say why.",
+        "Swap: the student reads the problem, you give advice (with one mistake for them to correct)."
+      ],
+      "pair": [
+        "A acts out the problem, B gives the four pieces of advice before the timer ends.",
+        "A chooses the best one: 'OK, I'd better…!'.",
+        "Swap roles each card."
+      ],
+      "grp": [
+        "Teams of 3–4. Show the problem and start the timer.",
+        "Teams shout advice: each correct 'You'd better (not)…' sentence = 1 point. Wrong form (e.g. 'You'd better to go') = no point.",
+        "The 'victim' (a student at the front) chooses the best advice: +2 points."
+      ]
+    },
+    "end": "Which was the best advice today? Who gave it?",
+    "ages": [
+      "12-14",
+      "14-16",
+      "16-18",
+      "19-25",
+      "adults"
+    ]
+  },
+  {
+    "id": "id-rather-you-didnt",
+    "name": "I'd Rather You Didn't",
+    "cat": "game",
+    "lv": [
+      "B1",
+      "B2"
+    ],
+    "fmts": [
+      "ind",
+      "pair",
+      "grp"
+    ],
+    "kind": "single",
+    "gram": [
+      "Would rather / had better"
+    ],
+    "focus": "would rather + someone + past simple (present meaning): I'd rather you didn't… · I'd rather you came… · Would you rather I…?",
+    "desc": "Annoying requests! Say no politely with 'I'd rather you didn't…' and suggest an alternative with 'I'd rather you + past simple'.",
+    "instr": "Student A asks the request. Student B refuses politely: 'Actually, I'd rather you didn't…' + an alternative: 'I'd rather you… instead.' A can try to negotiate.",
+    "ph": [
+      "Is it OK if I…? / Do you mind if I…?",
+      "Actually, I'd rather you didn't.",
+      "I'd rather you… instead.",
+      "Would you rather I…?"
+    ],
+    "ex": "Can I borrow your new jacket for the party? — Actually, I'd rather you didn't. I'd rather you wore your blue one. — Would you rather I asked my sister?",
+    "cards": [
+      "Can I borrow your new jacket for the party?",
+      "Is it OK if I bring my three cousins to your birthday?",
+      "Do you mind if I eat the last piece of cake?",
+      "Can I use your phone to call my friend in Australia?",
+      "Is it OK if I play music while you're studying?",
+      "Can I read your diary? Just one page!",
+      "Do you mind if I sit in your seat?",
+      "Can I post this photo of you online?",
+      "Is it OK if I come to your house at 7 am on Sunday?",
+      "Can I tell everyone your secret?",
+      "Do you mind if I bring my dog to your house?",
+      "Can I copy your homework?"
+    ],
+    "guide": {
+      "ind": [
+        "You ask the request with a big smile. The student refuses with 'I'd rather you didn't' + an alternative in the past simple.",
+        "Negotiate once more: 'Would you rather I…?' — they answer again.",
+        "Swap. Point out: past form, present meaning ('I'd rather you came tomorrow')."
+      ],
+      "pair": [
+        "A asks, B refuses + alternative. A negotiates once with 'Would you rather I…?'.",
+        "B gives a final answer. Swap roles each card.",
+        "Pairs act out the funniest one for the class."
+      ],
+      "grp": [
+        "Mingle: each student gets a card number and asks 3 classmates.",
+        "Each refusal must include 'I'd rather you + past simple'.",
+        "Feedback: 'Ana would rather I didn't bring my dog, she'd rather I came alone.'"
+      ]
+    },
+    "end": "What's something you'd rather people didn't do in class?",
+    "ages": [
+      "12-14",
+      "14-16",
+      "16-18",
+      "19-25",
+      "adults"
+    ]
+  },
+  {
+    "id": "complaint-desk",
+    "name": "The Complaint Desk",
+    "cat": "game",
+    "lv": [
+      "A2",
+      "B1"
+    ],
+    "fmts": [
+      "ind",
+      "pair",
+      "grp"
+    ],
+    "kind": "single",
+    "reveal": true,
+    "gram": [
+      "Too / enough"
+    ],
+    "revealTag": "Two ways",
+    "ansLabel": "Say it both ways",
+    "focus": "too + adjective · not + adjective + enough — say every complaint in both ways",
+    "desc": "You're a very fussy hotel guest. Complain about everything — twice: once with 'too' and once with 'not… enough'.",
+    "instr": "Guest: make the complaint in TWO ways (too… / not… enough). Receptionist: apologise and offer a solution. Next slide shows both sentences.",
+    "ph": [
+      "Excuse me, the… is too…",
+      "It isn't… enough.",
+      "I'm so sorry, I'll…",
+      "Would you like…?"
+    ],
+    "ex": "The soup is too cold. It isn't hot enough! — I'm so sorry, madam. I'll bring you another one.",
+    "cards": [
+      {
+        "t": "🍲 soup · cold",
+        "ans": "The soup is too cold. / The soup isn't hot enough."
+      },
+      {
+        "t": "🛏️ bed · small",
+        "ans": "The bed is too small. / The bed isn't big enough."
+      },
+      {
+        "t": "🔊 room · noisy",
+        "ans": "The room is too noisy. / The room isn't quiet enough."
+      },
+      {
+        "t": "🧺 towel · dirty",
+        "ans": "The towel is too dirty. / The towel isn't clean enough."
+      },
+      {
+        "t": "📶 wifi · slow",
+        "ans": "The wifi is too slow. / The wifi isn't fast enough."
+      },
+      {
+        "t": "☕ coffee · weak",
+        "ans": "The coffee is too weak. / The coffee isn't strong enough."
+      },
+      {
+        "t": "🌡️ room · hot",
+        "ans": "The room is too hot. / The room isn't cool enough."
+      },
+      {
+        "t": "💡 lamp · dark",
+        "ans": "The lamp is too dark. / The lamp isn't bright enough."
+      },
+      {
+        "t": "🍝 portion · small",
+        "ans": "The portion is too small. / The portion isn't big enough."
+      },
+      {
+        "t": "🚿 shower · cold",
+        "ans": "The water is too cold. / The water isn't warm enough."
+      },
+      {
+        "t": "🛌 pillow · hard",
+        "ans": "The pillow is too hard. / The pillow isn't soft enough."
+      },
+      {
+        "t": "🏊 pool · far",
+        "ans": "The pool is too far. / The pool isn't close enough."
+      }
+    ],
+    "guide": {
+      "ind": [
+        "The student is the guest: complaint in two ways. You're the receptionist and offer a solution.",
+        "Reveal to check. Then swap roles; you make one mistake ('enough big') for them to correct.",
+        "Extra: they complain about their real home/school."
+      ],
+      "pair": [
+        "A = guest, B = receptionist. A complains in two ways, B apologises + offers a solution.",
+        "Reveal to check both sentences. Swap roles each card.",
+        "Final round: the guest gets angrier — add 'much too…' / 'not nearly… enough'."
+      ],
+      "grp": [
+        "Teams. Show the card: the first team to say BOTH sentences correctly wins a point.",
+        "A volunteer receptionist must answer with a solution.",
+        "Reveal to check after each card."
+      ]
+    },
+    "end": "What's too… or not… enough in this classroom?",
+    "ages": [
+      "9-12",
+      "12-14",
+      "14-16",
+      "16-18",
+      "19-25",
+      "adults"
+    ]
+  },
+  {
+    "id": "fix-my-town",
+    "name": "Too Much, Too Many, Not Enough",
+    "cat": "opinion",
+    "lv": [
+      "A2",
+      "B1"
+    ],
+    "fmts": [
+      "ind",
+      "pair",
+      "grp"
+    ],
+    "kind": "grid",
+    "gram": [
+      "Too / enough"
+    ],
+    "focus": "too much + uncountable · too many + plural · (not) enough + noun",
+    "desc": "Pick a square and say what's wrong with your town or school: too much…, too many…, not enough… — and how you'd fix it.",
+    "instr": "Choose a square. Say a sentence with too much / too many / not enough about your town or school. Then give one solution. The next person can't repeat your structure!",
+    "ph": [
+      "There's too much… / There are too many…",
+      "There isn't enough… / There aren't enough…",
+      "We need more… / We need fewer… / less…",
+      "They should…"
+    ],
+    "ex": "There's too much traffic in the centre and there aren't enough bike lanes. They should close some streets to cars.",
+    "cards": [
+      "traffic",
+      "cars",
+      "noise",
+      "parks",
+      "litter",
+      "shops",
+      "homework",
+      "free time",
+      "trees",
+      "tourists",
+      "exams",
+      "sports facilities",
+      "rain",
+      "cinemas",
+      "pollution",
+      "benches"
+    ],
+    "guide": {
+      "ind": [
+        "The student chooses squares and makes one sentence each (countable vs uncountable!) + a solution.",
+        "You push back: 'Really? I think there are enough parks.' They defend their opinion.",
+        "Finish with their top 3 changes."
+      ],
+      "pair": [
+        "Take turns choosing squares. Each sentence must alternate: too much → too many → not enough.",
+        "Partner agrees or disagrees and adds a solution.",
+        "Together, choose the 3 biggest problems."
+      ],
+      "grp": [
+        "Chain round: student 1 picks a square, student 2 picks another — 5 seconds each, no repeated squares.",
+        "Wrong 'much/many' = sit down.",
+        "Vote: the top 3 problems become a letter to the mayor/head teacher."
+      ]
+    },
+    "end": "If you were mayor for a day, what would you change first?",
+    "ages": [
+      "9-12",
+      "12-14",
+      "14-16",
+      "16-18",
+      "19-25",
+      "adults"
+    ]
+  },
+  {
+    "id": "sorry-i-cant",
+    "name": "Sorry, I Can't!",
+    "cat": "game",
+    "lv": [
+      "A2",
+      "B1"
+    ],
+    "fmts": [
+      "ind",
+      "pair",
+      "grp"
+    ],
+    "kind": "single",
+    "gram": [
+      "Too / enough",
+      "Would rather / had better"
+    ],
+    "timer": 30,
+    "focus": "too + adj + to-infinitive · not + adj + enough + to-infinitive · I'd rather… than…",
+    "desc": "Your friend invites you to do something you really don't want to do. Find excuses with 'too… to' and 'not… enough to' — your friend keeps insisting!",
+    "instr": "A invites. B refuses with an excuse: 'I'm too… to…' or 'I'm not… enough to…'. A insists. B gives a new excuse each time. Who gives up first?",
+    "ph": [
+      "I'm too tired to…",
+      "I'm not fit/old/brave enough to…",
+      "It's too cold/late/expensive to…",
+      "I'd rather… than…"
+    ],
+    "ex": "Let's go climbing! — Sorry, I'm not brave enough to climb. — Come on, it's easy! — It's too cold to go out today. — I'd rather stay home than freeze!",
+    "cards": [
+      "Let's go running at 6 am!",
+      "Come climbing with me this weekend!",
+      "Let's swim in the sea — in January!",
+      "Let's go to the horror film tonight!",
+      "Do you want to sing karaoke at the party?",
+      "Let's walk home — it's only 15 km!",
+      "Come to my cousin's wedding with me!",
+      "Let's try the hottest chilli in the shop!",
+      "Do you want to do a bungee jump?",
+      "Let's study all Saturday for the test!",
+      "Let's paint my bedroom together!",
+      "Come to the football match — it's minus 5 degrees!"
+    ],
+    "guide": {
+      "ind": [
+        "You invite (enthusiastically!). The student makes excuses with too… to / not… enough to until the timer ends.",
+        "Count the correct excuses. Then swap: you make excuses, they insist.",
+        "Finish: the student says what they'd rather do instead."
+      ],
+      "pair": [
+        "A invites, B makes as many different excuses as possible in 30 seconds.",
+        "A counts correct sentences. Swap every card.",
+        "Record: who made the most excuses?"
+      ],
+      "grp": [
+        "A volunteer invites the class. Students take turns giving excuses around the room.",
+        "Anyone who repeats an excuse or makes a mistake ('enough tired') is out.",
+        "Last student standing wins."
+      ]
+    },
+    "end": "What do you always find an excuse not to do?",
+    "ages": [
+      "9-12",
+      "12-14",
+      "14-16",
+      "16-18",
+      "19-25",
+      "adults"
+    ]
+  },
+  {
+    "id": "old-enough",
+    "name": "Old Enough?",
+    "cat": "opinion",
+    "lv": [
+      "B1",
+      "B2"
+    ],
+    "fmts": [
+      "ind",
+      "pair",
+      "grp"
+    ],
+    "kind": "single",
+    "gram": [
+      "Too / enough"
+    ],
+    "focus": "too young/old to… · old enough to… · mature enough for someone to…",
+    "desc": "At what age should you be allowed to…? Debate the right age using 'too young to' and 'old enough to'.",
+    "instr": "Read the activity. Decide the right age. Defend it with 'too young to…' and 'old enough to…'. Do you agree with your classmates?",
+    "q": [
+      "What's the right age? Why?",
+      "Are some people old enough earlier than others?",
+      "What's the law in your country?"
+    ],
+    "ph": [
+      "I think 12-year-olds are too young to…",
+      "At 16 you're old enough to…",
+      "You're never too old to…",
+      "It's not safe enough for kids to…"
+    ],
+    "ex": "I think 10-year-olds are too young to have a smartphone, but at 13 you're old enough to use one sensibly.",
+    "cards": [
+      "have your own smartphone",
+      "stay home alone at night",
+      "go to a concert without adults",
+      "have a part-time job",
+      "choose your own bedtime",
+      "vote",
+      "drive a car",
+      "have social media",
+      "travel abroad with friends",
+      "get a tattoo",
+      "decide what you eat",
+      "have your own bank card"
+    ],
+    "guide": {
+      "ind": [
+        "The student says an age and defends it with too young to / old enough to.",
+        "You take the opposite view; they must answer back with two more arguments.",
+        "Finish: 'You're never too old to…' — they give three examples."
+      ],
+      "pair": [
+        "Each partner writes an age secretly, then reveal and compare.",
+        "Whoever is further from the partner's age must convince them.",
+        "Agree on one age per card."
+      ],
+      "grp": [
+        "Line up: students stand on an imaginary line from age 8 to 21 for each card.",
+        "Students at the ends explain their choice with too young / old enough.",
+        "Anyone convinced can move — and must say why."
+      ]
+    },
+    "end": "What are you old enough to do now that you weren't last year?",
+    "ages": [
+      "12-14",
+      "14-16",
+      "16-18",
+      "19-25",
+      "adults"
+    ]
+  },
+  {
+    "id": "say-it-another-way",
+    "name": "Say It Another Way",
+    "cat": "game",
+    "lv": [
+      "B1",
+      "B2"
+    ],
+    "fmts": [
+      "ind",
+      "pair",
+      "grp"
+    ],
+    "kind": "single",
+    "reveal": true,
+    "gram": [
+      "Too / enough",
+      "Would rather / had better"
+    ],
+    "revealTag": "Answer",
+    "ansLabel": "Another way",
+    "focus": "too ↔ not… enough · too… for someone to · 'd better / 'd rather — same meaning, different structure",
+    "desc": "Rapid transformation drill: say the same idea with a different structure. Fast and repetitive — perfect before an exam.",
+    "instr": "Read the sentence. Say it another way using the word in brackets. Then check on the next slide.",
+    "ph": [
+      "… isn't… enough to…",
+      "… is too… for me to…",
+      "You'd better…",
+      "I'd rather… than…"
+    ],
+    "ex": "The box is too heavy for me to lift. (strong) → I'm not strong enough to lift the box.",
+    "cards": [
+      {
+        "t": "The box is too heavy for me to lift. (strong)",
+        "ans": "I'm not strong enough to lift the box."
+      },
+      {
+        "t": "She's too young to drive. (old)",
+        "ans": "She isn't old enough to drive."
+      },
+      {
+        "t": "The water isn't warm enough to swim. (cold)",
+        "ans": "The water is too cold to swim (in)."
+      },
+      {
+        "t": "This book is too difficult for me to understand. (easy)",
+        "ans": "This book isn't easy enough for me to understand."
+      },
+      {
+        "t": "We haven't got enough chairs. (many / few)",
+        "ans": "There are too few chairs. / We need more chairs."
+      },
+      {
+        "t": "He talks too fast. (slowly)",
+        "ans": "He doesn't talk slowly enough."
+      },
+      {
+        "t": "I prefer staying in to going out tonight. (rather)",
+        "ans": "I'd rather stay in than go out tonight."
+      },
+      {
+        "t": "It's a good idea for you to leave now. (better)",
+        "ans": "You'd better leave now."
+      },
+      {
+        "t": "Don't be late — it's important! (better)",
+        "ans": "You'd better not be late."
+      },
+      {
+        "t": "I don't want you to tell anyone. (rather)",
+        "ans": "I'd rather you didn't tell anyone."
+      },
+      {
+        "t": "There's too much sugar in this cake. (sweet)",
+        "ans": "This cake is too sweet."
+      },
+      {
+        "t": "I'd prefer not to talk about it. (rather)",
+        "ans": "I'd rather not talk about it."
+      },
+      {
+        "t": "You aren't tall enough to reach the shelf. (short)",
+        "ans": "You're too short to reach the shelf."
+      },
+      {
+        "t": "The film was so boring that we left. (too)",
+        "ans": "The film was too boring (for us) to watch, so we left."
+      }
+    ],
+    "guide": {
+      "ind": [
+        "The student transforms each sentence aloud in under 10 seconds. Reveal to check.",
+        "Second round: go back to the start and do it faster.",
+        "Third round: you say the answer, they say the original."
+      ],
+      "pair": [
+        "A reads the sentence, B transforms it. Reveal to check. Swap.",
+        "Keep score: correct first time = 2 points, with help = 1.",
+        "Pairs invent one new sentence for another pair."
+      ],
+      "grp": [
+        "Teams: the first team to raise a hand and say it correctly wins a point.",
+        "Wrong answer: the question passes to the next team.",
+        "Final speed round: 5 cards in 1 minute."
+      ]
+    },
+    "end": "Which transformation is the trickiest for you?",
+    "ages": [
+      "14-16",
+      "16-18",
+      "19-25",
+      "adults"
+    ]
   }
 ]
