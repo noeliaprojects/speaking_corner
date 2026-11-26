@@ -12212,7 +12212,7 @@
     "desc": "Project a photo. The class says what they see, what they think is happening and what they wonder about it.",
     "instr": "Look at the photo. Say three things: what you can SEE (only facts), what you THINK is happening and why, and what you WONDER about it.",
     "q": [
-      "What can you see? What do you think? What do you wonder?",
+      "Look closely.",
       "I can see…",
       "I think… because…",
       "I wonder…"
