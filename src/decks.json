@@ -12174,5 +12174,133 @@
     "coverQ": "two overlapping speech bubbles conversation",
     "coverP": "Realistic, contextually relevant educational photograph of two overlapping speech bubbles conversation. No words or branding.",
     "coverPhotoRef": "taboo-cover"
+  },
+  {
+    "id": "see-think-wonder",
+    "name": "See, Think, Wonder",
+    "cat": "warm",
+    "lv": [
+      "A2",
+      "B1",
+      "B2",
+      "C1"
+    ],
+    "fmts": [
+      "ind",
+      "pair",
+      "grp"
+    ],
+    "ages": [
+      "9-12",
+      "12-14",
+      "14-16",
+      "16-18",
+      "19-25",
+      "adults"
+    ],
+    "kind": "single",
+    "reveal": true,
+    "img": true,
+    "photoOnly": true,
+    "revealTag": "See · Think · Wonder",
+    "ansLabel": "What it really is",
+    "gram": [
+      "Present continuous",
+      "Modals of deduction"
+    ],
+    "focus": "Separate what you see from what you think: I can see… (facts) · I think… because… / It might be… (interpretation) · I wonder why/who/what… (questions)",
+    "desc": "Project a photo. The class says what they see, what they think is happening and what they wonder about it.",
+    "instr": "Look at the photo. Say three things: what you can SEE (only facts), what you THINK is happening and why, and what you WONDER about it.",
+    "q": [
+      "What can you see? What do you think? What do you wonder?",
+      "I can see…",
+      "I think… because…",
+      "I wonder…"
+    ],
+    "ph": [
+      "I can see… / There's… / There are…",
+      "In the background / On the left…",
+      "I think… because… / It might be…",
+      "It looks like…",
+      "I wonder why / who / what / how…"
+    ],
+    "ex": "I can see wooden stalls and lots of lights. I think it's December because people are wearing coats and there are decorations. I wonder what they're selling.",
+    "cards": [
+      {
+        "t": "Christmas market at night",
+        "ans": "A Christmas market in a city square: wooden stalls selling food, decorations and hot drinks."
+      },
+      {
+        "t": "hot air balloons",
+        "ans": "A hot air balloon festival early in the morning."
+      },
+      {
+        "t": "flooded street",
+        "ans": "A street after heavy rain: the river overflowed and flooded the town."
+      },
+      {
+        "t": "abandoned house",
+        "ans": "An old house that nobody has lived in for years."
+      },
+      {
+        "t": "busy train station",
+        "ans": "Rush hour at a big train station."
+      },
+      {
+        "t": "harbour at dawn",
+        "ans": "Fishermen getting their boats ready before going out to sea."
+      },
+      {
+        "t": "village under snow",
+        "ans": "A mountain village after a big snowstorm."
+      },
+      {
+        "t": "lantern festival",
+        "ans": "A lantern festival: people let paper lanterns fly into the night sky."
+      },
+      {
+        "t": "traffic jam",
+        "ans": "A huge traffic jam on a motorway at the start of the holidays."
+      },
+      {
+        "t": "lighthouse in a storm",
+        "ans": "Giant waves hit a lighthouse during a winter storm."
+      },
+      {
+        "t": "street food stall",
+        "ans": "A street food stall in an Asian night market."
+      },
+      {
+        "t": "messy kitchen",
+        "ans": "A kitchen the morning after a big family dinner."
+      },
+      {
+        "t": "tent by a lake",
+        "ans": "A camping tent next to a mountain lake."
+      },
+      {
+        "t": "empty stadium",
+        "ans": "A stadium with no fans, before a match."
+      }
+    ],
+    "guide": {
+      "ind": [
+        "Show the photo and give 1 minute of silence to look.",
+        "SEE: the student describes only what is really there. If they interpret ('they're happy'), ask 'What do you see that makes you say that?'.",
+        "THINK: two ideas with 'I think… because…' or 'It might be…'. WONDER: three questions. Write them down.",
+        "Reveal what it is, then go back to their questions: which can you answer now?"
+      ],
+      "pair": [
+        "Both look at the photo for 1 minute in silence.",
+        "A says three things he/she SEES; B says what he/she THINKS is happening and why. Swap for the next photo.",
+        "Together, write three WONDER questions. Reveal and check which questions are answered."
+      ],
+      "grp": [
+        "Write the three starters on the board: I can see… / I think… because… / I wonder…",
+        "Go round the class: first only SEE sentences (nobody can repeat one), then THINK, then WONDER.",
+        "Write every WONDER question on the board. Reveal what it is, and the class votes for the most interesting question still without an answer."
+      ]
+    },
+    "end": "Which question from today would you like to find the answer to?"
   }
 ]
