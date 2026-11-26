@@ -515,7 +515,8 @@ button.primary:hover,.btn.primary:hover{background:#115b56;border-color:#115b56}
 
 /* Palette v4: white page; the surfaces that used to be white now carry the colour */
 :root{--bg:#ffffff;--paper:#f2f5f9;--line:#dfe5ee}
-body{background:#fff}
+body{background-color:#fff;background-image:radial-gradient(#cfd8e6 1.1px,transparent 1.3px);background-size:22px 22px}
+@media print{body{background-image:none!important}}
 .cat .act{background:color-mix(in srgb,var(--category-ink) 7%,#fff)!important;border-color:color-mix(in srgb,var(--category-ink) 18%,#fff)!important;box-shadow:none}
 .cat .act:hover{border-color:var(--category-ink)!important}
 .act.is-done{background:color-mix(in srgb,var(--category-ink) 22%,#fff)!important;border-color:color-mix(in srgb,var(--category-ink) 55%,#fff)!important}
