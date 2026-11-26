@@ -908,7 +908,15 @@
       "19-25",
       "adults"
     ],
-    "coverPhotoRef": "unwritten-rules-01"
+    "coverPhotoRef": "unwritten-rules-01",
+    "imageRefs": {
+      "1": "convenient-creepy:3",
+      "2": "story-chain:5-1",
+      "4": "desert-island:4",
+      "9": "would-you-rather:5b",
+      "10": "look-and-say-house:7",
+      "11": "convenient-creepy:3"
+    }
   },
   {
     "id": "the-catch",
@@ -1014,7 +1022,15 @@
       "19-25",
       "adults"
     ],
-    "coverPhotoRef": "job-nobody-wants-01"
+    "coverPhotoRef": "job-nobody-wants-01",
+    "imageRefs": {
+      "1": "unwritten-rules:5",
+      "2": "unwritten-rules:5",
+      "3": "story-chain:2-0",
+      "6": "five-star-review:11",
+      "9": "five-star-review:2",
+      "10": "unwritten-rules:3"
+    }
   },
   {
     "id": "designed-to-hook",
@@ -1064,7 +1080,14 @@
       "19-25",
       "adults"
     ],
-    "coverPhotoRef": "designed-to-hook-01"
+    "coverPhotoRef": "designed-to-hook-01",
+    "imageRefs": {
+      "1": "designed-to-hook:10",
+      "7": "designed-to-hook:3",
+      "8": "designed-to-hook:0",
+      "9": "parallel-realities:5a",
+      "11": "just-a-minute:2"
+    }
   },
   {
     "id": "convenient-creepy",
@@ -1114,7 +1137,15 @@
       "19-25",
       "adults"
     ],
-    "coverPhotoRef": "convenient-creepy-03"
+    "coverPhotoRef": "convenient-creepy-03",
+    "imageRefs": {
+      "0": "look-and-say-house:7",
+      "1": "convenient-creepy:6",
+      "5": "would-you-rather:5a",
+      "8": "designed-to-hook:10",
+      "9": "guess-the-job:7",
+      "11": "designed-to-hook:0"
+    }
   },
   {
     "id": "parallel-realities",
@@ -1463,7 +1494,13 @@
       "19-25",
       "adults"
     ],
-    "coverPhotoRef": "speed-debate-01"
+    "coverPhotoRef": "speed-debate-01",
+    "imageRefs": {
+      "2": "the-catch:7",
+      "5": "would-you-rather:1b",
+      "6": "look-and-say-school:8",
+      "8": "taboo:cover"
+    }
   },
   {
     "id": "just-a-minute",
@@ -1563,7 +1600,16 @@
       "19-25",
       "adults"
     ],
-    "coverPhotoRef": "fortunately-04"
+    "coverPhotoRef": "fortunately-04",
+    "imageRefs": {
+      "0": "five-star-review:11",
+      "2": "story-chain:5-1",
+      "4": "hot-seat:7",
+      "5": "try-do-skip:7-0",
+      "6": "desert-island:4",
+      "7": "the-catch:5",
+      "8": "parallel-realities:1b"
+    }
   },
   {
     "id": "alibi",
@@ -1618,7 +1664,12 @@
       "19-25",
       "adults"
     ],
-    "coverPhotoRef": "alibi-01"
+    "coverPhotoRef": "alibi-01",
+    "imageRefs": {
+      "3": "look-and-say-school:8",
+      "4": "look-and-say-house:4",
+      "5": "five-star-review:11"
+    }
   },
   {
     "id": "taboo",
@@ -5779,7 +5830,11 @@
       "19-25",
       "adults"
     ],
-    "coverPhotoRef": "guess-the-job-02"
+    "coverPhotoRef": "guess-the-job-02",
+    "imageRefs": {
+      "4": "parallel-realities:5b",
+      "9": "hot-seat:2"
+    }
   },
   {
     "id": "look-and-say-animals",
