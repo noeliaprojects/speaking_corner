@@ -12301,6 +12301,7 @@
         "Write every WONDER question on the board. Reveal what it is, and the class votes for the most interesting question still without an answer."
       ]
     },
-    "end": "Which question from today would you like to find the answer to?"
+    "end": "Which question from today would you like to find the answer to?",
+    "imgP": "a realistic, wide documentary photo of {x}, no famous people, no text"
   }
 ]
