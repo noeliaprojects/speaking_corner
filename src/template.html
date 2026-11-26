@@ -1,4 +1,10 @@
 <title>Speaking Corner</title>
+<meta name="theme-color" content="#176f69">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<link rel="manifest" href="./manifest.webmanifest">
+<link rel="icon" type="image/png" href="./icons/app-192.png">
+<link rel="apple-touch-icon" href="./icons/app-192.png">
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Lexend:wght@300;400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap">
@@ -347,6 +353,11 @@ button,.btn{font-weight:500}
 .my-activities #myCards{min-height:155px}
 @media(max-width:580px){.my-activities .my-summary{flex-direction:column}.my-buttons{width:100%}}
 
+/* Installable app affordance */
+.install-link{background:var(--stamp-soft);border:1px solid #b7d9d2;border-radius:8px;color:var(--stamp);font-size:.84rem;font-weight:700;padding:7px 11px;cursor:pointer}
+.install-link:hover{background:#d6ebe5}
+@media(display-mode:standalone){.install-link{display:none}}
+
 /* ---- printable cards ---- */
 #printArea{display:none}
 @media print{
@@ -633,7 +644,7 @@ function hub(){
   const sel=(id,label,opts,cur)=>`<label class="fsel"><span class="sr">${label}</span><select id="${id}">${opts.map(([v,l])=>`<option value="${esc(v)}" ${cur===v?"selected":""}>${esc(l)}</option>`).join("")}</select></label>`;
   app.innerHTML=`
   <header class="top"><h1 class="brand">Speaking <span>Corner</span></h1>
-    <nav>${classSwitcher()}<a class="link" href="#classes">My classes</a><a class="link" href="#plans">My lesson plans</a><a class="link" href="#my-activities">My activities</a><a class="link" href="#info">Info</a></nav></header>
+    <nav>${classSwitcher()}<a class="link" href="#classes">My classes</a><a class="link" href="#plans">My lesson plans</a><a class="link" href="#my-activities">My activities</a><a class="link" href="#info">Info</a><button type="button" id="installApp" class="install-link">Install app</button></nav></header>
   <nav class="section-jumps" id="sectionJumps" aria-label="Jump to activity section">
     <span class="section-jumps-label">Jump to</span>
     <div class="section-jumps-scroll">
@@ -1097,7 +1108,8 @@ function infoView(){
     <li>Use <b>My lesson plans</b> to prepare, order and open activities for each group, then mark them complete.</li><li>Groups, history and lesson plans are saved on this browser and device. Back them up in My classes when changing devices.</li></ul></section>
   <section class="card"><h2>My activities</h2><p class="note">Create speaking cards or attach your own PDFs. The cards and PDF metadata are saved on your browser; the PDF files must be transferred separately when switching devices.</p><a class="btn ghost" href="#my-activities">Open My activities</a></section>
     <section class="card"><h2>Cambridge speaking games</h2><p class="note">B2 First and C1 Advanced games practise spontaneous answers, photo comparison, collaborative decisions and extended discussion. The teacher guide identifies the exam skill, while students see a game.</p></section>
-    <section class="card"><h2>Printing</h2><ul class="rules">
+    <section class="card"><h2>Install on a phone or tablet</h2><p class="note">Speaking Corner can be installed on your home screen without an app store. On Android: open it in Chrome and select Install app. On iPad/iPhone: open in Safari, tap Share, then Add to Home Screen. Some previously opened resources are available offline. Your classes, plans and custom activities remain on this device.</p></section>
+   <section class="card"><h2>Printing</h2><ul class="rules">
     <li>Activities marked <b>Print</b> need cards. Their page has a button to open the PDF.</li>
     <li>Cards fill the whole A4 page with shared cut lines, so you only need straight cuts. Print at 100% (actual size).</li></ul></section>
   <section class="card"><h2>Photos for the slides</h2>${photoSection()}</section>
@@ -1271,6 +1283,24 @@ const STGame={g:byId("small-talk-grid"),level:"B1",mode:"class",pairs:[],turn:0,
  over(){if(this.mode!=="race")return;const s=[...this.pairs].sort((a,b)=>b.pts-a.pts),top=s[0].pts,w=s.filter(p=>p.pts===top).map(p=>p.name);
   $("#screen").insertAdjacentHTML("beforeend",`<div class="reveal"><span class="label">Grid complete</span><h2>${w.length>1?"It's a tie":"Winners"}: ${w.map(esc).join(" & ")} (${top} squares)</h2></div>`);}
 };
+
+
+/* Install Speaking Corner as a PWA on tablet, mobile or desktop. */
+let pendingInstallEvent=null;
+window.addEventListener("beforeinstallprompt",event=>{event.preventDefault();pendingInstallEvent=event;});
+window.addEventListener("appinstalled",()=>{pendingInstallEvent=null;document.querySelectorAll("#installApp").forEach(el=>el.hidden=true);});
+document.addEventListener("click",async event=>{
+  const target=event.target.closest("#installApp");if(!target)return;
+  if(pendingInstallEvent){const ready=pendingInstallEvent;pendingInstallEvent=null;await ready.prompt();return;}
+  const ios=/iPad|iPhone|iPod/.test(navigator.userAgent)||(/Macintosh/.test(navigator.userAgent)&&navigator.maxTouchPoints>1);
+  const android=/Android/.test(navigator.userAgent);
+  window.alert(ios?"To install: tap Share in Safari, then Add to Home Screen.":android?
+    "To install: open Speaking Corner in Chrome, tap the three-dot menu and choose Install app or Add to Home screen.":
+    "To install: open this website in Chrome or Edge and choose Install app in the browser menu or address bar.");
+});
+if("serviceWorker" in navigator)window.addEventListener("load",()=>{
+  navigator.serviceWorker.register("./sw.js",{scope:"./"}).catch(()=>{});
+});
 
 /* migrate old saved names: nothing to do, classes keep same keys */
 route();
