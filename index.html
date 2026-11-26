@@ -382,16 +382,19 @@ button,.btn{font-weight:500}
   body{background:#fff!important;padding:0!important}
   body>*:not(#printArea){display:none!important}
   #printArea{display:block}
+}
+/* card layout is shared by print and the on-screen measuring pass that shrinks long text to fit */
+#printArea.measure{display:block;position:fixed;left:-10000px;top:0;visibility:hidden}
   .pa-page{width:194mm;height:280mm;display:grid;grid-template-columns:repeat(var(--cols),1fr);grid-template-rows:repeat(var(--rows),1fr);break-after:page;page-break-after:always}
   .pa-page:last-child{break-after:auto;page-break-after:auto}
   .pc{border:.3mm dashed #888;margin:-.15mm;padding:5mm;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3mm;text-align:center;overflow:hidden;position:relative;font-family:"Lexend",system-ui,sans-serif;color:#1f2427}
   .pc-empty{border-color:transparent}
-  .pc-img{width:100%;flex:1 1 0;min-height:0;object-fit:cover;border-radius:2mm}
+  .pc-img{width:100%;flex:1 1 0;min-height:28%;object-fit:cover;border-radius:2mm}
   .pa-noimg .pc-img{display:none}
   .pc-txt{display:flex;flex-direction:column;gap:2mm;align-items:center;flex:0 0 auto;max-width:100%}
   .pa-noimg .pc-txt{flex:1;justify-content:center}
-  .pc-main{margin:0;font-weight:600;line-height:1.15;font-size:calc(10pt + 60pt / var(--rows) / var(--cols) * 1.6);overflow-wrap:anywhere}
-  .pc-sub,.pc-no,.pc-ans{margin:0;font-size:calc(8pt + 18pt / var(--rows) / var(--cols) * 1.6);color:#555}
+  .pc-main{margin:0;font-weight:600;line-height:1.15;font-size:calc((10pt + 60pt / var(--rows) / var(--cols) * 1.6) * var(--fit,1));overflow-wrap:anywhere}
+  .pc-sub,.pc-no,.pc-ans{margin:0;font-size:calc((8pt + 18pt / var(--rows) / var(--cols) * 1.6) * var(--fit,1));color:#555}
   .pc-no{color:#b0321f}
   .pc-foot{position:absolute;bottom:2mm;right:3mm;max-width:calc(100% - 6mm);display:flex;flex-direction:column;align-items:flex-end;gap:.3mm;text-align:right;line-height:1.1}
   .pc-foot .pc-brand{font-size:6pt;font-weight:700;letter-spacing:.01em;color:#2a6b61}
@@ -399,20 +402,19 @@ button,.btn{font-weight:500}
   .pc-ph{align-self:stretch;flex:0 0 auto;border-top:.3mm solid #d6dfdc;padding-top:2mm;margin-top:1mm;text-align:left;color:#314d45;overflow-wrap:anywhere}
   .pc-ph b{display:block;text-transform:uppercase;font-size:6.5pt;letter-spacing:.025em;font-weight:700;margin-bottom:.8mm}
   .pc-ph ul{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:.75mm}
-  .pc-ph li{font-size:calc(6pt + 3pt / var(--cols));line-height:1.14}
+  .pc-ph li{font-size:calc((6pt + 3pt / var(--cols)) * var(--fit,1));line-height:1.14}
   .pa-up .pc-ph{text-transform:uppercase}
   .pc:has(.pc-ph){gap:1.8mm}
   .pc:has(.pc-ph) .pc-txt{min-height:0}
   .pc-vs{display:grid;grid-template-columns:1fr auto 1fr;gap:3mm;align-items:center;width:100%;height:100%}
   .pc-vs div{display:flex;flex-direction:column;gap:2mm;align-items:center;min-width:0;justify-content:center}
   .pc-vs img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:2mm}
-  .pc-vs b{font-size:calc(9pt + 34pt / var(--rows) / var(--cols) * 1.6);font-weight:600}
+  .pc-vs b{font-size:calc((9pt + 34pt / var(--rows) / var(--cols) * 1.6) * var(--fit,1));font-weight:600}
   .pc-vs i{font-style:normal;color:#888}
   .pc-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:2mm;width:100%}
-  .pc-list li{display:flex;align-items:center;gap:3mm;text-align:left;font-size:calc(9pt + 30pt / var(--rows) / var(--cols) * 1.6)}
+  .pc-list li{display:flex;align-items:center;gap:3mm;text-align:left;font-size:calc((9pt + 30pt / var(--rows) / var(--cols) * 1.6) * var(--fit,1))}
   .pc-list img{width:30%;aspect-ratio:4/3;object-fit:cover;border-radius:2mm}
   .pa-up .pc-txt,.pa-up .pc-vs b,.pa-up .pc-list span{text-transform:uppercase}
-}
 
 /* Speaking Corner refresh: playful accents, calm surfaces, no decorative clutter */
 :root{
@@ -860,7 +862,7 @@ function cardFaces(d){return d.cards.map((c,i)=>{const im=k=>imageUrl(d,k);
   if(d.kind==="triple")return {html:`<ul class="pc-list">${c.map((x,k)=>`<li>${im(i+"-"+k)?`<img src="${im(i+"-"+k)}" alt="">`:""}<span>${esc(x)}</span></li>`).join("")}</ul>${d.compare?`<p class="pc-sub">${esc(d.questions?.[i]||"Choose any two photos to compare.")}</p>`:""}`,img:""};
   if(d.kind==="stat")return {html:`<p class="pc-main">“${esc(c.s)}”</p><p class="pc-sub">${esc(c.q)}</p>`,img:""};
   if(d.kind==="board")return {html:`<p class="pc-main">${esc(c.w)}</p><p class="pc-no">${c.no.map(esc).join("<br>")}</p>`,img:""};
-  if(typeof c==="object"){const main=d.photoOnly?(c.ans||c.t):c.t;return {html:`<p class="pc-main">${esc(main)}</p>${c.sub?`<p class="pc-sub">${c.sub.map(esc).join(" · ")}</p>`:""}${c.ans&&!d.photoOnly?`<p class="pc-ans">${esc(c.ans)}</p>`:""}`,img:im(i)};}
+  if(typeof c==="object"){const main=d.photoOnly?(c.ans||c.t):c.t;return {html:`<p class="pc-main">${esc(main)}</p>${c.sub?`<p class="pc-sub">${c.sub.map(esc).join("<br>")}</p>`:""}${c.ans&&!d.photoOnly?`<p class="pc-ans">${esc(c.ans)}</p>`:""}`,img:im(i)};}
   return {html:`<p class="pc-main">${esc(c)}</p>`,img:im(i)};});}
 function printCards(d,n,withImg,upper,withPhrases){
   const L={2:[1,2],4:[2,2],6:[2,3],8:[2,4],9:[3,3],12:[3,4],16:[4,4]}[n],faces=cardFaces(d),pages=[];
@@ -874,6 +876,12 @@ function printCards(d,n,withImg,upper,withPhrases){
   if(!withImg)a.querySelectorAll(".pc-vs img,.pc-list img").forEach(x=>x.remove());
   const imgs=[...a.querySelectorAll("img")];
   Promise.all(imgs.map(x=>x.complete?1:new Promise(r=>{x.onload=x.onerror=r;}))).then(()=>{
+    // Shrink the text of any card whose content doesn't fit (long questions, several sub-lines).
+    a.classList.add("measure");
+    a.querySelectorAll(".pc:not(.pc-empty)").forEach(pc=>{let f=1;pc.style.removeProperty("--fit");
+      const over=()=>pc.scrollHeight>pc.clientHeight+1||[...pc.children].some(ch=>ch.scrollHeight>ch.clientHeight+1&&getComputedStyle(ch).overflow!=="visible");
+      while(over()&&f>0.42){f-=0.06;pc.style.setProperty("--fit",f.toFixed(2));}});
+    a.classList.remove("measure");
     // Browser PDF printers generally suggest the page title as the file name.
     const originalTitle=document.title;
     const activityName=String(d.name||"Cards").replace(/[\\/:*?"<>|]/g,"").trim()||"Cards";
