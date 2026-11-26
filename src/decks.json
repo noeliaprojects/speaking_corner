@@ -12227,16 +12227,16 @@
     "ex": "I can see wooden stalls and lots of lights. I think it's December because people are wearing coats and there are decorations. I wonder what they're selling.",
     "cards": [
       {
-        "t": "Christmas market at night",
-        "ans": "A Christmas market in a city square: wooden stalls selling food, decorations and hot drinks."
+        "t": "Christmas market stall",
+        "ans": "A stall at a Christmas market selling paper star lanterns."
       },
       {
         "t": "hot air balloons",
         "ans": "A hot air balloon festival early in the morning."
       },
       {
-        "t": "flooded street",
-        "ans": "A street after heavy rain: the river overflowed and flooded the town."
+        "t": "flooded forest",
+        "ans": "A forest flooded after the river overflowed. Look at the car on the right!"
       },
       {
         "t": "abandoned house",
@@ -12247,16 +12247,16 @@
         "ans": "Rush hour at a big train station."
       },
       {
-        "t": "harbour at dawn",
-        "ans": "Fishermen getting their boats ready before going out to sea."
+        "t": "fishing boat",
+        "ans": "A small fishing boat in the harbour, ready to go out to sea."
       },
       {
-        "t": "village under snow",
-        "ans": "A mountain village after a big snowstorm."
+        "t": "snow after a storm",
+        "ans": "A neighbourhood the morning after a big snowstorm."
       },
       {
-        "t": "lantern festival",
-        "ans": "A lantern festival: people let paper lanterns fly into the night sky."
+        "t": "sky lantern",
+        "ans": "A sky lantern: at some festivals people light them and let them fly into the night."
       },
       {
         "t": "traffic jam",
