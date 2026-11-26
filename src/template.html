@@ -385,6 +385,53 @@ button,.btn{font-weight:500}
   .pc-list img{width:30%;aspect-ratio:4/3;object-fit:cover;border-radius:2mm}
   .pa-up .pc-txt,.pa-up .pc-vs b,.pa-up .pc-list span{text-transform:uppercase}
 }
+
+/* Speaking Corner refresh: playful accents, calm surfaces, no decorative clutter */
+:root{
+  --bg:#f8f8f5;--paper:#fffefa;--ink:#25303a;--muted:#636c75;--line:#e4e7e5;
+  --stamp:#176f69;--stamp-soft:#e6f3f0;--ok:#176f69;--ok-soft:#e6f3f0;
+  --c-warm:#af5b20;--c-you:#236e9a;--c-opinion:#8450a0;--c-game:#167b67;
+  --accent-warm-bg:#fff0de;--accent-you-bg:#e7f3fc;--accent-opinion-bg:#f3eaf9;--accent-game-bg:#e2f5ee;
+  --accent-b2:#226c9e;--accent-b2-bg:#eaf3fd;
+  --accent-c1:#7650a2;--accent-c1-bg:#f1ebfa;
+}
+.top .brand{letter-spacing:-.035em}
+.top nav .link:hover{color:var(--stamp);text-decoration:underline;text-underline-offset:4px}
+.section-jumps{background:rgba(255,254,250,.96);border-color:#dce7e4;box-shadow:0 4px 14px rgba(28,56,49,.055)}
+.section-jumps button[data-jump="section-warm"]{color:var(--c-warm);background:var(--accent-warm-bg);border-color:#efd6b9}
+.section-jumps button[data-jump="section-you"]{color:var(--c-you);background:var(--accent-you-bg);border-color:#c9e1f3}
+.section-jumps button[data-jump="section-opinion"]{color:var(--c-opinion);background:var(--accent-opinion-bg);border-color:#e0cfec}
+.section-jumps button[data-jump="section-game"]{color:var(--c-game);background:var(--accent-game-bg);border-color:#c4e6d8}
+.section-jumps button[data-jump="section-b2"]{color:var(--accent-b2);background:var(--accent-b2-bg);border-color:#c7dff2}
+.section-jumps button[data-jump="section-c1"]{color:var(--accent-c1);background:var(--accent-c1-bg);border-color:#ddcdef}
+.section-jumps button:hover:not(:disabled){filter:saturate(1.2) brightness(.97)}
+/* Category titles carry the colour; activity body copy remains neutral. */
+.cat{--category-ink:var(--stamp);--category-soft:var(--stamp-soft)}
+#section-warm{--category-ink:var(--c-warm);--category-soft:var(--accent-warm-bg)}
+#section-you{--category-ink:var(--c-you);--category-soft:var(--accent-you-bg)}
+#section-opinion{--category-ink:var(--c-opinion);--category-soft:var(--accent-opinion-bg)}
+#section-game{--category-ink:var(--c-game);--category-soft:var(--accent-game-bg)}
+#section-b2{--category-ink:var(--accent-b2);--category-soft:var(--accent-b2-bg)}
+#section-c1{--category-ink:var(--accent-c1);--category-soft:var(--accent-c1-bg)}
+.cat>h2{display:flex;align-items:center;gap:8px;color:var(--category-ink);font-weight:750;font-size:1.1rem;letter-spacing:-.01em}
+.cat>h2::before{content:"";display:inline-block;width:7px;height:21px;background:var(--category-ink);border-radius:4px;flex:0 0 7px}
+.cat>h2 span{padding:2px 7px;border-radius:7px;background:var(--category-soft);color:var(--category-ink);font-size:.77rem;font-weight:650;margin-left:2px}
+.cat .lvpill{background:var(--category-ink);color:white}
+.cat .act{border-color:#b9c2c0;background:var(--paper)}
+.cat .act:hover{border-color:var(--category-ink);box-shadow:4px 4px 0 var(--category-soft),4px 4px 0 1px var(--category-ink)}
+.cat .resource-icons{color:var(--category-ink)}
+.cat .meta-icon:hover{color:var(--ink)}
+.cat .lesson-add{border-color:var(--category-ink);color:var(--category-ink)}
+.cat .lesson-add:hover,.cat .lesson-add:focus-visible{background:var(--category-ink);color:#fff}
+.exam-cat{background:var(--category-soft);border-color:color-mix(in srgb,var(--category-ink) 17%,#fff)}
+.exam-cat .act{background:#fffefa}
+.chips button[aria-pressed="true"]{background:var(--stamp);border-color:var(--stamp)}
+button.primary,.btn.primary{background:var(--stamp);border-color:var(--stamp);color:#fff}
+button.primary:hover,.btn.primary:hover{background:#115b56;border-color:#115b56}
+.s-tag{background:var(--stamp-soft)}
+/* Keep neutral print cards and high contrast projector slides. */
+@media print{.cat>h2::before{display:none}}
+
 </style>
 
 <div class="wrap" id="app"></div>
