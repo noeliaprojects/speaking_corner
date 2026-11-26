@@ -794,7 +794,8 @@ function renderList(){
   const q=(F.q||"").trim().toLowerCase(),words=q.split(/\s+/).filter(Boolean);
   const hay=g=>[g.name,g.desc,g.instr||"",(g.gram||[]).join(" "),(g.books||[]).join(" "),...(g.cards||[]).map(c=>typeof c==="object"?JSON.stringify(c):c)].join(" ").toLowerCase();
   const ok=g=>(!F.fmt||F.fmt==="all"||g.fmts.includes(F.fmt))&&(!F.lv||F.lv==="all"||g.lv.includes(F.lv))&&(!F.gr||F.gr==="all"||(g.gram||[]).includes(F.gr))&&(!F.age||F.age==="all"||(g.ages||[]).includes(F.age))&&(!words.length||words.every(w=>hay(g).includes(w)));
-  const card=g=>{const d=a?H.dates(a.id,g.id):[];return `<article class="lesson-card${d.length?" is-done":""}"><a class="act${d.length?" is-done":""}" href="#${g.id}">
+  const planDone={};if(a){try{(store.get("sc-lesson-plans",[])||[]).forEach(p=>{if(p&&p.classId===a.id&&Array.isArray(p.done))p.done.forEach(x=>{(planDone[x]=planDone[x]||[]).push(p.date||"");});});}catch(e){}}
+  const card=g=>{const d=a?[...new Set([...H.dates(a.id,g.id),...(planDone[g.id]||[]).filter(Boolean)])].sort():[];if(a&&!d.length&&planDone[g.id])d.push(today());return `<article class="lesson-card${d.length?" is-done":""}"><a class="act${d.length?" is-done":""}" href="#${g.id}">
     <div class="top-row"><span class="lvpill">${lvRange(g.lv)}</span><span class="kind">${esc(g.gram?g.gram[0]:"")}</span></div>
     <h3>${esc(g.name)}</h3><p>${esc(g.desc)}</p>
     <div class="meta">${d.length?`<span class="m-done">✓ Done ${niceDate(d[d.length-1]).replace(/ \d{4}$/,"")}</span>`:""}<div class="meta-icons-row"><span class="format-icons" role="group" aria-label="Activity formats">${formatIcons(g)}</span><span class="resource-icons" role="group" aria-label="Materials and devices">${materialIcons(g)}</span></div></div></a><button type="button" class="lesson-add" data-add-activity="${esc(g.id)}" ><span aria-hidden="true">+</span><span class="sr">Add ${esc(g.name)} to lesson</span></button></article>`;};
