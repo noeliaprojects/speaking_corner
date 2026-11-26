@@ -1,5 +1,5 @@
 <title>Speaking Corner</title>
-<meta name="theme-color" content="#176f69">
+<meta name="theme-color" content="#0e7f74">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 <link rel="manifest" href="./manifest.webmanifest">
@@ -354,6 +354,17 @@ button,.btn{font-weight:500}
 @media(max-width:580px){.my-activities .my-summary{flex-direction:column}.my-buttons{width:100%}}
 
 /* Installable app affordance */
+.install-bar{position:fixed;z-index:250;left:50%;transform:translateX(-50%);bottom:calc(16px + env(safe-area-inset-bottom,0px));width:min(520px,calc(100% - 32px));display:flex;align-items:center;gap:12px;background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:12px 12px 12px 14px;box-shadow:0 10px 34px rgba(20,30,50,.16);animation:ibIn .25s ease-out}
+.install-bar img{border-radius:10px;flex:0 0 44px}
+.install-bar .ib-txt{flex:1;min-width:0;display:flex;flex-direction:column;line-height:1.3}
+.install-bar .ib-txt span{font-size:.82rem;color:var(--muted)}
+.install-bar button.primary{padding:9px 16px}
+.install-bar .ib-x{border:0;background:none;color:var(--muted);padding:6px 8px;font-size:1rem}
+@keyframes ibIn{from{opacity:0;transform:translate(-50%,12px)}}
+@media(prefers-reduced-motion:reduce){.install-bar{animation:none}}
+@media print{.install-bar{display:none!important}}
+.ios-sheet ol{margin:0;padding-left:1.2em;display:flex;flex-direction:column;gap:10px}
+.ios-share{display:inline-flex;vertical-align:middle;color:var(--stamp)}
 .install-link{background:var(--stamp-soft);border:1px solid #b7d9d2;border-radius:8px;color:var(--stamp);font-size:.84rem;font-weight:700;padding:7px 11px;cursor:pointer}
 .install-link:hover{background:#d6ebe5}
 @media(display-mode:standalone){.install-link{display:none}}
@@ -444,6 +455,42 @@ button.primary:hover,.btn.primary:hover{background:#115b56;border-color:#115b56}
 /* Keep neutral print cards and high contrast projector slides. */
 @media print{.cat>h2::before{display:none}}
 
+
+/* Palette v3: warm paper background, white cards, one clear colour per section at matched brightness. */
+:root{
+  --bg:#f5f3ee;--paper:#ffffff;--ink:#1d2330;--muted:#5d6472;--line:#e3dfd6;
+  --stamp:#0e7f74;--stamp-soft:#e2f4f1;--ok:#0e7f74;--ok-soft:#e2f4f1;
+  --c-warm:#e0532f;--c-you:#2f66d0;--c-opinion:#8a4bd1;--c-game:#108a62;
+  --accent-warm-bg:#fdebe5;--accent-you-bg:#e8effc;--accent-opinion-bg:#f2eafb;--accent-game-bg:#e2f4ec;
+  --accent-b2:#0a78a0;--accent-b2-bg:#e1f2f8;--accent-c1:#b8336f;--accent-c1-bg:#fbe7f0;
+}
+.brand,.brand span{text-shadow:none}
+.brand{color:var(--ink)}
+.brand span::after{box-shadow:none;background:var(--c-warm)}
+.section-jumps{background:color-mix(in srgb,var(--paper) 94%,transparent);backdrop-filter:blur(6px);border-color:var(--line);box-shadow:0 6px 18px rgba(29,35,48,.06)}
+.section-jumps button[data-jump]{background:var(--paper);border-color:var(--line);color:var(--ink);font-weight:500;display:inline-flex;align-items:center;gap:7px}
+.section-jumps button[data-jump]::before{content:"";width:9px;height:9px;border-radius:50%;background:var(--dot,var(--stamp));flex:0 0 9px}
+.section-jumps button[data-jump="section-warm"]{--dot:var(--c-warm)}
+.section-jumps button[data-jump="section-you"]{--dot:var(--c-you)}
+.section-jumps button[data-jump="section-opinion"]{--dot:var(--c-opinion)}
+.section-jumps button[data-jump="section-game"]{--dot:var(--c-game)}
+.section-jumps button[data-jump="section-b2"]{--dot:var(--accent-b2)}
+.section-jumps button[data-jump="section-c1"]{--dot:var(--accent-c1)}
+.section-jumps button[data-jump]:hover:not(:disabled){border-color:var(--dot);filter:none}
+.search input{background:var(--paper);border-color:var(--line)}
+.chips button{background:var(--paper)}
+.chips button[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:#fff}
+.grsel select,.fsel select{background:var(--paper)}
+.cat .act{border:1px solid var(--line);background:var(--paper);box-shadow:0 1px 2px rgba(29,35,48,.04)}
+.cat .act::before{content:"";position:absolute;left:18px;right:18px;top:-1px;height:3px;border-radius:0 0 3px 3px;background:var(--category-ink)}
+.cat .act:hover{border-color:var(--category-ink);box-shadow:0 8px 22px -10px color-mix(in srgb,var(--category-ink) 45%,transparent);transform:translateY(-2px)}
+.cat .act p{color:var(--muted)}
+.cat .resource-icons{color:var(--category-ink)}
+.exam-cat .act{background:var(--paper)}
+.install-link{background:var(--stamp);border-color:var(--stamp);color:#fff}
+.install-link:hover{background:#0b6b62}
+@media (prefers-reduced-motion:reduce){.cat .act:hover{transform:none}}
+@media print{.cat .act::before{display:none}}
 </style>
 
 <div class="wrap" id="app"></div>
@@ -646,7 +693,7 @@ function hub(){
   const sel=(id,label,opts,cur)=>`<label class="fsel"><span class="sr">${label}</span><select id="${id}">${opts.map(([v,l])=>`<option value="${esc(v)}" ${cur===v?"selected":""}>${esc(l)}</option>`).join("")}</select></label>`;
   app.innerHTML=`
   <header class="top"><h1 class="brand">Speaking <span>Corner</span></h1>
-    <nav>${classSwitcher()}<a class="link" href="#classes">My classes</a><a class="link" href="#plans">My lesson plans</a><a class="link" href="#my-activities">My activities</a><a class="link" href="#info">Info</a><button type="button" id="installApp" class="install-link">Install app</button></nav></header>
+    <nav>${classSwitcher()}<a class="link" href="#classes">My classes</a><a class="link" href="#plans">My lesson plans</a><a class="link" href="#my-activities">My activities</a><a class="link" href="#info">Info</a><button type="button" id="installApp" class="install-link" ${installVisible()?"":"hidden"}>Install app</button></nav></header>
   <nav class="section-jumps" id="sectionJumps" aria-label="Jump to activity section">
     <span class="section-jumps-label">Jump to</span>
     <div class="section-jumps-scroll">
@@ -1110,7 +1157,7 @@ function infoView(){
     <li>Use <b>My lesson plans</b> to prepare, order and open activities for each group, then mark them complete.</li><li>Groups, history and lesson plans are saved on this browser and device. Back them up in My classes when changing devices.</li></ul></section>
   <section class="card"><h2>My activities</h2><p class="note">Create speaking cards or attach your own PDFs. The cards and PDF metadata are saved on your browser; the PDF files must be transferred separately when switching devices.</p><a class="btn ghost" href="#my-activities">Open My activities</a></section>
     <section class="card"><h2>Cambridge speaking games</h2><p class="note">B2 First and C1 Advanced games practise spontaneous answers, photo comparison, collaborative decisions and extended discussion. The teacher guide identifies the exam skill, while students see a game.</p></section>
-    <section class="card"><h2>Install on a phone or tablet</h2><p class="note">Speaking Corner can be installed on your home screen without an app store. On Android: open it in Chrome and select Install app. On iPad/iPhone: open in Safari, tap Share, then Add to Home Screen. Some previously opened resources are available offline. Your classes, plans and custom activities remain on this device.</p></section>
+    <section class="card"><h2>Install on a phone or tablet</h2><p class="note">On Android phones, tablets and computers (Chrome, Edge or Samsung Internet) an <b>Install</b> button appears at the bottom of the home page and next to Info. Tap it and Speaking Corner goes to your home screen like any other app. On iPhone and iPad, Install shows the two Safari steps (Share, then Add to Home Screen). If the button doesn't appear, the app is probably already installed. Your classes, plans and custom activities stay on this device, and activities you have opened before also work offline.</p></section>
    <section class="card"><h2>Printing</h2><ul class="rules">
     <li>Activities marked <b>Print</b> need cards. Their page has a button to open the PDF.</li>
     <li>Cards fill the whole A4 page with shared cut lines, so you only need straight cuts. Print at 100% (actual size).</li></ul></section>
@@ -1287,19 +1334,47 @@ const STGame={g:byId("small-talk-grid"),level:"B1",mode:"class",pairs:[],turn:0,
 };
 
 
-/* Install Speaking Corner as a PWA on tablet, mobile or desktop. */
+/* Install Speaking Corner as a PWA: one-tap install where the browser allows it (Chrome, Edge, Samsung Internet);
+   iPhone/iPad Safari has no install API, so there the button opens the two-step Add to Home Screen guide. */
 let pendingInstallEvent=null;
-window.addEventListener("beforeinstallprompt",event=>{event.preventDefault();pendingInstallEvent=event;});
-window.addEventListener("appinstalled",()=>{pendingInstallEvent=null;document.querySelectorAll("#installApp").forEach(el=>el.hidden=true);});
-document.addEventListener("click",async event=>{
-  const target=event.target.closest("#installApp");if(!target)return;
-  if(pendingInstallEvent){const ready=pendingInstallEvent;pendingInstallEvent=null;await ready.prompt();return;}
-  const ios=/iPad|iPhone|iPod/.test(navigator.userAgent)||(/Macintosh/.test(navigator.userAgent)&&navigator.maxTouchPoints>1);
-  const android=/Android/.test(navigator.userAgent);
-  window.alert(ios?"To install: tap Share in Safari, then Add to Home Screen.":android?
-    "To install: open Speaking Corner in Chrome, tap the three-dot menu and choose Install app or Add to Home screen.":
-    "To install: open this website in Chrome or Edge and choose Install app in the browser menu or address bar.");
+const IS_STANDALONE=()=>matchMedia("(display-mode: standalone)").matches||navigator.standalone===true;
+const IS_IOS=/iPad|iPhone|iPod/.test(navigator.userAgent)||(/Macintosh/.test(navigator.userAgent)&&navigator.maxTouchPoints>1);
+function installVisible(){return !IS_STANDALONE()&&(!!pendingInstallEvent||IS_IOS);}
+function syncInstallUI(){
+  const show=installVisible();
+  document.querySelectorAll("#installApp").forEach(el=>el.hidden=!show);
+  let bar=document.getElementById("installBar");
+  let dismissed=false;try{dismissed=Date.now()<+(localStorage.getItem("sc-install-dismissed")||0);}catch(e){}
+  const onHub=!location.hash||location.hash==="#";
+  if(bar&&!onHub){bar.remove();bar=null;}
+  if(show&&!dismissed&&onHub&&!bar){
+    bar=document.createElement("div");bar.id="installBar";bar.className="install-bar";bar.setAttribute("role","dialog");bar.setAttribute("aria-label","Install Speaking Corner");
+    bar.innerHTML=`<img src="./icons/app-192.png" alt="" width="44" height="44"><div class="ib-txt"><b>Install Speaking Corner</b><span>Open it from your home screen like an app, full screen.</span></div><button type="button" class="primary" data-install>Install</button><button type="button" class="ib-x" data-install-close aria-label="Not now">✕</button>`;
+    document.body.appendChild(bar);
+  }
+  if(bar&&!show)bar.remove();
+}
+function iosInstallSheet(){
+  const o=document.createElement("div");o.className="lp-overlay";
+  o.innerHTML=`<div class="card lp-dialog ios-sheet" role="dialog" aria-label="Add to Home Screen"><h2>Add to your home screen</h2>
+  <ol><li>Tap the <b>Share</b> button <span class="ios-share" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M7 8l5-5 5 5"/><path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-7"/></svg></span> in Safari.</li><li>Choose <b>Add to Home Screen</b>, then <b>Add</b>.</li></ol>
+  <p class="note">On iPhone and iPad this is the only way Apple allows. It has to be Safari.</p><button type="button" class="primary" data-close>OK</button></div>`;
+  o.addEventListener("click",e=>{if(e.target===o||e.target.closest("[data-close]"))o.remove();});
+  document.body.appendChild(o);
+}
+async function doInstall(){
+  if(pendingInstallEvent){const ev=pendingInstallEvent;pendingInstallEvent=null;ev.prompt();
+    try{await ev.userChoice;}catch(e){} syncInstallUI();return;}
+  if(IS_IOS)iosInstallSheet();
+}
+window.addEventListener("beforeinstallprompt",event=>{event.preventDefault();pendingInstallEvent=event;syncInstallUI();});
+window.addEventListener("appinstalled",()=>{pendingInstallEvent=null;syncInstallUI();});
+document.addEventListener("click",event=>{
+  if(event.target.closest("#installApp,[data-install]")){doInstall();return;}
+  if(event.target.closest("[data-install-close]")){try{localStorage.setItem("sc-install-dismissed",Date.now()+14*864e5);}catch(e){}document.getElementById("installBar")?.remove();}
 });
+window.addEventListener("load",syncInstallUI);
+window.addEventListener("hashchange",()=>setTimeout(syncInstallUI,0));
 if("serviceWorker" in navigator)window.addEventListener("load",()=>{
   navigator.serviceWorker.register("./sw.js",{scope:"./"}).catch(()=>{});
 });
