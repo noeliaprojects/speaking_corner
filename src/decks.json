@@ -44,7 +44,8 @@
       "16-18",
       "19-25",
       "adults"
-    ]
+    ],
+    "coverPhotoRef": "just-a-minute-03"
   },
   {
     "id": "strange-delivery",
@@ -91,7 +92,8 @@
       "16-18",
       "19-25",
       "adults"
-    ]
+    ],
+    "coverPhotoRef": "weekly-reflection-cover"
   },
   {
     "id": "my-go-to",
@@ -137,7 +139,8 @@
       "16-18",
       "19-25",
       "adults"
-    ]
+    ],
+    "coverPhotoRef": "would-you-rather-02a"
   },
   {
     "id": "main-character",
@@ -184,7 +187,8 @@
       "16-18",
       "19-25",
       "adults"
-    ]
+    ],
+    "coverPhotoRef": "weekly-reflection-cover"
   },
   {
     "id": "mood-menu",
@@ -229,7 +233,8 @@
       "16-18",
       "19-25",
       "adults"
-    ]
+    ],
+    "coverPhotoRef": "weekly-reflection-cover"
   },
   {
     "id": "ideal-weekend",
@@ -272,7 +277,8 @@
       "16-18",
       "19-25",
       "adults"
-    ]
+    ],
+    "coverPhotoRef": "just-a-minute-03"
   },
   {
     "id": "how-often",
@@ -329,7 +335,8 @@
     "books": [
       "Game Changer 1 · U5",
       "Lead the Way 3 · U1"
-    ]
+    ],
+    "coverPhotoRef": "weekly-reflection-cover"
   },
   {
     "id": "name-three",
@@ -374,7 +381,8 @@
       "9-12",
       "12-14",
       "14-16"
-    ]
+    ],
+    "coverPhotoRef": "weekly-reflection-cover"
   },
   {
     "id": "use-it-for",
@@ -426,7 +434,8 @@
       "16-18",
       "19-25",
       "adults"
-    ]
+    ],
+    "coverPhotoRef": "five-star-review-10"
   },
   {
     "id": "define-it",
@@ -476,7 +485,8 @@
       "16-18",
       "19-25",
       "adults"
-    ]
+    ],
+    "coverPhotoRef": "desert-island-15"
   },
   {
     "id": "user-manual",
@@ -525,7 +535,8 @@
       "16-18",
       "19-25",
       "adults"
-    ]
+    ],
+    "coverPhotoRef": "five-star-review-10"
   },
   {
     "id": "five-star-review",
@@ -577,7 +588,8 @@
       "16-18",
       "19-25",
       "adults"
-    ]
+    ],
+    "coverPhotoRef": "five-star-review-05"
   },
   {
     "id": "red-green-flags",
@@ -626,7 +638,8 @@
       "16-18",
       "19-25",
       "adults"
-    ]
+    ],
+    "coverPhotoRef": "five-star-review-10"
   },
   {
     "id": "great-swap",
@@ -710,7 +723,8 @@
       "16-18",
       "19-25",
       "adults"
-    ]
+    ],
+    "coverPhotoRef": "five-star-review-10"
   },
   {
     "id": "try-do-skip",
@@ -788,7 +802,8 @@
       "16-18",
       "19-25",
       "adults"
-    ]
+    ],
+    "coverPhotoRef": "try-do-skip-01-1"
   },
   {
     "id": "two-truths",
@@ -842,7 +857,8 @@
       "16-18",
       "19-25",
       "adults"
-    ]
+    ],
+    "coverPhotoRef": "two-truths-cover"
   },
   {
     "id": "unwritten-rules",
@@ -891,7 +907,8 @@
       "16-18",
       "19-25",
       "adults"
-    ]
+    ],
+    "coverPhotoRef": "unwritten-rules-01"
   },
   {
     "id": "the-catch",
@@ -941,7 +958,8 @@
       "16-18",
       "19-25",
       "adults"
-    ]
+    ],
+    "coverPhotoRef": "the-catch-02"
   },
   {
     "id": "job-nobody-wants",
@@ -995,7 +1013,8 @@
       "16-18",
       "19-25",
       "adults"
-    ]
+    ],
+    "coverPhotoRef": "job-nobody-wants-01"
   },
   {
     "id": "designed-to-hook",
@@ -1044,7 +1063,8 @@
       "16-18",
       "19-25",
       "adults"
-    ]
+    ],
+    "coverPhotoRef": "designed-to-hook-01"
   },
   {
     "id": "convenient-creepy",
@@ -1093,7 +1113,8 @@
       "16-18",
       "19-25",
       "adults"
-    ]
+    ],
+    "coverPhotoRef": "convenient-creepy-03"
   },
   {
     "id": "parallel-realities",
@@ -1172,7 +1193,8 @@
       "16-18",
       "19-25",
       "adults"
-    ]
+    ],
+    "coverPhotoRef": "parallel-realities-01a"
   },
   {
     "id": "headline-vs-life",
@@ -1253,7 +1275,8 @@
       "16-18",
       "19-25",
       "adults"
-    ]
+    ],
+    "coverPhotoRef": "headline-vs-life-cover"
   },
   {
     "id": "defend-the-object",
@@ -1302,7 +1325,8 @@
       "16-18",
       "19-25",
       "adults"
-    ]
+    ],
+    "coverPhotoRef": "unwritten-rules-04"
   },
   {
     "id": "would-you-rather",
@@ -1388,7 +1412,8 @@
     ],
     "books": [
       "Game Changer 3 · U1"
-    ]
+    ],
+    "coverPhotoRef": "would-you-rather-01a"
   },
   {
     "id": "speed-debate",
@@ -1437,7 +1462,8 @@
       "16-18",
       "19-25",
       "adults"
-    ]
+    ],
+    "coverPhotoRef": "speed-debate-01"
   },
   {
     "id": "just-a-minute",
@@ -1486,7 +1512,8 @@
       "16-18",
       "19-25",
       "adults"
-    ]
+    ],
+    "coverPhotoRef": "just-a-minute-01"
   },
   {
     "id": "fortunately",
@@ -1535,7 +1562,8 @@
       "16-18",
       "19-25",
       "adults"
-    ]
+    ],
+    "coverPhotoRef": "fortunately-04"
   },
   {
     "id": "alibi",
@@ -1589,7 +1617,8 @@
       "16-18",
       "19-25",
       "adults"
-    ]
+    ],
+    "coverPhotoRef": "alibi-01"
   },
   {
     "id": "taboo",
@@ -1869,7 +1898,8 @@
       "16-18",
       "19-25",
       "adults"
-    ]
+    ],
+    "coverPhotoRef": "taboo-cover"
   },
   {
     "id": "desert-island",
@@ -1921,7 +1951,8 @@
       "16-18",
       "19-25",
       "adults"
-    ]
+    ],
+    "coverPhotoRef": "desert-island-01"
   },
   {
     "id": "hot-seat",
@@ -1980,7 +2011,8 @@
       "16-18",
       "19-25",
       "adults"
-    ]
+    ],
+    "coverPhotoRef": "hot-seat-01"
   },
   {
     "id": "story-chain",
@@ -2057,7 +2089,8 @@
       "12-14",
       "14-16",
       "16-18"
-    ]
+    ],
+    "coverPhotoRef": "story-chain-01-1"
   },
   {
     "id": "fake-definitions",
@@ -2159,7 +2192,8 @@
       "adults"
     ],
     "coverQ": "dictionary open book desk",
-    "coverP": "Realistic, contextually relevant educational photograph of dictionary open book desk. No words or branding."
+    "coverP": "Realistic, contextually relevant educational photograph of dictionary open book desk. No words or branding.",
+    "coverPhotoRef": "desert-island-15"
   },
   {
     "id": "sell-it",
@@ -2284,7 +2318,8 @@
       "adults"
     ],
     "coverQ": "product pitch business meeting",
-    "coverP": "Realistic, contextually relevant educational photograph of product pitch business meeting. No words or branding."
+    "coverP": "Realistic, contextually relevant educational photograph of product pitch business meeting. No words or branding.",
+    "coverPhotoRef": "parallel-realities-05b"
   },
   {
     "id": "excuses",
@@ -2353,7 +2388,8 @@
       "adults"
     ],
     "coverQ": "person apologising with hands",
-    "coverP": "Realistic, contextually relevant educational photograph of person apologising with hands. No words or branding."
+    "coverP": "Realistic, contextually relevant educational photograph of person apologising with hands. No words or branding.",
+    "coverPhotoRef": "parallel-realities-01b"
   },
   {
     "id": "hot-takes",
@@ -2420,7 +2456,8 @@
       "adults"
     ],
     "coverQ": "friends animated debate table",
-    "coverP": "Realistic, contextually relevant educational photograph of friends animated debate table. No words or branding."
+    "coverP": "Realistic, contextually relevant educational photograph of friends animated debate table. No words or branding.",
+    "coverPhotoRef": "unwritten-rules-04"
   },
   {
     "id": "most-likely",
@@ -2484,7 +2521,8 @@
       "19-25"
     ],
     "coverQ": "group of friends smiling",
-    "coverP": "Realistic, contextually relevant educational photograph of group of friends smiling. No words or branding."
+    "coverP": "Realistic, contextually relevant educational photograph of group of friends smiling. No words or branding.",
+    "coverPhotoRef": "weekly-reflection-cover"
   },
   {
     "id": "silly-conspiracies",
@@ -2548,7 +2586,8 @@
       "adults"
     ],
     "coverQ": "magnifying glass mysterious investigation",
-    "coverP": "Realistic, contextually relevant educational photograph of magnifying glass mysterious investigation. No words or branding."
+    "coverP": "Realistic, contextually relevant educational photograph of magnifying glass mysterious investigation. No words or branding.",
+    "coverPhotoRef": "two-truths-cover"
   },
   {
     "id": "the-pitch",
@@ -2617,7 +2656,8 @@
       "adults"
     ],
     "coverQ": "entrepreneur pitching business idea",
-    "coverP": "Realistic, contextually relevant educational photograph of entrepreneur pitching business idea. No words or branding."
+    "coverP": "Realistic, contextually relevant educational photograph of entrepreneur pitching business idea. No words or branding.",
+    "coverPhotoRef": "taboo-cover"
   },
   {
     "id": "rank-it",
@@ -2778,7 +2818,8 @@
       "Game Changer 3 · U1–2"
     ],
     "coverQ": "people arranging coloured sticky notes board",
-    "coverP": "Realistic, contextually relevant educational photograph of people arranging coloured sticky notes board. No words or branding."
+    "coverP": "Realistic, contextually relevant educational photograph of people arranging coloured sticky notes board. No words or branding.",
+    "coverPhotoRef": "story-chain-06-3"
   },
   {
     "id": "questions-only",
@@ -2844,7 +2885,8 @@
       "adults"
     ],
     "coverQ": "friends asking questions discussion",
-    "coverP": "Realistic, contextually relevant educational photograph of friends asking questions discussion. No words or branding."
+    "coverP": "Realistic, contextually relevant educational photograph of friends asking questions discussion. No words or branding.",
+    "coverPhotoRef": "taboo-cover"
   },
   {
     "id": "slide-roulette",
@@ -2977,7 +3019,8 @@
       "adults"
     ],
     "coverQ": "person making presentation projector",
-    "coverP": "Realistic, contextually relevant educational photograph of person making presentation projector. No words or branding."
+    "coverP": "Realistic, contextually relevant educational photograph of person making presentation projector. No words or branding.",
+    "coverPhotoRef": "would-you-rather-05b"
   },
   {
     "id": "facts-of-life",
@@ -3088,7 +3131,8 @@
       "Game Changer 4 · U4"
     ],
     "coverQ": "busy city street daily routine",
-    "coverP": "Realistic, contextually relevant educational photograph of busy city street daily routine. No words or branding."
+    "coverP": "Realistic, contextually relevant educational photograph of busy city street daily routine. No words or branding.",
+    "coverPhotoRef": "would-you-rather-04a"
   },
   {
     "id": "chain-reaction",
@@ -3162,7 +3206,8 @@
       "Game Changer 4 · U4"
     ],
     "coverQ": "dominoes falling chain reaction",
-    "coverP": "Realistic, contextually relevant educational photograph of dominoes falling chain reaction. No words or branding."
+    "coverP": "Realistic, contextually relevant educational photograph of dominoes falling chain reaction. No words or branding.",
+    "coverPhotoRef": "taboo-cover"
   },
   {
     "id": "what-would-you-do",
@@ -3236,7 +3281,8 @@
       "Game Changer 4 · U5"
     ],
     "coverQ": "person thinking at crossroads",
-    "coverP": "Realistic, contextually relevant educational photograph of person thinking at crossroads. No words or branding."
+    "coverP": "Realistic, contextually relevant educational photograph of person thinking at crossroads. No words or branding.",
+    "coverPhotoRef": "unwritten-rules-04"
   },
   {
     "id": "imagine-if",
@@ -3307,7 +3353,8 @@
       "Game Changer 4 · U5"
     ],
     "coverQ": "surreal floating house sky",
-    "coverP": "Realistic, contextually relevant educational photograph of surreal floating house sky. No words or branding."
+    "coverP": "Realistic, contextually relevant educational photograph of surreal floating house sky. No words or branding.",
+    "coverPhotoRef": "unwritten-rules-04"
   },
   {
     "id": "sliding-doors",
@@ -3373,7 +3420,8 @@
       "adults"
     ],
     "coverQ": "two doorways hallway",
-    "coverP": "Realistic, contextually relevant educational photograph of two doorways hallway. No words or branding."
+    "coverP": "Realistic, contextually relevant educational photograph of two doorways hallway. No words or branding.",
+    "coverPhotoRef": "five-star-review-10"
   },
   {
     "id": "mixed-up",
@@ -3438,7 +3486,8 @@
       "adults"
     ],
     "coverQ": "two paths diverging landscape",
-    "coverP": "Realistic, contextually relevant educational photograph of two paths diverging landscape. No words or branding."
+    "coverP": "Realistic, contextually relevant educational photograph of two paths diverging landscape. No words or branding.",
+    "coverPhotoRef": "five-star-review-10"
   },
   {
     "id": "who-am-i",
@@ -3511,7 +3560,8 @@
       "Game Changer 1 · U6"
     ],
     "coverQ": "person silhouette in mirror",
-    "coverP": "Realistic, contextually relevant educational photograph of person silhouette in mirror. No words or branding."
+    "coverP": "Realistic, contextually relevant educational photograph of person silhouette in mirror. No words or branding.",
+    "coverPhotoRef": "desert-island-13"
   },
   {
     "id": "mime-time",
@@ -3583,7 +3633,8 @@
       "Game Changer 1 · U7"
     ],
     "coverQ": "person miming charades with friends",
-    "coverP": "Realistic, contextually relevant educational photograph of person miming charades with friends. No words or branding."
+    "coverP": "Realistic, contextually relevant educational photograph of person miming charades with friends. No words or branding.",
+    "coverPhotoRef": "taboo-cover"
   },
   {
     "id": "the-evidence",
@@ -3651,7 +3702,8 @@
       "adults"
     ],
     "coverQ": "magnifying glass detective clues",
-    "coverP": "Realistic, contextually relevant educational photograph of magnifying glass detective clues. No words or branding."
+    "coverP": "Realistic, contextually relevant educational photograph of magnifying glass detective clues. No words or branding.",
+    "coverPhotoRef": "two-truths-cover"
   },
   {
     "id": "have-you-ever-liar",
@@ -3725,7 +3777,8 @@
       "Game Changer 4 · U6–8"
     ],
     "coverQ": "friends playing cards laughing",
-    "coverP": "Realistic, contextually relevant educational photograph of friends playing cards laughing. No words or branding."
+    "coverP": "Realistic, contextually relevant educational photograph of friends playing cards laughing. No words or branding.",
+    "coverPhotoRef": "taboo-cover"
   },
   {
     "id": "epic-weekend",
@@ -3849,7 +3902,8 @@
       "Game Changer 2 · U4"
     ],
     "coverQ": "friends hiking weekend trip",
-    "coverP": "Realistic, contextually relevant educational photograph of friends hiking weekend trip. No words or branding."
+    "coverP": "Realistic, contextually relevant educational photograph of friends hiking weekend trip. No words or branding.",
+    "coverPhotoRef": "try-do-skip-06-3"
   },
   {
     "id": "when-it-happened",
@@ -3923,7 +3977,8 @@
       "Game Changer 2 · U6–7"
     ],
     "coverQ": "broken alarm clock on nightstand",
-    "coverP": "Realistic, contextually relevant educational photograph of broken alarm clock on nightstand. No words or branding."
+    "coverP": "Realistic, contextually relevant educational photograph of broken alarm clock on nightstand. No words or branding.",
+    "coverPhotoRef": "five-star-review-12"
   },
   {
     "id": "the-backstory",
@@ -3992,7 +4047,8 @@
       "adults"
     ],
     "coverQ": "mysterious old photograph table",
-    "coverP": "Realistic, contextually relevant educational photograph of mysterious old photograph table. No words or branding."
+    "coverP": "Realistic, contextually relevant educational photograph of mysterious old photograph table. No words or branding.",
+    "coverPhotoRef": "unwritten-rules-04"
   },
   {
     "id": "back-in-my-day",
@@ -4066,7 +4122,8 @@
       "adults"
     ],
     "coverQ": "vintage family photo album",
-    "coverP": "Realistic, contextually relevant educational photograph of vintage family photo album. No words or branding."
+    "coverP": "Realistic, contextually relevant educational photograph of vintage family photo album. No words or branding.",
+    "coverPhotoRef": "story-chain-03-1"
   },
   {
     "id": "fortune-teller",
@@ -4138,7 +4195,8 @@
       "Game Changer 4 · U1"
     ],
     "coverQ": "crystal ball on velvet table",
-    "coverP": "Realistic, contextually relevant educational photograph of crystal ball on velvet table. No words or branding."
+    "coverP": "Realistic, contextually relevant educational photograph of crystal ball on velvet table. No words or branding.",
+    "coverPhotoRef": "taboo-cover"
   },
   {
     "id": "sorry-ill-be-busy",
@@ -4204,7 +4262,8 @@
       "adults"
     ],
     "coverQ": "busy calendar planner desk",
-    "coverP": "Realistic, contextually relevant educational photograph of busy calendar planner desk. No words or branding."
+    "coverP": "Realistic, contextually relevant educational photograph of busy calendar planner desk. No words or branding.",
+    "coverPhotoRef": "would-you-rather-04a"
   },
   {
     "id": "by-2050",
@@ -4271,7 +4330,8 @@
       "adults"
     ],
     "coverQ": "futuristic modern city skyline",
-    "coverP": "Realistic, contextually relevant educational photograph of futuristic modern city skyline. No words or branding."
+    "coverP": "Realistic, contextually relevant educational photograph of futuristic modern city skyline. No words or branding.",
+    "coverPhotoRef": "would-you-rather-08b"
   },
   {
     "id": "agony-aunt",
@@ -4343,7 +4403,8 @@
       "Game Changer 4 · U2"
     ],
     "coverQ": "person writing advice letter desk",
-    "coverP": "Realistic, contextually relevant educational photograph of person writing advice letter desk. No words or branding."
+    "coverP": "Realistic, contextually relevant educational photograph of person writing advice letter desk. No words or branding.",
+    "coverPhotoRef": "story-chain-08-2"
   },
   {
     "id": "alien-rulebook",
@@ -4416,7 +4477,8 @@
       "Game Changer 4 · U3"
     ],
     "coverQ": "outer space galaxy stars",
-    "coverP": "Realistic, contextually relevant educational photograph of outer space galaxy stars. No words or branding."
+    "coverP": "Realistic, contextually relevant educational photograph of outer space galaxy stars. No words or branding.",
+    "coverPhotoRef": "taboo-cover"
   },
   {
     "id": "whose-bag",
@@ -4563,7 +4625,8 @@
       "adults"
     ],
     "coverQ": "open handbag assorted belongings",
-    "coverP": "Realistic, contextually relevant educational photograph of open handbag assorted belongings. No words or branding."
+    "coverP": "Realistic, contextually relevant educational photograph of open handbag assorted belongings. No words or branding.",
+    "coverPhotoRef": "taboo-cover"
   },
   {
     "id": "what-must-have-happened",
@@ -4629,7 +4692,8 @@
       "adults"
     ],
     "coverQ": "detective notebook and clues",
-    "coverP": "Realistic, contextually relevant educational photograph of detective notebook and clues. No words or branding."
+    "coverP": "Realistic, contextually relevant educational photograph of detective notebook and clues. No words or branding.",
+    "coverPhotoRef": "unwritten-rules-04"
   },
   {
     "id": "corrupt-a-wish",
@@ -4699,7 +4763,8 @@
       "adults"
     ],
     "coverQ": "wishing fountain coins",
-    "coverP": "Realistic, contextually relevant educational photograph of wishing fountain coins. No words or branding."
+    "coverP": "Realistic, contextually relevant educational photograph of wishing fountain coins. No words or branding.",
+    "coverPhotoRef": "parallel-realities-07b"
   },
   {
     "id": "it-wasnt-me",
@@ -4769,7 +4834,8 @@
       "adults"
     ],
     "coverQ": "broken flower vase on floor",
-    "coverP": "Realistic, contextually relevant educational photograph of broken flower vase on floor. No words or branding."
+    "coverP": "Realistic, contextually relevant educational photograph of broken flower vase on floor. No words or branding.",
+    "coverPhotoRef": "story-chain-08-1"
   },
   {
     "id": "made-built-written",
@@ -4869,7 +4935,8 @@
       "adults"
     ],
     "coverQ": "hands crafting wooden object",
-    "coverP": "Realistic, contextually relevant educational photograph of hands crafting wooden object. No words or branding."
+    "coverP": "Realistic, contextually relevant educational photograph of hands crafting wooden object. No words or branding.",
+    "coverPhotoRef": "parallel-realities-01b"
   },
   {
     "id": "lazy-millionaire",
@@ -4937,7 +5004,8 @@
       "adults"
     ],
     "coverQ": "luxury sofa living room",
-    "coverP": "Realistic, contextually relevant educational photograph of luxury sofa living room. No words or branding."
+    "coverP": "Realistic, contextually relevant educational photograph of luxury sofa living room. No words or branding.",
+    "coverPhotoRef": "look-and-say-house-07"
   },
   {
     "id": "pardon",
@@ -5006,7 +5074,8 @@
       "adults"
     ],
     "coverQ": "elderly woman talking on telephone",
-    "coverP": "Realistic, contextually relevant educational photograph of elderly woman talking on telephone. No words or branding."
+    "coverP": "Realistic, contextually relevant educational photograph of elderly woman talking on telephone. No words or branding.",
+    "coverPhotoRef": "parallel-realities-01b"
   },
   {
     "id": "never-ending-sentence",
@@ -5077,7 +5146,8 @@
       "Game Changer 3 · U8"
     ],
     "coverQ": "long handwritten notebook page",
-    "coverP": "Realistic, contextually relevant educational photograph of long handwritten notebook page. No words or branding."
+    "coverP": "Realistic, contextually relevant educational photograph of long handwritten notebook page. No words or branding.",
+    "coverPhotoRef": "taboo-cover"
   },
   {
     "id": "most-ever",
@@ -5150,7 +5220,8 @@
       "Game Changer 4 · U8"
     ],
     "coverQ": "mountain summit adventure panoramic",
-    "coverP": "Realistic, contextually relevant educational photograph of mountain summit adventure panoramic. No words or branding."
+    "coverP": "Realistic, contextually relevant educational photograph of mountain summit adventure panoramic. No words or branding.",
+    "coverPhotoRef": "parallel-realities-08a"
   },
   {
     "id": "cant-stand",
@@ -5219,7 +5290,8 @@
       "adults"
     ],
     "coverQ": "two people disagreeing smiling",
-    "coverP": "Realistic, contextually relevant educational photograph of two people disagreeing smiling. No words or branding."
+    "coverP": "Realistic, contextually relevant educational photograph of two people disagreeing smiling. No words or branding.",
+    "coverPhotoRef": "weekly-reflection-cover"
   },
   {
     "id": "heres-the-answer",
@@ -5289,7 +5361,8 @@
       "adults"
     ],
     "coverQ": "quiz buzzer game show",
-    "coverP": "Realistic, contextually relevant educational photograph of quiz buzzer game show. No words or branding."
+    "coverP": "Realistic, contextually relevant educational photograph of quiz buzzer game show. No words or branding.",
+    "coverPhotoRef": "fortunately-04"
   },
   {
     "id": "drama-queen",
@@ -5385,7 +5458,8 @@
       "adults"
     ],
     "coverQ": "theatre stage red curtains",
-    "coverP": "Realistic, contextually relevant educational photograph of theatre stage red curtains. No words or branding."
+    "coverP": "Realistic, contextually relevant educational photograph of theatre stage red curtains. No words or branding.",
+    "coverPhotoRef": "taboo-cover"
   },
   {
     "id": "what-i-really-mean",
@@ -5451,7 +5525,8 @@
       "adults"
     ],
     "coverQ": "person speaking into microphone",
-    "coverP": "Realistic, contextually relevant educational photograph of person speaking into microphone. No words or branding."
+    "coverP": "Realistic, contextually relevant educational photograph of person speaking into microphone. No words or branding.",
+    "coverPhotoRef": "guess-the-job-12"
   },
   {
     "id": "linker-challenge",
@@ -5588,7 +5663,8 @@
       "adults"
     ],
     "coverQ": "notebook and highlighter study desk",
-    "coverP": "Realistic, contextually relevant educational photograph of notebook and highlighter study desk. No words or branding."
+    "coverP": "Realistic, contextually relevant educational photograph of notebook and highlighter study desk. No words or branding.",
+    "coverPhotoRef": "unwritten-rules-04"
   },
   {
     "id": "guess-the-job",
@@ -5702,7 +5778,8 @@
       "16-18",
       "19-25",
       "adults"
-    ]
+    ],
+    "coverPhotoRef": "guess-the-job-02"
   },
   {
     "id": "look-and-say-animals",
@@ -5808,7 +5885,8 @@
     "end": "Which animal do you like best?",
     "books": [
       "Lead the Way 3 · U3"
-    ]
+    ],
+    "coverPhotoRef": "look-and-say-animals-02"
   },
   {
     "id": "look-and-say-food",
@@ -5914,7 +5992,8 @@
     "end": "What's your favourite food?",
     "books": [
       "Lead the Way 1 · U4"
-    ]
+    ],
+    "coverPhotoRef": "look-and-say-food-01"
   },
   {
     "id": "lost-and-found",
@@ -5982,7 +6061,8 @@
     },
     "end": "Have you ever lost something important?",
     "coverQ": "lost keys wallet objects desk",
-    "coverP": "Realistic, contextually relevant educational photograph of lost keys wallet objects desk. No words or branding."
+    "coverP": "Realistic, contextually relevant educational photograph of lost keys wallet objects desk. No words or branding.",
+    "coverPhotoRef": "job-nobody-wants-08"
   },
   {
     "id": "pizza-party",
@@ -6049,7 +6129,8 @@
       "Game Changer 2 · U2"
     ],
     "coverQ": "pizza slices shared at table",
-    "coverP": "Realistic, contextually relevant educational photograph of pizza slices shared at table. No words or branding."
+    "coverP": "Realistic, contextually relevant educational photograph of pizza slices shared at table. No words or branding.",
+    "coverPhotoRef": "the-catch-11"
   },
   {
     "id": "celebrity-holiday",
@@ -6119,7 +6200,8 @@
       "Game Changer 2 · U3"
     ],
     "coverQ": "beach resort sunshine swimming pool",
-    "coverP": "Realistic, contextually relevant educational photograph of beach resort sunshine swimming pool. No words or branding."
+    "coverP": "Realistic, contextually relevant educational photograph of beach resort sunshine swimming pool. No words or branding.",
+    "coverPhotoRef": "job-nobody-wants-05"
   },
   {
     "id": "perfect-match",
@@ -6228,7 +6310,8 @@
     },
     "end": "Who would be YOUR perfect flatmate?",
     "coverQ": "flatmates talking in apartment kitchen",
-    "coverP": "Realistic, contextually relevant educational photograph of flatmates talking in apartment kitchen. No words or branding."
+    "coverP": "Realistic, contextually relevant educational photograph of flatmates talking in apartment kitchen. No words or branding.",
+    "coverPhotoRef": "unwritten-rules-04"
   },
   {
     "id": "museum-robbery",
@@ -6298,7 +6381,8 @@
     },
     "end": "Who did it? Was it the best-argued case or the truth?",
     "coverQ": "art museum paintings corridor",
-    "coverP": "Realistic, contextually relevant educational photograph of art museum paintings corridor. No words or branding."
+    "coverP": "Realistic, contextually relevant educational photograph of art museum paintings corridor. No words or branding.",
+    "coverPhotoRef": "would-you-rather-05b"
   },
   {
     "id": "class-playlist",
@@ -6368,7 +6452,8 @@
       "Game Changer 3 · U7"
     ],
     "coverQ": "headphones smartphone music player",
-    "coverP": "Realistic, contextually relevant educational photograph of headphones smartphone music player. No words or branding."
+    "coverP": "Realistic, contextually relevant educational photograph of headphones smartphone music player. No words or branding.",
+    "coverPhotoRef": "would-you-rather-02a"
   },
   {
     "id": "disaster-plan",
@@ -6435,7 +6520,8 @@
     },
     "end": "Which plan would really work?",
     "coverQ": "emergency supplies backpack on desk",
-    "coverP": "Realistic, contextually relevant educational photograph of emergency supplies backpack on desk. No words or branding."
+    "coverP": "Realistic, contextually relevant educational photograph of emergency supplies backpack on desk. No words or branding.",
+    "coverPhotoRef": "look-and-say-school-06"
   },
   {
     "id": "yes-no-game",
@@ -6504,7 +6590,8 @@
     },
     "end": "Which alternatives to 'yes' and 'no' did you use?",
     "coverQ": "friends playing question game",
-    "coverP": "Realistic, contextually relevant educational photograph of friends playing question game. No words or branding."
+    "coverP": "Realistic, contextually relevant educational photograph of friends playing question game. No words or branding.",
+    "coverPhotoRef": "taboo-cover"
   },
   {
     "id": "coffeepot",
@@ -6575,7 +6662,8 @@
     },
     "end": "What was the hardest verb to guess?",
     "coverQ": "coffee pot table",
-    "coverP": "Realistic, contextually relevant educational photograph of coffee pot table. No words or branding."
+    "coverP": "Realistic, contextually relevant educational photograph of coffee pot table. No words or branding.",
+    "coverPhotoRef": "just-a-minute-03"
   },
   {
     "id": "odd-one-out",
@@ -6743,7 +6831,8 @@
     },
     "end": "Which reason was the most creative?",
     "coverQ": "different coloured objects neatly arranged",
-    "coverP": "Realistic, contextually relevant educational photograph of different coloured objects neatly arranged. No words or branding."
+    "coverP": "Realistic, contextually relevant educational photograph of different coloured objects neatly arranged. No words or branding.",
+    "coverPhotoRef": "story-chain-06-3"
   },
   {
     "id": "balloon-debate",
@@ -6853,7 +6942,8 @@
     },
     "end": "Who should never have been in the balloon?",
     "coverQ": "hot air balloon flying sky",
-    "coverP": "Realistic, contextually relevant educational photograph of hot air balloon flying sky. No words or branding."
+    "coverP": "Realistic, contextually relevant educational photograph of hot air balloon flying sky. No words or branding.",
+    "coverPhotoRef": "unwritten-rules-04"
   },
   {
     "id": "interruptions",
@@ -6924,7 +7014,8 @@
       "Game Changer 2 · U7"
     ],
     "coverQ": "people talking lively group",
-    "coverP": "Realistic, contextually relevant educational photograph of people talking lively group. No words or branding."
+    "coverP": "Realistic, contextually relevant educational photograph of people talking lively group. No words or branding.",
+    "coverPhotoRef": "taboo-cover"
   },
   {
     "id": "line-up",
@@ -6992,7 +7083,8 @@
     },
     "end": "Who was the most surprising in the line?",
     "coverQ": "students standing in line outdoors",
-    "coverP": "Realistic, contextually relevant educational photograph of students standing in line outdoors. No words or branding."
+    "coverP": "Realistic, contextually relevant educational photograph of students standing in line outdoors. No words or branding.",
+    "coverPhotoRef": "weekly-reflection-cover"
   },
   {
     "id": "desert-island-discs",
@@ -7059,7 +7151,8 @@
     },
     "end": "Which choice surprised you most?",
     "coverQ": "headphones vinyl records beach",
-    "coverP": "Realistic, contextually relevant educational photograph of headphones vinyl records beach. No words or branding."
+    "coverP": "Realistic, contextually relevant educational photograph of headphones vinyl records beach. No words or branding.",
+    "coverPhotoRef": "would-you-rather-02a"
   },
   {
     "id": "animal-vegetable-mineral",
@@ -7132,7 +7225,8 @@
     },
     "end": "What's the best first question to ask?",
     "coverQ": "question mark notebook pencil",
-    "coverP": "Realistic, contextually relevant educational photograph of question mark notebook pencil. No words or branding."
+    "coverP": "Realistic, contextually relevant educational photograph of question mark notebook pencil. No words or branding.",
+    "coverPhotoRef": "taboo-cover"
   },
   {
     "id": "look-and-say-toys",
@@ -7243,7 +7337,8 @@
     "end": "What's your favourite toy?",
     "books": [
       "Lead the Way 1 · U1"
-    ]
+    ],
+    "coverPhotoRef": "look-and-say-toys-02"
   },
   {
     "id": "look-and-say-school",
@@ -7352,7 +7447,8 @@
     "end": "Show me your pencil case!",
     "books": [
       "Lead the Way 1 · U2"
-    ]
+    ],
+    "coverPhotoRef": "look-and-say-school-01"
   },
   {
     "id": "look-and-say-clothes",
@@ -7464,7 +7560,8 @@
     "books": [
       "Lead the Way 1 · U8",
       "Lead the Way 3 · U4"
-    ]
+    ],
+    "coverPhotoRef": "look-and-say-clothes-01"
   },
   {
     "id": "look-and-say-house",
@@ -7575,7 +7672,8 @@
     "end": "What's your favourite room?",
     "books": [
       "Lead the Way 1 · U6"
-    ]
+    ],
+    "coverPhotoRef": "look-and-say-house-02"
   },
   {
     "id": "look-and-say-farm",
@@ -7688,7 +7786,8 @@
     "end": "Which animal can you hear on a farm?",
     "books": [
       "Lead the Way 1 · U5"
-    ]
+    ],
+    "coverPhotoRef": "look-and-say-farm-01"
   },
   {
     "id": "whats-the-weather",
@@ -7788,7 +7887,8 @@
     "books": [
       "Lead the Way 1 · U8",
       "Lead the Way 2 · U2"
-    ]
+    ],
+    "coverPhotoRef": "whats-the-weather-01"
   },
   {
     "id": "halloween-words",
@@ -7882,7 +7982,8 @@
         "Keep it fast: 1 minute per picture."
       ]
     },
-    "end": "What are you going to dress up as?"
+    "end": "What are you going to dress up as?",
+    "coverPhotoRef": "halloween-words-01"
   },
   {
     "id": "christmas-words",
@@ -7975,7 +8076,8 @@
         "Keep it fast: 1 minute per picture."
       ]
     },
-    "end": "What do you want for Christmas?"
+    "end": "What do you want for Christmas?",
+    "coverPhotoRef": "christmas-words-01"
   },
   {
     "id": "spring-easter-words",
@@ -8070,7 +8172,8 @@
         "Keep it fast: 1 minute per picture."
       ]
     },
-    "end": "What can you see in spring?"
+    "end": "What can you see in spring?",
+    "coverPhotoRef": "spring-easter-words-01"
   },
   {
     "id": "simon-says",
@@ -8141,7 +8244,8 @@
       "Lead the Way 1 · U7"
     ],
     "coverQ": "children playing classroom action game",
-    "coverP": "Realistic, contextually relevant educational photograph of children playing classroom action game. No words or branding."
+    "coverP": "Realistic, contextually relevant educational photograph of children playing classroom action game. No words or branding.",
+    "coverPhotoRef": "taboo-cover"
   },
   {
     "id": "feelings-mime",
@@ -8207,7 +8311,8 @@
       "Lead the Way 3 · U5"
     ],
     "coverQ": "young person expressing surprise face",
-    "coverP": "Realistic, contextually relevant educational photograph of young person expressing surprise face. No words or branding."
+    "coverP": "Realistic, contextually relevant educational photograph of young person expressing surprise face. No words or branding.",
+    "coverPhotoRef": "taboo-cover"
   },
   {
     "id": "what-am-i-doing",
@@ -8276,7 +8381,8 @@
       "Lead the Way 3 · U8"
     ],
     "coverQ": "person sweeping floor broom",
-    "coverP": "Realistic, contextually relevant educational photograph of person sweeping floor broom. No words or branding."
+    "coverP": "Realistic, contextually relevant educational photograph of person sweeping floor broom. No words or branding.",
+    "coverPhotoRef": "unwritten-rules-07"
   },
   {
     "id": "where-is-it",
@@ -8341,7 +8447,8 @@
       "Lead the Way 1 · U5"
     ],
     "coverQ": "school desk objects pencil notebook",
-    "coverP": "Realistic, contextually relevant educational photograph of school desk objects pencil notebook. No words or branding."
+    "coverP": "Realistic, contextually relevant educational photograph of school desk objects pencil notebook. No words or branding.",
+    "coverPhotoRef": "taboo-cover"
   },
   {
     "id": "colour-number-hunt",
@@ -8401,7 +8508,8 @@
     },
     "end": "What colour are your shoes?",
     "coverQ": "children searching for coloured classroom objects",
-    "coverP": "Realistic, contextually relevant educational photograph of children searching for coloured classroom objects. No words or branding."
+    "coverP": "Realistic, contextually relevant educational photograph of children searching for coloured classroom objects. No words or branding.",
+    "coverPhotoRef": "story-chain-06-3"
   },
   {
     "id": "monster-draw",
@@ -8460,7 +8568,8 @@
       "Lead the Way 1 · U3"
     ],
     "coverQ": "child drawing cartoon monster paper",
-    "coverP": "Realistic, contextually relevant educational photograph of child drawing cartoon monster paper. No words or branding."
+    "coverP": "Realistic, contextually relevant educational photograph of child drawing cartoon monster paper. No words or branding.",
+    "coverPhotoRef": "taboo-cover"
   },
   {
     "id": "alphabet-game",
@@ -8531,7 +8640,8 @@
     },
     "end": "Spell your name!",
     "coverQ": "alphabet letter tiles desk",
-    "coverP": "Realistic, contextually relevant educational photograph of alphabet letter tiles desk. No words or branding."
+    "coverP": "Realistic, contextually relevant educational photograph of alphabet letter tiles desk. No words or branding.",
+    "coverPhotoRef": "story-chain-08-2"
   },
   {
     "id": "class-routines",
@@ -8592,7 +8702,8 @@
     },
     "end": "Which sentence did you use today?",
     "coverQ": "classroom desks students",
-    "coverP": "Realistic, contextually relevant educational photograph of classroom desks students. No words or branding."
+    "coverP": "Realistic, contextually relevant educational photograph of classroom desks students. No words or branding.",
+    "coverPhotoRef": "weekly-reflection-cover"
   },
   {
     "id": "dream-house-tour",
@@ -8658,7 +8769,8 @@
     "end": "Which room would you love to have?",
     "focus": "There is/are + reacting positively: Wow!, Cool!, That sounds great!",
     "coverQ": "modern dream house interior",
-    "coverP": "Realistic, contextually relevant educational photograph of modern dream house interior. No words or branding."
+    "coverP": "Realistic, contextually relevant educational photograph of modern dream house interior. No words or branding.",
+    "coverPhotoRef": "would-you-rather-06b"
   },
   {
     "id": "class-survey",
@@ -8724,7 +8836,8 @@
     "end": "What's the most common routine in our class?",
     "focus": "Present simple questions and reporting results: Most of us…, Nobody…",
     "coverQ": "students filling questionnaire paper",
-    "coverP": "Realistic, contextually relevant educational photograph of students filling questionnaire paper. No words or branding."
+    "coverP": "Realistic, contextually relevant educational photograph of students filling questionnaire paper. No words or branding.",
+    "coverPhotoRef": "weekly-reflection-cover"
   },
   {
     "id": "talent-show",
@@ -8791,7 +8904,8 @@
     "end": "What's your hidden talent?",
     "focus": "can/can't for ability",
     "coverQ": "microphone stage school talent show",
-    "coverP": "Realistic, contextually relevant educational photograph of microphone stage school talent show. No words or branding."
+    "coverP": "Realistic, contextually relevant educational photograph of microphone stage school talent show. No words or branding.",
+    "coverPhotoRef": "guess-the-job-12"
   },
   {
     "id": "whos-who",
@@ -8853,7 +8967,8 @@
     "end": "What are you wearing today?",
     "focus": "Present continuous for clothes and actions: She's wearing…, He's sitting…",
     "coverQ": "group of young people standing together",
-    "coverP": "Realistic, contextually relevant educational photograph of group of young people standing together. No words or branding."
+    "coverP": "Realistic, contextually relevant educational photograph of group of young people standing together. No words or branding.",
+    "coverPhotoRef": "taboo-cover"
   },
   {
     "id": "find-your-way",
@@ -8921,7 +9036,8 @@
     "focus": "Directions: go straight on, turn left, it's opposite…",
     "secret": true,
     "coverQ": "city street map pedestrians",
-    "coverP": "Realistic, contextually relevant educational photograph of city street map pedestrians. No words or branding."
+    "coverP": "Realistic, contextually relevant educational photograph of city street map pedestrians. No words or branding.",
+    "coverPhotoRef": "would-you-rather-04a"
   },
   {
     "id": "holiday-postcard",
@@ -8988,7 +9104,8 @@
     "end": "Where was your best holiday?",
     "focus": "Past simple of be and there was/were",
     "coverQ": "postcard travel beach suitcase",
-    "coverP": "Realistic, contextually relevant educational photograph of postcard travel beach suitcase. No words or branding."
+    "coverP": "Realistic, contextually relevant educational photograph of postcard travel beach suitcase. No words or branding.",
+    "coverPhotoRef": "five-star-review-10"
   },
   {
     "id": "really-tell-me-more",
@@ -9056,7 +9173,8 @@
     "end": "What's the best reaction you heard today?",
     "focus": "Showing interest: Really?, No way!, What happened next?",
     "coverQ": "friends having conversation cafe",
-    "coverP": "Realistic, contextually relevant educational photograph of friends having conversation cafe. No words or branding."
+    "coverP": "Realistic, contextually relevant educational photograph of friends having conversation cafe. No words or branding.",
+    "coverPhotoRef": "five-star-review-10"
   },
   {
     "id": "my-hero",
@@ -9125,7 +9243,8 @@
     "end": "What makes someone a hero?",
     "focus": "Personality adjectives and past continuous for background",
     "coverQ": "person helping elderly person",
-    "coverP": "Realistic, contextually relevant educational photograph of person helping elderly person. No words or branding."
+    "coverP": "Realistic, contextually relevant educational photograph of person helping elderly person. No words or branding.",
+    "coverPhotoRef": "parallel-realities-01b"
   },
   {
     "id": "festival-planners",
@@ -9192,7 +9311,8 @@
     "end": "Which festival would you go to?",
     "focus": "Making and accepting suggestions; comparatives",
     "coverQ": "outdoor music festival crowd",
-    "coverP": "Realistic, contextually relevant educational photograph of outdoor music festival crowd. No words or branding."
+    "coverP": "Realistic, contextually relevant educational photograph of outdoor music festival crowd. No words or branding.",
+    "coverPhotoRef": "try-do-skip-03-1"
   },
   {
     "id": "wow-records",
@@ -9296,7 +9416,8 @@
     "revealTag": "Guess and react",
     "ansLabel": "The answer",
     "coverQ": "record breaking tallest skyscraper",
-    "coverP": "Realistic, contextually relevant educational photograph of record breaking tallest skyscraper. No words or branding."
+    "coverP": "Realistic, contextually relevant educational photograph of record breaking tallest skyscraper. No words or branding.",
+    "coverPhotoRef": "taboo-cover"
   },
   {
     "id": "at-the-shop",
@@ -9364,7 +9485,8 @@
     "end": "What's the hardest thing you've ever tried to buy?",
     "focus": "Shopping language and asking for what you want",
     "coverQ": "customer shop counter cashier",
-    "coverP": "Realistic, contextually relevant educational photograph of customer shop counter cashier. No words or branding."
+    "coverP": "Realistic, contextually relevant educational photograph of customer shop counter cashier. No words or branding.",
+    "coverPhotoRef": "designed-to-hook-04"
   },
   {
     "id": "lets-meet-up",
@@ -9430,7 +9552,8 @@
     "end": "What are you doing this weekend?",
     "focus": "Present continuous for arrangements; would like to",
     "coverQ": "calendar meeting schedule smartphone",
-    "coverP": "Realistic, contextually relevant educational photograph of calendar meeting schedule smartphone. No words or branding."
+    "coverP": "Realistic, contextually relevant educational photograph of calendar meeting schedule smartphone. No words or branding.",
+    "coverPhotoRef": "parallel-realities-05b"
   },
   {
     "id": "describe-the-place",
@@ -9502,7 +9625,8 @@
     "focus": "Defining relative clauses: where, which, that, who",
     "secret": true,
     "coverQ": "interesting landmark architecture city",
-    "coverP": "Realistic, contextually relevant educational photograph of interesting landmark architecture city. No words or branding."
+    "coverP": "Realistic, contextually relevant educational photograph of interesting landmark architecture city. No words or branding.",
+    "coverPhotoRef": "taboo-cover"
   },
   {
     "id": "invite-me",
@@ -9569,7 +9693,8 @@
     "end": "What's the best invitation you've ever had?",
     "focus": "Making, accepting and refusing invitations; should; question tags",
     "coverQ": "birthday invitation party friends",
-    "coverP": "Realistic, contextually relevant educational photograph of birthday invitation party friends. No words or branding."
+    "coverP": "Realistic, contextually relevant educational photograph of birthday invitation party friends. No words or branding.",
+    "coverPhotoRef": "five-star-review-03"
   },
   {
     "id": "keep-it-going",
@@ -9635,7 +9760,8 @@
     "focus": "Keeping a conversation going: What about you?, And you?, Really? Why?",
     "timer": 120,
     "coverQ": "two friends talking at cafe",
-    "coverP": "Realistic, contextually relevant educational photograph of two friends talking at cafe. No words or branding."
+    "coverP": "Realistic, contextually relevant educational photograph of two friends talking at cafe. No words or branding.",
+    "coverPhotoRef": "taboo-cover"
   },
   {
     "id": "certain-or-not",
@@ -9704,7 +9830,8 @@
     "end": "What are you most sure about in your future?",
     "focus": "will / be going to / might; expressing certainty and uncertainty",
     "coverQ": "person thinking looking at horizon",
-    "coverP": "Realistic, contextually relevant educational photograph of person thinking looking at horizon. No words or branding."
+    "coverP": "Realistic, contextually relevant educational photograph of person thinking looking at horizon. No words or branding.",
+    "coverPhotoRef": "designed-to-hook-11"
   },
   {
     "id": "act-it-out-adverbs",
@@ -9771,7 +9898,8 @@
     "focus": "Adverbs of manner: slowly, quickly, quietly, loudly…",
     "secret": true,
     "coverQ": "child pretending to run slowly",
-    "coverP": "Realistic, contextually relevant educational photograph of child pretending to run slowly. No words or branding."
+    "coverP": "Realistic, contextually relevant educational photograph of child pretending to run slowly. No words or branding.",
+    "coverPhotoRef": "taboo-cover"
   },
   {
     "id": "animal-top-trumps",
@@ -9871,7 +9999,8 @@
       ""
     ],
     "img": true,
-    "imgP": "a clear photo of {x} in the wild"
+    "imgP": "a clear photo of {x} in the wild",
+    "coverPhotoRef": "animal-top-trumps-01a"
   },
   {
     "id": "healthy-or-not",
@@ -9938,7 +10067,8 @@
     "end": "What healthy habit do you want to start?",
     "focus": "Adverbs of frequency: always, usually, sometimes, never",
     "coverQ": "healthy vegetables fruit plate",
-    "coverP": "Realistic, contextually relevant educational photograph of healthy vegetables fruit plate. No words or branding."
+    "coverP": "Realistic, contextually relevant educational photograph of healthy vegetables fruit plate. No words or branding.",
+    "coverPhotoRef": "parallel-realities-07a"
   },
   {
     "id": "robot-helper",
@@ -10006,7 +10136,8 @@
     "end": "Which chore do you hate the most?",
     "focus": "can/can't and household chores",
     "coverQ": "small domestic robot home",
-    "coverP": "Realistic, contextually relevant educational photograph of small domestic robot home. No words or branding."
+    "coverP": "Realistic, contextually relevant educational photograph of small domestic robot home. No words or branding.",
+    "coverPhotoRef": "story-chain-06-1"
   },
   {
     "id": "holiday-packing",
@@ -10070,7 +10201,8 @@
     "end": "Where are you going to go next summer?",
     "focus": "be going to for plans; holiday objects and activities",
     "coverQ": "open suitcase clothing travel",
-    "coverP": "Realistic, contextually relevant educational photograph of open suitcase clothing travel. No words or branding."
+    "coverP": "Realistic, contextually relevant educational photograph of open suitcase clothing travel. No words or branding.",
+    "coverPhotoRef": "taboo-cover"
   },
   {
     "id": "town-or-country",
@@ -10140,7 +10272,8 @@
     "end": "Town or country: where would you like to live?",
     "focus": "There is/isn't; places in town and countryside",
     "coverQ": "village country house and city",
-    "coverP": "Realistic, contextually relevant educational photograph of village country house and city. No words or branding."
+    "coverP": "Realistic, contextually relevant educational photograph of village country house and city. No words or branding.",
+    "coverPhotoRef": "unwritten-rules-04"
   },
   {
     "id": "weather-forecast",
@@ -10204,7 +10337,8 @@
     "end": "What's the weather like today?",
     "focus": "Weather words: sunny, rainy, icy, wet, dry, cloudy, windy, stormy, snowy, foggy",
     "coverQ": "television weather forecast map",
-    "coverP": "Realistic, contextually relevant educational photograph of television weather forecast map. No words or branding."
+    "coverP": "Realistic, contextually relevant educational photograph of television weather forecast map. No words or branding.",
+    "coverPhotoRef": "taboo-cover"
   },
   {
     "id": "reputation-repair-lab",
@@ -10261,7 +10395,8 @@
       ]
     },
     "coverQ": "press conference microphone podium",
-    "coverP": "Realistic, contextually relevant educational photograph of press conference microphone podium. No words or branding."
+    "coverP": "Realistic, contextually relevant educational photograph of press conference microphone podium. No words or branding.",
+    "coverPhotoRef": "hot-seat-12"
   },
   {
     "id": "museum-of-tomorrow",
@@ -10321,7 +10456,8 @@
       ]
     },
     "coverQ": "museum display everyday objects",
-    "coverP": "Realistic, contextually relevant educational photograph of museum display everyday objects. No words or branding."
+    "coverP": "Realistic, contextually relevant educational photograph of museum display everyday objects. No words or branding.",
+    "coverPhotoRef": "would-you-rather-05b"
   },
   {
     "id": "no-win-negotiation",
@@ -10439,7 +10575,8 @@
       ]
     },
     "coverQ": "two business people negotiation table",
-    "coverP": "Realistic, contextually relevant educational photograph of two business people negotiation table. No words or branding."
+    "coverP": "Realistic, contextually relevant educational photograph of two business people negotiation table. No words or branding.",
+    "coverPhotoRef": "taboo-cover"
   },
   {
     "id": "b2-question-trapdoor",
@@ -10541,7 +10678,8 @@
       ]
     },
     "coverQ": "friends interview conversation cafe",
-    "coverP": "Realistic, contextually relevant educational photograph of friends interview conversation cafe. No words or branding."
+    "coverP": "Realistic, contextually relevant educational photograph of friends interview conversation cafe. No words or branding.",
+    "coverPhotoRef": "parallel-realities-05b"
   },
   {
     "id": "b2-photo-heist",
@@ -10637,7 +10775,8 @@
       ]
     },
     "coverQ": "photography museum gallery framed landscape photos",
-    "coverP": "Realistic, contextually relevant educational photograph of photography museum gallery framed landscape photos. No words or branding."
+    "coverP": "Realistic, contextually relevant educational photograph of photography museum gallery framed landscape photos. No words or branding.",
+    "coverPhotoRef": "would-you-rather-05b"
   },
   {
     "id": "b2-sketch-and-switch",
@@ -10726,7 +10865,8 @@
       ]
     },
     "coverQ": "hand drawing with pencil beside photo prints",
-    "coverP": "Realistic, contextually relevant educational photograph of hand drawing with pencil beside photo prints. No words or branding."
+    "coverP": "Realistic, contextually relevant educational photograph of hand drawing with pencil beside photo prints. No words or branding.",
+    "coverPhotoRef": "parallel-realities-05b"
   },
   {
     "id": "b2-rescue-budget",
@@ -10831,7 +10971,8 @@
       ]
     },
     "coverQ": "team sorting project proposals budget",
-    "coverP": "Realistic, contextually relevant educational photograph of team sorting project proposals budget. No words or branding."
+    "coverP": "Realistic, contextually relevant educational photograph of team sorting project proposals budget. No words or branding.",
+    "coverPhotoRef": "parallel-realities-05b"
   },
   {
     "id": "b2-opinion-pingpong",
@@ -10886,7 +11027,8 @@
       ]
     },
     "coverQ": "students debating classroom",
-    "coverP": "Realistic, contextually relevant educational photograph of students debating classroom. No words or branding."
+    "coverP": "Realistic, contextually relevant educational photograph of students debating classroom. No words or branding.",
+    "coverPhotoRef": "parallel-realities-05b"
   },
   {
     "id": "c1-interview-undercover",
@@ -10986,7 +11128,8 @@
       ]
     },
     "coverQ": "journalist microphone interview",
-    "coverP": "Realistic, contextually relevant educational photograph of journalist microphone interview. No words or branding."
+    "coverP": "Realistic, contextually relevant educational photograph of journalist microphone interview. No words or branding.",
+    "coverPhotoRef": "guess-the-job-12"
   },
   {
     "id": "c1-curators-cut",
@@ -11098,7 +11241,8 @@
       ]
     },
     "coverQ": "art gallery curator photographs wall",
-    "coverP": "Realistic, contextually relevant educational photograph of art gallery curator photographs wall. No words or branding."
+    "coverP": "Realistic, contextually relevant educational photograph of art gallery curator photographs wall. No words or branding.",
+    "coverPhotoRef": "look-and-say-toys-03"
   },
   {
     "id": "c1-ethical-auction",
@@ -11202,7 +11346,8 @@
       ]
     },
     "coverQ": "community meeting public debate",
-    "coverP": "Realistic, contextually relevant educational photograph of community meeting public debate. No words or branding."
+    "coverP": "Realistic, contextually relevant educational photograph of community meeting public debate. No words or branding.",
+    "coverPhotoRef": "parallel-realities-05b"
   },
   {
     "id": "c1-pressure-test",
@@ -11256,7 +11401,8 @@
       ]
     },
     "coverQ": "university students discussing debate",
-    "coverP": "Realistic, contextually relevant educational photograph of university students discussing debate. No words or branding."
+    "coverP": "Realistic, contextually relevant educational photograph of university students discussing debate. No words or branding.",
+    "coverPhotoRef": "parallel-realities-05b"
   },
   {
     "id": "rather-than",
@@ -11378,7 +11524,8 @@
       "adults"
     ],
     "coverQ": "two alternative choices fork road",
-    "coverP": "Realistic, contextually relevant educational photograph of two alternative choices fork road. No words or branding."
+    "coverP": "Realistic, contextually relevant educational photograph of two alternative choices fork road. No words or branding.",
+    "coverPhotoRef": "taboo-cover"
   },
   {
     "id": "youd-better",
@@ -11450,7 +11597,8 @@
       "adults"
     ],
     "coverQ": "person giving advice friend",
-    "coverP": "Realistic, contextually relevant educational photograph of person giving advice friend. No words or branding."
+    "coverP": "Realistic, contextually relevant educational photograph of person giving advice friend. No words or branding.",
+    "coverPhotoRef": "taboo-cover"
   },
   {
     "id": "id-rather-you-didnt",
@@ -11519,7 +11667,8 @@
       "adults"
     ],
     "coverQ": "two people disagreeing politely",
-    "coverP": "Realistic, contextually relevant educational photograph of two people disagreeing politely. No words or branding."
+    "coverP": "Realistic, contextually relevant educational photograph of two people disagreeing politely. No words or branding.",
+    "coverPhotoRef": "taboo-cover"
   },
   {
     "id": "complaint-desk",
@@ -11628,7 +11777,8 @@
       "adults"
     ],
     "coverQ": "hotel reception guest talking employee",
-    "coverP": "Realistic, contextually relevant educational photograph of hotel reception guest talking employee. No words or branding."
+    "coverP": "Realistic, contextually relevant educational photograph of hotel reception guest talking employee. No words or branding.",
+    "coverPhotoRef": "look-and-say-house-07"
   },
   {
     "id": "fix-my-town",
@@ -11702,7 +11852,8 @@
       "adults"
     ],
     "coverQ": "town street traffic congestion",
-    "coverP": "Realistic, contextually relevant educational photograph of town street traffic congestion. No words or branding."
+    "coverP": "Realistic, contextually relevant educational photograph of town street traffic congestion. No words or branding.",
+    "coverPhotoRef": "five-star-review-08"
   },
   {
     "id": "sorry-i-cant",
@@ -11774,7 +11925,8 @@
       "adults"
     ],
     "coverQ": "phone call declining invitation",
-    "coverP": "Realistic, contextually relevant educational photograph of phone call declining invitation. No words or branding."
+    "coverP": "Realistic, contextually relevant educational photograph of phone call declining invitation. No words or branding.",
+    "coverPhotoRef": "taboo-cover"
   },
   {
     "id": "old-enough",
@@ -11848,7 +12000,8 @@
       "adults"
     ],
     "coverQ": "teenagers debating age rules",
-    "coverP": "Realistic, contextually relevant educational photograph of teenagers debating age rules. No words or branding."
+    "coverP": "Realistic, contextually relevant educational photograph of teenagers debating age rules. No words or branding.",
+    "coverPhotoRef": "unwritten-rules-04"
   },
   {
     "id": "say-it-another-way",
@@ -11964,6 +12117,7 @@
       "adults"
     ],
     "coverQ": "two overlapping speech bubbles conversation",
-    "coverP": "Realistic, contextually relevant educational photograph of two overlapping speech bubbles conversation. No words or branding."
+    "coverP": "Realistic, contextually relevant educational photograph of two overlapping speech bubbles conversation. No words or branding.",
+    "coverPhotoRef": "taboo-cover"
   }
 ]
