@@ -1,7 +1,9 @@
 """Build index.html from src/template.html + src/decks.json, and link every photo in img/.
 Run: python3 build.py"""
-import json, re, os
+import json, re, os, subprocess, sys
 ROOT = os.path.dirname(os.path.abspath(__file__))
+# Generate the app launcher icons for GitHub Pages without external dependencies.
+subprocess.run([sys.executable, os.path.join(ROOT, "scripts", "make_app_icons.py")], check=True)
 decks = json.load(open(os.path.join(ROOT, "src/decks.json")))
 ids = [d["id"] for d in decks]
 imgs = {}
