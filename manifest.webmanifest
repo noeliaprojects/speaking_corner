@@ -1,0 +1,27 @@
+{
+  "id": "/speaking_corner/",
+  "name": "Speaking Corner – Speaking Games",
+  "short_name": "Speaking Corner",
+  "description": "Interactive English-speaking activities and classroom games for teachers",
+  "lang": "en",
+  "start_url": "/speaking_corner/",
+  "scope": "/speaking_corner/",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#f8f8f5",
+  "theme_color": "#176f69",
+  "icons": [
+    {
+      "src": "icons/app-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/app-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
