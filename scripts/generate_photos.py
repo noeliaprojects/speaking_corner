@@ -3,7 +3,7 @@ Reads every photo prompt from src/decks.json (same list as Info > Photos), skips
 and saves new ones as img/<name>.jpg. Needs the OPENAI_API_KEY environment variable.
 Usage: python3 scripts/generate_photos.py --max 20 --quality medium [--only deck-id]"""
 import argparse, base64, io, json, os, re, sys, urllib.request
-from PIL import Image
+from PIL import Image, ImageDraw, ImageFont
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 LEGACY = {"use-it-for", "defend-the-object", "great-swap"}
@@ -55,6 +55,8 @@ def main():
     todo = [(n, p) for n, p in photo_list(decks) if n not in have and (not a.only or n.startswith(a.only + "-"))]
     print(f"{len(todo)} photos missing; generating up to {a.max}")
     done = 0
+    credits_path = os.path.join(ROOT, "src/credits.json")
+    credits = json.load(open(credits_path)) if os.path.exists(credits_path) else {}
     for name, prompt in todo[: a.max]:
         try:
             raw = generate(prompt, a.quality, key)
@@ -63,9 +65,22 @@ def main():
             continue
         im = Image.open(io.BytesIO(raw)).convert("RGB")
         im.thumbnail((1200, 800))
+        # Visible credit on each AI-produced image, as requested by the teacher.
+        label = "Created with ChatGPT (OpenAI)"
+        draw = ImageDraw.Draw(im)
+        font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", 17) if os.path.exists("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf") else ImageFont.load_default()
+        bb = draw.textbbox((0,0), label, font=font)
+        width = bb[2]-bb[0]
+        margin = 11
+        x = max(6, im.width-width-2*margin)
+        y = im.height-35
+        draw.rounded_rectangle((x-7,y-5,im.width-8,im.height-7),radius=5,fill=(21,48,46))
+        draw.text((x,y),label,font=font,fill=(255,255,255))
         im.save(os.path.join(ROOT, "img", f"{name}.jpg"), quality=82, optimize=True)
+        credits[name] = {"title": prompt[:140], "author": "ChatGPT (OpenAI)", "license": "AI-generated", "source": "https://openai.com/", "generated": True, "query": prompt}
         done += 1
         print(f"  + {name}")
+    json.dump(credits,open(credits_path,"w"),ensure_ascii=False,indent=1)
     print(f"done: {done} new photos")
 
 if __name__ == "__main__":
