@@ -75,7 +75,7 @@ button.lesson-add:hover::after,button.lesson-add:focus-visible::after{opacity:1;
 .lp-actions{display:flex;flex-wrap:wrap;gap:5px}.lp-actions button{padding:7px 10px}
 .lp-overlay{position:fixed;inset:0;background:rgba(25,30,34,.55);z-index:300;display:flex;align-items:center;justify-content:center;padding:16px}
 .lp-dialog{width:min(100%,490px);max-height:90vh;overflow-y:auto;box-shadow:0 15px 60px rgba(0,0,0,.2)}
-@media(max-width:580px){.lp-step-name{flex-basis:calc(100% - 85px)}.lp-actions{width:100%;justify-content:flex-end}}
+@media(max-width:580px){.lp-step-name{flex:1 1 0px;min-width:0}.lp-step{gap:8px}.lp-actions{width:100%;justify-content:flex-end}}
 
 /* top bar */
 .top{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
@@ -331,6 +331,7 @@ button,.btn{font-weight:500}
 .brand span{color:var(--stamp);position:relative;display:inline-block;text-shadow:-1px -1px 0 rgba(255,255,255,.8),1px 1px 0 rgba(25,70,61,.43),2px 2px 0 rgba(25,70,61,.29),3px 3px 0 rgba(25,70,61,.16),4px 5px 5px rgba(25,70,61,.16)}
 .brand span::after{content:"";position:absolute;right:-.28em;top:.06em;width:.2em;height:.2em;background:var(--stamp);border-radius:50% 50% 50% 0;box-shadow:1px 1px 0 rgba(25,70,61,.32),2px 2px 0 rgba(25,70,61,.2),3px 4px 4px rgba(25,70,61,.14)}
 /* Collapsible panels override .card's display:flex */
+[hidden]{display:none!important}
 #prPanel[hidden],#guidePanel[hidden]{display:none!important}
 /* Custom useful-language editor */
 #langPanel[hidden]{display:none!important}
@@ -499,6 +500,13 @@ button.primary:hover,.btn.primary:hover{background:#115b56;border-color:#115b56}
 .act.is-done .m-done{color:#fff;background:var(--category-ink,var(--ok));border-radius:99px;padding:2px 10px;font-weight:600}
 .act.is-done h3,.act.is-done p{opacity:.85}
 @media print{.act.is-done{background:#fff!important}}
+
+/* drag to reorder lesson steps */
+.lp-grip{flex:0 0 auto;display:inline-flex;align-items:center;justify-content:center;width:30px;height:38px;padding:0;border:0;background:none;color:var(--muted);cursor:grab;touch-action:none;border-radius:8px}
+.lp-grip:hover{color:var(--ink);background:var(--paper)}
+.lp-grip:focus-visible{outline:2px solid var(--stamp);outline-offset:2px}
+.lp-step.dragging{position:relative;z-index:5;background:var(--paper);box-shadow:0 12px 28px -8px rgba(29,35,48,.28);cursor:grabbing}
+.lp-step.dragging .lp-grip{cursor:grabbing;color:var(--stamp)}
 </style>
 
 <div class="wrap" id="app"></div>
@@ -639,11 +647,11 @@ const LP=(function plannerImpl(){
 
      <section class="card"><h2>Activities <span class="note">${done.length} of ${p.activities.length} done</span></h2>
        <p class="note">Open each activity during class. Tick it after you finish, or use Mark as done inside the activity.</p>
-       ${p.activities.length?`<ol class="lp-steps">${p.activities.map((aid,i)=>{const a=byId(aid);if(!a)return "";return `<li class="lp-step">
+       ${p.activities.length?`<ol class="lp-steps">${p.activities.map((aid,i)=>{const a=byId(aid);if(!a)return "";return `<li class="lp-step" data-idx="${i}">
+         <button type="button" class="lp-grip" data-grip aria-label="Drag to reorder ${esc(a.name)} (or use the arrow keys)" title="Drag to reorder"><svg viewBox="0 0 12 18" width="12" height="18" aria-hidden="true"><g fill="currentColor"><circle cx="3" cy="3" r="1.6"/><circle cx="9" cy="3" r="1.6"/><circle cx="3" cy="9" r="1.6"/><circle cx="9" cy="9" r="1.6"/><circle cx="3" cy="15" r="1.6"/><circle cx="9" cy="15" r="1.6"/></g></svg></button>
          <label class="lp-tick"><input type="checkbox" data-tick="${esc(aid)}" ${done.includes(aid)?"checked":""} aria-label="Completed ${esc(a.name)}"></label>
          <span class="lp-step-name"><strong>${esc(a.name)}</strong><small>${esc(a.desc||"")}</small></span>
-         <div class="lp-actions"><button class="primary" data-play="${esc(aid)}">Open</button><button class="ghost" data-up="${i}" ${i===0?"disabled":""} aria-label="Move up ${esc(a.name)}">↑</button>
-         <button class="ghost" data-down="${i}" ${i===p.activities.length-1?"disabled":""} aria-label="Move down ${esc(a.name)}">↓</button><button class="ghost" data-remove="${i}" aria-label="Remove ${esc(a.name)}">×</button></div></li>`;}).join("")}</ol>`:`<p class="note">This plan has no activities yet. Add one below.</p>`}
+         <div class="lp-actions"><button class="primary" data-play="${esc(aid)}">Open</button><button class="ghost" data-remove="${i}" aria-label="Remove ${esc(a.name)}">×</button></div></li>`;}).join("")}</ol>`:`<p class="note">This plan has no activities yet. Add one below.</p>`}
        <label class="field"><span class="label">Add an activity</span><select id="lpActivity">${available.map(a=>`<option value="${esc(a.id)}">${esc(a.name)} · ${esc(lvRange(a.lv))}</option>`).join("")}</select></label>
        <div class="row"><button class="primary" id="lpAdd">+ Add activity</button><a class="btn ghost" href="#">Browse all activities</a></div><p class="note" id="lpAddMessage" role="status"></p>
      </section>
@@ -662,10 +670,29 @@ const LP=(function plannerImpl(){
      update(id,p=>{p.done=p.done||[];if(b.checked){if(!p.done.includes(b.dataset.tick))p.done.push(b.dataset.tick);if(p.date===today()&&CL.byId(p.classId))H.mark(p.classId,b.dataset.tick);}
        else p.done=p.done.filter(x=>x!==b.dataset.tick);});planView(id);
    });
-   for(const attr of ["up","down"])app.querySelectorAll(`[data-${attr}]`).forEach(b=>b.onclick=()=>{
-     const i=+b.dataset[attr],j=i+(attr==="up"?-1:1);
-     update(id,p=>{if(j>=0&&j<p.activities.length)[p.activities[i],p.activities[j]]=[p.activities[j],p.activities[i]];});planView(id);
-   });
+   // Drag to reorder (mouse, finger or pen). The grip also answers ArrowUp/ArrowDown for keyboard users.
+   const list=app.querySelector(".lp-steps");
+   const saveOrder=()=>{const order=[...list.children].map(li=>+li.dataset.idx);
+     update(id,p=>{p.activities=order.map(k=>p.activities[k]).filter(Boolean);});planView(id);};
+   if(list){
+     list.querySelectorAll("[data-grip]").forEach(g=>{
+       g.onkeydown=e=>{if(e.key!=="ArrowUp"&&e.key!=="ArrowDown")return;e.preventDefault();const li=g.closest("li");
+         const sib=e.key==="ArrowUp"?li.previousElementSibling:li.nextElementSibling;if(!sib)return;
+         if(e.key==="ArrowUp")list.insertBefore(li,sib);else list.insertBefore(sib,li);
+         const pos=[...list.children].indexOf(li);saveOrder();app.querySelectorAll(".lp-step [data-grip]")[pos]?.focus();};
+       g.onpointerdown=e=>{if(e.button>0)return;e.preventDefault();const li=g.closest("li");g.setPointerCapture(e.pointerId);
+         const startY=e.pageY,top0=li.getBoundingClientRect().top+scrollY;let moved=false,tr=0,lastY=e.pageY;li.classList.add("dragging");
+         const place=()=>{const y=lastY-scrollY;let target=null;
+             for(const o of list.children){if(o===li)continue;const r=o.getBoundingClientRect();if(y<r.top+r.height/2){target=o;break;}}
+             if(target!==li.nextElementSibling)list.insertBefore(li,target);
+             const layoutTop=li.getBoundingClientRect().top+scrollY-tr;tr=top0+(lastY-startY)-layoutTop;li.style.transform=`translateY(${tr}px)`;};
+         const move=ev=>{moved=true;lastY=ev.pageY;place();
+           if(ev.clientY<70)scrollBy(0,-14);else if(ev.clientY>innerHeight-70)scrollBy(0,14);};
+         const up=()=>{g.removeEventListener("pointermove",move);g.removeEventListener("pointerup",up);g.removeEventListener("pointercancel",up);
+           li.classList.remove("dragging");li.style.transform="";if(moved)saveOrder();};
+         g.addEventListener("pointermove",move);g.addEventListener("pointerup",up);g.addEventListener("pointercancel",up);};
+     });
+   }
    app.querySelectorAll("[data-remove]").forEach(b=>b.onclick=()=>{const i=+b.dataset.remove;update(id,p=>{const a=p.activities.splice(i,1)[0];p.done=(p.done||[]).filter(x=>x!==a);});planView(id);});
    $("#lpDuplicate").onclick=()=>{const copy=make(p.title+" (copy)",today(),p.classId,p.activities,p.notes||"");location.hash="plan/"+copy.id;};
    $("#lpDelete").onclick=()=>{const b=$("#lpDelete");if(!b.dataset.confirm){b.dataset.confirm="1";b.textContent="Tap again to delete";return;}save(all().filter(x=>x.id!==id));location.hash="plans";};
@@ -1389,8 +1416,19 @@ document.addEventListener("click",event=>{
 });
 window.addEventListener("load",syncInstallUI);
 window.addEventListener("hashchange",()=>setTimeout(syncInstallUI,0));
+/* Always pick up the newest version: the service worker checks for updates every time the app is opened
+   or brought back to the front, and a fresh version takes over straight away. */
 if("serviceWorker" in navigator)window.addEventListener("load",()=>{
-  navigator.serviceWorker.register("./sw.js",{scope:"./"}).catch(()=>{});
+  const loadedAt=Date.now();let reloaded=false;
+  navigator.serviceWorker.addEventListener("controllerchange",()=>{
+    // A newer version just took over. Reload only right after opening, never in the middle of a lesson.
+    if(!reloaded&&Date.now()-loadedAt<15000&&!location.hash.replace("#","")){reloaded=true;location.reload();}
+  });
+  navigator.serviceWorker.register("./sw.js",{scope:"./",updateViaCache:"none"}).then(reg=>{
+    const check=()=>reg.update().catch(()=>{});
+    check();
+    document.addEventListener("visibilitychange",()=>{if(document.visibilityState==="visible")check();});
+  }).catch(()=>{});
 });
 
 /* migrate old saved names: nothing to do, classes keep same keys */
