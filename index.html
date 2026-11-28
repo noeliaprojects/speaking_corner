@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Speaking Corner</title>
-<meta name="theme-color" content="#eef1e8">
+<meta name="theme-color" content="#0e7f74">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 <link rel="manifest" href="./manifest.webmanifest">
@@ -12,7 +12,7 @@
 <link rel="apple-touch-icon" href="./icons/app-192.png">
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Lexend:wght@300;400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap">
 <style>
 /* Layout: quiet hub (search, filters, plain activity cards grouped by type); each activity opens a white, projector-ready slide with teacher tools underneath. One accent colour, one typeface. */
 :root{
@@ -550,86 +550,6 @@ body{background-color:#fff;background-image:radial-gradient(#cfd8e6 1.1px,transp
 }
 @keyframes fsIn{from{transform:translateY(30px);opacity:0}}
 @media (prefers-reduced-motion:reduce){.fpanel.open{animation:none}}
-
-/* ═══════════ Design "Pegatinas" (sticker book), chosen 28 Nov 2026 — same system as UOEprep ═══════════
-   Fonts: Fredoka (headings), Nunito (text). Soft sage page; white or muted pastel cards with a 2px ink
-   outline and a hard offset shadow; one pastel per section. Projected slides stay white and plain. */
-:root{
-  --bg:#eef1e8;--paper:#ffffff;--ink:#23262e;--muted:#565c6a;--line:#23262e;--soft-line:#d3d8cc;
-  --stamp:#4a3fa6;--stamp-soft:#e4dcf6;--ok:#1d7346;--ok-soft:#cfe8d8;--warn:#875400;--warn-soft:#f6e7a8;
-  --c-warm:#9a4a22;--c-you:#4a3fa6;--c-opinion:#7a5600;--c-game:#1d7346;--accent-b2:#1f5f8a;--accent-c1:#9b3466;
-  --accent-warm-bg:#f6d2bf;--accent-you-bg:#ddd3f2;--accent-opinion-bg:#f6e7a8;--accent-game-bg:#cfe8d8;--accent-b2-bg:#cfe3f2;--accent-c1-bg:#f2d3e1;
-  --shadow:4px 4px 0 var(--line);--shadow-s:3px 3px 0 var(--line);
-  --display:"Fredoka","Nunito",system-ui,sans-serif;--body:"Nunito",system-ui,-apple-system,"Segoe UI",sans-serif;--mono:"Nunito",system-ui,sans-serif;
-  --stage:#ffffff;--stage-2:#f4f6f0;--stage-ink:#23262e;--stage-muted:#565c6a;
-}
-body{background:var(--bg)!important;background-image:none!important;font-weight:500}
-h1,h2,h3,.brand{font-family:var(--display)}
-.brand{font-weight:700!important;letter-spacing:0!important;color:var(--ink)}
-.brand span{color:var(--stamp)}
-.brand span::after{background:var(--c-warm)!important}
-.label,.cat-h h2,.s-eyebrow{letter-spacing:.02em}
-.top nav .link,.top nav a{font-weight:700}
-/* buttons and inputs */
-button,.btn{border:2px solid var(--line);border-radius:14px;font-weight:700;box-shadow:var(--shadow-s);background:var(--paper)}
-button:active:not(:disabled),.btn:active{transform:translate(2px,2px);box-shadow:1px 1px 0 var(--line)}
-button.primary,.btn.primary,.install-link{background:var(--ink)!important;border-color:var(--line)!important;color:#f6e7a8!important}
-button.primary:hover,.btn.primary:hover{background:#000!important}
-button.ghost,.btn.ghost{border-color:var(--line);background:var(--paper)}
-button:disabled{box-shadow:none}
-textarea,select,input{border:2px solid var(--line);border-radius:14px;background:var(--paper)}
-.search input{background:var(--paper)!important;border-color:var(--line)!important;border-radius:16px;box-shadow:var(--shadow-s)}
-.ftoggle{border:2px solid var(--line)!important;border-radius:16px!important;box-shadow:var(--shadow-s)}
-.chips button{border:2px solid var(--line)!important;box-shadow:2px 2px 0 var(--line);font-weight:700;background:var(--paper)}
-.chips button[aria-pressed="true"]{background:var(--warn-soft)!important;color:var(--ink)!important;border-color:var(--line)!important}
-.grsel select,.fsel select{border:2px solid var(--line);background:var(--paper)!important}
-/* section jump bar */
-.section-jumps{background:var(--paper)!important;border:2px solid var(--line)!important;border-radius:18px;box-shadow:var(--shadow)!important;backdrop-filter:none}
-.section-jumps button[data-jump]{border:2px solid var(--line)!important;box-shadow:none;font-weight:700;color:var(--ink)!important}
-.section-jumps button[data-jump]::before{display:none}
-.section-jumps button[data-jump="section-warm"]{background:var(--accent-warm-bg)!important}
-.section-jumps button[data-jump="section-you"]{background:var(--accent-you-bg)!important}
-.section-jumps button[data-jump="section-opinion"]{background:var(--accent-opinion-bg)!important}
-.section-jumps button[data-jump="section-game"]{background:var(--accent-game-bg)!important}
-.section-jumps button[data-jump="section-b2"]{background:var(--accent-b2-bg)!important}
-.section-jumps button[data-jump="section-c1"]{background:var(--accent-c1-bg)!important}
-/* section titles and activity cards */
-.cat>h2{font-family:var(--display);font-weight:700;font-size:1.45rem;color:var(--ink)}
-.cat>h2::before{width:22px;height:22px;flex:0 0 22px;border-radius:7px;background:var(--category-soft);border:2px solid var(--line)}
-.cat>h2 span{background:var(--paper);color:var(--ink);border:2px solid var(--line);font-family:var(--body);font-weight:800}
-.cat .act,.exam-cat .act{background:var(--category-soft)!important;border:2px solid var(--line)!important;border-radius:20px;box-shadow:var(--shadow)!important;transform:none}
-.cat .act::before{display:none}
-.cat .act:hover{box-shadow:6px 6px 0 var(--line)!important;transform:translate(-2px,-2px)}
-.cat .act:active{box-shadow:1px 1px 0 var(--line)!important;transform:translate(2px,2px)}
-.act h3{font-family:var(--display);font-weight:600;font-size:1.25rem}
-.cat .act p{color:var(--ink);opacity:.78}
-.cat .lvpill{background:var(--ink)!important;color:#fff;border-radius:999px}
-.cat .act .kind{color:var(--ink);opacity:.75;font-weight:700}
-.cat .resource-icons,.cat .act .meta{color:var(--ink)}
-.cat .lesson-add,button.lesson-add{background:var(--paper)!important;border:2px solid var(--line)!important;color:var(--ink)!important;box-shadow:none}
-.cat .lesson-add:hover,.cat .lesson-add:focus-visible{background:var(--ink)!important;color:#fff!important}
-.exam-cat{background:transparent!important;border:0!important}
-.act.is-done{background:var(--category-soft)!important;border-color:var(--line)!important;box-shadow:inset 0 0 0 3px var(--paper),var(--shadow)!important}
-.act.is-done .m-done{background:var(--ink)!important}
-.card,.classpick,.lp-summary,.lp-step{border:2px solid var(--line);border-radius:20px}
-.card{box-shadow:var(--shadow)}
-.lp-summary,.lp-step{background:var(--paper)}
-.banner{border:2px solid var(--line);border-radius:16px}
-/* projected slide: white, readable, just the sticker outline */
-.stage{border:2px solid var(--line)!important;border-radius:22px!important;box-shadow:var(--shadow)!important;--acc:#4a3fa6;--tint:#f4f6f0}
-.stage:fullscreen{border:0!important;border-radius:0!important;box-shadow:none!important}
-.s-title,.s-big,.word,.timer{font-family:var(--display)}
-.s-ph span{border:2px solid var(--line)!important;background:#f6e7a8!important;color:var(--ink)}
-.s-pill{border:2px solid var(--line)}
-.fpanel.open{border-top:2px solid var(--line)}
-@media print{
-  body{background:#fff!important}
-  .cat .act,.stage,.card{box-shadow:none!important;border:1px solid #888!important;background:#fff!important}
-}
-button.link,#clr,.lp-grip,.fdone+*{box-shadow:none}
-button.link,#clr{border:0;background:none}
-@media (prefers-reduced-motion:reduce){.cat .act:hover,.cat .act:active,button:active{transform:none}}
-
 /* Install button: red and obvious, top right; gone once the app is installed */
 .install-link.install-red{display:inline-flex;align-items:center;gap:6px;background:#d92d20!important;border:2px solid #a91f15!important;color:#fff!important;font-weight:800;border-radius:10px;padding:8px 14px;box-shadow:0 3px 0 #a91f15}
 .install-link.install-red:hover{background:#c0261a!important}
@@ -643,6 +563,14 @@ html.can-install header{padding-top:40px}
 .site-foot{display:flex;gap:8px;justify-content:center;margin:40px 0 12px;font-size:.88rem;color:var(--muted)}
 .site-foot a{color:var(--muted)}
 .privacy .card p+p{margin-top:.6em}
+
+/* Sticker edge: ink outline and a small hard shadow on the activity cards, nothing else */
+.cat .act{border:2px solid #23262e!important;box-shadow:3px 3px 0 #23262e!important;transition:transform .12s,box-shadow .12s}
+.cat .act::before{display:none}
+.cat .act:hover{border-color:#23262e!important;transform:translate(-1px,-1px);box-shadow:5px 5px 0 #23262e!important}
+.cat .act:active{transform:translate(2px,2px);box-shadow:1px 1px 0 #23262e!important}
+.act.is-done{border-color:#23262e!important}
+@media print{.cat .act{box-shadow:none!important}}
 </style>
 </head>
 <body>
