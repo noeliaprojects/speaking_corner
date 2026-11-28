@@ -624,6 +624,20 @@ textarea,select,input{border:2px solid var(--line);border-radius:14px;background
 button.link,#clr,.lp-grip,.fdone+*{box-shadow:none}
 button.link,#clr{border:0;background:none}
 @media (prefers-reduced-motion:reduce){.cat .act:hover,.cat .act:active,button:active{transform:none}}
+
+/* Install button: red and obvious, top right; gone once the app is installed */
+.install-link.install-red{display:inline-flex;align-items:center;gap:6px;background:#d92d20!important;border:2px solid #a91f15!important;color:#fff!important;font-weight:800;border-radius:10px;padding:8px 14px;box-shadow:0 3px 0 #a91f15}
+.install-link.install-red:hover{background:#c0261a!important}
+.install-link.install-red:active{transform:translateY(2px);box-shadow:0 1px 0 #a91f15}
+.install-link.install-red[hidden]{display:none!important}
+@media (display-mode:standalone){.install-link.install-red{display:none!important}}
+.install-link.install-red{position:absolute;top:calc(14px + env(safe-area-inset-top,0px));right:max(16px,env(safe-area-inset-right,0px));z-index:260;font-size:.95rem;padding:10px 16px}
+html.can-install header{padding-top:40px}
+@media (max-width:700px){html.can-install header{padding-top:46px}.install-link.install-red{top:calc(10px + env(safe-area-inset-top,0px));font-size:.88rem;padding:8px 13px}}
+
+.site-foot{display:flex;gap:8px;justify-content:center;margin:40px 0 12px;font-size:.88rem;color:var(--muted)}
+.site-foot a{color:var(--muted)}
+.privacy .card p+p{margin-top:.6em}
 </style>
 
 <div class="wrap" id="app"></div>
@@ -832,6 +846,7 @@ function route(){stopTimer();stopDeck();const h=location.hash.slice(1);window.sc
   if(h.startsWith("plan/"))return LP.planView(h.slice(5));
   if(h==="classes")return classesView();
   if(h==="info")return infoView();
+  if(h==="privacy")return privacyView();
   if(h==="secret-word")return SW.setup();
   if(h==="small-talk-grid")return STGame.setup();
   const d=byId(h);if(d){if(d.minePdf)return MY.pdfView(d.id);if(d.kind&&!d.app)return deckView(d);}
@@ -845,7 +860,7 @@ function hub(){
   const sel=(id,label,opts,cur)=>`<label class="fsel"><span class="sr">${label}</span><select id="${id}">${opts.map(([v,l])=>`<option value="${esc(v)}" ${cur===v?"selected":""}>${esc(l)}</option>`).join("")}</select></label>`;
   app.innerHTML=`
   <header class="top"><h1 class="brand">Speaking <span>Corner</span></h1>
-    <nav>${classSwitcher()}<a class="link" href="#classes">My classes</a><a class="link" href="#plans">My lesson plans</a><a class="link" href="#my-activities">My activities</a><a class="link" href="#info">Info</a><button type="button" id="installApp" class="install-link" ${installVisible()?"":"hidden"}>Install app</button></nav></header>
+    <nav>${classSwitcher()}<a class="link" href="#classes">My classes</a><a class="link" href="#plans">My lesson plans</a><a class="link" href="#my-activities">My activities</a><a class="link" href="#info">Info</a><button type="button" id="installApp" class="install-link install-red" ${installVisible()?"":"hidden"}><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg>Install app</button></nav></header>
   <nav class="section-jumps" id="sectionJumps" aria-label="Jump to activity section">
     <span class="section-jumps-label">Jump to</span>
     <div class="section-jumps-scroll">
@@ -877,7 +892,8 @@ function hub(){
     <button type="button" class="primary fdone" id="fDone">Show activities</button>
     </div>
   </section>
-  <div id="list"></div>`;
+  <div id="list"></div>
+  <footer class="site-foot"><a href="#privacy">Privacy policy</a><span>·</span><a href="#info">Info</a></footer>`;
   const on=(id,key)=>$(id).onchange=e=>{F[key]=e.target.value;store.set("sc-filters2",F);renderList();};
   const bind=(id,key)=>$(id).querySelectorAll("button").forEach(b=>b.onclick=()=>{F[key]=b.dataset.k;store.set("sc-filters2",F);$(id).querySelectorAll("button").forEach(x=>x.setAttribute("aria-pressed",x===b));renderList();});
   bind("#fFmt","fmt");bind("#fLv","lv");bind("#fAge","age");on("#fGr","gr");
@@ -1323,6 +1339,27 @@ function photoSection(){
       ${ok?`<p class="note">Done. All ${b.length} photos are in the slides.</p>`:`<div class="prompt" id="pb-${n}">${esc(txt)}</div><div class="row"><button class="ghost" data-copy="pb-${n}">Copy prompt</button><span class="note"></span></div>`}</div></details>`;}).join("")}`;
 }
 
+function privacyView(){
+  app.innerHTML=`<div class="narrow privacy"><a class="back" href="#">← All activities</a><h1>Privacy policy</h1>
+  <p class="note">Last updated: 28 November 2026</p>
+  <section class="card"><h2>In short</h2><p>Speaking Corner has no accounts, no server database, no analytics, no advertising and no cookies. What you type is saved only in this browser on this device, and nobody else can see it, including the person who made the app.</p></section>
+  <section class="card"><h2>What is saved, and where</h2><ul class="rules">
+    <li><b>Your classes</b>: group names and the students' first names you type in My classes.</li>
+    <li><b>History</b>: which activities each class has done, and when.</li>
+    <li><b>Lesson plans, My activities and your useful language</b>, including any PDF you attach to your own activities.</li>
+    <li><b>Settings</b>: filters, print options and similar preferences.</li></ul>
+    <p>All of this is kept in the browser's local storage and IndexedDB on your device. It is never sent anywhere. If you clear your browser data or uninstall the app, it is deleted.</p>
+    <p>Tip: use first names or nicknames for students. You don't need surnames or any other personal details.</p></section>
+  <section class="card"><h2>Backups</h2><p>The backup in My classes creates a code with your data. It only leaves your device if you copy it and paste it somewhere yourself, so keep it somewhere private.</p></section>
+  <section class="card"><h2>Third parties</h2><ul class="rules">
+    <li><b>GitHub Pages</b> hosts the app. Like any website host, GitHub receives technical data such as your IP address when the pages load. See the <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" target="_blank" rel="noopener">GitHub Privacy Statement</a>.</li>
+    <li><b>Google Fonts</b> provides the typefaces, so your browser requests them from Google. See the <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Privacy Policy</a>.</li>
+    <li><b>Photos</b> come from Openverse and Wikimedia Commons under free licences, but they are stored with the app, so opening an activity doesn't contact those sites.</li></ul></section>
+  <section class="card"><h2>Your choices</h2><p>You can edit or delete any class, plan or activity inside the app, and you can delete everything by clearing this site's data in your browser settings. Because nothing is stored on a server, there is nothing else to request or delete.</p></section>
+  <section class="card"><h2>Children</h2><p>The app is a tool for teachers. Students don't create accounts or enter data. When a teacher types students' first names, those names stay on the teacher's own device.</p></section>
+  <section class="card"><h2>Changes and contact</h2><p>If this policy changes, the date at the top will change. Questions: <a href="https://github.com/noeliaprojects" target="_blank" rel="noopener">github.com/noeliaprojects</a>.</p></section>
+  </div>`;
+}
 function infoView(){
   app.innerHTML=`<div class="narrow"><a class="back" href="#">← All activities</a><h1>Info</h1>
   <section class="card"><h2>Presenting</h2><ul class="rules">
@@ -1341,6 +1378,7 @@ function infoView(){
     <li>Activities marked <b>Print</b> need cards. Their page has a button to open the PDF.</li>
     <li>Cards fill the whole A4 page with shared cut lines, so you only need straight cuts. Print at 100% (actual size).</li></ul></section>
   <section class="card"><h2>Photos for the slides</h2>${photoSection()}</section>
+  <section class="card"><h2>Privacy</h2><p class="note">Everything you save stays on this device. <a href="#privacy">Read the privacy policy</a>.</p></section>
   ${Object.keys(CREDITS).length?`<section class="card"><details class="more"><summary>Photo credits (${Object.keys(CREDITS).length})</summary><div class="bank"><p class="note">Photos found on Openverse and Wikimedia Commons under free licences.</p><ul class="rules">${Object.entries(CREDITS).map(([k,c])=>`<li><a href="${esc(c.source)}" target="_blank" rel="noopener">${esc(c.title.replace(/^File:/,"").slice(0,60))}</a> by ${esc(c.author)} · ${esc(c.license)}</li>`).join("")}</ul></div></details></section>`:""}</div>`;
   app.querySelectorAll("[data-copy]").forEach(b=>b.onclick=()=>{const t=document.getElementById(b.dataset.copy).textContent,m=b.nextElementSibling;
     try{navigator.clipboard.writeText(t).then(()=>m.textContent="Copied.",()=>m.textContent="Select the text and copy it.");}catch(e){m.textContent="Select the text and copy it.";}});
@@ -1526,7 +1564,8 @@ function syncInstallUI(){
   let dismissed=false;try{dismissed=Date.now()<+(localStorage.getItem("sc-install-dismissed")||0);}catch(e){}
   const onHub=!location.hash||location.hash==="#";
   if(bar&&!onHub){bar.remove();bar=null;}
-  if(show&&!dismissed&&onHub&&!bar){
+  document.documentElement.classList.toggle("can-install",show);
+  if(false&&show&&!dismissed&&onHub&&!bar){
     bar=document.createElement("div");bar.id="installBar";bar.className="install-bar";bar.setAttribute("role","dialog");bar.setAttribute("aria-label","Install Speaking Corner");
     bar.innerHTML=`<img src="./icons/app-192.png" alt="" width="44" height="44"><div class="ib-txt"><b>Install Speaking Corner</b><span>Open it from your home screen like an app, full screen.</span></div><button type="button" class="primary" data-install>Install</button><button type="button" class="ib-x" data-install-close aria-label="Not now">✕</button>`;
     document.body.appendChild(bar);
