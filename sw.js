@@ -1,5 +1,5 @@
 /* Speaking Corner: offline-friendly, small cache, automatic updates. */
-const CORE="sc-core-v2",PHOTO="sc-images-v1";
+const CORE="sc-core-v3",PHOTO="sc-images-v1";
 const BASE="/speaking_corner/";
 const SHELL=[BASE,BASE+"index.html",BASE+"src/my_activities.js",BASE+"manifest.webmanifest",BASE+"icons/app-192.png",BASE+"icons/app-512.png"];
 self.addEventListener("install",event=>{
